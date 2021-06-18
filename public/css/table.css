@@ -1,0 +1,77 @@
+sin-li-color {
+    color: #ff8043;
+}
+
+table {
+    border-collapse: collapse;
+    
+}
+
+td, th {
+    border: 2px solid #444444;
+    
+}
+
+th{
+    font-weight: bold;
+}
+
+th {
+    background: #d1d4c9;
+    color: #444444;
+}
+
+caption{
+    caption-side: top;
+}
+ .bg-dark {
+     border-radius: 2px solid #000;
+ }
+
+ .row > select {
+     display: inline-block;
+ }
+ div > label {
+     font-size: 1.2em;
+     font-weight: bold;
+ }
+
+ .sin-table-bg {
+     background: #444444 !important;
+     color: #fff;
+ }
+
+ .sin-table-bg-1 {
+    background: #ff8043 !important;
+    color: #fff;
+
+}
+
+.sin-table-bg-3 {
+    background: #d1d4c9 !important;
+    color: #fff;
+}
+.notation {
+    color: red !important;
+    font-size: 1.2em;
+}
+
+.notation span {
+    color: #444444;
+    font-weight: bold;
+}
+
+.text-edicp > p {
+    text-transform: uppercase;
+    color: #444444;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.text-edicp > p > span {
+    color: #ff8043;
+}
+
+.text-edicp > p:last-child {
+    color: #b87333;
+}
