@@ -24,6 +24,7 @@ class SiteUrl extends Controller
         $pays->continent = "Afrique";
         $pays->indicatif = "226";
         $pays->slug = "burkina";
+        $pays->save();
         /*foreach($comu as $co){
             $user = new User();
             $user->commune_id = $co->id;
