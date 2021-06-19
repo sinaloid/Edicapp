@@ -19,7 +19,7 @@ class SiteUrl extends Controller
 
     public function test()
     {
-        $pays =new Country();
+        $pays = new Country();
         $pays->country_name = "Burkina";
         $pays->continent = "Afrique";
         $pays->indicatif = "226";
