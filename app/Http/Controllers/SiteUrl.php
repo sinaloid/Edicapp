@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+/*A supprimer*/
+use App\Models\Countries\{ Region, Country, Province, Commune };
+use App\Models\EdicUser\User;
+use App\Models\Datas\Data;
+
 
 class SiteUrl extends Controller
 {
@@ -14,6 +19,30 @@ class SiteUrl extends Controller
 
     public function test()
     {
+        $pays =new Country();
+        $pays->country_name = "Burkina";
+        $pays->continent = "Afrique";
+        $pays->indicatif = "226";
+        $pays->slug = "burkina";
+        /*foreach($comu as $co){
+            $user = new User();
+            $user->commune_id = $co->id;
+            $user->name = $co->commune_name . " " .$co->id;
+            $user->slug = $co->commune_name . "" .$co->id;
+            $user->save();
+        }*/
+        /*$user = User::all();
+        $i = 0;
+        foreach(Data::all() as $data){
+            $data->user_id = $user[$i];
+            $i++;
+        }*/
+        dd(Country::all());
+        /*Country::factory()
+                        ->has(Region::factory()
+                            ->has(Province::factory()
+                                ->has(Commune::factory()->count(5))->count(4))->count(4))
+                                                                                        ->count(10)->create();*/
         return view('test');
     }
 
