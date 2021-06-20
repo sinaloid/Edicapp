@@ -404,6 +404,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
           border-radius:unset !important;
       }
 
+      option {
+        color: #444444 !important;
+      }
+
+      .bootstrap-select .dropdown-menu li a span{
+        color: #444444 !important;
+      }
+
       @media (min-width : 768px){
         .sin-ic {
           text-align: right;

@@ -19,12 +19,12 @@ class SiteUrl extends Controller
 
     public function test()
     {
-        $pays = new Country();
+        /*$pays = new Country();
         $pays->country_name = "Burkina";
         $pays->continent = "Afrique";
         $pays->indicatif = "226";
         $pays->slug = "burkina";
-        $pays->save();
+        $pays->save();*/
         /*foreach($comu as $co){
             $user = new User();
             $user->commune_id = $co->id;
@@ -38,7 +38,7 @@ class SiteUrl extends Controller
             $data->user_id = $user[$i];
             $i++;
         }*/
-        dd(Country::all());
+        //dd(Country::all());
         /*Country::factory()
                         ->has(Region::factory()
                             ->has(Province::factory()
