@@ -40,6 +40,7 @@
 
     <!--script src="https://cdn.jsdelivr.net/npm/chart.js"></script-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 </head>
 
 <body>
@@ -91,7 +92,7 @@
                     </div>
                     <div class=" col-sm-3">
                         <label for="province">Province</label>
-                        <select id="province" name="province" class="selectpicker w-100"
+                        <select id="province" name="province" class="selectpicker mobile-device w-100"
                             data-none-selected-text="aucune selection" multiple data-max-options="5">
                             <optgroup label="Condiments" data-max-options="2">
                                 <option class="option-style">Sanmatenga</option>
@@ -113,7 +114,7 @@
                     </div>
                     <div class=" col-sm-3">
                         <label for="commune">Commune</label>
-                        <select id="commune" name="commune" class="selectpicker w-100"
+                        <select id="commune" name="commune" class="selectpicker mobile-device w-100"
                             data-none-selected-text="aucune selection" multiple data-max-options="5">
                             <optgroup label="Condiments" data-max-options="2">
                                 <option class="option-style">Korsimoro</option>
@@ -138,18 +139,15 @@
                 <div class="row mt-3">
                     <div class="col">
                         <label for="annee">Année</label>
-                        <select id="annee" class="selectpicker w-100">
+                        <select id="annee" class="selectpicker mobile-device w-100">
+                        <optgroup label="actuel" data-max-options="2">
+                                <option class="option-style">2021</option>
+                            </optgroup>
                             <optgroup label="anterieur" data-max-options="2">
                                 <option class="option-style">2017</option>
                                 <option class="option-style">2018</option>
                                 <option class="option-style">2019</option>
                                 <option class="option-style">2020</option>
-                            </optgroup>
-                            <optgroup label="actuel" data-max-options="2">
-                                <option class="option-style">2021</option>
-                            </optgroup>
-                            <optgroup label="Prevision" data-max-options="2">
-                                <option class="option-style">2022</option>
                             </optgroup>
                         </select>
                     </div>
@@ -174,6 +172,15 @@
             document.getElementById('myChart'),
             config
         );
+        </script>
+
+        <script>
+        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))) {
+            var elements = document.querySelectorAll('.mobile-device');
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].classList.remove('mobile-device');
+            }
+        }
         </script>
     </div>
 
