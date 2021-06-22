@@ -404,13 +404,26 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
           border-radius:unset !important;
       }
 
-      option {
+      .option-style {
         color: #444444 !important;
+        font-weight:normal !important;
       }
 
-      .bootstrap-select .dropdown-menu li a span{
-        color: #444444 !important;
+      .option-style:hover {
+        color: #ff8043 !important;
+        font-weight: 700 !important;
       }
+
+      .show>.btn-light.dropdown-toggle{
+        background-color: #ff8043 !important;
+      }
+      .dropdown-toggle.bs-placeholder {
+        color: inherit !important;
+      }
+
+     /* .bootstrap-select .dropdown-menu li a span{
+        color: #444444 !important;
+      }*/
 
       @media (min-width : 768px){
         .sin-ic {
