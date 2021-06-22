@@ -140,7 +140,7 @@
                     <div class="col">
                         <label for="annee">Année</label>
                         <select id="annee" class="selectpicker mobile-device w-100">
-                        <optgroup label="actuel" data-max-options="2">
+                            <optgroup label="actuel" data-max-options="2">
                                 <option class="option-style">2021</option>
                             </optgroup>
                             <optgroup label="anterieur" data-max-options="2">
@@ -162,19 +162,13 @@
             </div>
         </div>
 
-        <div class="w-100" style="heigth:600px">
+        <div class="w-100">
             <canvas id="myChart"></canvas>
         </div>
         <script src="{{ asset('js/script.js') }}"></script>
 
         <script>
-        var myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
-        </script>
-
-        <script>
+            
         if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent))) {
             var elements = document.querySelectorAll('.mobile-device');
             for (var i = 0; i < elements.length; i++) {
