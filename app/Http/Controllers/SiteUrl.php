@@ -58,6 +58,12 @@ class SiteUrl extends Controller
         
     }
 
+    public function actuContent(){
+
+        return view('pages.article');
+        
+    }
+
     public function datasInfo(){
 
         return view('pages.menu.minfo');

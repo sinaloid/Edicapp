@@ -16,6 +16,7 @@ use App\Http\Controllers\SiteUrl;
 
 Route::get('/', [SiteUrl::class, 'index'])->name('home');
 Route::get('actu', [SiteUrl::class, 'actu'])->name('actu');
+Route::get('actuc', [SiteUrl::class, 'actuContent'])->name('actuc');
 /*Data view*/
 Route::get('datas/info', [SiteUrl::class, 'datasInfo'])->name('datas.info');
 Route::get('datas/pcd', [SiteUrl::class, 'datasPcd'])->name('datas.pcd');

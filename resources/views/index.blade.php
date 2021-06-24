@@ -85,15 +85,15 @@
     </div>
     <div class="container pb-0">
         <!-- <form method="post" action="">
-                                            <div class="row">
-                                               <div class="col-sm-10">
-                                                  <input class = "mb-0" type="text" name="query" placeholder="Rechercher par pays, region, données...">
-                                               </div>
-                                               <div class="col-sm-2">
-                                                  <input type="submit" value="OK!">
-                                               </div>
-                                            </div>
-                                            </form> -->
+                                                <div class="row">
+                                                   <div class="col-sm-10">
+                                                      <input class = "mb-0" type="text" name="query" placeholder="Rechercher par pays, region, données...">
+                                                   </div>
+                                                   <div class="col-sm-2">
+                                                      <input type="submit" value="OK!">
+                                                   </div>
+                                                </div>
+                                                </form> -->
         <form class="form-inline justify-content-center">
             <input class="form-control mr-sm-2 w-75" type="search" placeholder="Rechercher" aria-label="Search">
             <button class="btn sin-btn btn-outline-success1 my-2 my-sm-0" type="submit">Rechercher</button>
@@ -106,43 +106,58 @@
                 <p class="sin-title">Données par pays</p>
                 <div class="row">
                     <div class="col-sm-12 sin-bg-2">
-                        <select>
-                            <option>Burkina Faso</option>
-                            <option>Mali</option>
-                            <option>Côte d'Ivoire</option>
-                        </select>
+                        <!--select>
+                                <option>Burkina Faso</option>
+                                <option>Mali</option>
+                                <option>Côte d'Ivoire</option>
+                            </select-->
+                        <div class="form-group">
+                            <select class="form-control my-1" id="pays">
+                                <option>Burkina Faso</option>
+                                <option>Mali</option>
+                                <option>Côte d'Ivoire</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
                         <!--Liste deroulante des pays<br /> -->
                         <!--Selection region les region seront ajoute grâçe une boocle php-->
                         <div class="row p_region justify-content-between">
-                            <div class="col-3 col-md">
-                                <select name="region" class="w-100">
-                                    <option>Region</option>
-                                    <option>Centre</option>
-                                    <option>Ouest</option>
-                                    <option>Centre-Sud</option>
-                                    <option>Etc...</option>
-                                </select>
+                            <div class="col-6 col-md">
+                                <div class="form-group">
+                                    <select class="form-control" name="region" class="w-100">
+                                        <option>Region</option>
+                                        <option>Centre</option>
+                                        <option>Ouest</option>
+                                        <option>Centre-Sud</option>
+                                        <option>Etc...</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-3 col-md">
-                                <select name="province" class="w-100">
-                                    <option>Province </option>
-                                    <option>Sanmatenga</option>
-                                    <option>nom province 1</option>
-                                    <option>nom province 2</option>
-                                    <option>Etc ...</option>
-                                </select>
+                            <div class="col-6 col-md">
+                                <div class="form-group">
+                                    <select class="form-control" name="province" class="w-100">
+                                        <option>Province </option>
+                                        <option>Sanmatenga</option>
+                                        <option>nom province 1</option>
+                                        <option>nom province 2</option>
+                                        <option>Etc ...</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-3 col-md">
-                                <select name="commune" class="w-100">
-                                    <option>commune</option>
-                                    <option>Korsimoro</option>
-                                    <option>nom commune 1</option>
-                                    <option>Etc ...</option>
-                                </select>
+                            <div class="col-12 col-md">
+                                <div class="form-group">
+                                    <select class="form-control" name="commune" class="w-100">
+                                        <option>commune</option>
+                                        <option>Korsimoro</option>
+                                        <option>nom commune 1</option>
+                                        <option>Etc ...</option>
+                                    </select>
+                                </div>
                             </div>
                             <!--<div class="col-3 col-md">
-                                                           <p>Autre...</p>
-                                                        </div> -->
+                                                               <p>Autre...</p>
+                                                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -152,17 +167,17 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-6 col-lg justify-content-center">
                                 <!-- <div class = " div_in_card">
-                                                              <h4 >village 1</h4>
-                                                              <div id="piechart_3d" style="width: auto; height: auto;"></div>
-                                                              
-                                                              </div> -->
+                                                                  <h4 >village 1</h4>
+                                                                  <div id="piechart_3d" style="width: auto; height: auto;"></div>
+                                                                  
+                                                                  </div> -->
                                 <div class="card">
                                     <h4 class="card-header">village 1</h4>
                                     <div class="card-body p-0">
                                         <!-- <h5 class="card-title">Nom du village</h5> -->
                                         <div id="piechart_3d" style="width: 100%;"></div>
                                         <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                                    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                                                        <a href="#" class="btn btn-primary">Go somewhere</a> -->
                                     </div>
                                 </div>
                             </div>

@@ -33,6 +33,7 @@
       var view = new google.visualization.DataView(data);
       var view1 = new google.visualization.DataView(data1);
       var view2 = new google.visualization.DataView(data2);
+      var view3 = new google.visualization.DataView(data);
       view.setColumns([0, 1,
                        { calc: "stringify",
                          sourceColumn: 1,
@@ -84,14 +85,17 @@
       var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
       var chart1 = new google.visualization.ColumnChart(document.getElementById("columnchart_values1"));
       var chart2 = new google.visualization.ColumnChart(document.getElementById("columnchart_values2"));
+      var chart3 = new google.visualization.ColumnChart(document.getElementById("columnchart_values3"));
       chart.draw(view, options);
       chart1.draw(view1, options1);
       chart2.draw(view2, options2);
+      chart3.draw(view3, options2);
 
       $(window).smartresize(function () {
       chart.draw(view, options);
       chart1.draw(view1, options1);
       chart2.draw(view2, options2);});
+      chart3.draw(view3, options2);
   }
   </script>
 
@@ -157,12 +161,18 @@
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+        var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+        var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
         chart.draw(data, options);
         chart1.draw(data1, options1);
+        chart2.draw(data, options);
+        chart3.draw(data1, options1);
 
         $(window).smartresize(function () {
           chart.draw(data, options);
           chart1.draw(data1, options1);});
+          chart2.draw(data, options);
+          chart3.draw(data1, options1);
       }
     </script>
    

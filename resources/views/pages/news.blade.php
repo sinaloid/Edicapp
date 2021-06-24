@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="container sin-m-t myform article">
+    <div class="row card-header"> <h2>EdicApp Infos</h2></div>
     <div class="row">
         <form class="form-inline w-100 justify-content-center">
             <input class="form-control mr-sm-2 w-75" type="search" placeholder="Rechercher" aria-label="Search">
@@ -30,7 +31,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
                     sequi eius eos.</p>
-                <a href="article.php">Lire l'article</a>
+                <a href="{{ route('actuc') }}">Lire l'article</a>
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
@@ -41,7 +42,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
                     sequi eius eos.</p>
-                <a href="article.php">Lire l'article</a>
+                <a href="{{ route('actuc') }}">Lire l'article</a>
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
@@ -52,7 +53,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
                     sequi eius eos.</p>
-                <a href="article.php">Lire l'article</a>
+                <a href="{{ route('actuc') }}">Lire l'article</a>
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
@@ -63,7 +64,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
                     sequi eius eos.</p>
-                <a href="article.php">Lire l'article</a>
+                <a href="{{ route('actuc') }}">Lire l'article</a>
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
@@ -74,7 +75,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
                     sequi eius eos.</p>
-                <a href="article.php">Lire l'article</a>
+                <a href="{{ route('actuc') }}">Lire l'article</a>
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
@@ -85,7 +86,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
                     sequi eius eos.</p>
-                <a href="article.php">Lire l'article</a>
+                <a href="{{ route('actuc') }}">Lire l'article</a>
             </article>
         </div>
     </div>

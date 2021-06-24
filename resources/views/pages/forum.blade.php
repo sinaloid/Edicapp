@@ -10,8 +10,9 @@
 
 @section('content')
     <div class="container sin-m-t myform main-body">
+    <div class="row card-header"> <h2>EdicApp Forum</h2></div>
         <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-3 mt-2">
                 <div class="row justify-content-center">
                     <div class="col-10">
                         <button class="btn sin-bg-3 has-icon btn-block" type="button" data-toggle="modal"

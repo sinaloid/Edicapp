@@ -26,40 +26,52 @@
                 <div class=" row">
                     <div class="col-sm-3">
                         <label for="pays">pays</label>
-                        <select id="pays" name="pays" class="w-100">
-                            <option>Burkina Faso</option>
-                            <option>Mali</option>
-                            <option>Côte d'Ivoire</option>
-                            <option>Ect...Autre pays</option>
-                        </select>
+                        <div class="form-group">
+                            <select class="form-control" id="pays">
+                                <option>Burkina Faso</option>
+                                <option>Mali</option>
+                                <option>Côte d'Ivoire</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
                     </div>
                     <div class=" col-sm-3">
                         <label for="region">Region</label>
-                        <select id="region" name="region" class="w-100">
-                            <option>Est</option>
-                            <option>Centre</option>
-                            <option>Ouest</option>
-                            <option>Centre-Sud</option>
-                            <option>Etc...</option>
-                        </select>
+
+                        <div class="form-group">
+                            <select class="form-control" name="region" class="w-100">
+                                <option>Region</option>
+                                <option>Centre</option>
+                                <option>Ouest</option>
+                                <option>Centre-Sud</option>
+                                <option>Etc...</option>
+                            </select>
+                        </div>
+
                     </div>
                     <div class=" col-sm-3">
                         <label for="province">Province</label>
-                        <select id="province" name="province" class="w-100">
-                            <option>Sanmatenga</option>
-                            <option>province 1</option>
-                            <option>province 2</option>
-                            <option>Etc ...</option>
-                        </select>
+                        <div class="form-group">
+                            <select class="form-control" name="province" class="w-100">
+                                <option>Province </option>
+                                <option>Sanmatenga</option>
+                                <option>nom province 1</option>
+                                <option>nom province 2</option>
+                                <option>Etc ...</option>
+                            </select>
+                        </div>
                     </div>
                     <div class=" col-sm-3">
                         <label for="commune">Commune</label>
-                        <select id="commune" name="commune" class="w-100">
-                            <option>Korsimoro</option>
-                            <option>commune 1</option>
-                            <option>commune 2</option>
-                            <option>Etc ...</option>
-                        </select>
+                        <div class="form-group">
+                            <select class="form-control" name="commune" class="w-100">
+                                <option>commune</option>
+                                <option>Korsimoro</option>
+                                <option>nom commune 1</option>
+                                <option>Etc ...</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 sin-btn-data-1 ">
