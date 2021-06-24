@@ -27,15 +27,6 @@
 <body>
     @include("header")
 
-    <!-- Initialize the plugin: 
-    -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#example-getting-started').multiselect();
-        });
-
-    </script>
-
     <div class="container sin-m-t bg-white myform">
         <h1>Analyse de données </h1> <br>
         <p> Ici on aura la possibilté de comparer les données (sous forme de tableau ou
@@ -69,70 +60,96 @@
                         <span>selection deux (02) region au maximun</span>
                     </div>
                     <div class="card-body">
-                        <div class="d-md-flex" style="background:#d1d4c9">
+                        <div class="d-md-flex">
                             <div class="row mx-auto overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light w-100"
-                                style="max-width1: 260px; max-height: 100px; ">
+                                style="max-width1: 260px; max-height: 100px;background:#d1d4c9">
 
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <!--div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-action">Action item</a>
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action list-group-item-success">Success
+                                        item</a>
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action list-group-item-secondary">Secondary
+                                        item</a>
+                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Info
+                                        item</a>
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action list-group-item-warning">Warning
+                                        item</a>
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action list-group-item-danger">Danger
+                                        item</a>
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action list-group-item-primary">Primary
+                                        item</a>
+                                    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark
+                                        item</a>
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action list-group-item-light">Light
+                                        item</a>
+                                </div-->
+
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            1
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            2
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            3
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            4
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            5
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            6
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            7
                                         </label>
                                     </div>
                                 </div>
@@ -159,69 +176,70 @@
                             <div class="row mx-auto overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light w-100"
                                 style="max-width1: 260px; max-height: 100px; ">
 
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            1
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            2
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            3
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            4
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            5
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            6
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            7
                                         </label>
                                     </div>
                                 </div>
+
 
                             </div>
                         </div>
@@ -245,69 +263,70 @@
                             <div class="row mx-auto overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light w-100"
                                 style="max-width1: 260px; max-height: 100px; ">
 
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            1
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            2
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            3
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            4
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            5
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            6
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 mt-3">
-                                    <div class="form-check">
+                                <div class="col-12 col-sm-6 mt-3 list-group">
+                                    <div
+                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
                                         <label class="form-check-label col">
                                             <input type="checkbox" class="form-check-input checkSize my-0 "
                                                 value="">Option
-                                            7
                                         </label>
                                     </div>
                                 </div>
+
 
                             </div>
                         </div>
@@ -334,29 +353,14 @@
                                 <option>2018</option>
                                 <option>2017</option>
                             </select>
-                            <a class="btn sin-bg-3 mt-2" href="{{ route('datas.cmp') }}">Comparaison</a>
+                            <a class="btn sin-bg-3 mt-2" href="{{ route('datas.cmpdt') }}">Comparaison</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="row sin-bg-2 myform mt-3 mx-auto">
-            <div class="row mt-3">
-                <div class="col-12 sin-btn-data-1 ">
-
-                    <a class="btn sin-bg-3" href="#">Exporter</a>
-                </div>
-            </div>
-        </div>
-
-        <div>
-            <canvas id="myChart"></canvas>
-        </div>
-        <script src="{{ asset('js/script.js') }}"></script>
-
     </div>
-    
+
     @include("footer")
 
 </body>

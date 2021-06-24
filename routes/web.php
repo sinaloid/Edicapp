@@ -24,7 +24,8 @@ Route::get('datas/budget/mbudget', [SiteUrl::class, 'getBudget'])->name('budget'
 Route::get('datas/budget/mbudgetn', [SiteUrl::class, 'getBudgetN'])->name('budgetn');
 
 Route::get('datas/tdb', [SiteUrl::class, 'datasTdb'])->name('datas.tdb');
-Route::get('datas/cmp', [SiteUrl::class, 'datasCompare'])->name('datas.cmp');
+Route::get('datas/cmp', [SiteUrl::class, 'Compare'])->name('datas.cmp');
+Route::get('datas/cmpdt', [SiteUrl::class, 'datasCompare'])->name('datas.cmpdt');
 
 /*user*/
 Route::get('login', [SiteUrl::class, 'login'])->name('login');

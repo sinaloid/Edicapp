@@ -92,9 +92,14 @@ class SiteUrl extends Controller
         
     }
 
-    public function datasCompare(){
+    public function Compare(){
 
         return view('pages.compare');
+        
+    }
+    public function datasCompare(){
+
+        return view('pages.viewData');
         
     }
 
