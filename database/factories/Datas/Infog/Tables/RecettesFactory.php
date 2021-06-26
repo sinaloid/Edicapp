@@ -1,19 +1,19 @@
 <?php
 
-namespace Database\Factories\Datas;
+namespace Database\Factories\Datas\Infog\Tables;
 
-use App\Models\Datas\Data;
+use App\Models\Datas\Infog\Tables\Recettes;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-class DataFactory extends Factory
+class RecettesFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Data::class;
-    
+    protected $model = Recettes::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,10 @@ class DataFactory extends Factory
      */
     public function definition()
     {
-        
+        $year = $this->faker->year($max = 'now');
         return [
-            'annee' => $this->faker->word(),
+            'annee' => $year,
+            'slug' => Str::slug($year),
         ];
     }
 }

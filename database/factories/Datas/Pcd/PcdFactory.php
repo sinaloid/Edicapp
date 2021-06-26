@@ -1,19 +1,18 @@
 <?php
 
-namespace Database\Factories\Datas;
+namespace Database\Factories\Datas\Pcd;
 
-use App\Models\Datas\Data;
+use App\Models\Datas\Pcd\Pcd;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DataFactory extends Factory
+class PcdFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Data::class;
-    
+    protected $model = Pcd::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +21,6 @@ class DataFactory extends Factory
      */
     public function definition()
     {
-        
         return [
             'annee' => $this->faker->word(),
         ];

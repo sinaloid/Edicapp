@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Countries\{ Region, Country, Province, Commune };
 use App\Models\EdicUser\User;
 use App\Models\Datas\Data;
+use App\Models\Datas\Infog\Infog;
 
 
 class SiteUrl extends Controller
@@ -44,6 +45,9 @@ class SiteUrl extends Controller
                             ->has(Province::factory()
                                 ->has(Commune::factory()->count(5))->count(4))->count(4))
                                                                                         ->count(10)->create();*/
+        dd(
+            Infog::
+    );
         return view('test');
     }
 

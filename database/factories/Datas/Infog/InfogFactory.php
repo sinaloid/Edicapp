@@ -1,19 +1,18 @@
 <?php
 
-namespace Database\Factories\Datas;
+namespace Database\Factories\Datas\Infog;
 
-use App\Models\Datas\Data;
+use App\Models\Datas\Infog\Infog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DataFactory extends Factory
+class InfogFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Data::class;
-    
+    protected $model = Infog::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +21,6 @@ class DataFactory extends Factory
      */
     public function definition()
     {
-        
         return [
             'annee' => $this->faker->word(),
         ];
