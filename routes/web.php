@@ -15,6 +15,17 @@ use App\Http\Controllers\SiteUrl;
 */
 
 Route::get('/', [SiteUrl::class, 'index'])->name('home');
+
+/*login*/
+Route::get('home', function () {
+    return view('home');
+  })->middleware('auth')->name('home');
+
+  Route::get('profile', function () {
+    return view('profile');
+  })->middleware('auth')->name('profile');
+/*********************************************/
+
 Route::get('actu', [SiteUrl::class, 'actu'])->name('actu');
 Route::get('actuc', [SiteUrl::class, 'actuContent'])->name('actuc');
 /*Data view*/
@@ -29,8 +40,8 @@ Route::get('datas/cmp', [SiteUrl::class, 'Compare'])->name('datas.cmp');
 Route::get('datas/cmpdt', [SiteUrl::class, 'datasCompare'])->name('datas.cmpdt');
 
 /*user*/
-Route::get('login', [SiteUrl::class, 'login'])->name('login');
-Route::get('sign', [SiteUrl::class, 'signup'])->name('signup');
+//Route::get('login', [SiteUrl::class, 'login'])->name('login');
+//Route::get('sign', [SiteUrl::class, 'signup'])->name('signup');
 Route::get('forum', [SiteUrl::class, 'forum'])->name('forum');
 Route::get('contact', [SiteUrl::class, 'contact'])->name('contact');
 Route::get('about', [SiteUrl::class, 'about'])->name('about');

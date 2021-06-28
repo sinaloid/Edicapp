@@ -8,6 +8,13 @@ use App\Models\Countries\{ Region, Country, Province, Commune };
 use App\Models\EdicUser\User;
 use App\Models\Datas\Data;
 use App\Models\Datas\Infog\Infog;
+/*use App\Gestion\Data as GData;
+use App\Gestion\Budget\Budget as GBudget;
+use App\Gestion\Budgetn\Budgetn as GBudgetn;
+use App\Gestion\Infog\Infog as GInfog;
+use App\Gestion\Infog\EtatCivil;
+use App\Gestion\Infog\EtatCivil\EtatNombre;
+use App\Gestion\Infog\EtatCivil\Observation;*/
 
 
 class SiteUrl extends Controller
@@ -20,34 +27,47 @@ class SiteUrl extends Controller
 
     public function test()
     {
-        /*$pays = new Country();
-        $pays->country_name = "Burkina";
-        $pays->continent = "Afrique";
-        $pays->indicatif = "226";
-        $pays->slug = "burkina";
-        $pays->save();*/
-        /*foreach($comu as $co){
-            $user = new User();
-            $user->commune_id = $co->id;
-            $user->name = $co->commune_name . " " .$co->id;
-            $user->slug = $co->commune_name . "" .$co->id;
-            $user->save();
-        }*/
-        /*$user = User::all();
-        $i = 0;
-        foreach(Data::all() as $data){
-            $data->user_id = $user[$i];
-            $i++;
-        }*/
-        //dd(Country::all());
-        /*Country::factory()
-                        ->has(Region::factory()
-                            ->has(Province::factory()
-                                ->has(Commune::factory()->count(5))->count(4))->count(4))
-                                                                                        ->count(10)->create();*/
+        
+             
+       /* $data = new GData();
+        $data->id_data = 21;
+        $data->slug = "str";
+        $data->année = "2020";
+
+        $budget = new GBudget();
+        $budget->depenseInvest = 25555;
+        $budget->recetInvest = 25555;
+        $budget->depenseFonct = 25555;
+        $budget->recetFonct = 25555;
+
+        $budgetn = new GBudgetn();
+        $budgetn->depenseInvestN = 25555;
+        $budgetn->recetInvestN = 25555;
+        $budgetn->depenseFonctN = 25555;
+        $budgetn->recetFonctN = 25555;
+
+       
+
+        $infog = new GInfog();
+        $infog->depense = 55555;
+        $infog->dixMeilleur = 55555;
+        $infog->domaineCivil = 55555;
+        $infog->etatCivil = new EtatCivil();
+        $infog->etatCivil->etatNombre = new EtatNombre();
+        $infog->etatCivil->observation = new Observation();
+        $infog->partenaire = 55555;
+        $infog->recette = 55555;
+        $infog->ressourceImage = 55555;
+        $infog->troisMeilleur = 55555;
+        
+        $data->infog = $infog;
+        $data->budget = $budget;
+        $data->budgetn = $budgetn;
+        $JsonObject = json_encode($data);
+        
         dd(
-            Infog::
-    );
+            $JsonObject
+    );*/
         return view('test');
     }
 

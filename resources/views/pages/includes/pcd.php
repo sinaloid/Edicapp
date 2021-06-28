@@ -8,25 +8,25 @@
                 <th>2014</th>
                 <th class="sin-table-bg">Date d'expiration</th>
                 <td>2018</td>
-            <tr>
+            </tr>
             <tr>
                 <th class="sin-table-bg">Montant Total FCFA</th>
                 <td>1,927,390,000</td>
                 <th class="sin-table-bg">Montant mobilisé (2018) FCFA</th>
                 <td>1,250,000,000 $</td>
-            <tr>
+            </tr>
             <tr>
                 <th class="sin-table-bg">Problème majeur (10 mots)</th>
                 <td>Problème de suivi</td>
                 <td> </td>
                 <td> </td>
-            <tr>
+            </tr>
             <tr>
                 <th class="sin-table-bg">Perpectives (10 mots)</th>
                 <td>Elaboration nouveau</td>
                 <td> </td>
                 <td> </td>
-            <tr>
+            </tr>
         </table>
     </div>
 </div>
@@ -37,7 +37,7 @@
             <caption> Donnez une note pour chaque axe: 3 - 7 - 10 </caption>
             <thead>
                 <tr>
-                    <th class="sin-table-bg" rowspan="2">Axes stragégiques</th>
+                    <th class="sin-table-bg" rowspan="2">Axes stratégiques</th>
                     <th class="sin-table-bg" colspan="3">Degré de satisfaction</th>
                 </tr>
                 <tr>

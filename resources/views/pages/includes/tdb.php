@@ -20,25 +20,30 @@
                     <th>2014</th>
                     <th class="sin-table-bg">Date d'expiration</th>
                     <td>2018</td>
-                <tr>
+                </tr>
                 <tr>
                     <th class="sin-table-bg">Montant Total FCFA</th>
                     <td>1,927,390,000</td>
                     <th class="sin-table-bg">Montant mobilisé (2018) FCFA</th>
                     <td>1,250,000,000 $</td>
-                <tr>
+                </tr>
                 <tr>
                     <th class="sin-table-bg">Problème majeur (10 mots)</th>
                     <td>Problème de suivi</td>
                     <td> </td>
                     <td> </td>
-                <tr>
+                </tr>
                 <tr>
                     <th class="sin-table-bg">Perpectives (10 mots)</th>
                     <td>Elaboration nouveau</td>
                     <td> </td>
                     <td> </td>
+                </tr>
+                <tr><td clospan="5">#</td></tr>
                 <tr>
+                    <th class="sin-table-bg">Perpectives/suggestions</th>
+                    <td colspan="3">Fort intérêt de l'Administration Communale</td>
+                </tr>
             </table>
         </div>
     </div>
@@ -91,6 +96,40 @@
             <div class="card-body">
                 <div class="table-responsive1" id="piechart1" style="width:100%; "></div>
             </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 mt-2 table-responsive px-0">
+        <div class="card">
+            <table class="table-sm table-hover card-body">
+                <tr>
+                    <th class="sin-table-bg">#</th>
+                    <th>Recettes</th>
+                    <th>Dépenses</th>
+                <tr>
+                <tr>
+                    <th class="sin-table-bg">Total Fonctionnement</th>
+                    <td>1,927,390,000</td>
+                    <td>1,250,000,000 $</td>
+               
+            </table>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 mt-2 table-responsive px-0">
+        <div class="card">
+            <table class="table-sm table-hover card-body">
+                <tr>
+                    <th class="sin-table-bg">#</th>
+                    <th>Recettes</th>
+                    <th>Dépenses</th>
+                <tr>
+                <tr>
+                    <th class="sin-table-bg">Total Investissements</th>
+                    <td>1,927,390,000</td>
+                    <td>1,250,000,000 $</td>
+               
+            </table>
         </div>
     </div>
 
