@@ -19,11 +19,20 @@ Route::get('/', [SiteUrl::class, 'index'])->name('home');
 /*login*/
 Route::get('home', function () {
     return view('home');
-  })->middleware('auth')->name('home');
+  })->middleware(['auth','verified'])->name('home');
 
   Route::get('profile', function () {
     return view('profile');
   })->middleware('auth')->name('profile');
+
+  Route::get('test', function () {
+    return 'Vue de test';
+  })->middleware(['verified']);
+
+  Route::get('test12', function () {
+    return 'Vue de test';
+  })->middleware(['auth', 'password.confirm']);
+  
 /*********************************************/
 
 Route::get('actu', [SiteUrl::class, 'actu'])->name('actu');
