@@ -14,7 +14,7 @@ use App\Http\Controllers\SiteUrl;
 |
 */
 
-Route::get('/', [SiteUrl::class, 'index'])->name('home');
+Route::get('/', [SiteUrl::class, 'index'])->name('acceuil');
 
 /*login*/
 Route::get('home', function () {

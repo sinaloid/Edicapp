@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Update Password</h5>
+            <h5 class="card-title">Mettre à jour le mot de passe</h5>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -25,22 +25,22 @@
             <form wire:submit.prevent="changePassword" role="form">
 
                 <div class="form-group">
-                    <label for="state.current_password">Current Password</label>
+                    <label for="state.current_password">Mot de passe actuel</label>
                     <input type="password" class="form-control" id="state.current_password" wire:model="state.current_password"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="state.password">New Password</label>
+                    <label for="state.password">Nouveau mot de passe</label>
                     <input type="password" class="form-control" id="state.password" wire:model="state.password"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="state.password_confirmation">Confirm Password</label>
+                    <label for="state.password_confirmation">Confirmez le mot de passe</label>
                     <input type="password" class="form-control" id="state.password_confirmation" wire:model="state.password_confirmation"/>
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Change Password</button>
+                    <button type="submit" class="btn btn-primary">Changer le mot de passe</button>
                 </div>
             </form>
         </div>

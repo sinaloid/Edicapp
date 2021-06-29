@@ -28,6 +28,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
+
+            'mobile' => ['numeric','digits:8','starts_with: 5,6,7,01,07',Rule::unique('users')->ignore($user->id),],
+            'pays' => ['required', 'string', 'max:255'],
+            'region' => ['required', 'string', 'max:255'],
+            'province' => ['required', 'string', 'max:255'],
+            'commune' => ['required', 'string', 'max:255'],
         ])->validateWithBag('updateProfileInformation');
 
         if ($input['email'] !== $user->email &&
@@ -37,6 +43,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+
+                'mobile' => $input['mobile'],
+                'pays' => $input['pays'],
+                'region' => $input['region'],
+                'province' => $input['province'],
+                'commune' => $input['commune'],
+                
             ])->save();
         }
     }
@@ -54,6 +67,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'name' => $input['name'],
             'email' => $input['email'],
             'email_verified_at' => null,
+            
+            'mobile' => $input['mobile'],
+            'pays' => $input['pays'],
+            'region' => $input['region'],
+            'province' => $input['province'],
+            'commune' => $input['commune'],
         ])->save();
 
         $user->sendEmailVerificationNotification();

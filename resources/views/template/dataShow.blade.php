@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 sin-btn-data-1 ">
+                <div class="col-12">
                     <a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
                     <a class="btn sin-bg-3" href="#">Exporter</a>
                 </div>

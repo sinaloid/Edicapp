@@ -31,13 +31,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
        
        /***Generale ****/
        body{
-           /*padding-top:4.2rem;
-		      padding-bottom:4.2rem;*/
 	      	background:rgba(0, 0, 0, 0.76);
-          background: #272121;
-          background: #444444;
           color: #444444 !important;
-          line-height: 1rem;
+          line-height: 1.5rem;
+          font-size: 1.1em;
         }
         ::-webkit-scrollbar1 {
           display: none;
@@ -74,20 +71,20 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
          margin: 6px 0;
          }
           .myform{
-		position: relative;
-		display: -ms-flexbox;
-		display: flex;
-		padding: 1rem;
-		-ms-flex-direction: column;
-		flex-direction: column;
-		width: 100%;
-		pointer-events: auto;
-		background-color: #fff;
-		background-clip: padding-box;
-		border: 1px solid rgba(0,0,0,.2);
-		border-radius: 1.1rem;
-		outline: 0;
-		/*max-width: 500px;*/
+		              position: relative;
+		              display: -ms-flexbox;
+		              display: flex;
+		              padding: 1rem;
+		              -ms-flex-direction: column;
+		              flex-direction: column;
+		              width: 100%;
+		              pointer-events: auto;
+		              background-color: #fff;
+		              background-clip: padding-box;
+		              border: 1px solid rgba(0,0,0,.2);
+		              border-radius: 0.2rem;
+		              outline: 0;
+		              /*max-width: 500px;*/
 		 }
          .tx-tfm{
          text-transform:uppercase;
@@ -223,11 +220,22 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
           transition: .3s;
         }
 
-        a.btn {
+        div.col-12 a.btn {
           color: #fff !important;
           font-weight: bold;
         }
-        .btn:hover {
+
+        div.col-12 a.mybtn {
+          color: #444 !important;
+          font-weight: bold;
+        }
+
+        div.col-12 a.mybtn:hover {
+          color: #ff8043 !important;
+          font-weight: bold;
+        }
+
+        div.col-12 .btn:hover {
           color: #444444 !important;
           background: #fff;
           border: 1px solid #ff8043;
@@ -426,11 +434,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
       @media (max-width : 768px){
         .nav-pills .nav-link {
           font-size: 0.9rem;
-      }
-
-      .chart {
-        width: 320px !important;
-        height: 200px !important;
       }
 
       }
