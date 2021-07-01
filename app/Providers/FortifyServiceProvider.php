@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 
+use App\Models\Countries\Country;
+
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -53,7 +55,8 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::registerView(function () {
-            return view('auth.register');
+            $countries = Country::all();
+            return view('auth.register',compact('countries'));
         });
 
         Fortify::loginView(function () {

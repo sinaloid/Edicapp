@@ -39,10 +39,9 @@ class DatabaseSeeder extends Seeder
        Country::factory()
                         ->has(Region::factory()
                             ->has(Province::factory()
-                                ->has(Commune::factory()
-                                    ->has(User::factory()->count(1))->count(2))->count(2))->count(2))
-                                                                                        ->count(2)->create();
-            for($i=1 ; $i <= 16; $i++){
+                                ->has(Commune::factory()->count(5))->count(5))->count(5))
+                                                                                        ->count(5)->create();
+            /*for($i=1 ; $i <= 16; $i++){
                 Data::factory()->create(["commune_id" => $i, "user_id" => $i]);
                 Infog::factory()->create(["data_id" => $i]);
                 Recettes::factory()->create(["Infog_id" => $i]);
@@ -80,7 +79,7 @@ class DatabaseSeeder extends Seeder
             RecetFonctN::factory()->create(["budget_n_id" => $i]);
             DepensFonctN::factory()->create(["budget_n_id" => $i]);
         
-        }
+        }*/
 
         
                                                                                         //User::factory()->count(40);*/

@@ -28,7 +28,7 @@
 <body>
     @include("header")
 
-    <div class="container mx-auto sin-m-t myform1">
+    <div class="container mx-auto1 sin-m-t myform1">
 
         <div class="row">
             <div class="col-12 card">
@@ -265,13 +265,13 @@
                         <button type="button" class="btn sin-bg-3">Bar</button>
                     </div>
                 </div>
-                <div class="h-100">
-                    <canvas id="myChart"></canvas>
+                <div class="table-responsive">
+                    <canvas id="myChart" class="table" style="height:320px"></canvas>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container card mt-2 px-1">
+    <!--div class="container card mt-2 px-1">
 
         <div class="row mt-2">
             <div class="col-12 text-center">
@@ -355,10 +355,10 @@
                 </div>
             </div>
 
-            <div class="col-12 p-1">
+            <div class="col-12 ">
                 <p class="card-header"> commune 2</p>
-                <div class="col-12 table-responsive px-0">
-                    <table class="table table-hover">
+                <div class="col-12  px-0">
+                    <table class="table table-responsive table-hover">
                         <caption> Contribution des dix (10) meilleurs villages (toute contribution)</caption>
                         <thead>
                             <tr>
@@ -431,9 +431,46 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div-->
+    <!--script src="{{ asset('js/script.js') }}"></script-->
 
-    <script src="{{ asset('js/script.js') }}"></script>
+<script>
+
+
+
+const labels = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+];
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First dataset',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [0, 10, 5, 2, 20, 30, 45],
+  }]
+};
+
+const config = {
+  type: 'line',
+  data,
+  options: {}
+};
+// === include 'setup' then 'config' above ===
+
+var myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
     @include("footer")

@@ -57,3 +57,7 @@ Route::get('about', [SiteUrl::class, 'about'])->name('about');
 Route::get('test', [SiteUrl::class, 'test'])->name('test');
 
 //Route::delete('films/force/{id}', [FilmController::class, 'forceDestroy'])->name('films.force.destroy');
+Route::get('country/{country_id}', [SiteUrl::class, 'getCountryRegion']);
+Route::get('region/{region_id}', [SiteUrl::class, 'getCountryRegionProvince']);
+Route::get('province/{province_id}', [SiteUrl::class, 'getCountryRegionProvinceCommune']);
+

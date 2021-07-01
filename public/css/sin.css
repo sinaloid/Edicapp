@@ -146,6 +146,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
           border-color: inherit;
           -webkit-box-shadow: none;
           box-shadow: none;
+          color:#444444;
         }
 
         .sin-m-t {

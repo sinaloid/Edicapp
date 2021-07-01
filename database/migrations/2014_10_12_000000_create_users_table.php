@@ -24,11 +24,13 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             
-            $table->string('pays');
+            /*$table->string('pays');
             $table->string('region');
             $table->string('province');
-            $table->string('commune');
+            $table->string('commune');*/
+            
             $table->string('organisation')->nullable();
+            $table->string('role')->nullable();
 
         });
     }

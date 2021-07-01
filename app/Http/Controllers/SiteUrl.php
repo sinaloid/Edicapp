@@ -162,6 +162,27 @@ class SiteUrl extends Controller
         return view('pages.about');
         
     }
+
+    public function getCountryRegion($country_id){
+        
+        $regions = Country::find($country_id)->regions()->pluck('region_name','id');
+        return response()->json($regions);
+    }
+
+    public function getCountryRegionProvince($region_id){
+        
+        $provinces = Region::find($region_id)->provinces()->pluck('province_name','id');
+        return response()->json($provinces);
+    }
+
+    public function getCountryRegionProvinceCommune($province_id){
+        
+        $communes = Province::find($province_id)->communes()->pluck('commune_name','id');
+        return response()->json($communes);
+    }
+
+
+
     
 
 

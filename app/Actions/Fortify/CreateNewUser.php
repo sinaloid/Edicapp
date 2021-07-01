@@ -32,10 +32,10 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
 
             'mobile' => ['required','numeric','digits:8','starts_with: 5,6,7,01,07',Rule::unique(User::class),],
-            'pays' => ['required', 'string', 'max:255'],
-            'region' => ['required', 'string', 'max:255'],
-            'province' => ['required', 'string', 'max:255'],
-            'commune' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'integer'],
+            'region' => ['required', 'integer'],
+            'province' => ['required', 'integer'],
+            'commune' => ['required', 'integer'],
         ]
         )->validate();
 
@@ -45,10 +45,10 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
 
             'mobile' => $input['mobile'],
-            'pays' => $input['pays'],
-            'region' => $input['region'],
-            'province' => $input['province'],
-            'commune' => $input['commune'],
+            'country_id' => $input['country'],
+            'region_id' => $input['region'],
+            'province_id' => $input['province'],
+            'commune_id' => $input['commune'],
             
 
 
