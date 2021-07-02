@@ -15,6 +15,8 @@ use App\Gestion\Infog\Infog as GInfog;
 use App\Gestion\Infog\EtatCivil;
 use App\Gestion\Infog\EtatCivil\EtatNombre;
 use App\Gestion\Infog\EtatCivil\Observation;*/
+use Illuminate\Support\Str;
+
 
 
 class SiteUrl extends Controller
@@ -27,8 +29,15 @@ class SiteUrl extends Controller
 
     public function test()
     {
-        
-             
+        $countries = ["Burkina Faso", "Mali", "Côte"];
+        $i = 226;
+        $regions = ["Boucle du Mouhoun","Cascades","Centre","Centre-Est","Centre-Nord","Centre-Oest","Centre-Sud","Est","Hauts Bassins","Nord","Plateau Central","Sahel","Sud-Ouest"];
+        /*foreach($countries as $country){
+            Country::create(['country_name' => $country, 'continent' => 'Afrique', 'indicatif' => '226', 'slug' => Str::slug($country)]);
+        }     */
+        foreach($regions as $region){
+            Region::create(['country_id' => '1','region_name' => $region,'slug' => Str::slug($region)]);
+        }     
        /* $data = new GData();
         $data->id_data = 21;
         $data->slug = "str";
