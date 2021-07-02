@@ -32,9 +32,9 @@ class SiteUrl extends Controller
         $countries = ["Burkina Faso", "Mali", "Côte"];
         $i = 226;
         $regions = ["Boucle du Mouhoun","Cascades","Centre","Centre-Est","Centre-Nord","Centre-Oest","Centre-Sud","Est","Hauts Bassins","Nord","Plateau Central","Sahel","Sud-Ouest"];
-        /*foreach($countries as $country){
+        foreach($countries as $country){
             Country::create(['country_name' => $country, 'continent' => 'Afrique', 'indicatif' => '226', 'slug' => Str::slug($country)]);
-        }     */
+        }
         foreach($regions as $region){
             Region::create(['country_id' => '1','region_name' => $region,'slug' => Str::slug($region)]);
         }     
