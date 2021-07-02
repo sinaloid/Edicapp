@@ -73,7 +73,8 @@ class SiteUrl extends Controller
 
     public function index()
     {
-        return view('index');
+        $countries = Country::all();
+        return view('index', compact('countries'));
     }
 
     public function actu(){
@@ -89,20 +90,20 @@ class SiteUrl extends Controller
     }
 
     public function datasInfo(){
-
-        return view('pages.menu.minfo');
+         $countries = Country::all();
+        return view('pages.menu.minfo',compact('countries'));
         
     }
 
     public function datasPcd(){
-
-        return view('pages.menu.mpcd');
+        $countries = Country::all();
+        return view('pages.menu.mpcd',compact('countries'));
         
     }
 
     public function datasBudget(){
-
-        return view('pages.menu.mbudget');
+        $countries = Country::all();
+        return view('pages.menu.mbudget',compact('countries'));
         
     }
 
@@ -117,8 +118,8 @@ class SiteUrl extends Controller
     }
 
     public function datasTdb(){
-
-        return view('pages.menu.mtdb');
+        $countries = Country::all();
+        return view('pages.menu.mtdb',compact('countries'));
         
     }
 

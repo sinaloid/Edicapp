@@ -22,7 +22,8 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -259,14 +260,25 @@
             <div class="col-12 col-md-8 card mt-3">
                 <p class="font-weight-bold mt-2"> Choix de la view de donnée</p>
                 <div class="row card-header">
-                    <div class="btn-group btn-group-sm">
-                        <button type="button" class="btn sin-bg-3">Line</button>
-                        <button type="button" class="btn sin-bg-3">Pie</button>
-                        <button type="button" class="btn sin-bg-3">Bar</button>
+                    <!--div class="btn-group btn-group-sm">
+                        <button type="button" id='line' class="btn sin-bg-3">Line</button>
+                        <button type="button" id="pie" class="btn sin-bg-3">Pie</button>
+                        <button type="button" id="bar" class="btn sin-bg-3">Bar</button>
+                    </div-->
+                    <div class="controls">
+                        <h5 class="label">Chart Type</h5>
+                        <select class="form-control" name="chartType" id="chartType" onchange="updateChartType()">
+                            <option value="line">Line</option>
+                            <option value="bar">Bar</option>
+                            <option value="radar">Radar</option>
+                            <option value="polarArea">Polar Area</option>
+                            <option value="doughnut">Doughnut</option>
+                        </select>
+                        <!--button onclick="randomizeData()">Randomize Data!</button-->
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <canvas id="myChart" class="table" style="height:320px"></canvas>
+                    <canvas id="myChart" class="table" style="min-height:320px; max-height:400px"></canvas>
                 </div>
             </div>
         </div>
@@ -434,43 +446,58 @@
     </div-->
     <!--script src="{{ asset('js/script.js') }}"></script-->
 
-<script>
+    <script>
+    // Define data set for all charts
+    let dataBaby = [1, 10, 5, 2, 20, 30, 45];
+    let moreDataBaby = [20, 30, 15, 12, 21, 30, 40];
+    myData = {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+                label: "Data, baby!",
+                fill: false,
+                backgroundColor: 'rgb(190, 99, 255, 0.25)',
+                borderColor: 'rgb(190, 99, 255)',
+                data: dataBaby,
+            },
+            {
+                label: "More data, baby!",
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.25)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: moreDataBaby,
+            }
+        ]
+    };
 
+    // Default chart defined with type: 'line'
+    //Chart.defaults.global.defaultFontFamily = "monospace";
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: myData
+    });
 
+    // Function runs on chart type select update
+    function updateChartType() {
+        // Since you can't update chart type directly in Charts JS you must destroy original chart and rebuild
+        myChart.destroy();
+        myChart = new Chart(ctx, {
+            type: document.getElementById("chartType").value,
+            data: myData,
+        });
+    };
 
-const labels = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-];
-const data = {
-  labels: labels,
-  datasets: [{
-    label: 'My First dataset',
-    backgroundColor: 'rgb(255, 99, 132)',
-    borderColor: 'rgb(255, 99, 132)',
-    data: [0, 10, 5, 2, 20, 30, 45],
-  }]
-};
+    // Randomize data button function
+    function randomizeData() {
+        let newDataBaby = dataBaby.map(x => Math.floor(Math.random() * 50));
+        let newMoreDataBaby = moreDataBaby.map(x => Math.floor(Math.random() * 40));
+        myData.datasets[0].data = newDataBaby
+        myData.datasets[1].data = newMoreDataBaby
+        myChart.update();
+        console.log(newDataBaby);
+    };
+    </script>
 
-const config = {
-  type: 'line',
-  data,
-  options: {}
-};
-// === include 'setup' then 'config' above ===
-
-var myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-
-</script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
     @include("footer")

@@ -196,8 +196,8 @@
             </div>
         </div>
     </div>
-
-    <script>
+    <script src="{{ asset('js/country.js') }}"></script>
+    <!--script>
     
     $(document).ready(function() {
         
@@ -327,6 +327,6 @@
            }
        });
     });
-    </script>
+    </script-->
 </div>
 @endsection

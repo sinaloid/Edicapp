@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('/css/sin.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/table.css') }}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/4ab29fd570.js" crossorigin="anonymous"></script>
     @yield('script')
 </head>
@@ -25,52 +25,62 @@
             <div class="col-sm-12">
                 <div class=" row">
                     <div class="col-sm-3">
-                        <label for="pays">pays</label>
+                        <label for="country">{{ __('Pays') }}</label>
                         <div class="form-group">
-                            <select class="form-control" id="pays">
-                                <option>Burkina Faso</option>
-                                <option>Mali</option>
-                                <option>Côte d'Ivoire</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control" id="country" name="country" required>
+                                <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
+                                @foreach($countries as $country)
+                                <option value="{{ $country->id }}">
+                                    {{ $country->country_name }}</option>
+                                @endforeach
                             </select>
+                            @error('pays')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
+
                     </div>
                     <div class=" col-sm-3">
                         <label for="region">Region</label>
 
                         <div class="form-group">
-                            <select class="form-control" name="region" class="w-100">
-                                <option>Region</option>
-                                <option>Centre</option>
-                                <option>Ouest</option>
-                                <option>Centre-Sud</option>
-                                <option>Etc...</option>
+                            <select class="form-control" id="region" name="region" required>
+
                             </select>
+                            @error('region')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
 
                     </div>
                     <div class=" col-sm-3">
                         <label for="province">Province</label>
                         <div class="form-group">
-                            <select class="form-control" name="province" class="w-100">
-                                <option>Province </option>
-                                <option>Sanmatenga</option>
-                                <option>nom province 1</option>
-                                <option>nom province 2</option>
-                                <option>Etc ...</option>
+                            <select class="form-control" id="province" name="province" required>
+
                             </select>
+                            @error('province')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class=" col-sm-3">
                         <label for="commune">Commune</label>
                         <div class="form-group">
-                            <select class="form-control" name="commune" class="w-100">
-                                <option>commune</option>
-                                <option>Korsimoro</option>
-                                <option>nom commune 1</option>
-                                <option>Etc ...</option>
+                            <select class="form-control" id="commune" name="commune" required>
+
                             </select>
+                            @error('commune')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -113,7 +123,7 @@
             </div>
 
         </div>
-
+        <script src="{{ asset('js/country.js') }}"></script>
     </div>
     @include("footer")
 </body>
