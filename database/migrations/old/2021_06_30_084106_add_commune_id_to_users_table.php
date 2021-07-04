@@ -15,7 +15,7 @@ class AddCommuneIdToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 
-            $table->unsignedBigInteger('country_id');
+           /* $table->unsignedBigInteger('country_id');
             $table->foreign('country_id')
                     ->references('id')
                     ->on('countries')
@@ -42,7 +42,12 @@ class AddCommuneIdToUsersTable extends Migration
                     ->on('communes')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-        });
+        }*/
+        $table->bigInteger('country_id')->default(0)->after('role');
+        $table->bigInteger('region_id')->default(0)->after('country_id');
+        $table->bigInteger('province_id')->default(0)->after('region_id');
+        $table->bigInteger('commune_id')->default(0)->after('province_id');
+    );
     }
 
     /**

@@ -25,7 +25,7 @@ class CountryFactory extends Factory
         $name = $this->faker->country();
         return [
             'country_name' => $name,
-            'continent' => $this->faker->word(6, true),
+            //'continent' => $this->faker->word(6, true),
             'indicatif' => $this->faker->numberBetween($min = 1, $max = 299),
             'slug' => Str::slug($name),
         ];

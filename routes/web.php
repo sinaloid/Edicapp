@@ -34,6 +34,15 @@ Route::get('home', function () {
   })->middleware(['auth', 'password.confirm']);
   
 /*********************************************/
+Route::get('home/data', function () {
+  return view('home');
+})->middleware(['auth','verified'])->name('home.data');
+
+Route::get('home/create', function () {
+  return view('home');
+})->middleware(['auth','verified'])->name('home.create');
+
+/*********************************************/
 
 Route::get('actu', [SiteUrl::class, 'actu'])->name('actu');
 Route::get('actuc', [SiteUrl::class, 'actuContent'])->name('actuc');

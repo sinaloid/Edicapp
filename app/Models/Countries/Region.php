@@ -4,6 +4,7 @@ namespace App\Models\Countries;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Region extends Model
 {
@@ -15,6 +16,11 @@ class Region extends Model
         'slug',
     ];
 
+    public function users() {
+
+        return $this->hasMany(User::class);
+    }
+    
     public function country() {
 
         return $this->belongsTo(Country::class);

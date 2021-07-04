@@ -10,7 +10,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!--ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a class="nav-link" href="{{ route('acceuil') }}">Accueil <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item "><a class="nav-link active" href="{{ route('acceuil') }}">Accueil <span class="sr-only">(current)</span></a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('datas.info') }}">Données</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('actu') }}">Actualités</a></li>
             <li class="nav-item"><a class="nav-link sin-nav-link" href="{{ route('forum') }}">Forum</a></li>

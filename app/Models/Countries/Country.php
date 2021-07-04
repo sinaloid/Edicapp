@@ -4,6 +4,7 @@ namespace App\Models\Countries;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Country extends Model
 {
@@ -11,11 +12,14 @@ class Country extends Model
 
     protected $fillable = [
         'country_name',
-        'continent',
+        //'continent',
         'indicatif',
         'slug',
     ];
+    public function users() {
 
+        return $this->hasMany(User::class);
+    }
     public function regions() {
 
         return $this->hasMany(Region::class);
