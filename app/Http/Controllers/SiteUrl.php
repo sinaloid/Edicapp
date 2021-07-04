@@ -26,33 +26,120 @@ class SiteUrl extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function countryConfig($names, $id, $table){
-        if($table == 1 ){
-            /*Pays*/
-            foreach($names as $name){
-                Country::create(['country_name' => $name, 'indicatif' => $id, 'slug' => Str::slug($name)]);
-                if($id == 226) $id = 225;
-                if($id == 225) $id = 223;
-            }
-        }
-        elseif($table == 2) {
-            /*Region*/
-            foreach($names as $name){
-                Region::create(['region_name' => $name,'country_id' => $id,'slug' => Str::slug($name)]);
-            }
-        } elseif($table == 3){
-            /*Province*/
-            foreach($names as $name){
-                Province::create(['province_name' => $name, 'region_id'=> $id, 'slug' => Str::slug($name)]);
-            }
-        } else {
-            /*Commune */
-            foreach($names as $name){
-                Commune::create(['commune_name' => $name, 'province_id' => $id,'slug' => Str::slug($name)]);
-            }
-        }
+ 
+    
+    public function index()
+    {
+        $countries = Country::all();
+        return view('index', compact('countries'));
+    }
+
+    public function actu(){
+
+        return view('pages.news');
+        
+    }
+
+    public function actuContent(){
+
+        return view('pages.article');
+        
+    }
+
+    public function datasInfo(){
+         $countries = Country::all();
+        return view('pages.menu.minfo',compact('countries'));
+        
+    }
+
+    public function datasPcd(){
+        $countries = Country::all();
+        return view('pages.menu.mpcd',compact('countries'));
+        
+    }
+
+    public function datasBudget(){
+        $countries = Country::all();
+        return view('pages.menu.mbudget',compact('countries'));
+        
+    }
+
+    public function getBudget() {
+
+        return view('pages.includes.budget');
+    }
+
+    public function getBudgetN() {
+
+        return view('pages.includes.budgetn');
+    }
+
+    public function datasTdb(){
+        $countries = Country::all();
+        return view('pages.menu.mtdb',compact('countries'));
+        
+    }
+
+    public function Compare(){
+
+        $countries = Country::all();
+        return view('pages.compare', compact('countries'));
+        
+    }
+    public function datasCompare(){
+
+        return view('pages.viewData');
+        
+    }
+
+    public function login(){
+
+        return view('pages.login');
+        
+    }
+
+    public function signup(){
+
+        return view('pages.signup');
+        
+    }
+
+    public function forum(){
+
+        return view('pages.forum');
+        
+    }
+
+    public function contact(){
+
+        return view('pages.contact');
+        
     }
     
+    public function about(){
+
+        return view('pages.about');
+        
+    }
+
+    public function getCountryRegion($country_id){
+        
+        $regions = Country::find($country_id)->regions()->pluck('region_name','id');
+        return response()->json($regions);
+    }
+
+    public function getCountryRegionProvince($region_id){
+        
+        $provinces = Region::find($region_id)->provinces()->pluck('province_name','id');
+        return response()->json($provinces);
+    }
+
+    public function getCountryRegionProvinceCommune($province_id){
+        
+        $communes = Province::find($province_id)->communes()->pluck('commune_name','id');
+        return response()->json($communes);
+    }
+
     public function test()
     {
         /*Pays*/
@@ -300,124 +387,36 @@ class SiteUrl extends Controller
         
         dd(
             $JsonObject
-    );*/
+        );*/
         return view('test');
     }
 
-    public function index()
-    {
-        $countries = Country::all();
-        return view('index', compact('countries'));
+    public function countryConfig($names, $id, $table){
+        if($table == 1 ){
+            /*Pays*/
+            foreach($names as $name){
+                Country::create(['country_name' => $name, 'indicatif' => $id, 'slug' => Str::slug($name)]);
+                if($id == 226) $id = 225;
+                if($id == 225) $id = 223;
+            }
+        }
+        elseif($table == 2) {
+            /*Region*/
+            foreach($names as $name){
+                Region::create(['region_name' => $name,'country_id' => $id,'slug' => Str::slug($name)]);
+            }
+        } elseif($table == 3){
+            /*Province*/
+            foreach($names as $name){
+                Province::create(['province_name' => $name, 'region_id'=> $id, 'slug' => Str::slug($name)]);
+            }
+        } else {
+            /*Commune */
+            foreach($names as $name){
+                Commune::create(['commune_name' => $name, 'province_id' => $id,'slug' => Str::slug($name)]);
+            }
+        }
     }
-
-    public function actu(){
-
-        return view('pages.news');
-        
-    }
-
-    public function actuContent(){
-
-        return view('pages.article');
-        
-    }
-
-    public function datasInfo(){
-         $countries = Country::all();
-        return view('pages.menu.minfo',compact('countries'));
-        
-    }
-
-    public function datasPcd(){
-        $countries = Country::all();
-        return view('pages.menu.mpcd',compact('countries'));
-        
-    }
-
-    public function datasBudget(){
-        $countries = Country::all();
-        return view('pages.menu.mbudget',compact('countries'));
-        
-    }
-
-    public function getBudget() {
-
-        return view('pages.includes.budget');
-    }
-
-    public function getBudgetN() {
-
-        return view('pages.includes.budgetn');
-    }
-
-    public function datasTdb(){
-        $countries = Country::all();
-        return view('pages.menu.mtdb',compact('countries'));
-        
-    }
-
-    public function Compare(){
-
-        return view('pages.compare');
-        
-    }
-    public function datasCompare(){
-
-        return view('pages.viewData');
-        
-    }
-
-    public function login(){
-
-        return view('pages.login');
-        
-    }
-
-    public function signup(){
-
-        return view('pages.signup');
-        
-    }
-
-    public function forum(){
-
-        return view('pages.forum');
-        
-    }
-
-    public function contact(){
-
-        return view('pages.contact');
-        
-    }
-    
-    public function about(){
-
-        return view('pages.about');
-        
-    }
-
-    public function getCountryRegion($country_id){
-        
-        $regions = Country::find($country_id)->regions()->pluck('region_name','id');
-        return response()->json($regions);
-    }
-
-    public function getCountryRegionProvince($region_id){
-        
-        $provinces = Region::find($region_id)->provinces()->pluck('province_name','id');
-        return response()->json($provinces);
-    }
-
-    public function getCountryRegionProvinceCommune($province_id){
-        
-        $communes = Province::find($province_id)->communes()->pluck('commune_name','id');
-        return response()->json($communes);
-    }
-
-
-
-    
 
 
 }

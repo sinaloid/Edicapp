@@ -23,13 +23,18 @@ $(document).ready(function() {
                         $('#province').empty();
                         $('#commune').empty();
                         $('#region').focus;
-                        $('#region').append(
-                            '<option value="">-- Selectionnez votre region --</option>');
-                        $.each(data, function(key, value) {
-                            $('select[name="region"]').append(
-                                '<option value="' + key + '">' + value
-                                 + '</option>');
-                        });
+
+                        $.each(data, function(key, value){
+                            $('#region').append(
+                                '<div class="col-12 col-sm-6 mt-3 list-group1">' +
+                                '<div class=" mx-auto form-check list-group-item list-group-item-action list-group-item-dark w-75">' +
+                                    '<label class="form-check-label col">' +
+                                        '<input type="checkbox" class="form-check-input checkSize my-0 " value="' + key + '">' + value +
+                                    '</label>' +
+                                '</div>'+
+                            '</div>'
+                            );
+                        })
                     } else {
                         $('#region').empty();
                         $('#province').empty();
@@ -67,13 +72,17 @@ $(document).ready(function() {
                        $('#province').empty();
                        $('#commune').empty();
                        $('#province').focus;
-                       $('#province').append(
-                           '<option value="">-- Selectionnez votre province --</option>');
-                       $.each(data, function(key, value) {
-                           $('select[name="province"]').append(
-                               '<option value="' + key + '">' + value
-                                + '</option>');
-                       });
+                       $.each(data, function(key, value){
+                        $('#province').append(
+                            '<div class="col-12 col-sm-6 mt-3 list-group1">' +
+                            '<div class=" mx-auto form-check list-group-item list-group-item-action list-group-item-dark w-75">' +
+                                '<label class="form-check-label col">' +
+                                    '<input type="checkbox" class="form-check-input checkSize my-0 " value="' + key + '">' + value +
+                                '</label>' +
+                            '</div>'+
+                        '</div>'
+                        );
+                    });
                    } else {
                        $('#province').empty();
                        $('#commune').empty();
@@ -108,13 +117,17 @@ $(document).ready(function() {
                    if (data) {
                        $('#commune').empty();
                        $('#commune').focus;
-                       $('#commune').append(
-                           '<option value="">-- Selectionnez votre commune --</option>');
-                       $.each(data, function(key, value) {
-                           $('select[name="commune"]').append(
-                               '<option value="' + key + '">' + value
-                                + '</option>');
-                       });
+                       $.each(data, function(key, value){
+                        $('#commune').append(
+                            '<div class="col-12 col-sm-6 mt-3 list-group1">' +
+                            '<div class=" mx-auto form-check list-group-item list-group-item-action list-group-item-dark w-75">' +
+                                '<label class="form-check-label col">' +
+                                    '<input type="checkbox" class="form-check-input checkSize my-0 " value="' + key + '">' + value +
+                                '</label>' +
+                            '</div>'+
+                        '</div>'
+                        );
+                    });
                    } else {
                        $('#commune').empty();
                    }

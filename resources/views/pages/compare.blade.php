@@ -35,332 +35,100 @@
             <div class="col-md-12 ">
                 <div class="card sin-bg-2">
                     <div class="card-header">
-                        Pays
+                        {{ __('Pays') }}
                     </div>
                     <div class="card-body py-0">
                         <div class="form-group">
-                            <select class="form-control my-1" id="pays">
-                                <option>Burkina Faso</option>
-                                <option>Mali</option>
-                                <option>Côte d'Ivoire</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control my-1" id="country" name="country" required>
+                                <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
+                                @foreach($countries as $country)
+                                <option value="{{ $country->id }}">
+                                    {{ $country->country_name }}</option>
+                                @endforeach
                             </select>
+                            @error('pays')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="row justify-content-center mt-3 p-0">
-            <div class="col-md-12 ">
-                <div class="card sin-bg-2">
-                    <div class="card-header">
+        <div id="accordion">
+            <div class="card mt-1">
+                <div class="card-header">
+                    <a class="card-link d-inline-block w-100" data-toggle="collapse" href="#collapseOne">
                         Region
-                        <span>selection deux (02) region au maximun</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-md-flex">
-                            <div class="row mx-auto overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light w-100"
-                                style="max-width1: 260px; max-height: 100px;background:#d1d4c9">
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse" data-parent="#accordion">
+                    <div class="row" id="region">
 
-                                <!--div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Action item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-success">Success
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Secondary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Info
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-warning">Warning
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-danger">Danger
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-primary">Primary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-light">Light
-                                        item</a>
-                                </div-->
-
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn sin-bg-3">valider</a>
                     </div>
                 </div>
+                <div class="card-footer mt-1">
+                    <a href="#" class="btn sin-bg-3">valider</a>
+                </div>
             </div>
-        </div>
 
-        <div class="row justify-content-center mt-3 p-0">
-            <div class="col-md-12 ">
-                <div class="card sin-bg-2">
-                    <div class="card-header">
+            <div class="card mt-1">
+                <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseTow">
                         Province
-                        <span>selection deux (02) province au maximun</span>
+                    </a>
+                </div>
+                <div id="collapseTow" class="collapse" data-parent="#accordion">
+                    <div class="row" id="province">
+
                     </div>
-                    <div class="card-body">
-                        <div class="d-md-flex" style="background:#d1d4c9">
-                            <div class="row mx-auto overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light w-100"
-                                style="max-width1: 260px; max-height: 100px; ">
+                </div>
+                <div class="card-footer mt-1">
+                    <a href="#" class="btn sin-bg-3">valider</a>
+                </div>
+            </div>
 
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
+            <div class="card mt-1">
+                <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" href="#collapseTow">
+                       Commune
+                    </a>
+                </div>
+                <div id="collapseTow" class="collapse" data-parent="#accordion">
+                    <div class="row" id="commune">
 
+                    </div>
+                </div>
+                <div class="card-footer mt-1">
+                    <a href="#" class="btn sin-bg-3">valider</a>
+                </div>
+            </div>
 
+            <div class="row justify-content-center mt-3 p-0">
+                <div class="col-md-12 ">
+                    <div class="card sin-bg-2">
+                        <div class="card-header">
+                            Année
+                        </div>
+                        <div class="card-body py-0">
+                            <div class="form-group">
+                                <select class="form-control my-1" id="pays">
+                                    <option>2021</option>
+                                    <option>2020</option>
+                                    <option>2019</option>
+                                    <option>2018</option>
+                                    <option>2017</option>
+                                </select>
+                                <a class="btn sin-bg-3 mt-2" href="{{ route('datas.cmpdt') }}">Comparaison</a>
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn sin-bg-3">valider</a>
-                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row justify-content-center mt-3 p-0">
-            <div class="col-md-12 ">
-                <div class="card sin-bg-2">
-                    <div class="card-header">
-                        Commune
-                        <span>selection quatre (04) commune au maximun</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-md-flex" style="background:#d1d4c9">
-                            <div class="row mx-auto overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light w-100"
-                                style="max-width1: 260px; max-height: 100px; ">
-
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6 mt-3 list-group">
-                                    <div
-                                        class="form-check list-group-item list-group-item-action list-group-item-secondary">
-                                        <label class="form-check-label col">
-                                            <input type="checkbox" class="form-check-input checkSize my-0 "
-                                                value="">Option
-                                        </label>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn sin-bg-3">valider</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center mt-3 p-0">
-            <div class="col-md-12 ">
-                <div class="card sin-bg-2">
-                    <div class="card-header">
-                        Année
-                    </div>
-                    <div class="card-body py-0">
-                        <div class="form-group">
-                            <select class="form-control my-1" id="pays">
-                                <option>2021</option>
-                                <option>2020</option>
-                                <option>2019</option>
-                                <option>2018</option>
-                                <option>2017</option>
-                            </select>
-                            <a class="btn sin-bg-3 mt-2" href="{{ route('datas.cmpdt') }}">Comparaison</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <script src="{{ asset('js/country_check.js') }}"></script>
         </div>
     </div>
-
     @include("footer")
 
 </body>
