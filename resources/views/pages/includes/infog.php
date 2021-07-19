@@ -1,7 +1,7 @@
 <div class="row ">
     <div class="col-12 font-weight-bolder text-center text-uppercase">Evolution du budget de la commune les trois années</div>
     <div class="col-12 table-responsive mt-2 px-0">
-        <table class="table-sm table-striped table-hover ">
+        <table class="table-sm table-hover mx-auto">
             <tr>
                 <th class="sin-table-bg" colspan="5">Recettes</th>
             <tr>
@@ -45,7 +45,7 @@
 </div>
 <div class="row mt-4">
     <div class="col-12 table-responsive px-0">
-        <table class="table-sm table-hover">
+        <table class="table-sm table-hover mx-auto">
             <tr>
                 <th class="sin-table-bg" colspan="5">Dépenses</th>
             <tr>
@@ -90,7 +90,7 @@
 <div class="row mt-3">
 <div class="col-12 font-weight-bolder text-center text-uppercase">Contribution des trois (03) meilleurs marchés</div>
     <div class="col-12 table-responsive mt-2 px-0">
-        <table class="table-sm table-hover">
+        <table class="table-sm table-hover mx-auto">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -268,7 +268,7 @@
 <div class="row mt-3">
 <div class="col-12 font-weight-bolder text-center text-uppercase">ETAT CIVIL ET DOMAINE</div>
     <div class="col-12 table-responsive mt-2 px-0">
-        <table class="table-sm table-hover ">
+        <table class="table-sm table-hover mx-auto ">
             
             <thead>
                 <tr>
@@ -312,8 +312,8 @@
 </div>
 
 <div class="row ">
-    <div class="col-12 table-responsive px-0">
-        <table class="table-sm table-hover ">
+    <div class="col-12 table-responsive px-0 ">
+        <table class="table-sm table-hover mx-auto ">
             <caption> </caption>
             <thead>
                 <tr>

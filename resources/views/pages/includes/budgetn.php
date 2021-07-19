@@ -4,7 +4,7 @@
 <div class="row mt-3">
     <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes d'investissement</div>
     <div class="col-12 table-responsive mt-2 px-0 ">
-        <table class="table-sm table-hover ">
+        <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -54,7 +54,7 @@
 <div class="row mt-3">
     <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes de fonctionnement</div>
     <div class="col-12 table-responsive mt-2 px-0 ">
-        <table class="table-sm table-hover ">
+        <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -121,7 +121,7 @@
 <div class="row mt-3">
     <div class="col-12 font-weight-bolder text-center text-uppercase"> Depenses d'investissement</div>
     <div class="col-12 table-responsive mt-2 px-0 ">
-        <table class="table-sm table-hover ">
+        <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -171,7 +171,7 @@
 <div class="row mt-3">
     <div class="col-12 font-weight-bolder text-center text-uppercase"> Depenses de fonctionnement</div>
     <div class="col-12 table-responsive mt-2 px-0 " style="width : 400px">
-        <table class="table-sm table-hover ">
+        <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>

@@ -1,74 +1,76 @@
 <div class="row">
-    <div class="col-12 col-md-8 myform text-center text-edicp mt-1">
+    <div class="col-12 col-md-8 myform text-center text-edicp mt-3">
         <p><span>E</span>space de <span>d</span>ialogue et d'<span>i</span>nterpretation <span>c</span>ommunautaire</p>
         <p>Bilan d'action 2019 de la commune</p>
     </div>
 
-    <div class="col-12 col-md-4 myform mt-1">
+    <div class="col-12 col-md-4 myform mt-3">
         <img class="img-fluid" src="../img/EDICApp_banier.png" alt="banier edicapp">
     </div>
 </div>
 
-<div class="row">
-
+<div class="row mt-3">
+    <div class="col-12 font-weight-bolder text-center text-uppercase" style="color:#ff8043">Appréciation de l'exécution
+        du PCD de la commune / le PAIC</div>
     <div class="col-12 mt-2 table-responsive px-0">
-            <div class=" text-center card-header1">Appréciation de l'exécution du PCD de la commune / le PAIC</div>
-            <table class="table-sm table-hover card-body">
-                <tr>
-                    <th class="sin-table-bg">Date de Conception</th>
-                    <th>2014</th>
-                    <th class="sin-table-bg">Date d'expiration</th>
-                    <td>2018</td>
-                </tr>
-                <tr>
-                    <th class="sin-table-bg">Montant Total FCFA</th>
-                    <td>1,927,390,000</td>
-                    <th class="sin-table-bg">Montant mobilisé (2018) FCFA</th>
-                    <td>1,250,000,000 $</td>
-                </tr>
-                <tr>
-                    <th class="sin-table-bg">Problème majeur (10 mots)</th>
-                    <td>Problème de suivi</td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <th class="sin-table-bg">Perpectives (10 mots)</th>
-                    <td>Elaboration nouveau</td>
-                    <td> </td>
-                    <td> </td>
-                </tr>
-                <tr><td clospan="5">#</td></tr>
-                <tr>
-                    <th class="sin-table-bg">Perpectives/suggestions</th>
-                    <td colspan="3">Fort intérêt de l'Administration Communale</td>
-                </tr>
-            </table>
+        <table class="table-sm table-hover mx-auto">
+            <tr>
+                <th class="sin-table-bg">Date de Conception</th>
+                <th>2014</th>
+                <th class="sin-table-bg">Date d'expiration</th>
+                <td>2018</td>
+            </tr>
+            <tr>
+                <th class="sin-table-bg">Montant Total FCFA</th>
+                <td>1,927,390,000</td>
+                <th class="sin-table-bg">Montant mobilisé (2018) FCFA</th>
+                <td>1,250,000,000 $</td>
+            </tr>
+            <tr>
+                <th class="sin-table-bg">Problème majeur (10 mots)</th>
+                <td>Problème de suivi</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <th class="sin-table-bg">Perpectives (10 mots)</th>
+                <td>Elaboration nouveau</td>
+                <td> </td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td clospan="5">#</td>
+            </tr>
+            <tr>
+                <th class="sin-table-bg">Perpectives/suggestions</th>
+                <td colspan="3">Fort intérêt de l'Administration Communale</td>
+            </tr>
+        </table>
     </div>
 
 
 
-    <div class="col-12 mt-2 p-0">
+    <div class="col-12 mt-3 p-0">
         <div class="card">
-            <h4 class="card-header">Appréciation du niveau d'exécution du PCD</h4>
+            <h4 class="card-header bg-info text-white">Appréciation du niveau d'exécution du PCD</h4>
             <div class="card-body">
                 <div id="columnchart_values" style="width: 100%; height: 100%;"></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-2 p-0">
+    <div class="col-12 col-md-6 mt-3 p-0">
         <div class="card">
-            <h4 class="card-header">Evolution des recettes 3 ans</h4>
+            <h4 class="card-header  bg-info text-white">Evolution des recettes 3 ans</h4>
             <div class="card-body">
                 <div id="columnchart_values1" style="width: 100%; height: 100%;"></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-2 p-0">
+    <div class="col-12 col-md-6 mt-3 p-0">
         <div class="card">
-            <h4 class="card-header">Evolution des dépenses 3 ans</h4>
+            <h4 class="card-header  bg-info text-white">Evolution des dépenses 3 ans</h4>
             <div class="card-body">
                 <div id="columnchart_values2" style="width: 100%; height: 100%;"></div>
             </div>
@@ -76,65 +78,64 @@
     </div>
 </div>
 
-<div class="row">
-
-    <div class="col-12 myform sin-bg-3 mt-2 text-white text-center"> Bilan du fonctionnement</div>
-    <div class="col-12 col-md-6 mt-2 p-0">
+<div class="row mt-3">
+    <div class="col-12 myform sin-bg-3 font-weight-bolder text-white text-center"> Bilan du fonctionnement</div>
+    <div class="col-12 col-md-6 mt-3 p-0">
         <div class="card">
-            <h4 class="card-header">Recettes de fonctionnement</h4>
+            <h4 class="card-header bg-info text-white">Recettes de fonctionnement</h4>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart" style="width:100%;"></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-2 p-0">
+    <div class="col-12 col-md-6 mt-3 p-0">
         <div class="card">
-            <h4 class="card-header">Dépenses de fonctionnement</h4>
+            <h4 class="card-header bg-info text-white">Dépenses de fonctionnement</h4>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart1" style="width:100%; "></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-2 table-responsive px-0">
+    <div class="col-12 mt-3 table-responsive px-0">
         <div class="card">
             <table class="table-sm table-hover card-body">
                 <tr>
                     <th class="sin-table-bg">#</th>
-                    <th>Recettes</th>
-                    <th>Dépenses</th>
+                    <th class="bg-success text-white">Recettes</th>
+                    <th class="bg-danger text-white">Dépenses</th>
                 <tr>
                 <tr>
-                    <th class="sin-table-bg">Total Fonctionnement</th>
+                    <th class="bg-info text-white">Total Fonctionnement</th>
                     <td>1,927,390,000</td>
                     <td>1,250,000,000 $</td>
-               
+
             </table>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-2 table-responsive px-0">
+    <div class="col-12 mt-3 table-responsive px-0">
         <div class="card">
             <table class="table-sm table-hover card-body">
                 <tr>
                     <th class="sin-table-bg">#</th>
-                    <th>Recettes</th>
-                    <th>Dépenses</th>
+                    <th class="bg-success text-white">Recettes</th>
+                    <th class="bg-danger text-white">Dépenses</th>
                 <tr>
                 <tr>
-                    <th class="sin-table-bg">Total Investissements</th>
+                    <th class="bg-info text-white">Total Investissements</th>
                     <td>1,927,390,000</td>
                     <td>1,250,000,000 $</td>
-               
+
             </table>
         </div>
     </div>
 
 </div>
 
-<div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 text-white text-center"> ETAT CIVIL ET DOMAINE</div>
+<div class="row mt-3">
+    <div class="col-12 myform sin-bg-3 my-3 font-weight-bolder text-white text-center"> Etat civil et domaine</div>
     <div class="col-12 table-responsive px-0 ">
         <table class="table table-hover ">
             <thead>
@@ -228,7 +229,7 @@
 </div>
 
 <div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 text-white text-center"> Contribution des trois (03) meilleurs marcher</div>
+    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center"> Contribution des trois (03) meilleurs marcher</div>
     <div class="col-12 table-responsive px-0">
         <table class="table table-hover">
             <thead>
@@ -268,7 +269,7 @@
 
     <div class="col-12 mt-2 p-0">
         <div class="card">
-            <h4 class="card-header">Resultat de l'excercice</h4>
+            <h4 class="card-header bg-info text-white">Resultat de l'excercice</h4>
             <div class="card-body">
                 <div id="columnchart_values3" style="width: 100%; height: 100%;"></div>
             </div>
@@ -278,10 +279,10 @@
 
 <div class="row">
 
-    <div class="col-12 myform sin-bg-3 mt-2 text-white text-center"> Bilan du fonctionnement</div>
+    <div class="col-12 myform sin-bg-3 mt-2 font-weight-bolder text-white text-center"> Bilan du fonctionnement</div>
     <div class="col-12 col-md-6 mt-2 p-0">
         <div class="card">
-            <h4 class="card-header">Recettes d'Investissement</h4>
+            <h4 class="card-header bg-info text-white">Recettes d'Investissement</h4>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart2" style="width:100%;"></div>
             </div>
@@ -290,7 +291,7 @@
 
     <div class="col-12 col-md-6 mt-2 p-0">
         <div class="card">
-            <h4 class="card-header">Dépenses de Investissement</h4>
+            <h4 class="card-header bg-info text-white">Dépenses de Investissement</h4>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart3" style="width:100%; "></div>
             </div>
@@ -300,7 +301,7 @@
 </div>
 
 <div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 text-white text-center">Contribution des dix (10) meilleurs villages (toute
+    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Contribution des dix (10) meilleurs villages (toute
         contribution)</div>
     <div class="col-12 table-responsive px-0">
         <table class="table table-hover">
@@ -376,7 +377,7 @@
 </div>
 
 <div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 text-white text-center">Contribution des autres partenaires à la commune
+    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Contribution des autres partenaires à la commune
     </div>
     <div class="col-12 table-responsive px-0">
         <table class="table-sm table-hover ">
@@ -444,4 +445,5 @@
     <a class="col-sm-6" href="../img/img4.png"><img class="img-fluid" src="../img/img4.png" alt="img1" /></a>
 </div>
 
-<div class="col-12 card-header font-weight-bold my-2 text-center">Ce Bilan à été réalisé avec la précieuse contribution du #PAGOF sur financement de l'Agence Française de Développement </div>
+<div class="col-12 card-header font-weight-bold my-2 text-center">Ce Bilan à été réalisé avec la précieuse contribution
+    du #PAGOF sur financement de l'Agence Française de Développement </div>
