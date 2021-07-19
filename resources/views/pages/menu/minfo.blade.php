@@ -1,7 +1,7 @@
 @extends('template.dataShow')
 
 @section('dataTitle')
-    <h3>Info G</h3>
+    Info G
 @stop
 
 @section('dataContent')

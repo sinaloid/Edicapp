@@ -1,9 +1,9 @@
-<h4>Bilan d'execution année 2019</h4>
-<p class="text-center">Les recettes</p>
-<div class="row ">
-    <div class="col-12 table-responsive px-0 ">
-        <table class="table table-hover ">
-            <caption> Recettes d'investissement</caption>
+<h4 class="col-12 font-weight-bolder text-center text-white text-uppercase sin-bg-3">Bilan d'execution année 2019</h4>
+<p class="col-8 mx-auto font-weight-bolder text-center bg-success text-uppercase ">Les recettes</p>
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes d'investissement</div>
+    <div class="col-12 table-responsive mt-2 px-0 ">
+        <table class="table-sm table-hover ">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -50,10 +50,10 @@
     </div>
 </div>
 
-<div class="row ">
-    <div class="col-12 table-responsive px-0 ">
-        <table class="table table-hover ">
-            <caption> Recettes de fonctionnement</caption>
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes de fonctionnement</div>
+    <div class="col-12 table-responsive mt-2 px-0 ">
+        <table class="table-sm table-hover ">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -120,12 +120,12 @@
     </div>
 </div>
 
-<p class="text-center">Les depenses</p>
+<p class="col-8 mt-3 mx-auto font-weight-bolder text-center text-white bg-danger text-uppercase ">Les depenses</p>
 
-<div class="row ">
-    <div class="col-12 table-responsive px-0 ">
-        <table class="table table-hover ">
-            <caption> Depenses d'investissement</caption>
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase">  Depenses d'investissement</div>
+    <div class="col-12 table-responsive mt-2 px-0 ">
+        <table class="table-sm table-hover ">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -177,10 +177,10 @@
     </div>
 </div>
 
-<div class="row ">
-    <div class="col-12 table-responsive px-0 ">
-        <table class="table table-hover ">
-            <caption> Depenses de fonctionnement</caption>
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase">  Depenses de fonctionnement</div>
+    <div class="col-12 table-responsive mt-2 px-0 ">
+        <table class="table-sm table-hover ">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>

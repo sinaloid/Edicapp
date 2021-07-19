@@ -23,7 +23,7 @@
     <div class="container px-1 sin-m-t myform">
         <div class="row sin-bg-2 myform mx-auto">
             <div class="col-sm-12">
-                <div class=" row">
+                <!--div class=" row">
                     <div class="col-sm-3">
                         <label for="country">{{ __('Pays') }}</label>
                         <div class="form-group">
@@ -83,6 +83,62 @@
                             @enderror
                         </div>
                     </div>
+                </div -->
+                <div class="row">
+                    <div class="col-sm-12 sin-bg-2">
+                        <div class="form-group mt">
+                            <select class="form-control mt-1" id="country" name="country" required>
+                                <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
+                                @foreach($countries as $country)
+                                <option value="{{ $country->id }}">
+                                    {{ $country->country_name }}</option>
+                                @endforeach
+                            </select>
+                            @error('pays')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="row p_region justify-content-between">
+                            <div class=" col-6 col-md ">
+                                <div class="form-group">
+                                    <select class="form-control " id="region" name="region" required>
+
+                                    </select>
+                                    @error('region')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-6 col-md">
+                                <div class="form-group">
+                                    <select class="form-control " id="province" name="province" required>
+
+                                    </select>
+                                    @error('province')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-12 col-md">
+                                <div class="form-group">
+                                    <select class="form-control" id="commune" name="commune" required>
+
+                                    </select>
+                                    @error('commune')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12">
                     <a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
@@ -112,13 +168,9 @@
 
 
             @include("pages.menu.menu")
-
-            <br>
-
             <div class="container px-1">
-                <br>
-                <h3>@yield('dataTitle')</h3>
-                <hr>
+                <h3 class="my-4">@yield('dataTitle')</h3>
+                <hr style="height:1px;border-width:5;color:#444;background-color:#444">
                 @yield('dataContent')
             </div>
 

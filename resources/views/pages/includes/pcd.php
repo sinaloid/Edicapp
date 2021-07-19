@@ -1,8 +1,7 @@
-<div class="row  ">
-    <div class="col-12  text-center">Appréciation de l'exécution du PCD de la commune / le PAIC</div>
-    <div class="col-12 table-responsive mt-2 px-0">
-        <table class="table table-hover">
-
+<div class="row">
+<div class="col-12 font-weight-bolder text-center text-uppercase">Appréciation de l'exécution du PCD de la commune / le PAIC</div>
+    <div class="col-12 table-responsive mt-2 px-0 ">
+        <table class="table-sm table-hover ">
             <tr>
                 <th class="sin-table-bg">Date de Conception</th>
                 <th>2014</th>
@@ -31,10 +30,10 @@
     </div>
 </div>
 
-<div class="row ">
-    <div class="col-12 table-responsive px-0 ">
-        <table class="table table-hover ">
-            <caption> Donnez une note pour chaque axe: 3 - 7 - 10 </caption>
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase">Donnez une note pour chaque axe: 3 - 7 - 10</div>
+    <div class="col-12 table-responsive mt-2 px-0 ">
+        <table class="table-sm table-hover ">
             <thead>
                 <tr>
                     <th class="sin-table-bg" rowspan="2">Axes stratégiques</th>
@@ -67,17 +66,17 @@
         </table>
     </div>
 </div>
-<div class="row notation">
-    <div class="col-6 text-center">Notation</div>
-    <div class="col-6">
-        <p>Très satisfaisant :<span class="mx-auto"> 10 / 10</span></p>
-        <p>Satisfaisant :<span class="mx-auto"> 7 / 10</span></p>
-        <p>Pas satisfaisant :<span class="mx-auto"> 3 / 10</span></p>
+<div class="row mt-3 notation">
+    <div class="col-3 text-center text-secondary ">Notation:  </div>
+    <div class="col-9 text-center">
+        <p class="text-success">Très satisfaisant :<span class="mx-auto"> 10 / 10</span></p>
+        <p class="text-info">Satisfaisant :<span class="mx-auto"> 7 / 10</span></p>
+        <p class="text-danger">Pas satisfaisant :<span class="mx-auto"> 3 / 10</span></p>
     </div>
 </div>
 
 <div class="row">
-    <table class="table">
+    <table class="table table-responsive">
         <tr>
             <th class="sin-table-bg">Commentaire sur votre appéciation: en cinq mots</th>
             <th>Fort intérêt de l'Administration Communale</th>

@@ -1,7 +1,7 @@
 @extends('template.dataShow')
 
 @section('dataTitle')
-    <h3>PCD</h3>
+    PCD
 @stop
 
 @section('dataContent')

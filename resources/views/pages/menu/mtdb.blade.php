@@ -4,7 +4,7 @@
     @include("script")
 @stop
 @section('dataTitle')
-    <h3>TdB</h3>
+    TdB
 @stop
 
 @section('dataContent')

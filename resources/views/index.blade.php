@@ -105,11 +105,6 @@ function drawChart() {
             <p class="sin-title">Données par pays</p>
             <div class="row">
                 <div class="col-sm-12 sin-bg-2">
-                    <!--select>
-                                <option>Burkina Faso</option>
-                                <option>Mali</option>
-                                <option>Côte d'Ivoire</option>
-                            </select-->
                     <div class="form-group mt">
                         <select class="form-control mt-1" id="country" name="country" required>
                             <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
@@ -124,21 +119,7 @@ function drawChart() {
                         </span>
                         @enderror
                     </div>
-
-                    <!--Liste deroulante des pays<br /> -->
-                    <!--Selection region les region seront ajoute grâçe une boocle php-->
                     <div class="row p_region justify-content-between">
-                        <!--div class="col-6 col-md">
-                            <div class="form-group">
-                                <select class="form-control" name="region" class="w-100">
-                                    <option>Region</option>
-                                    <option>Centre</option>
-                                    <option>Ouest</option>
-                                    <option>Centre-Sud</option>
-                                    <option>Etc...</option>
-                                </select>
-                            </div>
-                        </div-->
                         <div class=" col-6 col-md ">
                             <div class="form-group">
                                 <select class="form-control " id="region" name="region" required>

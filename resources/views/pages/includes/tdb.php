@@ -11,8 +11,7 @@
 
 <div class="row">
 
-    <div class="col-12 col-md-6 mt-2 table-responsive px-0">
-        <div class="card">
+    <div class="col-12 mt-2 table-responsive px-0">
             <div class=" text-center card-header1">Appréciation de l'exécution du PCD de la commune / le PAIC</div>
             <table class="table-sm table-hover card-body">
                 <tr>
@@ -45,12 +44,11 @@
                     <td colspan="3">Fort intérêt de l'Administration Communale</td>
                 </tr>
             </table>
-        </div>
     </div>
 
 
 
-    <div class="col-12 col-md-6 mt-2 p-0">
+    <div class="col-12 mt-2 p-0">
         <div class="card">
             <h4 class="card-header">Appréciation du niveau d'exécution du PCD</h4>
             <div class="card-body">

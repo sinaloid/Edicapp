@@ -8,7 +8,7 @@ table {
 }
 
 td, th {
-    border: 2px solid #444444;
+    border: 2px solid #92918f;
     
 }
 
@@ -17,7 +17,7 @@ th{
 }
 
 th {
-    background: #d1d4c9;
+    background: #f7de05;
     color: #444444;
 }
 
@@ -74,4 +74,10 @@ caption{
 
 .text-edicp > p:last-child {
     color: #b87333;
+}
+
+td, th{
+    word-wrap: break-word;
+    min-width: 200px;
+    max-width: 200px;
 }

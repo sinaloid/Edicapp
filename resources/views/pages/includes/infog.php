@@ -1,7 +1,7 @@
 <div class="row ">
-    <div class="col-12 text-center">Evolution du budget de la commune les trois années</div>
+    <div class="col-12 font-weight-bolder text-center text-uppercase">Evolution du budget de la commune les trois années</div>
     <div class="col-12 table-responsive mt-2 px-0">
-        <table class="table table-striped table-hover ">
+        <table class="table-sm table-striped table-hover ">
             <tr>
                 <th class="sin-table-bg" colspan="5">Recettes</th>
             <tr>
@@ -43,9 +43,9 @@
         </table>
     </div>
 </div>
-<div class="row">
+<div class="row mt-4">
     <div class="col-12 table-responsive px-0">
-        <table class="table table-hover">
+        <table class="table-sm table-hover">
             <tr>
                 <th class="sin-table-bg" colspan="5">Dépenses</th>
             <tr>
@@ -87,10 +87,10 @@
         </table>
     </div>
 </div>
-<div class="row">
-    <div class="col-12 table-responsive px-0">
-        <table class="table table-hover">
-            <caption>Contribution des trois (03) meilleurs marchés</caption>
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase">Contribution des trois (03) meilleurs marchés</div>
+    <div class="col-12 table-responsive mt-2 px-0">
+        <table class="table-sm table-hover">
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -103,7 +103,7 @@
                 <th>Marchés</th>
                 <td>Lèba</td>
                 <td>Bouloulou</td>
-                <td></td>
+                <td>Bouloulou</td>
             </tr>
             <tr>
                 <th>Attendu</th>
@@ -127,10 +127,11 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12 table-responsive px-0">
-        <table class="table table-hover">
-            <caption> Contribution des dix (10) meilleurs villages (toute contribution)</caption>
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des dix (10) meilleurs villages (toute contribution)</div>
+    <div class="col-12 table-responsive mt-2 px-0">
+        <table class="table-sm table-hover">
+            
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -202,10 +203,10 @@
     </div>
 </div>
 
-<div class="row ">
-    <div class="col-12 table-responsive px-0">
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des autres partenaires à la commune</div>
+    <div class="col-12 table-responsive mt-2 px-0">
         <table class="table-sm table-hover ">
-            <caption> Contribution des autres partenaires à la commune</caption>
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -264,10 +265,11 @@
     </div>
 </div>
 
-<div class="row ">
-    <div class="col-12 table-responsive px-0">
-        <table class="table table-hover ">
-            <caption>ETAT CIVIL ET DOMAINE</caption>
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase">ETAT CIVIL ET DOMAINE</div>
+    <div class="col-12 table-responsive mt-2 px-0">
+        <table class="table-sm table-hover ">
+            
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -311,7 +313,7 @@
 
 <div class="row ">
     <div class="col-12 table-responsive px-0">
-        <table class="table table-hover ">
+        <table class="table-sm table-hover ">
             <caption> </caption>
             <thead>
                 <tr>
@@ -358,7 +360,7 @@
     </div>
 </div>
 
-<div class="row justify-content-center">
+<div class="row mt-3 justify-content-center">
     <a class="col-sm-6" href="../img/img2.png"><img class="img-fluid" src="../img/img2.png" alt="img1" /></a>
     <a class="col-sm-6" href="../img/img3.png"><img class="img-fluid" src="../img/img3.png" alt="img1" /></a>
     <a class="col-sm-6" href="../img/img4.png"><img class="img-fluid" src="../img/img4.png" alt="img1" /></a>
