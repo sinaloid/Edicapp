@@ -256,6 +256,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
           box-shadow: 0 4px 8px #444444;
           transition: 0.3s;
           width: 55%;
+          height: auto;
           background-color: #fff;
           padding: 8px;
           border-radius: 8px;   
@@ -263,7 +264,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         }
 
         .sincard img {
+          width:50%;
+        }
+        .card img {
           width:100%;
+          height: auto;
         }
 
         .sincard h4 {

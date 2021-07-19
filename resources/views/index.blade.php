@@ -234,30 +234,31 @@ function drawChart() {
     <!--Categorie -->
     <div class="row justify-content-center">
         <p class="col-12 text-white sin-title">Données par catégories</p>
-        <div class="col-6 col-lg-3 mt-3 text-center">
-            <a id="inf" class="col-card sincard  " href="{{ route('datas.info') }}">
-                <img src="img/info.png" alt="img info">
-                <h4><b>Info G</b></h4>
+        <div class="col-6 col-lg-2 mt-3">
+            <a id="inf" class="col-card card w-75 p-2" href="{{ route('datas.info') }}">
+                <img class="mx-auto" src="img/infog.png" alt="img tdb">
+                <h4 class="m-auto font-weight-bolder">Info G</h4>
             </a>
         </div>
-        <div class="col-6 col-lg-3 mt-3  text-center">
-            <a id="pcd" class="col-card sincard " href="{{ route('datas.pcd') }}">
-                <img src="img/pcd.png" alt="img pcd">
-                <h4><b>PCD</b></h4>
+        <div class="col-6 col-lg-2 mt-3">
+            <a id="pcd" class="col-card card w-75 p-2" href="{{ route('datas.pcd') }}">
+                <img class="mx-auto" src="img/pcd.png" alt="img pcd">
+                <h4 class="m-auto font-weight-bolder">PCD</h4>
             </a>
         </div>
-        <div class="col-6 col-lg-3 mt-3  text-center">
-            <a id="budget" class="col-card sincard" href="{{ route('datas.bg') }}">
-                <img src="img/budget.png" alt="img budget">
-                <h4><b>Budget</b></h4>
+        <div class="col-6 col-lg-2 mt-3">
+            <a id="budget" class="col-card card w-75 p-2" href="{{ route('datas.bg') }}">
+                <img class="mx-auto" src="img/budget.png" alt="img budget">
+                <h4 class="m-auto font-weight-bolder">Budget</h4>
             </a>
         </div>
-        <div class="col-6 col-lg-3 mt-3  text-center">
-            <a id="tdb" class="col-card sincard" href="{{ route('datas.tdb') }}">
-                <img src="img/tdb.png" alt="img tdb">
-                <h4><b>TdB</b></h4>
+        <div class="col-6 col-lg-2 mt-3">
+            <a id="tdb" class="col-card card w-75 p-2" href="{{ route('datas.tdb') }}">
+                <img class="mx-auto" src="img/tdb.png" alt="img tdb">
+                <h4 class="m-auto font-weight-bolder">Tdb</h4>
             </a>
         </div>
+        
         <!-- start button -->
 
         <!-- end button -->
