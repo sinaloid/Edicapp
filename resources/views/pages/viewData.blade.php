@@ -455,14 +455,14 @@
         datasets: [{
                 label: "Data, baby!",
                 fill: false,
-                backgroundColor: 'rgb(190, 99, 255, 0.25)',
+                backgroundColor: 'rgb(190, 99, 255, 0.5)',
                 borderColor: 'rgb(190, 99, 255)',
                 data: dataBaby,
             },
             {
                 label: "More data, baby!",
                 fill: true,
-                backgroundColor: 'rgba(255, 99, 132, 0.25)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: moreDataBaby,
             }
@@ -471,7 +471,7 @@
 
     // Default chart defined with type: 'line'
     //Chart.defaults.global.defaultFontFamily = "monospace";
-    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx = document.getElementById('myChart')//.getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: myData
