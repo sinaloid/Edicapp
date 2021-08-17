@@ -80,11 +80,11 @@
                                 <option value="3">Unsolved</option>
                                 <option value="3">No Replies Yet</option>
                             </select>
-                            <span class="input-icon input-icon-sm ml-auto w-auto">
+                            <!--span class="input-icon input-icon-sm ml-auto w-auto">
                                 <input type="text"
                                     class="form-control form-control-sm bg-gray-200 border-gray-200 shadow-none mb-4 mt-4"
                                     placeholder="Search forum" />
-                            </span>
+                            </span-->
                         </div>
                     </div>
 
