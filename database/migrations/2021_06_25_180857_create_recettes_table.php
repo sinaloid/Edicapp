@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppreciationsTable extends Migration
+class CreateRecettesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,20 @@ class CreateAppreciationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appreciations', function (Blueprint $table) {
+        Schema::create('recettes', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('pcd_id');
-            $table->foreign('pcd_id')
+            $table->unsignedBigInteger('infog_id');
+            $table->foreign('infog_id')
                     ->references('id')
-                    ->on('pcds')
+                    ->on('infogs')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-
+                    
             $table->string('annee');
-            $table->string('slug');
+            $table->string('fonctionnement');
+            $table->string('investissement');
+            //$table->string('slug');
             $table->timestamps();
         });
     }
@@ -36,6 +38,6 @@ class CreateAppreciationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appreciations');
+        Schema::dropIfExists('recettes');
     }
 }

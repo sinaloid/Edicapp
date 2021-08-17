@@ -10,6 +10,9 @@ use App\Models\Datas\Budget\Tables\{RecetInvest, DepensInvest, RecetFonct, Depen
 class Budget extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'data_id',
+    ];
 
     public function data() {
 

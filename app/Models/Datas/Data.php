@@ -15,6 +15,13 @@ class Data extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'commune_id',
+        'user_id',
+        'annee',
+        'slug'
+    ];
+
     public function commune() {
 
         return $this->belongsTo(Commune::class);
@@ -27,7 +34,7 @@ class Data extends Model
 
     public function infogs() {
 
-        return $this->hasMany(InfoG::class);
+        return $this->hasMany(Infog::class);
     }
 
     public function pcds() {

@@ -10,7 +10,9 @@ use App\Models\Datas\BudgetN\Tables\{RecetInvestN, DepensInvestN, RecetFonctN, D
 class BudgetN extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'data_id',
+    ];
     public function data() {
 
         return $this->belongsTo(Data::class);

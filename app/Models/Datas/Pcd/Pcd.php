@@ -5,11 +5,15 @@ namespace App\Models\Datas\Pcd;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Datas\Data;
-use App\Models\Datas\Pcd\Tables\{Appreciations, Satisfactions};
+use App\Models\Datas\Pcd\Tables\{Appreciation, Satisfaction};
 
 class Pcd extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'data_id',
+    ];
+
     public function data() {
 
         return $this->belongsTo(Data::class);

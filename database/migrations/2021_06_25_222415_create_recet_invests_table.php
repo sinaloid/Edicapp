@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepensInvestsTable extends Migration
+class CreateRecetInvestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDepensInvestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('depens_invests', function (Blueprint $table) {
+        Schema::create('recet_invests', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('budget_id');
@@ -22,9 +22,14 @@ class CreateDepensInvestsTable extends Migration
                     ->on('budgets')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-
-            $table->string('annee');
-            $table->string('slug');
+                   
+            $table->string('dotation_globale');
+            $table->string('subvention_equipement');
+            $table->string('contribution_propre');
+            $table->string('dotation_liee');
+            $table->string('resultat_exercice');
+            $table->string('autre_subvention');
+            //$table->string('slug');
             $table->timestamps();
         });
     }
@@ -36,6 +41,6 @@ class CreateDepensInvestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('depens_invests');
+        Schema::dropIfExists('recet_invests');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepensInvestNSTable extends Migration
+class CreateRecetFonctNSTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDepensInvestNSTable extends Migration
      */
     public function up()
     {
-        Schema::create('depens_invest_n_s', function (Blueprint $table) {
+        Schema::create('recet_fonct_n_s', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('budget_n_id');
@@ -23,8 +23,16 @@ class CreateDepensInvestNSTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
 
-            $table->string('annee');
-            $table->string('slug');
+            $table->string('produit_exploitation');
+            $table->string('produit_domaniaux');
+            $table->string('produit_financier');
+            $table->string('recouvrement');
+            $table->string('produit_diver');
+            $table->string('impots_taxe_c_direct');
+            $table->string('impots_taxe_indirect');
+            $table->string('produit_exceptionnel');
+            $table->string('produit_anterieur');
+            //$table->string('slug');
             $table->timestamps();
         });
     }
@@ -36,6 +44,6 @@ class CreateDepensInvestNSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('depens_invest_n_s');
+        Schema::dropIfExists('recet_fonct_n_s');
     }
 }

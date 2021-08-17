@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecetInvestsTable extends Migration
+class CreatePcdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateRecetInvestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('recet_invests', function (Blueprint $table) {
+        Schema::create('pcds', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('budget_id');
-            $table->foreign('budget_id')
+            $table->unsignedBigInteger('data_id');
+            $table->foreign('data_id')
                     ->references('id')
-                    ->on('budgets')
+                    ->on('data')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
 
-            $table->string('annee');
-            $table->string('slug');
+            //$table->string('annee');
             $table->timestamps();
         });
     }
@@ -36,6 +35,6 @@ class CreateRecetInvestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recet_invests');
+        Schema::dropIfExists('pcds');
     }
 }

@@ -176,6 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
 
+        // Service Provider DomPDF
+        //Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*
@@ -228,6 +231,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        // Façade DomPDF
+        //"PDF" => Barryvdh\DomPDF\Facade::class,
 
     ],
 

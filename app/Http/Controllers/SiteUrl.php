@@ -17,6 +17,7 @@ use App\Gestion\Infog\EtatCivil\EtatNombre;
 use App\Gestion\Infog\EtatCivil\Observation;*/
 use Illuminate\Support\Str;
 
+use PDF;
 
 
 class SiteUrl extends Controller
@@ -27,6 +28,16 @@ class SiteUrl extends Controller
      * @return \Illuminate\Http\Response
      */
  
+     /*public function pdf(){
+        $countries = Country::all();
+        //$pdf = PDF::loadView('', compact('countries'));
+        $pdf = PDF::loadView('index', compact('countries'))
+        ->setPaper('a4', 'landscape')
+        ->setWarnings(false);
+        //$pdf->save(storage_path().'_edic.pdf');
+        //$pdf->save(public_path("storage/documents/edic.pdf"));
+        return $pdf->download('edic.pdf');
+     }*/
     
     public function index()
     {
@@ -138,6 +149,10 @@ class SiteUrl extends Controller
         
         $communes = Province::find($province_id)->communes()->pluck('commune_name','id');
         return response()->json($communes);
+    }
+
+    public function getdata() {
+        dd(Data::find(3)->pcds);
     }
 
     public function test()

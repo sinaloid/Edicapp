@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTroisMeilleursTable extends Migration
+class CreatePartenairesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTroisMeilleursTable extends Migration
      */
     public function up()
     {
-        Schema::create('trois_meilleurs', function (Blueprint $table) {
+        Schema::create('partenaires', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('infog_id');
@@ -22,9 +22,11 @@ class CreateTroisMeilleursTable extends Migration
                     ->on('infogs')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-
-            $table->string('annee');
-            $table->string('slug');
+                    
+            $table->string('identite_ptf');
+            $table->string('evaluation_contribution');
+            $table->string('principale_action');
+            //$table->string('slug');
             $table->timestamps();
         });
     }
@@ -36,6 +38,6 @@ class CreateTroisMeilleursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('trois_meilleurs');
+        Schema::dropIfExists('partenaires');
     }
 }

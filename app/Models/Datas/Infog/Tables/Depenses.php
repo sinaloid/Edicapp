@@ -9,6 +9,12 @@ use App\Models\Datas\Infog\Infog;
 class Depenses extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'infog_id', 
+        'annee', 
+        'fonctionnement', 
+        'investissement'
+    ];
 
     public function infog() {
 

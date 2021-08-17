@@ -9,6 +9,16 @@ use  App\Models\Datas\Budget\Budget;
 class DepensInvest extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'budget_id', 
+        'etude_recherche', 
+        'environnement', 
+        'equipement', 
+        'batiment',
+        'emprunt', 
+        'autre_investissement', 
+        'deficit_excedent'
+    ];
 
     public function budget() {
 

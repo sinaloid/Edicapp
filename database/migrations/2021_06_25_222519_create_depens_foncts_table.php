@@ -22,9 +22,18 @@ class CreateDepensFonctsTable extends Migration
                     ->on('budgets')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-
-            $table->string('annee');
-            $table->string('slug');
+                   
+            $table->string('sante');
+            $table->string('appui_scolaire');
+            $table->string('sport_culture');
+            $table->string('participation');
+            $table->string('frais_financier');
+            $table->string('refection_entretien');
+            $table->string('salaire_indemnite');
+            $table->string('entretien_vehicule');
+            $table->string('appui_fonctionnement');
+            $table->string('exedent_prelevement');
+            //$table->string('slug');
             $table->timestamps();
         });
     }

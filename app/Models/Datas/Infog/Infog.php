@@ -6,11 +6,15 @@ namespace App\Models\Datas\Infog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Datas\Data;
-use App\Models\Datas\Infog\Tables\{Recettes, Depenses, TroisMeilleurs, DixMeilleurs, Partenaires, EtatCivil, DomaineCivil};
+use App\Models\Datas\Infog\Tables\{Recettes, Depenses, TroisMeilleurs, DixMeilleurs, Partenaires, EtatCivil, DomaineCivil, RessourceImage};
 
 class Infog extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'data_id',
+    ];
 
     public function data() {
 
@@ -37,9 +41,9 @@ class Infog extends Model
         return $this->hasMany(DixMeilleurs::class);
     }
 
-    public function partenaire() {
+    public function partenaires() {
 
-        return $this->hasMany(Partenaire::class);
+        return $this->hasMany(Partenaires::class);
     }
 
     public function etatcivils() {
@@ -50,5 +54,10 @@ class Infog extends Model
     public function domainecivils() {
 
         return $this->hasMany(DomaineCivil::class);
+    }
+
+    public function ressourceimages() {
+
+        return $this->hasMany(RessourceImage::class);
     }
 }

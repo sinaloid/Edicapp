@@ -9,6 +9,12 @@ use App\Models\Datas\Infog\Infog;
 class TroisMeilleurs extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'infog_id', 
+        'marche', 
+        'attendu', 
+        'contribution'
+    ];
 
     public function infog() {
 

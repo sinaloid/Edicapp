@@ -23,7 +23,7 @@ class CreateBudgetNSTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
 
-            $table->string('annee');
+            //$table->string('annee');
             $table->timestamps();
         });
     }

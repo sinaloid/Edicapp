@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEtatCivilsTable extends Migration
+class CreateDepensesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEtatCivilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('etat_civils', function (Blueprint $table) {
+        Schema::create('depenses', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('infog_id');
@@ -22,9 +22,11 @@ class CreateEtatCivilsTable extends Migration
                     ->on('infogs')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-
+                    
             $table->string('annee');
-            $table->string('slug');
+            $table->string('fonctionnement');
+            $table->string('investissement');
+            //$table->string('slug');
             $table->timestamps();
         });
     }
@@ -36,6 +38,6 @@ class CreateEtatCivilsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('etat_civils');
+        Schema::dropIfExists('depenses');
     }
 }

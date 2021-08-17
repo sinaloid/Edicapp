@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <select class="form-control" id="country" name="country" required>
                                 <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
-                                @foreach($countries as $country)
+                                @foreach($countries ?? '' as $country)
                                 <option value="{{ $country->id }}">
                                     {{ $country->country_name }}</option>
                                 @endforeach
@@ -89,7 +89,7 @@
                         <div class="form-group mt">
                             <select class="form-control mt-1" id="country" name="country" required>
                                 <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
-                                @foreach($countries as $country)
+                                @foreach($countries ?? '' as $country)
                                 <option value="{{ $country->id }}">
                                     {{ $country->country_name }}</option>
                                 @endforeach
@@ -142,7 +142,7 @@
                 </div>
                 <div class="col-12">
                     <a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
-                    <a class="btn sin-bg-3" href="#">Exporter</a>
+                    <a class="btn sin-bg-3" href="{{ route('pdf') }}">Exporter</a>
                 </div>
             </div>
         </div>

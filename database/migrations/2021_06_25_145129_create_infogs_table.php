@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePcdsTable extends Migration
+class CreateInfogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreatePcdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pcds', function (Blueprint $table) {
+        Schema::create('infogs', function (Blueprint $table) {
             $table->id();
+            
 
             $table->unsignedBigInteger('data_id');
             $table->foreign('data_id')
@@ -23,7 +24,7 @@ class CreatePcdsTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
 
-            $table->string('annee');
+            //$table->string('annee');
             $table->timestamps();
         });
     }
@@ -35,6 +36,6 @@ class CreatePcdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pcds');
+        Schema::dropIfExists('infogs');
     }
 }

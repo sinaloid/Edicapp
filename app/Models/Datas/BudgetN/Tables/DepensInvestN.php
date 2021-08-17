@@ -10,6 +10,15 @@ use  App\Models\Datas\BudgetN\BudgetN;
 class DepensInvestN extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'budget_n_id', 
+        'etude_recherche', 
+        'environnement', 
+        'equipement', 
+        'batiment',
+        'emprunt', 
+        'autre_investissement',
+    ];
 
     public function budget_n() {
 

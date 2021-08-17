@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Datas\Infog\Infog;
 
-class Recettes extends Model
+class RessourceImage extends Model
 {
     use HasFactory;
+    protected $table = 'ressource_image';
     protected $fillable = [
-        'infog_id',
-        'annee',
-        'fonctionnement',
-        'investissement'
+        'infog_id', 
+        'url'
     ];
 
     public function infog() {

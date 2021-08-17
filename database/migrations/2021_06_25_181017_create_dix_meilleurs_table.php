@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepensesTable extends Migration
+class CreateDixMeilleursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDepensesTable extends Migration
      */
     public function up()
     {
-        Schema::create('depenses', function (Blueprint $table) {
+        Schema::create('dix_meilleurs', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('infog_id');
@@ -22,9 +22,11 @@ class CreateDepensesTable extends Migration
                     ->on('infogs')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-
-            $table->string('annee');
-            $table->string('slug');
+                    
+            $table->string('le_village');
+            $table->string('attendu');
+            $table->string('mobilise');
+            //$table->string('slug');
             $table->timestamps();
         });
     }
@@ -36,6 +38,6 @@ class CreateDepensesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('depenses');
+        Schema::dropIfExists('dix_meilleurs');
     }
 }

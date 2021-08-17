@@ -9,6 +9,12 @@ use App\Models\Datas\Infog\Infog;
 class DixMeilleurs extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'infog_id', 
+        'le_village', 
+        'attendu', 
+        'mobilise'
+    ];
 
     public function infog() {
 

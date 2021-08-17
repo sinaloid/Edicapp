@@ -22,9 +22,18 @@ class CreateRecetFonctsTable extends Migration
                     ->on('budgets')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-
-            $table->string('annee');
-            $table->string('slug');
+                    
+            $table->string('produit_exploitation');
+            $table->string('produit_domaniaux');
+            $table->string('produit_financier');
+            $table->string('recouvrement');
+            $table->string('produit_diver');
+            $table->string('impots_taxe_c_direct');
+            $table->string('impots_taxe_indirect');
+            $table->string('produit_exceptionnel');
+            $table->string('produit_anterieur');
+            $table->string('autres_dotations');
+            //$table->string('slug');
             $table->timestamps();
         });
     }

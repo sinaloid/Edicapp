@@ -64,9 +64,11 @@ Route::get('forum', [SiteUrl::class, 'forum'])->name('forum');
 Route::get('contact', [SiteUrl::class, 'contact'])->name('contact');
 Route::get('about', [SiteUrl::class, 'about'])->name('about');
 Route::get('test', [SiteUrl::class, 'test'])->name('test');
+Route::get('getdata', [SiteUrl::class, 'getdata'])->name('getdata');
 
 //Route::delete('films/force/{id}', [FilmController::class, 'forceDestroy'])->name('films.force.destroy');
 Route::get('country/{country_id}', [SiteUrl::class, 'getCountryRegion']);
 Route::get('region/{region_id}', [SiteUrl::class, 'getCountryRegionProvince']);
 Route::get('province/{province_id}', [SiteUrl::class, 'getCountryRegionProvinceCommune']);
 
+Route::get('/pdf', [SiteUrl::class, 'pdf'])->name('pdf');

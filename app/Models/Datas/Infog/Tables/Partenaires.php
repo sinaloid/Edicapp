@@ -9,6 +9,12 @@ use App\Models\Datas\Infog\Infog;
 class Partenaires extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'infog_id', 
+        'identite_ptf', 
+        'evaluation_contribution', 
+        'principale_action'
+    ];
 
     public function infog() {
 

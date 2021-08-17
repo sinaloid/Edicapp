@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecettesTable extends Migration
+class CreateBudgetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateRecettesTable extends Migration
      */
     public function up()
     {
-        Schema::create('recettes', function (Blueprint $table) {
+        Schema::create('budgets', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('infog_id');
-            $table->foreign('infog_id')
+            $table->unsignedBigInteger('data_id');
+            $table->foreign('data_id')
                     ->references('id')
-                    ->on('infogs')
+                    ->on('data')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
 
-            $table->string('annee');
-            $table->string('slug');
+            //$table->string('annee');
             $table->timestamps();
         });
     }
@@ -36,6 +35,6 @@ class CreateRecettesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recettes');
+        Schema::dropIfExists('budgets');
     }
 }

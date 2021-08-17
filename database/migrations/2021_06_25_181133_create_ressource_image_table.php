@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBudgetsTable extends Migration
+class CreateRessourceImageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class CreateBudgetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('budgets', function (Blueprint $table) {
+        Schema::create('ressource_image', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('data_id');
-            $table->foreign('data_id')
+            $table->unsignedBigInteger('infog_id');
+            $table->foreign('infog_id')
                     ->references('id')
-                    ->on('data')
+                    ->on('infogs')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-
-            $table->string('annee');
+                   
+            $table->string('url');
+            //$table->string('slug');
             $table->timestamps();
         });
     }
@@ -35,6 +36,6 @@ class CreateBudgetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('budgets');
+        Schema::dropIfExists('ressource_image');
     }
 }

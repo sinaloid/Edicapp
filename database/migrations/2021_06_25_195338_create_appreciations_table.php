@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSatisfactionsTable extends Migration
+class CreateAppreciationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSatisfactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('satisfactions', function (Blueprint $table) {
+        Schema::create('appreciations', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('pcd_id');
@@ -22,9 +22,14 @@ class CreateSatisfactionsTable extends Migration
                     ->on('pcds')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
-
-            $table->string('annee');
-            $table->string('slug');
+                    
+            $table->string('date_de_conception');
+            $table->string('date_d_expiration');
+            $table->string('montant_total');
+            $table->string('montant_mobilise');
+            $table->string('probleme_majeur');
+            $table->string('perpective_dix_mot');
+            //$table->string('slug');
             $table->timestamps();
         });
     }
@@ -36,6 +41,6 @@ class CreateSatisfactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('satisfactions');
+        Schema::dropIfExists('appreciations');
     }
 }

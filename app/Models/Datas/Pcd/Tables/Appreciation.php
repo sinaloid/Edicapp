@@ -9,6 +9,15 @@ use App\Models\Datas\Pcd\Pcd;
 class Appreciation extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'pcd_id', 
+        'date_de_conception', 
+        'date_d_expiration', 
+        'montant_total', 
+        'montant_mobilise', 
+        'probleme_majeur', 
+        'perpective_dix_mot'
+    ];
 
     public function pcd() {
 
