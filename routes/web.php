@@ -72,3 +72,4 @@ Route::get('region/{region_id}', [SiteUrl::class, 'getCountryRegionProvince']);
 Route::get('province/{province_id}', [SiteUrl::class, 'getCountryRegionProvinceCommune']);
 
 Route::get('/pdf', [SiteUrl::class, 'pdf'])->name('pdf');
+Route::resource('data', App\Http\Controllers\DataCommuneController::class)->middleware(['auth','verified']);

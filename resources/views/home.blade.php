@@ -32,13 +32,13 @@
 <div class="container card">
     <div class="row ">
         <div class="col justify-content-right">
-            <a name="" id="" class="btn btn-primary my-2 ml-auto" href="#" role="button">Creer</a>
+            <a name="" id="" class="btn btn-primary my-2 ml-auto" href="{{ route('data.create') }}" role="button">Creer</a>
         </div>
         <div class="col">
             <a name="" id="" class="btn btn-primary my-2 ml-auto" href="#" role="button">Forum</a>
         </div>
         <div class="col">
-            <a name="" id="" class="btn btn-primary my-2 ml-auto href=" #" role="button">Actualités</a>
+            <a name="" id="" class="btn btn-primary my-2 ml-auto" href="#" role="button">Actualités</a>
         </div>
 
     </div>
