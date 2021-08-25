@@ -23,12 +23,12 @@ class CreateRecetInvestNSTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
 
-            $table->string('dotation_globale');
-            $table->string('subvention_equipement');
-            $table->string('contribution_propre');
-            $table->string('dotation_liee');
-            $table->string('resultat_exercice');
-            $table->string('autre_dotation');
+            $table->string('dotation_globale')->nullable();
+            $table->string('subvention_equipement')->nullable();
+            $table->string('contribution_propre')->nullable();
+            $table->string('dotation_liee')->nullable();
+            $table->string('resultat_exercice')->nullable();
+            $table->string('autre_dotation')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

@@ -23,16 +23,16 @@ class CreateSatisfactionsTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
                     
-            $table->string('reforme_tres_satisfaisant');
-            $table->string('reforme_satisfaisant');
-            $table->string('reforme_pas_satisfaisant');
-            $table->string('developper_tres_satisfaisant');
-            $table->string('developper_satisfaisant');
-            $table->string('developper_pas_satisfaisant');
-            $table->string('dynamiser_tres_satisfaisant');
-            $table->string('dynamiser_satisfaisant');
-            $table->string('dynamiser_pas_satisfaisant');
-            $table->string('commenteaire_appreciation');
+            $table->string('reforme_tres_satisfaisant')->nullable();
+            $table->string('reforme_satisfaisant')->nullable();
+            $table->string('reforme_pas_satisfaisant')->nullable();
+            $table->string('developper_tres_satisfaisant')->nullable();
+            $table->string('developper_satisfaisant')->nullable();
+            $table->string('developper_pas_satisfaisant')->nullable();
+            $table->string('dynamiser_tres_satisfaisant')->nullable();
+            $table->string('dynamiser_satisfaisant')->nullable();
+            $table->string('dynamiser_pas_satisfaisant')->nullable();
+            $table->string('commentaire_appreciation')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

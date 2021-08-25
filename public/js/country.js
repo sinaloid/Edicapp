@@ -132,7 +132,7 @@ $(document).ready(function() {
     
     if (commune_id) {
 
-        alert("Donnée non existant pour le moment");
+        //alert("Donnée non existant pour le moment");
         //alert('coucou');
         /*$.ajax({
             //alert('coucou');

@@ -23,12 +23,12 @@ class CreateDepensInvestNSTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
 
-            $table->string('etude_recherche');
-            $table->string('environnement');
-            $table->string('equipement');
-            $table->string('batiment');
-            $table->string('emprunt');
-            $table->string('autre_investissement');
+            $table->string('etude_recherche')->nullable();
+            $table->string('environnement')->nullable();
+            $table->string('equipement')->nullable();
+            $table->string('batiment')->nullable();
+            $table->string('emprunt')->nullable();
+            $table->string('autre_investissement')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

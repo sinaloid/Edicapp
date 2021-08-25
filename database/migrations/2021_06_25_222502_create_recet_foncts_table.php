@@ -23,16 +23,16 @@ class CreateRecetFonctsTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
                     
-            $table->string('produit_exploitation');
-            $table->string('produit_domaniaux');
-            $table->string('produit_financier');
-            $table->string('recouvrement');
-            $table->string('produit_diver');
-            $table->string('impots_taxe_c_direct');
-            $table->string('impots_taxe_indirect');
-            $table->string('produit_exceptionnel');
-            $table->string('produit_anterieur');
-            $table->string('autres_dotations');
+            $table->string('produit_exploitation')->nullable();
+            $table->string('produit_domaniaux')->nullable();
+            $table->string('produit_financier')->nullable();
+            $table->string('recouvrement')->nullable();
+            $table->string('produit_diver')->nullable();
+            $table->string('impots_taxe_c_direct')->nullable();
+            $table->string('impots_taxe_indirect')->nullable();
+            $table->string('produit_exceptionnel')->nullable();
+            $table->string('produit_anterieur')->nullable();
+            $table->string('autres_dotations')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

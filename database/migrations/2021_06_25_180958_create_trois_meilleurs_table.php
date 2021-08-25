@@ -23,9 +23,9 @@ class CreateTroisMeilleursTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
                     
-            $table->string('marche');
-            $table->string('attendu');
-            $table->string('contribution');
+            $table->string('marche')->nullable();
+            $table->string('attendu')->nullable();
+            $table->string('contribution')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

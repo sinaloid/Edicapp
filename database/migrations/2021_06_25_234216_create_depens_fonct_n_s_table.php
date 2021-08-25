@@ -23,17 +23,17 @@ class CreateDepensFonctNSTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
 
-            $table->string('sante');
-            $table->string('appui_scolaire');
-            $table->string('sport_culture');
-            $table->string('eau_assainissement');
-            $table->string('participation');
-            $table->string('frais_financier');
-            $table->string('refection_entretien');
-            $table->string('salaire_indemnite');
-            $table->string('entretien_vehicule');
-            $table->string('appui_fonctionnement');
-            $table->string('exedent_prelevement');
+            $table->string('sante')->nullable();
+            $table->string('appui_scolaire')->nullable();
+            $table->string('sport_culture')->nullable();
+            $table->string('eau_assainissement')->nullable();
+            $table->string('participation')->nullable();
+            $table->string('frais_financier')->nullable();
+            $table->string('refection_entretien')->nullable();
+            $table->string('salaire_indemnite')->nullable();
+            $table->string('entretien_vehicule')->nullable();
+            $table->string('appui_fonctionnement')->nullable();
+            $table->string('exedent_prelevement')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

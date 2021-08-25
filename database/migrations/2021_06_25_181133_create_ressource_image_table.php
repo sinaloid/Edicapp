@@ -23,7 +23,7 @@ class CreateRessourceImageTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
                    
-            $table->string('url');
+            $table->string('url')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

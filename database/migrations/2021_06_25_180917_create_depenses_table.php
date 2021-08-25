@@ -23,9 +23,9 @@ class CreateDepensesTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
                     
-            $table->string('annee');
-            $table->string('fonctionnement');
-            $table->string('investissement');
+            $table->string('annee')->nullable();
+            $table->string('fonctionnement')->nullable();
+            $table->string('investissement')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

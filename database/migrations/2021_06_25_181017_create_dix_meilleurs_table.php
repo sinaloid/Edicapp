@@ -23,9 +23,9 @@ class CreateDixMeilleursTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
                     
-            $table->string('le_village');
-            $table->string('attendu');
-            $table->string('mobilise');
+            $table->string('le_village')->nullable();
+            $table->string('attendu')->nullable();
+            $table->string('mobilise')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

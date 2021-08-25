@@ -23,21 +23,21 @@ class CreateDomaineCivilsTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
                    
-            $table->string('zone_habitation_parcelle_degagee');
-            $table->string('zone_habitation_parcelle_attribuee');
-            $table->string('zone_habitation_parcelle_restante');
-            $table->string('zone_commerciale_parcelle_degagee');
-            $table->string('zone_commerciale_parcelle_attribuee');
-            $table->string('zone_commerciale_parcelle_restante');
-            $table->string('zone_administrative_parcelle_degagee');
-            $table->string('zone_administrative_parcelle_attribuee');
-            $table->string('zone_administrative_parcelle_restante');
-            $table->string('zone_autre_parcelle_degagee');
-            $table->string('zone_autre_parcelle_attribuee');
-            $table->string('zone_autre_parcelle_restante');
-            $table->string('surface_degagee');
-            $table->string('surface_attribuee');
-            $table->string('surface_restante');
+            $table->string('zone_habitation_parcelle_degagee')->nullable();
+            $table->string('zone_habitation_parcelle_attribuee')->nullable();
+            $table->string('zone_habitation_parcelle_restante')->nullable();
+            $table->string('zone_commerciale_parcelle_degagee')->nullable();
+            $table->string('zone_commerciale_parcelle_attribuee')->nullable();
+            $table->string('zone_commerciale_parcelle_restante')->nullable();
+            $table->string('zone_administrative_parcelle_degagee')->nullable();
+            $table->string('zone_administrative_parcelle_attribuee')->nullable();
+            $table->string('zone_administrative_parcelle_restante')->nullable();
+            $table->string('zone_autre_parcelle_degagee')->nullable();
+            $table->string('zone_autre_parcelle_attribuee')->nullable();
+            $table->string('zone_autre_parcelle_restante')->nullable();
+            $table->string('surface_degagee')->nullable();
+            $table->string('surface_attribuee')->nullable();
+            $table->string('surface_restante')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

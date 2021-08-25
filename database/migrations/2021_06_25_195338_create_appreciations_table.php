@@ -23,12 +23,12 @@ class CreateAppreciationsTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
                     
-            $table->string('date_de_conception');
-            $table->string('date_d_expiration');
-            $table->string('montant_total');
-            $table->string('montant_mobilise');
-            $table->string('probleme_majeur');
-            $table->string('perpective_dix_mot');
+            $table->string('date_de_conception')->nullable();
+            $table->string('date_d_expiration')->nullable();
+            $table->string('montant_total')->nullable();
+            $table->string('montant_mobilise')->nullable();
+            $table->string('probleme_majeur')->nullable();
+            $table->string('perpective_dix_mot')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

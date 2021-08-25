@@ -23,9 +23,9 @@ class CreatePartenairesTable extends Migration
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
                     
-            $table->string('identite_ptf');
-            $table->string('evaluation_contribution');
-            $table->string('principale_action');
+            $table->string('identite_ptf')->nullable();
+            $table->string('evaluation_contribution')->nullable();
+            $table->string('principale_action')->nullable();
             //$table->string('slug');
             $table->timestamps();
         });

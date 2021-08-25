@@ -46,13 +46,14 @@
 
 <div class="container">
     <div class="row">
+    @foreach($datas as $data)
         <div class="col-12 alert alert-warning" role="alert">
             <div class="col-12">
                 <div class="col-sm">
                     <p class="my-0">
                         <strong>
                             <span class="badge badge-dark">
-                                #81
+                                #{{ $data->id}}
                             </span>
                         </strong>
 
@@ -94,7 +95,7 @@
                         <button type="submit" class="btn btn-warning mx-1" style="min-width:90px">Undone</button>
                     </form>
                     @endif
-                    <a href="{{ '(todos.edit,data->id)' }}" id="" class="btn btn-info mx-1"
+                    <a href="{{ route('data.edit',$data->id) }}" id="" class="btn btn-info mx-1"
                         role="button">Editer</a>
                     <form action="{{ '(todos.destroy,data->id)' }}" method="post">
                         @csrf
@@ -105,5 +106,5 @@
                 </div>
             </div>
         </div>
-
+        @endforeach
         @endsection

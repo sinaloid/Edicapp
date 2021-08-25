@@ -148,6 +148,7 @@ class SiteUrl extends Controller
     public function getCountryRegionProvinceCommune($province_id){
         
         $communes = Province::find($province_id)->communes()->pluck('commune_name','id');
+        
         return response()->json($communes);
     }
 

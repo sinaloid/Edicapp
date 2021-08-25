@@ -18,7 +18,8 @@ Route::get('/', [SiteUrl::class, 'index'])->name('acceuil');
 
 /*login*/
 Route::get('home', function () {
-    return view('home');
+    $datas = App\Models\Datas\Data::all();
+    return view('home', compact('datas'));
   })->middleware(['auth','verified'])->name('home');
 
   Route::get('profile', function () {
