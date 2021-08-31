@@ -8,6 +8,7 @@ use App\Models\Countries\{ Region, Country, Province, Commune };
 use App\Models\EdicUser\User;
 use App\Models\Datas\Data;
 use App\Models\Datas\Infog\Infog;
+use App\Models\Datas\Infog\Tables\TroisMeilleurs;
 /*use App\Gestion\Data as GData;
 use App\Gestion\Budget\Budget as GBudget;
 use App\Gestion\Budgetn\Budgetn as GBudgetn;
@@ -42,7 +43,18 @@ class SiteUrl extends Controller
     public function index()
     {
         $countries = Country::all();
-        return view('index', compact('countries'));
+        $data = Data::where('terminer',1)->first();
+        //dd($data);
+        $troisMeilleur = null;
+        if($data != null){
+            $troisMeilleur = Data::where('terminer',1)->get()->random(1)->first()->infogs()->first()->troisMeilleurs()->get();
+        }
+
+        /*dd(
+            Commune::all()->random(1)->first()->commune_name
+        );*/
+        //$marches = json_encode($troisMeilleur);
+        return view('index', compact('countries','troisMeilleur'));
     }
 
     public function actu(){
@@ -57,6 +69,7 @@ class SiteUrl extends Controller
         
     }
 
+    
     public function datasInfo(){
          $countries = Country::all();
         return view('pages.menu.minfo',compact('countries'));

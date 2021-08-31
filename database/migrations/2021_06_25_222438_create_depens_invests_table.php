@@ -20,7 +20,7 @@ class CreateDepensInvestsTable extends Migration
             $table->foreign('budget_id')
                     ->references('id')
                     ->on('budgets')
-                    ->onDelete('restrict')
+                    ->onDelete('cascade')
                     ->onUpdate('restrict');
                     
             $table->string('etude_recherche')->nullable();

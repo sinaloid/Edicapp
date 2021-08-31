@@ -32,7 +32,8 @@
 <div class="container card">
     <div class="row ">
         <div class="col justify-content-right">
-            <a name="" id="" class="btn btn-primary my-2 ml-auto" href="{{ route('data.create') }}" role="button">Creer</a>
+            <a name="" id="" class="btn btn-primary my-2 ml-auto" href="{{ route('data.create') }}"
+                role="button">Creer</a>
         </div>
         <div class="col">
             <a name="" id="" class="btn btn-primary my-2 ml-auto" href="#" role="button">Forum</a>
@@ -46,7 +47,7 @@
 
 <div class="container">
     <div class="row">
-    @foreach($datas as $data)
+        @foreach($datas as $data)
         <div class="col-12 alert alert-warning" role="alert">
             <div class="col-12">
                 <div class="col-sm">
@@ -58,15 +59,30 @@
                         </strong>
 
                         <small>
-                            Crééé 3 weeks ago par
+                            {{App\Models\Datas\Data::find($data->id)->commune->commune_name}}
+
                         </small>
+
                     </p>
-                    <details>
+                    <p>
+                        <strong>
+                            <span class="badge badge-dark">
+                                année: {{ $data->annee}}
+                            </span>
+                        </strong>
+                    </p>
+                    <!--details>
                         <summary>
+
                             <strong>lorem ipsum test </strong>
                         </summary>
-                        <p>lorem ipsum test</p>
-                    </details>
+                        <p>{{ $data->annee}}</p>
+                    </details-->
+                </div>
+                <div class="col-sm form-inline justify-content-end my-1">
+                    <small>
+                        {{ $data->created_at}}
+                    </small>
                 </div>
                 <div class="col-sm form-inline justify-content-end my-1">
                     <!--div class="dropdown">
@@ -81,23 +97,23 @@
                             
                         </div>
                     </div-->
-                    
-                    @if( 0 == 0)
-                    <form action="{{ '(todos.makedone','data->id)' }}" method="post">
+
+                    @if( $data->terminer != 0)
+                    <form action="{{ route('data.terminer',$data->id) }}" method="post">
                         @csrf
                         @method('PUT')
-                        <button type="submit" class="btn btn-success mx-1" style="min-width:90px">Done</button>
+                        <button type="submit" class="btn btn-success mx-1" style="min-width:90px">Terminer</button>
                     </form>
                     @else
-                    <form action="{{ '(todos.makeundone,data->id)' }}" method="post">
+                    <form action="{{ route('data.encour',$data->id) }}" method="post">
                         @csrf
                         @method('PUT')
-                        <button type="submit" class="btn btn-warning mx-1" style="min-width:90px">Undone</button>
+                        <button type="submit" class="btn btn-warning mx-1" style="min-width:90px">En cour</button>
                     </form>
                     @endif
                     <a href="{{ route('data.edit',$data->id) }}" id="" class="btn btn-info mx-1"
                         role="button">Editer</a>
-                    <form action="{{ '(todos.destroy,data->id)' }}" method="post">
+                    <form action="{{ route('data.destroy',$data->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger mx-1 my-1">Effacer</button>

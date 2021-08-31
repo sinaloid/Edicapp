@@ -14,32 +14,48 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['Work', 11],
-        ['Eat', 2],
-        ['Commute', 2],
-        ['Watch TV', 2],
-        ['Sleep', 7]
+        ['Task', 'taux de contribution'],
+        ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[0]->attendu : 1 }}],
+        ['Contribution', {{ isset($troisMeilleur) ? $troisMeilleur[0]->contribution : 0 }}],
+        
     ]);
     var data1 = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['Work', 11],
-        ['Eat', 2],
-        ['Commute', 2],
-        ['Watch TV', 2],
-        ['Sleep', 70]
+        ['Task', 'taux de contribution'],
+        ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[1]->attendu : 1 }}],
+        ['Contribution', {{ isset($troisMeilleur) ? $troisMeilleur[1]->contribution : 0 }}],
+        
     ]);
     var data2 = google.visualization.arrayToDataTable([
-        ['Task', 'Hours per Day'],
-        ['Work', 11],
-        ['Eat', 22],
-        ['Commute', 2],
-        ['Watch TV', 2],
-        ['Sleep', 7]
+        ['Task', 'taux de contribution'],
+        ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[2]->attendu : 1 }}],
+        ['Contribution', {{ isset($troisMeilleur) ? $troisMeilleur[2]->contribution : 0 }}],
+       
     ]);
 
     var options = {
-        title: 'Nom du village',
+        title: '{{ isset($troisMeilleur) ? $troisMeilleur[0]->marche : '' }}',
+        is3D: true,
+        chartArea: {
+            left: 20,
+            top: 20,
+            width: '100%',
+            height: '100%'
+        },
+    };
+
+    var options1 = {
+        title: '{{ isset($troisMeilleur) ? $troisMeilleur[1]->marche : '' }}',
+        is3D: true,
+        chartArea: {
+            left: 20,
+            top: 20,
+            width: '100%',
+            height: '100%'
+        },
+    };
+
+    var options2 = {
+        title: '{{ isset($troisMeilleur) ? $troisMeilleur[2]->marche : ''}}',
         is3D: true,
         chartArea: {
             left: 20,
@@ -53,13 +69,13 @@ function drawChart() {
     var chart1 = new google.visualization.PieChart(document.getElementById('piechart_4d'));
     var chart2 = new google.visualization.PieChart(document.getElementById('piechart_5d'));
     chart.draw(data, options);
-    chart1.draw(data1, options);
-    chart2.draw(data2, options);
+    chart1.draw(data1, options1);
+    chart2.draw(data2, options2);
 
     $(window).smartresize(function() {
         chart.draw(data, options);
-        chart1.draw(data1, options);
-        chart2.draw(data2, options);
+        chart1.draw(data1, options1);
+        chart2.draw(data2, options2);
     });
 }
 </script>

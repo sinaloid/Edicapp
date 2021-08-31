@@ -20,7 +20,7 @@ class CreateDepensFonctNSTable extends Migration
             $table->foreign('budget_n_id')
                     ->references('id')
                     ->on('budget_n_s')
-                    ->onDelete('restrict')
+                    ->onDelete('cascade')
                     ->onUpdate('restrict');
 
             $table->string('sante')->nullable();

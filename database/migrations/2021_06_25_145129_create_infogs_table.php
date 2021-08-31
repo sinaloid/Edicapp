@@ -21,7 +21,7 @@ class CreateInfogsTable extends Migration
             $table->foreign('data_id')
                     ->references('id')
                     ->on('data')
-                    ->onDelete('restrict')
+                    ->onDelete('cascade')
                     ->onUpdate('restrict');
 
             //$table->string('annee');

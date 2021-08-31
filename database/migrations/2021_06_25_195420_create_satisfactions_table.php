@@ -20,7 +20,7 @@ class CreateSatisfactionsTable extends Migration
             $table->foreign('pcd_id')
                     ->references('id')
                     ->on('pcds')
-                    ->onDelete('restrict')
+                    ->onDelete('cascade')
                     ->onUpdate('restrict');
                     
             $table->string('reforme_tres_satisfaisant')->nullable();

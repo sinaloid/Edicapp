@@ -19,6 +19,7 @@ class Data extends Model
         'commune_id',
         'user_id',
         'annee',
+        'terminer',
         'slug'
     ];
 

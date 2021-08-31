@@ -48,6 +48,7 @@ Route::get('home/create', function () {
 Route::get('actu', [SiteUrl::class, 'actu'])->name('actu');
 Route::get('actuc', [SiteUrl::class, 'actuContent'])->name('actuc');
 /*Data view*/
+Route::get('datas/view', [SiteUrl::class, 'datasView'])->name('datas.view');
 Route::get('datas/info', [SiteUrl::class, 'datasInfo'])->name('datas.info');
 Route::get('datas/pcd', [SiteUrl::class, 'datasPcd'])->name('datas.pcd');
 Route::get('datas/budget', [SiteUrl::class, 'datasBudget'])->name('datas.bg');
@@ -74,3 +75,5 @@ Route::get('province/{province_id}', [SiteUrl::class, 'getCountryRegionProvinceC
 
 Route::get('/pdf', [SiteUrl::class, 'pdf'])->name('pdf');
 Route::resource('data', App\Http\Controllers\DataCommuneController::class)->middleware(['auth','verified']);
+Route::put('data/terminer/{data}', [App\Http\Controllers\DataCommuneController::class, 'terminer'])->middleware(['auth','verified'])->name('data.terminer');
+Route::put('data/encour/{data}', [App\Http\Controllers\DataCommuneController::class, 'encour'])->middleware(['auth','verified'])->name('data.encour');

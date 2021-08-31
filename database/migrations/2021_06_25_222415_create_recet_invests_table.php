@@ -20,7 +20,7 @@ class CreateRecetInvestsTable extends Migration
             $table->foreign('budget_id')
                     ->references('id')
                     ->on('budgets')
-                    ->onDelete('restrict')
+                    ->onDelete('cascade')
                     ->onUpdate('restrict');
                    
             $table->string('dotation_globale')->nullable();

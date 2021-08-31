@@ -20,7 +20,7 @@ class CreateRessourceImageTable extends Migration
             $table->foreign('infog_id')
                     ->references('id')
                     ->on('infogs')
-                    ->onDelete('restrict')
+                    ->onDelete('cascade')
                     ->onUpdate('restrict');
                    
             $table->string('url')->nullable();

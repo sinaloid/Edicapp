@@ -20,7 +20,7 @@ class CreateRecetFonctNSTable extends Migration
             $table->foreign('budget_n_id')
                     ->references('id')
                     ->on('budget_n_s')
-                    ->onDelete('restrict')
+                    ->onDelete('cascade')
                     ->onUpdate('restrict');
 
             $table->string('produit_exploitation')->nullable();

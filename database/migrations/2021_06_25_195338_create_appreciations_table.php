@@ -20,7 +20,7 @@ class CreateAppreciationsTable extends Migration
             $table->foreign('pcd_id')
                     ->references('id')
                     ->on('pcds')
-                    ->onDelete('restrict')
+                    ->onDelete('cascade')
                     ->onUpdate('restrict');
                     
             $table->string('date_de_conception')->nullable();

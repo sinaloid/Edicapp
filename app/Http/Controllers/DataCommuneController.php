@@ -750,10 +750,30 @@ class DataCommuneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Data $data)
     {
-        //
+        $data->delete();
+
+        return back();
     }
+
+    public function terminer(Data $data) {
+        $data->terminer = 0;
+        $data->save();
+        return back();
+    }
+
+    public function encour(Data $data) {
+        $data->terminer = 1;
+        $data->save();
+        return back();
+    }
+
+    public function datasView() {
+
+        return back();
+    }
+
 
     public function newDataCommune(Request $request){
 

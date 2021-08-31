@@ -20,7 +20,7 @@ class CreateDomaineCivilsTable extends Migration
             $table->foreign('infog_id')
                     ->references('id')
                     ->on('infogs')
-                    ->onDelete('restrict')
+                    ->onDelete('cascade')
                     ->onUpdate('restrict');
                    
             $table->string('zone_habitation_parcelle_degagee')->nullable();
