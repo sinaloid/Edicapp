@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 /*A supprimer*/
 use App\Models\Countries\{ Region, Country, Province, Commune };
 use App\Models\EdicUser\User;
-use App\Models\Datas\Data;
-use App\Models\Datas\Infog\Infog;
-use App\Models\Datas\Infog\Tables\TroisMeilleurs;
+//use App\Models\Datas\Data;
+//use App\Models\Datas\Infog\Infog;
+//use App\Models\Datas\Infog\Tables\TroisMeilleurs;
 /*use App\Gestion\Data as GData;
 use App\Gestion\Budget\Budget as GBudget;
 use App\Gestion\Budgetn\Budgetn as GBudgetn;
@@ -17,6 +17,16 @@ use App\Gestion\Infog\EtatCivil;
 use App\Gestion\Infog\EtatCivil\EtatNombre;
 use App\Gestion\Infog\EtatCivil\Observation;*/
 use Illuminate\Support\Str;
+
+use App\Models\Datas\Data;
+use App\Models\Datas\Infog\Infog;
+use App\Models\Datas\Infog\Tables\{Recettes, Depenses, DixMeilleurs, DomaineCivil, EtatCivil, Partenaires, RessourceImage, TroisMeilleurs};
+use App\Models\Datas\Pcd\Pcd;
+use App\Models\Datas\Pcd\Tables\{Appreciation, Satisfaction};
+use App\Models\Datas\Budget\Budget;
+use App\Models\Datas\Budget\Tables\{DepensFonct, DepensInvest, RecetFonct, RecetInvest};
+use App\Models\Datas\BudgetN\BudgetN;
+use App\Models\Datas\BudgetN\Tables\{DepensFonctN, DepensInvestN, RecetFonctN, RecetInvestN};
 
 use PDF;
 
@@ -70,37 +80,80 @@ class SiteUrl extends Controller
     }
 
     
-    public function datasInfo(){
+    public function datasInfo($slug){
          $countries = Country::all();
-        return view('pages.menu.minfo',compact('countries'));
+         $data = Data::where('slug',$slug)->first();
+         if($data != null){
+            $dataCommune = $this->getDataCommune($data->id, 'datas.info');
+         }else{
+            $dataCommune = null; 
+         }
+        return view('pages.menu.minfo',compact('countries', 'dataCommune'));
         
     }
 
-    public function datasPcd(){
+    public function datasPcd($slug){
         $countries = Country::all();
-        return view('pages.menu.mpcd',compact('countries'));
+         $data = Data::where('slug',$slug)->first();
+         //dd($data);
+         if($data != null){
+            $dataCommune = $this->getDataCommune($data->id, 'datas.pcd');
+         }else{
+            $dataCommune = null; 
+         }
+        return view('pages.menu.mpcd',compact('countries', 'dataCommune'));
         
     }
 
-    public function datasBudget(){
+    public function datasBudget($slug){
         $countries = Country::all();
-        return view('pages.menu.mbudget',compact('countries'));
+         $data = Data::where('slug',$slug)->first();
+         //dd($data);
+         if($data != null){
+            $dataCommune = $this->getDataCommune($data->id, 'budget');
+         }else{
+            $dataCommune = null; 
+         }
+        return view('pages.menu.mbudget',compact('countries', 'dataCommune'));
         
     }
 
-    public function getBudget() {
-
-        return view('pages.includes.budget');
-    }
-
-    public function getBudgetN() {
-
-        return view('pages.includes.budgetn');
-    }
-
-    public function datasTdb(){
+    public function getBudget($slug) {
         $countries = Country::all();
-        return view('pages.menu.mtdb',compact('countries'));
+         $data = Data::where('slug',$slug)->first();
+         //dd($data);
+         if($data != null){
+            $dataCommune = $this->getDataCommune($data->id, 'budget');
+         }else{
+            $dataCommune = null; 
+         }
+
+        return view('pages.includes.budget',compact('countries', 'dataCommune'));
+    }
+
+    public function getBudgetN($slug) {
+        $countries = Country::all();
+         $data = Data::where('slug',$slug)->first();
+         //dd($data);
+         if($data != null){
+            $dataCommune = $this->getDataCommune($data->id, 'budgetn');
+         }else{
+            $dataCommune = null; 
+         }
+
+        return view('pages.includes.budgetn',compact('countries', 'dataCommune'));
+    }
+
+    public function datasTdb($slug){
+        $countries = Country::all();
+         $data = Data::where('slug',$slug)->first();
+         //dd($data);
+         if($data != null){
+            $dataCommune = $this->getDataCommune($data->id, 'datas.tdb');
+         }else{
+            $dataCommune = null; 
+         }
+        return view('pages.menu.mtdb',compact('countries', 'dataCommune'));
         
     }
 
@@ -445,6 +498,123 @@ class SiteUrl extends Controller
                 Commune::create(['commune_name' => $name, 'province_id' => $id,'slug' => Str::slug($name)]);
             }
         }
+    }
+
+    public function getDataCommune($data_id, $routeName) {
+
+        if($routeName == 'datas.info'){
+
+            return [
+                "data_id" => $data_id,
+                "pays" => Data::find($data_id)->commune->province->region->country->country_name,
+                "region" => Data::find($data_id)->commune->province->region->region_name,
+                "province" => Data::find($data_id)->commune->province->province_name,
+                "commune" => Data::find($data_id)->commune->commune_name,
+                "annee" => Data::find($data_id)->annee,
+                "slug" => Data::find($data_id)->slug,
+    
+                    "recette" => Data::find($data_id)->infogs()->first()->recettes()->get(),
+                    "depense" => Data::find($data_id)->infogs()->first()->depenses()->get(),
+                    "dixMeilleur" => Data::find($data_id)->infogs()->first()->dixMeilleurs()->get(),
+                    "domaineCivil" => Data::find($data_id)->infogs()->first()->domaineCivils()->first(),
+                    "etatCivil" => Data::find($data_id)->infogs()->first()->etatCivils()->first(),
+                    "partenaire" => Data::find($data_id)->infogs()->first()->partenaires()->get(),
+                    "ressourceImage" => Data::find($data_id)->infogs()->first()->ressourceImages()->first(),
+                    "troisMeilleur" => Data::find($data_id)->infogs()->first()->troisMeilleurs()->get()
+            ];
+
+        }
+
+        if($routeName == 'datas.pcd'){
+            return [
+                "data_id" => $data_id,
+                "pays" => Data::find($data_id)->commune->province->region->country->country_name,
+                "region" => Data::find($data_id)->commune->province->region->region_name,
+                "province" => Data::find($data_id)->commune->province->province_name,
+                "commune" => Data::find($data_id)->commune->commune_name,
+                "annee" => Data::find($data_id)->annee,
+                "slug" => Data::find($data_id)->slug,
+    
+                    "appreciation" => Data::find($data_id)->pcds()->first()->appreciations()->first(),
+                    "satisfaction" => Data::find($data_id)->pcds()->first()->satisfactions()->first()
+            ];
+        }
+
+        if($routeName == 'budget'){
+
+            return [
+                "data_id" => $data_id,
+                "pays" => Data::find($data_id)->commune->province->region->country->country_name,
+                "region" => Data::find($data_id)->commune->province->region->region_name,
+                "province" => Data::find($data_id)->commune->province->province_name,
+                "commune" => Data::find($data_id)->commune->commune_name,
+                "annee" => Data::find($data_id)->annee,
+                "slug" => Data::find($data_id)->slug,
+    
+    
+                    "depensFonct" => Data::find($data_id)->budgets()->first()->depensFoncts()->first(),
+                    "depensInvest" => Data::find($data_id)->budgets()->first()->depensInvests()->first(),
+                    "recetFonct" => Data::find($data_id)->budgets()->first()->recetFoncts()->first(),
+                    "recetInvest" => Data::find($data_id)->budgets()->first()->recetInvests()->first()
+            ];
+        }
+
+        if($routeName == 'budgetn'){
+            return [
+                "data_id" => $data_id,
+                "pays" => Data::find($data_id)->commune->province->region->country->country_name,
+                "region" => Data::find($data_id)->commune->province->region->region_name,
+                "province" => Data::find($data_id)->commune->province->province_name,
+                "commune" => Data::find($data_id)->commune->commune_name,
+                "annee" => Data::find($data_id)->annee,
+                "slug" => Data::find($data_id)->slug,
+    
+                    "depensFonctN" => Data::find($data_id)->budgetns()->first()->depensFonctns()->first(),
+                    "depensInvestN" => Data::find($data_id)->budgetns()->first()->depensInvestns()->first(),
+                    "recetFonctN" => Data::find($data_id)->budgetns()->first()->recetFonctns()->first(),
+                    "recetInvestN" => Data::find($data_id)->budgetns()->first()->recetInvestns()->first(),
+                
+            ];
+        }
+
+        if($routeName == 'datas.tdb'){
+            return [
+                "data_id" => $data_id,
+                "pays" => Data::find($data_id)->commune->province->region->country->country_name,
+                "region" => Data::find($data_id)->commune->province->region->region_name,
+                "province" => Data::find($data_id)->commune->province->province_name,
+                "commune" => Data::find($data_id)->commune->commune_name,
+                "annee" => Data::find($data_id)->annee,
+                "slug" => Data::find($data_id)->slug,
+
+                    "recette" => Data::find($data_id)->infogs()->first()->recettes()->get(),
+                    "depense" => Data::find($data_id)->infogs()->first()->depenses()->get(),
+                    "dixMeilleur" => Data::find($data_id)->infogs()->first()->dixMeilleurs()->get(),
+                    "domaineCivil" => Data::find($data_id)->infogs()->first()->domaineCivils()->first(),
+                    "etatCivil" => Data::find($data_id)->infogs()->first()->etatCivils()->first(),
+                    "partenaire" => Data::find($data_id)->infogs()->first()->partenaires()->get(),
+                    "ressourceImage" => Data::find($data_id)->infogs()->first()->ressourceImages()->first(),
+                    "troisMeilleur" => Data::find($data_id)->infogs()->first()->troisMeilleurs()->get(),
+    
+                    "appreciation" => Data::find($data_id)->pcds()->first()->appreciations()->first(),
+                    "satisfaction" => Data::find($data_id)->pcds()->first()->satisfactions()->first(),
+    
+                    //"satisfaction" => Data::find($data_id)->pcds()->first()->satisfactions()->first(),
+    
+                    "depensFonct" => Data::find($data_id)->budgets()->first()->depensFoncts()->first(),
+                    "depensInvest" => Data::find($data_id)->budgets()->first()->depensInvests()->first(),
+                    "recetFonct" => Data::find($data_id)->budgets()->first()->recetFoncts()->first(),
+                    "recetInvest" => Data::find($data_id)->budgets()->first()->recetInvests()->first(),
+    
+                    "depensFonctN" => Data::find($data_id)->budgetns()->first()->depensFonctns()->first(),
+                    "depensInvestN" => Data::find($data_id)->budgetns()->first()->depensInvestns()->first(),
+                    "recetFonctN" => Data::find($data_id)->budgetns()->first()->recetFonctns()->first(),
+                    "recetInvestN" => Data::find($data_id)->budgetns()->first()->recetInvestns()->first(),
+                
+            ];
+        }
+        
+        
     }
 
 

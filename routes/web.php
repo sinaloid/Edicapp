@@ -48,14 +48,14 @@ Route::get('home/create', function () {
 Route::get('actu', [SiteUrl::class, 'actu'])->name('actu');
 Route::get('actuc', [SiteUrl::class, 'actuContent'])->name('actuc');
 /*Data view*/
-Route::get('datas/view', [SiteUrl::class, 'datasView'])->name('datas.view');
-Route::get('datas/info', [SiteUrl::class, 'datasInfo'])->name('datas.info');
-Route::get('datas/pcd', [SiteUrl::class, 'datasPcd'])->name('datas.pcd');
-Route::get('datas/budget', [SiteUrl::class, 'datasBudget'])->name('datas.bg');
-Route::get('datas/budget/mbudget', [SiteUrl::class, 'getBudget'])->name('budget');
-Route::get('datas/budget/mbudgetn', [SiteUrl::class, 'getBudgetN'])->name('budgetn');
+Route::get('datas/view', [App\Http\Controllers\DataCommuneController::class, 'datasView'])->name('datas.view');
+Route::get('datas/info/{slug?}', [SiteUrl::class, 'datasInfo'])->name('datas.info');
+Route::get('datas/pcd/{slug?}', [SiteUrl::class, 'datasPcd'])->name('datas.pcd');
+Route::get('datas/budget/{slug?}', [SiteUrl::class, 'datasBudget'])->name('datas.bg');
+Route::get('datas/budget/mbudget/{slug?}', [SiteUrl::class, 'getBudget'])->name('budget');
+Route::get('datas/budget/mbudgetn/{slug?}', [SiteUrl::class, 'getBudgetN'])->name('budgetn');
 
-Route::get('datas/tdb', [SiteUrl::class, 'datasTdb'])->name('datas.tdb');
+Route::get('datas/tdb/{slug?}', [SiteUrl::class, 'datasTdb'])->name('datas.tdb');
 Route::get('datas/cmp', [SiteUrl::class, 'Compare'])->name('datas.cmp');
 Route::get('datas/cmpdt', [SiteUrl::class, 'datasCompare'])->name('datas.cmpdt');
 

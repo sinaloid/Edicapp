@@ -27,7 +27,7 @@
                     }
                 }
 
-                xhr.open('GET', "{{ route('budget') }}");
+                xhr.open('GET', "{{ route('budget', isset($dataCommune) ? $dataCommune['slug'] : 'budget') }}");
                 xhr.send();
                 outputBudget.innerHTML = "Veuilliez patienté...";
             }
@@ -40,7 +40,7 @@
                     }
                 }
 
-                xhr.open('GET', "{{ route('budgetn') }}");
+                xhr.open('GET', "{{ route('budgetn', isset($dataCommune) ? $dataCommune['slug'] : 'budgetn') }}");
                 xhr.send();
                 outputBudget.innerHTML = "Veuilliez patienté...";
 

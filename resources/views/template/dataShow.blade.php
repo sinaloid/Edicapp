@@ -24,7 +24,7 @@
         <div class="row sin-bg-2 myform mx-auto">
             <div class="col-sm-12">
                
-                <form class="row mb-3 p-0" action="{{ route('data.store') }}" method="post">
+                <form class="row mb-3 p-0" action="{{ route('datas.view') }}" method="get">
                     <div class="col p-0">
                         <div class="col-sm-12 sin-bg-2 p-0">
                             <div class="form-group mt">
@@ -97,6 +97,7 @@
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
                     <div class="col-12">
                         <div class="mx-auto">
                             <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">validé</button>

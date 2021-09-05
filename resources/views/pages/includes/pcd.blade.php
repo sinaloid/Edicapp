@@ -5,27 +5,27 @@
         <table class="table-sm table-hover mx-auto">
             <tr>
                 <th class="sin-table-bg">Date de Conception</th>
-                <th>2014</th>
+                <th>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_de_conception  : '' }}</th>
                 <th class="sin-table-bg">Date d'expiration</th>
-                <td>2018</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_d_expiration  : '' }}</td>
             </tr>
             <tr>
                 <th class="sin-table-bg">Montant Total FCFA</th>
-                <td>1,927,390,000</td>
-                <th class="sin-table-bg">Montant mobilisé (2018) FCFA</th>
-                <td>1,250,000,000 $</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_total  : '' }}</td>
+                <th class="sin-table-bg">Montant mobilisé FCFA</th>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_mobilise  : '' }}</td>
             </tr>
             <tr>
                 <th class="sin-table-bg">Problème majeur (10 mots)</th>
-                <td>Problème de suivi</td>
-                <td> </td>
-                <td> </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->probleme_majeur  : '' }}</td>
+                <!--td> </td>
+                <td> </td-->
             </tr>
             <tr>
                 <th class="sin-table-bg">Perpectives (10 mots)</th>
-                <td>Elaboration nouveau</td>
-                <td> </td>
-                <td> </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->perpective_dix_mot  : '' }}</td>
+                <!--td> </td>
+                <td> </td-->
             </tr>
         </table>
     </div>
@@ -49,21 +49,21 @@
             </thead>
             <tr>
                 <th class="sin-table-bg">1 : Reformer les institutions et moderniser l'administration</th>
-                <td> </td>
-                <td> </td>
-                <td> 3</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_tres_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_satisfaisant : '' }}</td>
+                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_pas_satisfaisant : '' }}</td>
             </tr>
             <tr>
                 <th class="sin-table-bg">2 : Développer le capital humain</th>
-                <td> </td>
-                <td> 7</td>
-                <td> </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_tres_satisfaisant : '' }}</td>
+                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_pas_satisfaisant : '' }}</td>
             </tr>
             <tr>
                 <th class="sin-table-bg">3 : Dynamiser les secteurs porteurs pour l'économie et les emplois</th>
-                <td> 10</td>
-                <td> </td>
-                <td> </td>
+                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_tres_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_pas_satisfaisant : '' }}</td>
             </tr>
         </table>
     </div>
@@ -82,7 +82,7 @@
         <table class="table-sm  mx-auto">
             <tr>
                 <th class="sin-table-bg">Commentaire sur votre appéciation: en cinq mots</th>
-                <th>Fort intérêt de l'Administration Communale</th>
+                <th>{{ isset($dataCommune) ? $dataCommune['satisfaction']->commentaire_appreciation : '' }}</th>
             </tr>
         </table>
     </div>

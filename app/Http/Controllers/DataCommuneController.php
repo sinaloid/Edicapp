@@ -769,9 +769,47 @@ class DataCommuneController extends Controller
         return back();
     }
 
-    public function datasView() {
+    public function datasView(Request $request) {
 
-        return back();
+        $countries = Country::all();
+        $annee = date('Y');
+        $routeName = $request->viewName;
+        $data = Data::where([
+            ['commune_id', $request->commune],
+            ['annee', $request->annee]
+        ])->first();
+
+        $slug = null;
+           if($data != null){
+               $slug = $data->slug;
+           }
+
+        if($routeName == 'datas.info')
+        {
+            return redirect()->route('datas.info',$slug);
+            
+        }
+
+        if($routeName == 'datas.pcd')
+        {
+            
+            return redirect()->route('datas.pcd',$slug);
+            
+        }
+
+        if($routeName == 'datas.bg')
+        {
+            return redirect()->route('datas.bg',$slug);
+            
+        }
+
+        if($routeName == 'datas.tdb')
+        {
+            return redirect()->route('datas.tdb',$slug);
+            
+        }
+       
+        //return back()->with(compact('dataCommune'));
     }
 
 
