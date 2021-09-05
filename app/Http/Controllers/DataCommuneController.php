@@ -779,7 +779,7 @@ class DataCommuneController extends Controller
             ['annee', $request->annee]
         ])->first();
 
-        $slug = null;
+        $slug = 'null';
            if($data != null){
                $slug = $data->slug;
            }
