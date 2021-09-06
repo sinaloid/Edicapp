@@ -27,11 +27,202 @@
 <body>
     @include("header")
 
-    <div class="container sin-m-t bg-white myform">
+    <div class="container px-1 sin-m-t myform">
         <h1>Analyse de données </h1> <br>
         <p> Ici on aura la possibilté de comparer les données (sous forme de tableau ou
             sous forme graphique) de 2 à 5 regions</p>
-        <div class="row justify-content-center p-0">
+        <div class="row sin-bg-2 myform mx-auto">
+            <div class="col-sm-12">
+
+                <form class="row mb-3 p-0" action="{{ route('datas.view') }}" method="get">
+                    <div class="col p-0">
+                        <div class="col-sm-12 sin-bg-2 p-0">
+                            <p class="p-0">
+                                <strong>
+                                    <span class="badge badge-dark">
+                                        #Pays:
+                                    </span>
+                                </strong>
+                            </p>
+                            <div class="form-group mt">
+                                <select class="form-control mt-1" id="country" name="country" required>
+                                    <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
+                                    @foreach($countries ?? '' as $country)
+                                    <option value="{{ $country->id }}">
+                                        {{ $country->country_name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('pays')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <p class="p-0">
+                                <strong>
+                                    <span class="badge badge-dark">
+                                        #Regions:
+                                    </span>
+                                </strong>
+                            </p>
+                            <div class="row p_region justify-content-between">
+
+                                <div class=" col-6">
+
+                                    <div class="form-group">
+                                        <select class="form-control " id="region" name="region" required>
+
+                                        </select>
+                                        @error('region')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-6 ">
+                                    <div class="form-group">
+                                        <select class="form-control " id="province" name="province" required>
+
+                                        </select>
+                                        @error('province')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="p-0">
+                                <strong>
+                                    <span class="badge badge-dark">
+                                        #Provinces:
+                                    </span>
+                                </strong>
+                            </p>
+                            <div class="row p_region justify-content-between">
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <select class="form-control" id="commune" name="commune" required>
+
+                                        </select>
+                                        @error('commune')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <select class="form-control" id="commune" name="commune" required>
+
+                                        </select>
+                                        @error('commune')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="p-0">
+                                <strong>
+                                    <span class="badge badge-dark">
+                                        #Communes:
+                                    </span>
+                                </strong>
+                            </p>
+                            <div class="row p_region justify-content-between">
+
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <select class="form-control" id="commune" name="commune" required>
+
+                                        </select>
+                                        @error('commune')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <select class="form-control" id="commune" name="commune" required>
+
+                                        </select>
+                                        @error('commune')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <select class="form-control" id="commune" name="commune" required>
+
+                                        </select>
+                                        @error('commune')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <select class="form-control" id="commune" name="commune" required>
+
+                                        </select>
+                                        @error('commune')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="p-0">
+                                <strong>
+                                    <span class="badge badge-dark">
+                                        #Année:
+                                    </span>
+                                </strong>
+                            </p>
+                            <div class="row p_region justify-content-between">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <select class="form-control" id="commune4" name="annee" required>
+                                            <option value="">{{ __('-- Selectionnez l année --') }}</option>
+                                            @for($i = Date('Y'); 2000<= $i; $i--) <option value="{{ $i}}">
+                                                {{ $i }}</option>
+                                                @endfor
+                                        </select>
+                                        @error('commune')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
+                    <div class="col-12">
+                        <div class="mx-auto">
+                            <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">validé</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--div class="row justify-content-center p-0">
             <div class="col-md-12 ">
                 <div class="card sin-bg-2">
                     <div class="card-header">
@@ -55,8 +246,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="accordion">
+        </div-->
+        <!--div id="accordion">
             <div class="card mt-1">
                 <div class="card-header">
                     <a class="card-link d-inline-block w-100" data-toggle="collapse" href="#collapseOne">
@@ -92,7 +283,7 @@
             <div class="card mt-1">
                 <div class="card-header">
                     <a class="card-link" data-toggle="collapse" href="#collapseTow">
-                       Commune
+                        Commune
                     </a>
                 </div>
                 <div id="collapseTow" class="collapse" data-parent="#accordion">
@@ -127,7 +318,7 @@
                 </div>
             </div>
             <script src="{{ asset('js/country_check.js') }}"></script>
-        </div>
+        </div-->
     </div>
     @include("footer")
 

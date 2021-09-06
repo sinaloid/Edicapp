@@ -776,7 +776,8 @@ class DataCommuneController extends Controller
         $routeName = $request->viewName;
         $data = Data::where([
             ['commune_id', $request->commune],
-            ['annee', $request->annee]
+            ['annee', $request->annee],
+            ['terminer', 1]
         ])->first();
 
         $slug = 'null';

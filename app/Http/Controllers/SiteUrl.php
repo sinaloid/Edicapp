@@ -50,21 +50,33 @@ class SiteUrl extends Controller
         return $pdf->download('edic.pdf');
      }*/
     
-    public function index()
+    public function index(Request $request)
     {
+        $dataCommune = Data::where([
+            ['commune_id', $request->commune],
+            ['annee', $request->annee],
+            ['terminer', 1]
+        ])->first();
+        if($dataCommune == null){
+            $dataCommune = Data::where('terminer',1)->first();
+            // message session data non trouver
+        }
         $countries = Country::all();
-        $data = Data::where('terminer',1)->first();
-        //dd($data);
         $troisMeilleur = null;
-        if($data != null){
-            $troisMeilleur = Data::where('terminer',1)->get()->random(1)->first()->infogs()->first()->troisMeilleurs()->get();
+        if($dataCommune != null){
+            if(Data::where('terminer',1)->first() != null){
+                
+                $dataCommune = Data::where('terminer',1)->get()->random(1)->first();
+                $troisMeilleur = $dataCommune->infogs()->first()->troisMeilleurs()->get();
+                //dd($troisMeilleur);
+            }
         }
 
         /*dd(
             Commune::all()->random(1)->first()->commune_name
         );*/
         //$marches = json_encode($troisMeilleur);
-        return view('index', compact('countries','troisMeilleur'));
+        return view('index', compact('countries','troisMeilleur', 'dataCommune'));
     }
 
     public function actu(){
@@ -80,11 +92,11 @@ class SiteUrl extends Controller
     }
 
     
-    public function datasInfo($slug){
+    public function datasInfo($slug = ''){
          $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
          if($data != null){
-            $dataCommune = $this->getDataCommune($data->id, 'datas.info');
+            $dataCommune = $this->getDataCommune($data->id, 'datas.info'); 
          }else{
             $dataCommune = null; 
          }
@@ -92,7 +104,7 @@ class SiteUrl extends Controller
         
     }
 
-    public function datasPcd($slug){
+    public function datasPcd($slug = ''){
         $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
          //dd($data);
@@ -105,7 +117,7 @@ class SiteUrl extends Controller
         
     }
 
-    public function datasBudget($slug){
+    public function datasBudget($slug = ''){
         $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
          //dd($data);
@@ -118,7 +130,7 @@ class SiteUrl extends Controller
         
     }
 
-    public function getBudget($slug) {
+    public function getBudget($slug = '') {
         $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
          //dd($data);
@@ -131,7 +143,7 @@ class SiteUrl extends Controller
         return view('pages.includes.budget',compact('countries', 'dataCommune'));
     }
 
-    public function getBudgetN($slug) {
+    public function getBudgetN($slug = '') {
         $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
          //dd($data);
@@ -144,7 +156,7 @@ class SiteUrl extends Controller
         return view('pages.includes.budgetn',compact('countries', 'dataCommune'));
     }
 
-    public function datasTdb($slug){
+    public function datasTdb($slug = ''){
         $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
          //dd($data);

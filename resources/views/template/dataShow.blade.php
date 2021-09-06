@@ -23,7 +23,7 @@
     <div class="container px-1 sin-m-t myform">
         <div class="row sin-bg-2 myform mx-auto">
             <div class="col-sm-12">
-               
+
                 <form class="row mb-3 p-0" action="{{ route('datas.view') }}" method="get">
                     <div class="col p-0">
                         <div class="col-sm-12 sin-bg-2 p-0">
@@ -104,7 +104,17 @@
                             <a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
                             <a class="btn sin-bg-3" href="{{ route('pdf') }}">Exporter</a>
                         </div>
+                        <p class="mt-3 p-0">
+                            <strong>
+                                <span class="badge badge-dark">
+                                    #Commune:
+                                </span>
+                            </strong>
+                            <small>
+                                {{isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune['data_id'])->commune->commune_name : 'donnée non existant'}}
+                            </small>
 
+                        </p>
                     </div>
                 </form>
             </div>
