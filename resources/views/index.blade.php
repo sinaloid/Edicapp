@@ -15,45 +15,18 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
         ['Task', 'taux de contribution'],
-        ['Attendu', {
-            {
-                isset($troisMeilleur) ? $troisMeilleur[0] - > attendu : 1
-            }
-        }],
-        ['Contribution', {
-            {
-                isset($troisMeilleur) ? $troisMeilleur[0] - > contribution : 0
-            }
-        }],
-
+        ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[0]->attendu : 1 }} ],
+        ['Contribution', {{isset($troisMeilleur) ? $troisMeilleur[0]->contribution : 0 }}],
     ]);
     var data1 = google.visualization.arrayToDataTable([
         ['Task', 'taux de contribution'],
-        ['Attendu', {
-            {
-                isset($troisMeilleur) ? $troisMeilleur[1] - > attendu : 1
-            }
-        }],
-        ['Contribution', {
-            {
-                isset($troisMeilleur) ? $troisMeilleur[1] - > contribution : 0
-            }
-        }],
-
+        ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[1]->attendu : 1 }} ],
+        ['Contribution', {{isset($troisMeilleur) ? $troisMeilleur[1]->contribution : 0 }}],
     ]);
     var data2 = google.visualization.arrayToDataTable([
         ['Task', 'taux de contribution'],
-        ['Attendu', {
-            {
-                isset($troisMeilleur) ? $troisMeilleur[2] - > attendu : 1
-            }
-        }],
-        ['Contribution', {
-            {
-                isset($troisMeilleur) ? $troisMeilleur[2] - > contribution : 0
-            }
-        }],
-
+        ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[2]->attendu : 1 }} ],
+        ['Contribution', {{isset($troisMeilleur) ? $troisMeilleur[2]->contribution : 0 }}],
     ]);
 
     var options = {
@@ -232,7 +205,7 @@ function drawChart() {
                             <p class="my-0">
                                 <strong>
                                     <span class="badge badge-dark">
-                                        #Commune: 
+                                        #Commune:
                                     </span>
                                 </strong>
 
