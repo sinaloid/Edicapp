@@ -1026,6 +1026,7 @@ class DataCommuneController extends Controller
             "province" => Data::find($data_id)->commune->province->province_name,
             "commune" => Data::find($data_id)->commune->commune_name,
             "annee" => Data::find($data_id)->annee,
+            "slug" =>  Data::find($data_id)->slug,
 
                 "recette" => Data::find($data_id)->infogs()->first()->recettes()->get(),
                 "depense" => Data::find($data_id)->infogs()->first()->depenses()->get(),
