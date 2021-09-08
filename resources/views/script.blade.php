@@ -78,10 +78,48 @@
         /*["Platinum", 21.45, "color: #e5e4e2"]*/
       ]);
 
+      var data3 = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Résultat d'investissement", {{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_globale
+                + $dataCommune['recetInvest']->subvention_equipement
+                + $dataCommune['recetInvest']->contribution_propre
+                + $dataCommune['recetInvest']->dotation_liee
+                + $dataCommune['recetInvest']->resultat_exercice 
+                - ($dataCommune['depensInvest']->etude_recherche
+                + $dataCommune['depensInvest']->environnement
+                + $dataCommune['depensInvest']->equipement
+                + $dataCommune['depensInvest']->batiment
+                + $dataCommune['depensInvest']->emprunt
+                + $dataCommune['depensInvest']->autre_investissement
+                + $dataCommune['depensInvest']->deficit_excedent) : '' }}, "red"],
+        ["Résultat de fonctionnement", {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exploitation
+                + $dataCommune['recetFonct']->produit_domaniaux
+                + $dataCommune['recetFonct']->produit_financier
+                + $dataCommune['recetFonct']->recouvrement
+                + $dataCommune['recetFonct']->produit_diver 
+                + $dataCommune['recetFonct']->impots_taxe_c_direct
+                + $dataCommune['recetFonct']->impots_taxe_indirect
+                + $dataCommune['recetFonct']->produit_exceptionnel
+                + $dataCommune['recetFonct']->produit_anterieur
+                - ($dataCommune['depensFonct']->sante
+                + $dataCommune['depensFonct']->appui_scolaire
+                + $dataCommune['depensFonct']->sport_culture
+                + $dataCommune['depensFonct']->participation
+                + $dataCommune['depensFonct']->frais_financier
+                + $dataCommune['depensFonct']->refection_entretien
+                + $dataCommune['depensFonct']->salaire_indemnite
+                + $dataCommune['depensFonct']->entretien_vehicule
+                + $dataCommune['depensFonct']->appui_fonctionnement
+                + $dataCommune['depensFonct']->exedent_prelevement) : '' }}, "red"],
+        ["Résultat global {{ isset($dataCommune) ? $dataCommune['annee'] : '' }}", {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }}, "red"]
+        /*["Platinum", 21.45, "color: #e5e4e2"]*/
+        /*["Platinum", 21.45, "color: #e5e4e2"]*/
+      ]);
+
       var view = new google.visualization.DataView(data);
       var view1 = new google.visualization.DataView(data1);
       var view2 = new google.visualization.DataView(data2);
-      var view3 = new google.visualization.DataView(data);
+      var view3 = new google.visualization.DataView(data3);
       view.setColumns([0, 1,
                        { calc: "stringify",
                          sourceColumn: 1,
@@ -216,14 +254,19 @@
           title: '',
           legend: 'true',
           legend: {position:'right'},
-          pieSliceText: 'label',
-          slices: {  4: {offset: 0.2},
-                    12: {offset: 0.3},
-                    14: {offset: 0.4},
-                    15: {offset: 0.5},
+          //pieSliceText: 'label',
+          slices: {  1: {offset: 0.2},
+                    2: {offset: 0.2},
+                    3: {offset: 0.2},
+                    4: {offset: 0.2},
+                    5: {offset: 0.2},
+                    6: {offset: 0.2},
+                    7: {offset: 0.2},
+                    8: {offset: 0.2},
+                    9: {offset: 0.2},
           },
           is3D: 'true',
-          chartArea:{top:20,width:'100%',height:'100%'},
+          chartArea:{top:1,width:'85%',height:'100%'},
          /* width: 320,
           height: 200,*/
         };
