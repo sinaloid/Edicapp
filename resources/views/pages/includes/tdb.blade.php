@@ -315,10 +315,10 @@
 
 <div class="row">
 
-    <div class="col-12 myform sin-bg-3 mt-2 font-weight-bolder text-white text-center"> Bilan du fonctionnement</div>
+    <div class="col-12 myform sin-bg-3 mt-2 font-weight-bolder text-white text-center"> Bilan du d'investissement</div>
     <div class="col-12 col-md-6 mt-2 p-0">
         <div class="card">
-            <h4 class="card-header bg-info text-white">Recettes d'Investissement</h4>
+            <h4 class="card-header bg-info text-white">Recettes d'investissement</h4>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart2" style="width:100%;"></div>
             </div>
@@ -327,7 +327,7 @@
 
     <div class="col-12 col-md-6 mt-2 p-0">
         <div class="card">
-            <h4 class="card-header bg-info text-white">Dépenses de Investissement</h4>
+            <h4 class="card-header bg-info text-white">Dépenses d'investissement</h4>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart3" style="width:100%; "></div>
             </div>
