@@ -111,7 +111,38 @@
                 + $dataCommune['depensFonct']->entretien_vehicule
                 + $dataCommune['depensFonct']->appui_fonctionnement
                 + $dataCommune['depensFonct']->exedent_prelevement) : '' }}, "red"],
-        ["Résultat global {{ isset($dataCommune) ? $dataCommune['annee'] : '' }}", {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }}, "red"]
+        ["Résultat global {{ isset($dataCommune) ? $dataCommune['annee'] : '' }}", {{ isset($dataCommune) ? 
+                ($dataCommune['recetInvest']->dotation_globale
+                + $dataCommune['recetInvest']->subvention_equipement
+                + $dataCommune['recetInvest']->contribution_propre
+                + $dataCommune['recetInvest']->dotation_liee
+                + $dataCommune['recetInvest']->resultat_exercice 
+                - ($dataCommune['depensInvest']->etude_recherche
+                + $dataCommune['depensInvest']->environnement
+                + $dataCommune['depensInvest']->equipement
+                + $dataCommune['depensInvest']->batiment
+                + $dataCommune['depensInvest']->emprunt
+                + $dataCommune['depensInvest']->autre_investissement
+                + $dataCommune['depensInvest']->deficit_excedent))
+                + ($dataCommune['recetFonct']->produit_exploitation
+                + $dataCommune['recetFonct']->produit_domaniaux
+                + $dataCommune['recetFonct']->produit_financier
+                + $dataCommune['recetFonct']->recouvrement
+                + $dataCommune['recetFonct']->produit_diver 
+                + $dataCommune['recetFonct']->impots_taxe_c_direct
+                + $dataCommune['recetFonct']->impots_taxe_indirect
+                + $dataCommune['recetFonct']->produit_exceptionnel
+                + $dataCommune['recetFonct']->produit_anterieur
+                - ($dataCommune['depensFonct']->sante
+                + $dataCommune['depensFonct']->appui_scolaire
+                + $dataCommune['depensFonct']->sport_culture
+                + $dataCommune['depensFonct']->participation
+                + $dataCommune['depensFonct']->frais_financier
+                + $dataCommune['depensFonct']->refection_entretien
+                + $dataCommune['depensFonct']->salaire_indemnite
+                + $dataCommune['depensFonct']->entretien_vehicule
+                + $dataCommune['depensFonct']->appui_fonctionnement
+                + $dataCommune['depensFonct']->exedent_prelevement)) : '' }}, "red"]
         /*["Platinum", 21.45, "color: #e5e4e2"]*/
         /*["Platinum", 21.45, "color: #e5e4e2"]*/
       ]);
