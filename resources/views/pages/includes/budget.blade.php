@@ -1,4 +1,4 @@
-<h4 class="col-12 font-weight-bolder text-center text-white text-uppercase sin-bg-3">Bilan d'execution année 2019</h4>
+<h4 class="col-12 font-weight-bolder text-center text-white text-uppercase sin-bg-3">Bilan d'execution année {{isset($dataCommune) ? $dataCommune['annee'] : ''}}</h4>
 <p class="col-8 mx-auto font-weight-bolder text-center bg-success text-uppercase ">Les recettes</p>
 <div class="row mt-3">
 <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes d'investissement</div>
