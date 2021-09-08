@@ -34,7 +34,7 @@
         <div class="row sin-bg-2 myform mx-auto">
             <div class="col-sm-12">
 
-                <form class="row mb-3 p-0" action="{{ route('datas.view') }}" method="get">
+                <form class="row mb-3 p-0" action="{{ route('datas.cmpdt') }}" method="get">
                     <div class="col p-0">
                         <div class="col-sm-12 sin-bg-2 p-0">
                             <p class="p-0">
@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="col-6 ">
                                     <div class="form-group">
-                                        <select class="form-control " id="province" name="province" required>
+                                        <select class="form-control " id="region_2" name="region_2" required>
 
                                         </select>
                                         @error('province')
@@ -104,7 +104,7 @@
 
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune" name="commune" required>
+                                        <select class="form-control" id="province" name="province" required>
 
                                         </select>
                                         @error('commune')
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune" name="commune" required>
+                                        <select class="form-control" id="province_2" name="province_2" required>
 
                                         </select>
                                         @error('commune')
@@ -139,7 +139,7 @@
 
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune" name="commune" required>
+                                        <select class="form-control" id="commune_1" name="commune_1" required>
 
                                         </select>
                                         @error('commune')
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune" name="commune" required>
+                                        <select class="form-control" id="commune_3" name="commune_3" required>
 
                                         </select>
                                         @error('commune')
@@ -163,7 +163,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune" name="commune" required>
+                                        <select class="form-control" id="commune_2" name="commune_2" required>
 
                                         </select>
                                         @error('commune')
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune" name="commune" required>
+                                        <select class="form-control" id="commune_4" name="commune_4" required>
 
                                         </select>
                                         @error('commune')
@@ -196,7 +196,7 @@
                             <div class="row p_region justify-content-between">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune4" name="annee" required>
+                                        <select class="form-control" id="annee" name="annee" required>
                                             <option value="">{{ __('-- Selectionnez l année --') }}</option>
                                             @for($i = Date('Y'); 2000<= $i; $i--) <option value="{{ $i}}">
                                                 {{ $i }}</option>
@@ -319,6 +319,8 @@
             </div>
             <script src="{{ asset('js/country_check.js') }}"></script>
         </div-->
+        <script src="{{ asset('js/country_one.js') }}"></script>
+        <script src="{{ asset('js/country_two.js') }}"></script>
     </div>
     @include("footer")
 

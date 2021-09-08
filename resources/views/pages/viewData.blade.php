@@ -39,20 +39,19 @@
                 <div class="card-body">
                     <div class="row card-title">
                         <div class="col-5 col-md-2 font-weight-bold">Pays:</div>
-                        <div class="col-7 col-md-10">Burkina Faso</div>
+                        <div class="col-7 col-md-10">{{ isset($dataCompare) ? $dataCompare["pays"] : 'Pays null'}}</div>
                     </div>
                     <div class="row card-title">
                         <div class="col-5 col-md-2 font-weight-bold">Region:</div>
-                        <div class="col-7 col-md-10">Centre et Ouest</div>
+                        <div class="col-7 col-md-10">{{ isset($dataCompare) ? $dataCompare["region"]." et ".$dataCompare["region_2"] : 'region null'}}</div>
                     </div>
                     <div class="row card-title">
                         <div class="col-5 col-md-2 font-weight-bold">Province:</div>
-                        <div class="col-7 col-md-10">nom province 1 et nom province 2</div>
+                        <div class="col-7 col-md-10">{{ isset($dataCompare) ? $dataCompare["province"]." et ".$dataCompare["province_2"] : 'province null'}}</div>
                     </div>
                     <div class="row card-title ">
                         <div class="col-5 col-md-2 font-weight-bold">Commune:</div>
-                        <div class="col-7 col-md-10 ">nom commune 1 et nom commune 2, nom commune 3,nom
-                            commune 4</div>
+                        <div class="col-7 col-md-10 ">{{ isset($dataCompare) ? $dataCompare["commune_1"]." et ".$dataCompare["commune_2"]." vs ".$dataCompare["commune_3"]." et ".$dataCompare["commune_4"]  : 'commune null'}}</div>
 
                     </div>
 

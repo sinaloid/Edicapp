@@ -175,9 +175,24 @@ class SiteUrl extends Controller
         return view('pages.compare', compact('countries'));
         
     }
-    public function datasCompare(){
+    public function datasCompare(Request $request){
 
-        return view('pages.viewData');
+        $dataCompare = [
+            "pays" => Country::find($request->country)->country_name,
+            "region" => Region::find($request->region)->region_name,
+            "region_2" => Region::find($request->region_2)->region_name,
+            "province" => Province::find($request->province)->province_name,
+            "province_2" => Province::find($request->province_2)->province_name,
+            "commune_1" => Commune::find($request->commune_1)->commune_name,
+            "commune_2" => Commune::find($request->commune_2)->commune_name,
+            "commune_3" => Commune::find($request->commune_3)->commune_name,
+            "commune_4" => Commune::find($request->commune_4)->commune_name,
+        ];
+
+       // dd($dataCompare);
+
+
+        return view('pages.viewData', compact('dataCompare'));
         
     }
 
