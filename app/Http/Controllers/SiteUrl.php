@@ -195,13 +195,13 @@ class SiteUrl extends Controller
             "commune_2" => isset($request->commune_2) ? Commune::find($request->commune_2)->commune_name : '',
             "commune_3" => isset($request->commune_3) ? Commune::find($request->commune_3)->commune_name : '',
             "commune_4" => isset($request->commune_4) ? Commune::find($request->commune_4)->commune_name : '',
-            "data_commune_1" => isset($request->commune_1) ? Commune::find($request->commune_1)->data()->where('annee', $request->annee)->first()->slug : '',
-            "data_commune_2" => isset($request->commune_2) ? Commune::find($request->commune_2)->data()->where('annee', $request->annee)->first()->slug : '',
-            "data_commune_3" => isset($request->commune_3) ? Commune::find($request->commune_3)->data()->where('annee', $request->annee)->first()->slug : '',
-            "data_commune_4" => isset($request->commune_4) ? Commune::find($request->commune_4)->data()->where('annee', $request->annee)->first()->slug : '',
+            "data_commune_1" => isset($request->commune_1) ? (Commune::find($request->commune_1)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_1)->data()->where('annee', $request->annee)->first()->slug : '' : '',
+            "data_commune_2" => isset($request->commune_2) ? (Commune::find($request->commune_2)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_2)->data()->where('annee', $request->annee)->first()->slug : '' : '',
+            "data_commune_3" => isset($request->commune_3) ? (Commune::find($request->commune_3)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_3)->data()->where('annee', $request->annee)->first()->slug : '' : '',
+            "data_commune_4" => isset($request->commune_4) ? (Commune::find($request->commune_4)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_4)->data()->where('annee', $request->annee)->first()->slug : '' : '',
         ];
 
-        dd($dataCompare);
+        //dd($dataCompare);
 
 
         return view('pages.viewData', compact('dataCompare'));
