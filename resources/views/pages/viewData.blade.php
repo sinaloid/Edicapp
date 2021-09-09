@@ -43,15 +43,55 @@
                     </div>
                     <div class="row card-title">
                         <div class="col-5 col-md-2 font-weight-bold">Region:</div>
-                        <div class="col-7 col-md-10">{{ isset($dataCompare) ? $dataCompare["region"]." et ".$dataCompare["region_2"] : 'region null'}}</div>
+                        <div class="col-7 col-md-10">
+                        @php
+                            
+                            if($dataCompare != null){
+                                $str = $dataCompare["region"];
+                                if($dataCompare["region_2"] !=''){
+                                    $str = $str.' et '.$dataCompare["region_2"];
+                                }
+
+                                echo $str;
+                            }
+                        @endphp </div>
                     </div>
                     <div class="row card-title">
                         <div class="col-5 col-md-2 font-weight-bold">Province:</div>
-                        <div class="col-7 col-md-10">{{ isset($dataCompare) ? $dataCompare["province"]." et ".$dataCompare["province_2"] : 'province null'}}</div>
+                        <div class="col-7 col-md-10">
+                        @php
+                            
+                            if($dataCompare != null){
+                                $str = $dataCompare["province"];
+                                if($dataCompare["province_2"] !=''){
+                                    $str = $str.' et '.$dataCompare["province_2"];
+                                }
+
+                                echo $str;
+                            }
+                        @endphp
+                        </div>
                     </div>
                     <div class="row card-title ">
                         <div class="col-5 col-md-2 font-weight-bold">Commune:</div>
-                        <div class="col-7 col-md-10 ">{{ isset($dataCompare) ? $dataCompare["commune_1"]." et ".$dataCompare["commune_2"]." vs ".$dataCompare["commune_3"]." et ".$dataCompare["commune_4"]  : 'commune null'}}</div>
+                        <div class="col-7 col-md-10 ">
+                        @php
+                            if($dataCompare != null){
+                                $str = $dataCompare["commune_1"];
+                                if($dataCompare["commune_2"] !=''){
+                                    $str = $str.' , '.$dataCompare["commune_2"];
+                                }
+                                if($dataCompare["commune_3"] !=''){
+                                    $str = $str.' , '.$dataCompare["commune_3"];
+                                }
+                                if($dataCompare["commune_4"] !=''){
+                                    $str = $str.' et '.$dataCompare["commune_4"];
+                                }
+
+                                echo $str;
+                            }
+                        @endphp
+                       </div>
 
                     </div>
 
@@ -115,29 +155,15 @@
                         <div id="collapseOne" class="collapse" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Action item</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Recette</a>
+                                    <a href="#" class="list-group-item list-group-item-action list-group-item-success">Depense</a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-success">Success
-                                        item</a>
+                                        class="list-group-item list-group-item-action list-group-item-secondary">Trois meilleurs marchers</a>
+                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Dix meilleurs villages</a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Secondary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Info
-                                        item</a>
+                                        class="list-group-item list-group-item-action list-group-item-warning">Etat Civil</a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-warning">Warning
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-danger">Danger
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-primary">Primary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-light">Light
-                                        item</a>
+                                        class="list-group-item list-group-item-action list-group-item-danger">Domaine</a>
                                 </div>
                             </div>
                         </div>
@@ -152,29 +178,7 @@
                         <div id="collapseTwo" class="collapse" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Action item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-success">Success
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Secondary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Info
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-warning">Warning
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-danger">Danger
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-primary">Primary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-light">Light
-                                        item</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Axes strategiques</a>
                                 </div>
                             </div>
                         </div>
@@ -189,29 +193,16 @@
                         <div id="collapseThree" class="collapse" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Action item</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Recette d'investissement</a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-success">Success
-                                        item</a>
+                                        class="list-group-item list-group-item-action list-group-item-success">Recette de Fonctionnement
+                                        </a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Secondary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Info
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-warning">Warning
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-danger">Danger
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-primary">Primary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-light">Light
-                                        item</a>
+                                        class="list-group-item list-group-item-action list-group-item-secondary">Depense d'investissement
+                                        </a>
+                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Depense de fonctionnement
+                                        </a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -226,29 +217,15 @@
                         <div id="collapseFor" class="collapse" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Action item</a>
+                                <a href="#" class="list-group-item list-group-item-action">Recette d'investissement</a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-success">Success
-                                        item</a>
+                                        class="list-group-item list-group-item-action list-group-item-success">Recette de Fonctionnement
+                                        </a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Secondary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Info
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-warning">Warning
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-danger">Danger
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-primary">Primary
-                                        item</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Dark
-                                        item</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-light">Light
-                                        item</a>
+                                        class="list-group-item list-group-item-action list-group-item-secondary">Depense d'investissement
+                                        </a>
+                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Depense de fonctionnement
+                                        </a>
                                 </div>
                             </div>
                         </div>

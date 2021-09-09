@@ -476,9 +476,9 @@
 </div>
 
 <div class="row justify-content-center mt-2">
-    <a class="col-sm-6" href="../img/img2.png"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
-    <a class="col-sm-6" href="../img/img3.png"><img class="img-fluid" src="{{ asset('/img/img3.png') }}" alt="img1" /></a>
-    <a class="col-sm-6" href="../img/img4.png"><img class="img-fluid" src="{{ asset('/img/img4.png') }}" alt="img1" /></a>
+    <a class="col-sm-6" href="{{ asset('/img/img2.png') }}"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
+    <a class="col-sm-6" href="{{ asset('/img/img3.png') }}"><img class="img-fluid" src="{{ asset('/img/img3.png') }}" alt="img1" /></a>
+    <a class="col-sm-6" href="{{ asset('/img/img4.png') }}"><img class="img-fluid" src="{{ asset('/img/img4.png') }}" alt="img1" /></a>
 </div>
 
 <div class="col-12 card-header font-weight-bold my-2 text-center">Ce Bilan à été réalisé avec la précieuse contribution

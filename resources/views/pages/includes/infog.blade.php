@@ -370,8 +370,8 @@
 </div>
 
 <div class="row mt-3 justify-content-center">
-    <a class="col-sm-6" href="../img/img2.png"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
-    <a class="col-sm-6" href="../img/img3.png"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
-    <a class="col-sm-6" href="../img/img4.png"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
+    <a class="col-sm-6" href="{{ asset('/img/img2.png') }}"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
+    <a class="col-sm-6" href="{{ asset('/img/img3.png') }}"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
+    <a class="col-sm-6" href="{{ asset('/img/img4.png') }}"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
 
 </div>

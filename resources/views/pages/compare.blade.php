@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="col-6 ">
                                     <div class="form-group">
-                                        <select class="form-control " id="region_2" name="region_2" required>
+                                        <select class="form-control " id="region_2" name="region_2">
 
                                         </select>
                                         @error('province')
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="province_2" name="province_2" required>
+                                        <select class="form-control" id="province_2" name="province_2">
 
                                         </select>
                                         @error('commune')
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune_3" name="commune_3" required>
+                                        <select class="form-control" id="commune_3" name="commune_3" >
 
                                         </select>
                                         @error('commune')
@@ -163,7 +163,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune_2" name="commune_2" required>
+                                        <select class="form-control" id="commune_2" name="commune_2" >
 
                                         </select>
                                         @error('commune')
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="commune_4" name="commune_4" required>
+                                        <select class="form-control" id="commune_4" name="commune_4" >
 
                                         </select>
                                         @error('commune')

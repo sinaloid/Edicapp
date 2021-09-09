@@ -177,19 +177,31 @@ class SiteUrl extends Controller
     }
     public function datasCompare(Request $request){
 
+        $this->validate($request, [
+            'country' => 'required',
+            'region' => 'required',
+            'province' => 'required',
+            'commune_1' => 'required',
+            'annee' => 'required'
+        ]);
+
         $dataCompare = [
-            "pays" => Country::find($request->country)->country_name,
-            "region" => Region::find($request->region)->region_name,
-            "region_2" => Region::find($request->region_2)->region_name,
-            "province" => Province::find($request->province)->province_name,
-            "province_2" => Province::find($request->province_2)->province_name,
-            "commune_1" => Commune::find($request->commune_1)->commune_name,
-            "commune_2" => Commune::find($request->commune_2)->commune_name,
-            "commune_3" => Commune::find($request->commune_3)->commune_name,
-            "commune_4" => Commune::find($request->commune_4)->commune_name,
+            "pays" => isset($request->country) ? Country::find($request->country)->country_name : '',
+            "region" => isset($request->region) ? Region::find($request->region)->region_name : '',
+            "region_2" => isset($request->region_2) ? Region::find($request->region_2)->region_name : '',
+            "province" => isset($request->province) ? Province::find($request->province)->province_name : '',
+            "province_2" => isset($request->province_2) ? Province::find($request->province_2)->province_name : '',
+            "commune_1" => isset($request->commune_1) ? Commune::find($request->commune_1)->commune_name : '',
+            "commune_2" => isset($request->commune_2) ? Commune::find($request->commune_2)->commune_name : '',
+            "commune_3" => isset($request->commune_3) ? Commune::find($request->commune_3)->commune_name : '',
+            "commune_4" => isset($request->commune_4) ? Commune::find($request->commune_4)->commune_name : '',
+            "data_commune_1" => isset($request->commune_1) ? Commune::find($request->commune_1)->data()->where('annee', $request->annee)->first()->slug : '',
+            "data_commune_2" => isset($request->commune_2) ? Commune::find($request->commune_2)->data()->where('annee', $request->annee)->first()->slug : '',
+            "data_commune_3" => isset($request->commune_3) ? Commune::find($request->commune_3)->data()->where('annee', $request->annee)->first()->slug : '',
+            "data_commune_4" => isset($request->commune_4) ? Commune::find($request->commune_4)->data()->where('annee', $request->annee)->first()->slug : '',
         ];
 
-       // dd($dataCompare);
+        dd($dataCompare);
 
 
         return view('pages.viewData', compact('dataCompare'));
@@ -258,7 +270,7 @@ class SiteUrl extends Controller
 
         /*regions*/
 
-            $regions = ["Boucle du Mouhoun","Cascades","Centre","Centre-Est","Centre-Nord","Centre-Oest","Centre-Sud","Est","Hauts Bassins","Nord","Plateau Central","Sahel","Sud-Ouest"];
+            $regions = ["Boucle du Mouhoun","Cascades","Centre","Centre-Est","Centre-Nord","Centre-Ouest","Centre-Sud","Est","Hauts Bassins","Nord","Plateau Central","Sahel","Sud-Ouest"];
             $this->countryConfig($regions, 1, 2);
 
         /*Province */
