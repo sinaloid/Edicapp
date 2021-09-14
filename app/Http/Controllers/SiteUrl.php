@@ -289,7 +289,7 @@ class SiteUrl extends Controller
         //$dataCommune = null;
         $pdf =  PDF::loadView('pdf_tdb', compact('data','dataCommune'))->setPaper('a2')->setOrientation('landscape');
     
-        return $pdf->download($file_name, array("Attachment" => false));
+        return $pdf->stream($file_name, array("Attachment" => false));
     }
 
     public function test()
