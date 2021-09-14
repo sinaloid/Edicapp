@@ -261,6 +261,37 @@ class SiteUrl extends Controller
         dd(Data::find(3)->pcds);
     }
 
+    public function makePdf(Request $request){
+       
+        $data = [
+            "hidden_pcd" => $request->hidden_pcd,
+            "hidden_recette" => $request->hidden_recette,
+            "hidden_depense" => $request->hidden_depense,
+            "hidden_bg_recett_fcnt" => $request->hidden_bg_recett_fcnt,
+            "hidden_bg_depens_fnct" => $request->hidden_bg_depens_fnct,
+            "hidden_resultat" => $request->hidden_resultat,
+            "hidden_bg_recett_invest" => $request->hidden_bg_recett_invest,
+            "hidden_bg_depens_invest" => $request->hidden_bg_depens_invest
+        ];
+
+        $input_data = Data::where('slug',$request->slug)->first();
+         //dd($data);
+         if($input_data != null){
+            $dataCommune = $this->getDataCommune($input_data->id, 'datas.tdb');
+         }else{
+            $dataCommune = null; 
+         }
+
+        //dd($data);
+
+        $file_name = 'google_chart.pdf';
+        
+        //$dataCommune = null;
+        $pdf =  PDF::loadView('pdf_tdb', compact('data','dataCommune'))->setPaper('a2')->setOrientation('landscape');
+    
+        return $pdf->stream($file_name, array("Attachment" => false));
+    }
+
     public function test()
     {
         /*Pays*/

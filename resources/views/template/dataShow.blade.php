@@ -102,7 +102,9 @@
                         <div class="mx-auto">
                             <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">validé</button>
                             <a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
-                            <a class="btn sin-bg-3" href="{{ route('pdf') }}">Exporter</a>
+                            @if (Route::currentRouteName() == 'datas.tdb') 
+                            <button class="btn sin-bg-3 text-white" type="button" name="create_pdf" id="create_pdf">Exporter</button>
+                            @endif
                         </div>
                         <p class="mt-3 p-0">
                             <strong>

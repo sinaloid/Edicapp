@@ -483,3 +483,26 @@
 
 <div class="col-12 card-header font-weight-bold my-2 text-center">Ce Bilan à été réalisé avec la précieuse contribution
     du #PAGOF sur financement de l'Agence Française de Développement </div>
+<div class="col-12">
+    <form id="make_pdf" action="{{ route('make_pdf') }}" method="post">
+        @csrf
+        <input type="hidden" name="hidden_pcd" id="hidden_pcd" />
+        <input type="hidden" name="hidden_recette" id="hidden_recette" />
+        <input type="hidden" name="hidden_depense" id="hidden_depense" />
+        <input type="hidden" name="hidden_bg_recett_fcnt" id="hidden_bg_recett_fcnt" />
+        <input type="hidden" name="hidden_bg_depens_fnct" id="hidden_bg_depens_fnct" />
+        <input type="hidden" name="hidden_resultat" id="hidden_resultat" />
+        <input type="hidden" name="hidden_bg_recett_invest" id="hidden_bg_recett_invest" />
+        <input type="hidden" name="hidden_bg_depens_invest" id="hidden_bg_depens_invest" />
+        <input type="hidden" name="slug" id="hidden_slug" value="{{$dataCommune['slug']}}" />
+        <!--button type="button" name="create_pdf" id="create_pdf" class="btn btn-danger btn-xs">Make PDF</button-->
+    </form>
+</div>
+<script>
+$(document).ready(function() {
+    $('#create_pdf').click(function() {
+        $('#hidden_html').val($('#testing').html());
+        $('#make_pdf').submit();
+    });
+})
+</script>

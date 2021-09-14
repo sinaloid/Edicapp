@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteUrl;
+use Spatie\Browsershot\Browsershot;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -77,3 +79,5 @@ Route::get('/pdf', [SiteUrl::class, 'pdf'])->name('pdf');
 Route::resource('data', App\Http\Controllers\DataCommuneController::class)->middleware(['auth','verified']);
 Route::put('data/terminer/{data}', [App\Http\Controllers\DataCommuneController::class, 'terminer'])->middleware(['auth','verified'])->name('data.terminer');
 Route::put('data/encour/{data}', [App\Http\Controllers\DataCommuneController::class, 'encour'])->middleware(['auth','verified'])->name('data.encour');
+
+Route::post('make_pdf', [SiteUrl::class, 'makePdf'])->name('make_pdf');

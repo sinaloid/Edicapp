@@ -199,10 +199,35 @@
         chartArea:{top:20,width:'100%',height:'75%'}
         
       };
+
       var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
       var chart1 = new google.visualization.ColumnChart(document.getElementById("columnchart_values1"));
       var chart2 = new google.visualization.ColumnChart(document.getElementById("columnchart_values2"));
       var chart3 = new google.visualization.ColumnChart(document.getElementById("columnchart_values3"));
+      
+      /*image*/
+      google.visualization.events.addListener(chart, 'ready', function() {
+        document.getElementById("hidden_pcd").value = ""+chart.getImageURI();
+        })
+      google.visualization.events.addListener(chart1, 'ready', function() {
+        document.getElementById("hidden_recette").value = ""+chart1.getImageURI();
+        })
+      google.visualization.events.addListener(chart2, 'ready', function() {
+        document.getElementById("hidden_depense").value = ""+chart2.getImageURI();
+        })
+      google.visualization.events.addListener(chart3, 'ready', function() {
+        document.getElementById("hidden_resultat").value = ""+chart3.getImageURI();
+        })
+      
+      
+      
+      
+
+      var hidden_bg_recett_fcnt = document.getElementById('hidden_bg_recett_fcnt');
+      var hidden_bg_depens_fnct = document.getElementById('hidden_bg_depens_fnct');
+      var hidden_bg_recett_invest = document.getElementById('hidden_bg_recett_invest');
+      var hidden_bg_depens_invest = document.getElementById('hidden_bg_depens_invest');
+
       chart.draw(view, options);
       chart1.draw(view1, options1);
       chart2.draw(view2, options2);
@@ -322,6 +347,20 @@
         var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
         var chartRecetteInvest = new google.visualization.PieChart(document.getElementById('piechart2'));
         var chartDepenseInvest = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+        google.visualization.events.addListener(chart, 'ready', function() {
+          document.getElementById("hidden_bg_recett_fcnt").value = ""+chart.getImageURI();
+        })
+        google.visualization.events.addListener(chart1, 'ready', function() {
+          document.getElementById("hidden_bg_depens_fnct").value = ""+chart1.getImageURI();
+        })
+        google.visualization.events.addListener(chartRecetteInvest, 'ready', function() {
+          document.getElementById("hidden_bg_recett_invest").value = ""+chartRecetteInvest.getImageURI();
+        })
+        google.visualization.events.addListener(chartDepenseInvest, 'ready', function() {
+          document.getElementById("hidden_bg_depens_invest").value = ""+chartDepenseInvest.getImageURI();
+        })
+      
         chart.draw(data, options);
         chart1.draw(dataDepenseFonct, options);
         chartRecetteInvest.draw(dataRecetteInvest, options);

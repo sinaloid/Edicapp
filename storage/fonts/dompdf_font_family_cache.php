@@ -80,6 +80,8 @@
   'nunito' => array(
     'normal' => $fontDir . '/nunito_normal_7173294b894229c46ad1835001660d90',
     'bold' => $fontDir . '/nunito_bold_3ba31529b86edd4ded07fcea8f11665d',
+    '600' => $fontDir . '/nunito_600_0f08625611c8a9cf8d1f0e5a4e3b8e39',
+    '300' => $fontDir . '/nunito_300_6d8ab809049a8a99e83e35f35c16e829',
   ),
   'itim' => array(
     'normal' => $fontDir . '/itim_normal_5b6458febe7ec9e0c19389c037374405',

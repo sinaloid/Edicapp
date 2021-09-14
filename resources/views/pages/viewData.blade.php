@@ -155,7 +155,7 @@
                         <div id="collapseOne" class="collapse" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Recette</a>
+                                    <span id="recette" href="#" class="list-group-item list-group-item-action">Recette</span>
                                     <a href="#" class="list-group-item list-group-item-action list-group-item-success">Depense</a>
                                     <a href="#"
                                         class="list-group-item list-group-item-action list-group-item-secondary">Trois meilleurs marchers</a>
@@ -423,9 +423,65 @@
     <!--script src="{{ asset('js/script.js') }}"></script-->
 
     <script>
+    $(document).ready(function() {
+    
+    $('#recette').on('click', function() {
+       console.log('good')
+        //let country_id = $(this).val();
+        
+        /*if (country_id) {
+            //alert('coucou');
+            $.ajax({
+                //alert('coucou');
+                url: '/country/' + country_id,
+                type: "GET",
+                data: {
+                    "_token": "{{ csrf_token() }}"
+                },
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
+                    //var response = JSON.parse(data);
+                    //console.log(response);
+                    if (data) {
+                        $('#region_2').empty();
+                        $('#province_2').empty();
+                        $('#commune_2').empty();
+                        $('#region_2').focus;
+                        $('#region_2').append(
+                            '<option value="">-- Selectionnez votre region --</option>');
+                        $.each(data, function(key, value) {
+                            $('select[name="region_2"]').append(
+                                '<option value="' + key + '">' + value
+                                 + '</option>');
+                        });
+                    } else {
+                        $('#region_2').empty();
+                        $('#province_2').empty();
+                        $('#commune_3').empty();
+                        $('#commune_4').empty();
+
+                    }
+                }
+            });
+            
+        } else {
+            $('#region_2').empty();
+            $('#province_2').empty();
+            $('#commune_3').empty();
+            $('#commune_4').empty();
+
+            $('#region').empty();
+            $('#province').empty();
+            $('#commune').empty();
+
+        }*/
+    });
     // Define data set for all charts
     let dataBaby = [1, 10, 5, 2, 20, 30, 45];
     let moreDataBaby = [20, 30, 15, 12, 21, 30, 40];
+    let moreDataBaby1 = [8, 15, 7, 5, 10, 15, 20];
+    let moreDataBaby2 = [6, 10, 5, 4, 7, 9, 80];
     myData = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [{
@@ -441,6 +497,20 @@
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: moreDataBaby,
+            },
+            {
+                label: "More data, baby 1!",
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: moreDataBaby1,
+            },
+            {
+                label: "More data, baby 2!",
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: moreDataBaby2,
             }
         ]
     };
@@ -472,6 +542,7 @@
         myChart.update();
         console.log(newDataBaby);
     };
+});
     </script>
 
 
