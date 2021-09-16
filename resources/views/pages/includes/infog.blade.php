@@ -1,5 +1,6 @@
 <div class="row ">
-    <div class="col-12 font-weight-bolder text-center text-uppercase">Evolution du budget de la commune les trois années</div>
+    <div class="col-12 font-weight-bolder text-center text-uppercase">Evolution du budget de la commune les trois années
+    </div>
     <div class="col-12 table-responsive mt-2 px-0">
         <table class="table-sm table-hover mx-auto">
             <tr>
@@ -28,10 +29,14 @@
             <tr>
             <tr>
                 <th>Total</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['recette'][0]->fonctionnement + $dataCommune['recette'][0]->investissement : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['recette'][1]->fonctionnement + $dataCommune['recette'][1]->investissement : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['recette'][2]->fonctionnement + $dataCommune['recette'][2]->investissement : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['recette'][3]->fonctionnement + $dataCommune['recette'][3]->investissement : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['recette'][0]->fonctionnement + $dataCommune['recette'][0]->investissement : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['recette'][1]->fonctionnement + $dataCommune['recette'][1]->investissement : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['recette'][2]->fonctionnement + $dataCommune['recette'][2]->investissement : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['recette'][3]->fonctionnement + $dataCommune['recette'][3]->investissement : '' }}
+                </td>
             <tr>
             <tr>
                 <th>années</th>
@@ -72,10 +77,14 @@
             <tr>
             <tr>
                 <th>Total</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['depense'][0]->fonctionnement + $dataCommune['depense'][0]->investissement : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['depense'][1]->fonctionnement + $dataCommune['depense'][1]->investissement : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['depense'][3]->fonctionnement + $dataCommune['depense'][3]->investissement : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['depense'][0]->fonctionnement + $dataCommune['depense'][0]->investissement : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['depense'][1]->fonctionnement + $dataCommune['depense'][1]->investissement : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['depense'][3]->fonctionnement + $dataCommune['depense'][3]->investissement : '' }}
+                </td>
             <tr>
             <tr>
                 <th>années</th>
@@ -88,7 +97,8 @@
     </div>
 </div>
 <div class="row mt-3">
-<div class="col-12 font-weight-bolder text-center text-uppercase">Contribution des trois (03) meilleurs marchés</div>
+    <div class="col-12 font-weight-bolder text-center text-uppercase">Contribution des trois (03) meilleurs marchés
+    </div>
     <div class="col-12 table-responsive mt-2 px-0">
         <table class="table-sm table-hover mx-auto">
             <thead>
@@ -119,19 +129,23 @@
             </tr>
             <tr>
                 <th>Taux</th>
-                <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][0]->attendu != null && $dataCommune['troisMeilleur'][0]->attendu != 0) ? round($dataCommune['troisMeilleur'][0]->contribution *100 / $dataCommune['troisMeilleur'][0]->attendu, 2) . '%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][1]->attendu != null && $dataCommune['troisMeilleur'][1]->attendu != 0) ? round($dataCommune['troisMeilleur'][1]->contribution *100 / $dataCommune['troisMeilleur'][1]->attendu, 2) . '%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][2]->attendu != null && $dataCommune['troisMeilleur'][2]->attendu != 0) ? round($dataCommune['troisMeilleur'][2]->contribution *100 / $dataCommune['troisMeilleur'][2]->attendu, 2) . '%' : 0 : '' }}</td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][0]->attendu != null && $dataCommune['troisMeilleur'][0]->attendu != 0) ? round($dataCommune['troisMeilleur'][0]->contribution *100 / $dataCommune['troisMeilleur'][0]->attendu, 2) . '%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][1]->attendu != null && $dataCommune['troisMeilleur'][1]->attendu != 0) ? round($dataCommune['troisMeilleur'][1]->contribution *100 / $dataCommune['troisMeilleur'][1]->attendu, 2) . '%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][2]->attendu != null && $dataCommune['troisMeilleur'][2]->attendu != 0) ? round($dataCommune['troisMeilleur'][2]->contribution *100 / $dataCommune['troisMeilleur'][2]->attendu, 2) . '%' : 0 : '' }}
+                </td>
             </tr>
         </table>
     </div>
 </div>
 
 <div class="row mt-3">
-<div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des dix (10) meilleurs villages (toute contribution)</div>
+    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des dix (10) meilleurs villages
+        (toute contribution)</div>
     <div class="col-12 table-responsive mt-2 px-0">
         <table class="table-sm table-hover">
-            
+
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -188,23 +202,34 @@
             </tr>
             <tr>
                 <th>Taux mobilisation /Prévisions</th>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][0]->attendu !=null && $dataCommune['dixMeilleur'][0]->attendu !=0) ? round($dataCommune['dixMeilleur'][0]->mobilise * 100 / $dataCommune['dixMeilleur'][0]->attendu) .'%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][1]->attendu !=null && $dataCommune['dixMeilleur'][1]->attendu !=0) ? round($dataCommune['dixMeilleur'][1]->mobilise * 100 / $dataCommune['dixMeilleur'][1]->attendu) .'%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][2]->attendu !=null && $dataCommune['dixMeilleur'][2]->attendu !=0) ? round($dataCommune['dixMeilleur'][2]->mobilise * 100 / $dataCommune['dixMeilleur'][2]->attendu) .'%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][3]->attendu !=null && $dataCommune['dixMeilleur'][3]->attendu !=0) ? round($dataCommune['dixMeilleur'][3]->mobilise * 100 / $dataCommune['dixMeilleur'][3]->attendu) .'%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][4]->attendu !=null && $dataCommune['dixMeilleur'][4]->attendu !=0) ? round($dataCommune['dixMeilleur'][4]->mobilise * 100 / $dataCommune['dixMeilleur'][4]->attendu) .'%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][5]->attendu !=null && $dataCommune['dixMeilleur'][5]->attendu !=0) ? round($dataCommune['dixMeilleur'][5]->mobilise * 100 / $dataCommune['dixMeilleur'][5]->attendu) .'%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][6]->attendu !=null && $dataCommune['dixMeilleur'][6]->attendu !=0) ? round($dataCommune['dixMeilleur'][6]->mobilise * 100 / $dataCommune['dixMeilleur'][6]->attendu) .'%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][7]->attendu !=null && $dataCommune['dixMeilleur'][7]->attendu !=0) ? round($dataCommune['dixMeilleur'][7]->mobilise * 100 / $dataCommune['dixMeilleur'][7]->attendu) .'%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][8]->attendu !=null && $dataCommune['dixMeilleur'][8]->attendu !=0) ? round($dataCommune['dixMeilleur'][8]->mobilise * 100 / $dataCommune['dixMeilleur'][8]->attendu) .'%' : 0 : '' }}</td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][9]->attendu !=null && $dataCommune['dixMeilleur'][9]->attendu !=0) ? round($dataCommune['dixMeilleur'][9]->mobilise * 100 / $dataCommune['dixMeilleur'][9]->attendu) .'%' : 0 : '' }}</td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][0]->attendu !=null && $dataCommune['dixMeilleur'][0]->attendu !=0) ? round($dataCommune['dixMeilleur'][0]->mobilise * 100 / $dataCommune['dixMeilleur'][0]->attendu) .'%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][1]->attendu !=null && $dataCommune['dixMeilleur'][1]->attendu !=0) ? round($dataCommune['dixMeilleur'][1]->mobilise * 100 / $dataCommune['dixMeilleur'][1]->attendu) .'%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][2]->attendu !=null && $dataCommune['dixMeilleur'][2]->attendu !=0) ? round($dataCommune['dixMeilleur'][2]->mobilise * 100 / $dataCommune['dixMeilleur'][2]->attendu) .'%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][3]->attendu !=null && $dataCommune['dixMeilleur'][3]->attendu !=0) ? round($dataCommune['dixMeilleur'][3]->mobilise * 100 / $dataCommune['dixMeilleur'][3]->attendu) .'%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][4]->attendu !=null && $dataCommune['dixMeilleur'][4]->attendu !=0) ? round($dataCommune['dixMeilleur'][4]->mobilise * 100 / $dataCommune['dixMeilleur'][4]->attendu) .'%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][5]->attendu !=null && $dataCommune['dixMeilleur'][5]->attendu !=0) ? round($dataCommune['dixMeilleur'][5]->mobilise * 100 / $dataCommune['dixMeilleur'][5]->attendu) .'%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][6]->attendu !=null && $dataCommune['dixMeilleur'][6]->attendu !=0) ? round($dataCommune['dixMeilleur'][6]->mobilise * 100 / $dataCommune['dixMeilleur'][6]->attendu) .'%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][7]->attendu !=null && $dataCommune['dixMeilleur'][7]->attendu !=0) ? round($dataCommune['dixMeilleur'][7]->mobilise * 100 / $dataCommune['dixMeilleur'][7]->attendu) .'%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][8]->attendu !=null && $dataCommune['dixMeilleur'][8]->attendu !=0) ? round($dataCommune['dixMeilleur'][8]->mobilise * 100 / $dataCommune['dixMeilleur'][8]->attendu) .'%' : 0 : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][9]->attendu !=null && $dataCommune['dixMeilleur'][9]->attendu !=0) ? round($dataCommune['dixMeilleur'][9]->mobilise * 100 / $dataCommune['dixMeilleur'][9]->attendu) .'%' : 0 : '' }}
+                </td>
             </tr>
         </table>
     </div>
 </div>
 
 <div class="row mt-3">
-<div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des autres partenaires à la commune</div>
+    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des autres partenaires à la commune
+    </div>
     <div class="col-12 table-responsive mt-2 px-0">
         <table class="table-sm table-hover ">
             <thead>
@@ -266,10 +291,10 @@
 </div>
 
 <div class="row mt-3">
-<div class="col-12 font-weight-bolder text-center text-uppercase">ETAT CIVIL ET DOMAINE</div>
+    <div class="col-12 font-weight-bolder text-center text-uppercase">ETAT CIVIL ET DOMAINE</div>
     <div class="col-12 table-responsive mt-2 px-0">
         <table class="table-sm table-hover mx-auto ">
-            
+
             <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
@@ -329,20 +354,28 @@
             <tr>
                 <th>Zone d'habitation</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_degagee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_attribuee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_restante : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_attribuee : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_restante : '' }}
+                </td>
             </tr>
             <tr>
                 <th>Zone commerciale</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_degagee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_attribuee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_restante : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_degagee : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_attribuee : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_restante : '' }}
+                </td>
             </tr>
             <tr>
                 <th>Zone administrative</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_degagee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_attribuee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_restante : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_degagee : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_attribuee : '' }}
+                </td>
+                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_restante : '' }}
+                </td>
             </tr>
             <tr>
                 <th>Autres....</th>
@@ -369,9 +402,25 @@
     </div>
 </div>
 
-<div class="row mt-3 justify-content-center">
-    <a class="col-sm-6" href="{{ asset('/img/img2.png') }}"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
-    <a class="col-sm-6" href="{{ asset('/img/img3.png') }}"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
-    <a class="col-sm-6" href="{{ asset('/img/img4.png') }}"><img class="img-fluid" src="{{ asset('/img/img2.png') }}" alt="img1" /></a>
-
+@if($dataCommune != null)
+<div class="row justify-content-center mt-2">
+    @if($dataCommune['ressourceImage'][0]->url != null)
+    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+        <a class="col-sm-6" href="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}"><img class="img-fluid" src="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}"
+            style="width:auto; max-height:250px" alt="img1" /> </a>
+    </div>
+    @endif
+    @if($dataCommune['ressourceImage'][1]->url != null)
+    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+        <a class="col-sm-6" href="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}"><img class="img-fluid" src="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}"
+            style="width:auto; max-height:250px" alt="img1" /> </a>
+    </div>
+    @endif
+    @if($dataCommune['ressourceImage'][2]->url != null)
+    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+        <a class="col-sm-6" href="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}"><img class="img-fluid" src="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}"
+            style="width:auto; max-height:250px" alt="img1" /> </a>
+    </div>
+    @endif
 </div>
+@endif

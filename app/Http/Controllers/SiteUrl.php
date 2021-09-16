@@ -29,6 +29,7 @@ use App\Models\Datas\BudgetN\BudgetN;
 use App\Models\Datas\BudgetN\Tables\{DepensFonctN, DepensInvestN, RecetFonctN, RecetInvestN};
 
 use PDF;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class SiteUrl extends Controller
@@ -285,10 +286,13 @@ class SiteUrl extends Controller
         //dd($data);
 
         $file_name = 'google_chart.pdf';
+        $qrcode = QrCode::size(400)->generate("Je suis un QR Code");
+        //dd($qrcode);
         
         //$dataCommune = null;
-        $pdf =  PDF::loadView('pdf_tdb', compact('data','dataCommune'))->setPaper('a2')->setOrientation('landscape');
-    
+        $pdf =  PDF::loadView('pdf_tdb', compact('data','dataCommune', 'qrcode'))->setPaper('a2')->setOrientation('landscape');
+         
+        
         return $pdf->stream($file_name, array("Attachment" => false));
     }
 
@@ -589,7 +593,7 @@ class SiteUrl extends Controller
                     "domaineCivil" => Data::find($data_id)->infogs()->first()->domaineCivils()->first(),
                     "etatCivil" => Data::find($data_id)->infogs()->first()->etatCivils()->first(),
                     "partenaire" => Data::find($data_id)->infogs()->first()->partenaires()->get(),
-                    "ressourceImage" => Data::find($data_id)->infogs()->first()->ressourceImages()->first(),
+                    "ressourceImage" => Data::find($data_id)->infogs()->first()->ressourceImages()->get(),
                     "troisMeilleur" => Data::find($data_id)->infogs()->first()->troisMeilleurs()->get()
             ];
 
@@ -663,7 +667,7 @@ class SiteUrl extends Controller
                     "domaineCivil" => Data::find($data_id)->infogs()->first()->domaineCivils()->first(),
                     "etatCivil" => Data::find($data_id)->infogs()->first()->etatCivils()->first(),
                     "partenaire" => Data::find($data_id)->infogs()->first()->partenaires()->get(),
-                    "ressourceImage" => Data::find($data_id)->infogs()->first()->ressourceImages()->first(),
+                    "ressourceImage" => Data::find($data_id)->infogs()->first()->ressourceImages()->get(),
                     "troisMeilleur" => Data::find($data_id)->infogs()->first()->troisMeilleurs()->get(),
     
                     "appreciation" => Data::find($data_id)->pcds()->first()->appreciations()->first(),

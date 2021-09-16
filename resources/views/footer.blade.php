@@ -13,7 +13,7 @@
                 </div>
             </div>
                 <div class="col-sm-12">
-                <a href="{{ route('about') }}">A propos</a> - <a href="{{ route('contact') }}">Contact</a> - <a href="#">Mentions légales</a> - <a href="https://facebook.com/AMR-Burkina-631953113533478">Facebook</a>
+                <a href="{{ route('about') }}">A propos</a> - <a href="{{ route('contact') }}">Contact</a> - <a href="#">Mentions légales</a> - <a href="https://facebook.com/AMR-Burkina-631953113533478" target="blank">Facebook</a>
                 </div>
         </div>
         </footer>

@@ -11,7 +11,7 @@
     <link href="{{ public_path('1/css/sin.css') }}" rel="stylesheet">
     <link href="{{ public_path('1/css/table.css') }}" rel="stylesheet">
     <style>
-    div > p {
+    div>p {
         font-weight: bold;
         font-size: 1.1em;
     }
@@ -19,18 +19,18 @@
     .title {
         font-weight: bold;
         font-size: 1.5em;
-        color:#ff8043;
+        color: #ff8043;
     }
 
     table {
         font-weight: bold;
         font-size: 0.9em;
-        width:100%;
-        
+        width: 100%;
+
     }
 
-    .tb_pcd{
-        height:300px;
+    .tb_pcd {
+        height: 300px;
     }
 
     @page {
@@ -77,10 +77,10 @@
         </div>
 
         <div class="row" style="height:350px">
-        <br>
-        <br>
+            <br>
+            <br>
             <div class="col-xs-3">
-                <div class="title text-center text-uppercase"  >Informations générales sur le PCD
+                <div class="title text-center text-uppercase">Informations générales sur le PCD
                 </div>
                 <br>
                 <div class="w-100 mt-2 px-0">
@@ -124,17 +124,17 @@
             </div>
 
             <div class="col-xs-3 ">
-                <div class="title text-center text-uppercase" >Appréciation du niveau d'exécution
+                <div class="title text-center text-uppercase">Appréciation du niveau d'exécution
                     du PCD</div> <br>
                 <img class="img-responsive " src="{{ $data['hidden_pcd'] }}" style="width:100%; height:100%" alt="">
             </div>
             <div class="col-xs-3 ">
-                <div class="title text-center text-uppercase" >Evolution des recettes 3 ans</div>
+                <div class="title text-center text-uppercase">Evolution des recettes 3 ans</div>
                 <br>
                 <img class="img-responsive " src="{{ $data['hidden_recette'] }}" style="width:100%" alt="">
             </div>
             <div class="col-xs-3 ">
-                <div class="title text-center text-uppercase" >Evolution des depenses 3 ans</div>
+                <div class="title text-center text-uppercase">Evolution des depenses 3 ans</div>
                 <br>
                 <img class="img-responsive " src="{{ $data['hidden_depense'] }}" style="width:100%" alt="">
             </div>
@@ -143,7 +143,7 @@
         <div class="row">
             <!-- Pie Chart -->
             <div class="col-xs-8 bg-success1">
-                <div class="col-xs-12 title text-center text-uppercase" >Bilan du fonctionnement
+                <div class="col-xs-12 title text-center text-uppercase">Bilan du fonctionnement
                 </div> <br> <br>
                 <div class="row ">
                     <div class="col-xs-1 bg-success px-0"><img class="img-responsive"
@@ -161,7 +161,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <h4 class="card-header title text-center text-uppercase bg-info text-white">Recettes de fonctionnement
+                                <br>
+                                    <h4 class="card-header title text-center text-uppercase bg-info text-white">Recettes
+                                        de fonctionnement
                                     </h4>
                                     <div class="col-xs-12 mt-3 table-responsive px-0">
                                         <div class="card">
@@ -183,7 +185,9 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-6">
-                                    <h4 class="card-header title text-center text-uppercase bg-info text-white">Dépenses de fonctionnement
+                                <br>
+                                    <h4 class="card-header title text-center text-uppercase bg-info text-white">Dépenses
+                                        de fonctionnement
                                     </h4>
                                     <div class="col-12 mt-3 table-responsive px-0">
                                         <div class="card">
@@ -211,29 +215,51 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 title text-center text-uppercase" >Bilan d'investissement
+                    <div class="col-xs-12 title text-center text-uppercase">Bilan d'investissement
                     </div>
+                    <div class="col-xs-1 bg-success px-0"><img class="img-responsive"
+                            src="{{ public_path('/img/arg.png') }}" style="width:100%;height:555px" alt="image argent">
+                    </div>
+                    <div class="col-xs-11">
                     <div class="col-xs-6">
                         <img src="{{ $data['hidden_bg_recett_invest'] }}" style="width:100%" alt="">
                         <br>
-                        <h4 class="card-header title text-center text-uppercase bg-info text-white">Recettes d'investissement</h4>
+                        <br>
+                        <h4 class="card-header title text-center text-uppercase bg-info text-white">Recettes
+                            d'investissement</h4>
                     </div>
                     <div class="col-xs-6">
                         <img src="{{ $data['hidden_bg_depens_invest'] }}" style="width:100%" alt="">
                         <br>
-                        <h4 class="card-header title text-center text-uppercase bg-info text-white">Depenses d'investissement</h4>
+                        <br>
+                        <h4 class="card-header title text-center text-uppercase bg-info text-white">Depenses
+                            d'investissement</h4>
+                    </div>
                     </div>
                 </div>
 
+                @if($dataCommune != null)
                 <div class="row justify-content-center mt-2">
-                    <a class="col-xs-4" href="{{ asset('/img/img2.png') }}"><img class="img-responsive"
-                            src="{{ public_path('/img/img2.png') }}" alt="img1" /></a>
-                    <a class="col-xs-4 text-center" href="{{ asset('/img/img4.png') }}"><img class="img-responsive"
-                            src="{{ public_path('/img/img4.png') }}" alt="img1" /></a>
-                    <a class="col-xs-4" href="{{ asset('/img/img3.png') }}"><img class="img-responsive"
-                            src="{{ public_path('/img/img3.png') }}" alt="img1" /></a>
-
+                    @if($dataCommune['ressourceImage'][0]->url != null)
+                    <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
+                        <img class="img-fluid" src="{{ public_path('/'.$dataCommune['ressourceImage'][0]->url) }}"
+                                style="width:auto; max-height:400px" alt="img1" />
+                    </div>
+                    @endif
+                    @if($dataCommune['ressourceImage'][1]->url != null)
+                    <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
+                        <img class="img-fluid" src="{{ public_path('/'.$dataCommune['ressourceImage'][1]->url) }}"
+                                style="width:auto; max-height:400px" alt="img1" />
+                    </div>
+                    @endif
+                    @if($dataCommune['ressourceImage'][2]->url != null)
+                    <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
+                        <img class="img-fluid" src="{{ public_path('/'.$dataCommune['ressourceImage'][2]->url) }}"
+                                style="width:auto; max-height:400px" alt="img1" />
+                    </div>
+                    @endif
                 </div>
+                @endif
 
 
 
@@ -241,7 +267,7 @@
             <!-- Table -->
             <div class="col-xs-4">
                 <div class="row mt-3">
-                    <div class="col-xs-12 title text-center text-uppercase" > Etat civil et
+                    <div class="col-xs-12 title text-center text-uppercase"> Etat civil et
                         domaine</div>
                     <div class="col-xs-12 table-responsive px-0 ">
                         <table class="table table-hover ">
@@ -362,7 +388,7 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-xs-12 title text-center text-uppercase" > Contribution
+                    <div class="col-xs-12 title text-center text-uppercase"> Contribution
                         des
                         trois (03) meilleurs marcher</div>
                     <div class="col-xs-6 table-responsive px-0">
@@ -412,8 +438,65 @@
                         <img src="{{ $data['hidden_resultat'] }}" style="width:100%" alt="">
                     </div>
                 </div>
+
                 <div class="row mt-2">
-                    <div class="col-xs-12 title text-center text-uppercase" >Contribution des
+                    <div class="col-xs-12 text-center">
+                        <p>{{ $qrcode }} </p>
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-xs-12 title text-center text-uppercase">Contribution des
+                        dix (10) meilleurs villages (toute
+                        contribution)</div>
+                    <div class="col-xs-12 table-responsive px-0">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="sin-table-bg">#</th>
+                                    <th class="sin-table-bg">1 er</th>
+                                    <th class="sin-table-bg">2 ème</th>
+                                    <th class="sin-table-bg">3 ème</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tr>
+                                <th>Le village</th>
+                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->le_village : '' }}</td>
+                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->le_village : '' }}</td>
+                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->le_village : '' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Montant attendu</th>
+                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->attendu : '' }}</td>
+                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->attendu : '' }}</td>
+                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->attendu : '' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Montant mobilisé</th>
+                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->mobilise : '' }}</td>
+                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->mobilise : '' }}</td>
+                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->mobilise : '' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Taux mobilisation /Prévisions</th>
+                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][0]->attendu !=null && $dataCommune['dixMeilleur'][0]->attendu !=0) ? round($dataCommune['dixMeilleur'][0]->mobilise * 100 / $dataCommune['dixMeilleur'][0]->attendu) .'%' : 0 : '' }}
+                                </td>
+                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][1]->attendu !=null && $dataCommune['dixMeilleur'][1]->attendu !=0) ? round($dataCommune['dixMeilleur'][1]->mobilise * 100 / $dataCommune['dixMeilleur'][1]->attendu) .'%' : 0 : '' }}
+                                </td>
+                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][2]->attendu !=null && $dataCommune['dixMeilleur'][2]->attendu !=0) ? round($dataCommune['dixMeilleur'][2]->mobilise * 100 / $dataCommune['dixMeilleur'][2]->attendu) .'%' : 0 : '' }}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <div class="row mt-2">
+                    <div class="col-xs-12 title text-center text-uppercase">Contribution des
                         dix (10) meilleurs villages (toute
                         contribution)</div>
                     <div class="col-xs-12 table-responsive px-0">
@@ -498,6 +581,7 @@
                         </table>
                     </div>
                 </div>
+                
                 <!--img src="{{ $data['hidden_resultat'] }}" style="width:100%" alt="">
                 <img src="{{ $data['hidden_bg_recett_invest'] }}" style="width:100%" alt="">
                 <img src="{{ $data['hidden_bg_depens_invest'] }}" style="width:100%" alt=""-->

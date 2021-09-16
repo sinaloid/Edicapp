@@ -13,8 +13,10 @@ use App\Models\Datas\Budget\Tables\{DepensFonct, DepensInvest, RecetFonct, Recet
 use App\Models\Datas\BudgetN\BudgetN;
 use App\Models\Datas\BudgetN\Tables\{DepensFonctN, DepensInvestN, RecetFonctN, RecetInvestN};
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DataCommuneRequest;
 
 class DataCommuneController extends Controller
 {
@@ -77,7 +79,10 @@ class DataCommuneController extends Controller
      */
     public function show($id)
     {
-        //
+        $countries = Country::all();
+        $annee = date('Y');
+        $dataCommune = $this->getDataCommune($id);
+        return view('dataCommune.create', compact('countries','annee', 'dataCommune'));
     }
 
     /**
@@ -101,7 +106,7 @@ class DataCommuneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DataCommuneRequest $request, $id)
     {
     /*dd(
         $request->recet_annee1,
@@ -581,6 +586,26 @@ class DataCommuneController extends Controller
 
             $domaineCivil->save();
 
+            /*ressource image*/
+
+            $ressourceImage = Data::find($id)->infogs()->first()->ressourceimages()->get();
+            //dd($request);
+            if($request->commune_img_carte != null){
+                $ressourceImage[0]->url = $request->commune_img_carte->store(config('images.path'), 'public');
+                $ressourceImage[0]->save();
+            }
+            if($request->commune_img_logo != null){
+                $ressourceImage[1]->url = $request->commune_img_logo->store(config('images.path'), 'public');
+                $ressourceImage[1]->save();
+            }
+            if($request->commune_img_autre != null){
+                $ressourceImage[2]->url = $request->commune_img_autre->store(config('images.path'), 'public');
+                $ressourceImage[2]->save();
+            }
+            
+            
+
+
             /* Pcd */
             /* appreciation */
 
@@ -769,6 +794,22 @@ class DataCommuneController extends Controller
         return back();
     }
 
+    public function deleteImg($id=''){
+
+        
+        $ressourceImage = RessourceImage::where('id',$id)->first();
+        if($ressourceImage != null){
+            $url = $ressourceImage->url;
+            $ressourceImage->url = null;
+            $ressourceImage->save();
+            Storage::disk('public')->delete($url);
+        }
+        //Storage::delete();
+        
+        //dd($ressourceImage);
+        return back();
+    }
+
     public function datasView(Request $request) {
 
         $countries = Country::all();
@@ -834,7 +875,7 @@ class DataCommuneController extends Controller
                         $domaineCivil = new DomaineCivil();
                         $etatCivil = new EtatCivil();
                         
-                        $ressourceImage = new RessourceImage();
+                        ;
 
                         for($i=0; $i <=3; $i++){
                             $recette = new Recettes();
@@ -848,11 +889,13 @@ class DataCommuneController extends Controller
 
                             if($i < 3){
                                 $troisMeilleur = new TroisMeilleurs();
+                                $ressourceImage = new RessourceImage();
                                 
+                                $ressourceImage->infog_id = $infog->id;
                                 $troisMeilleur->infog_id = $infog->id;
 
                                 $troisMeilleur->save();
-
+                                $ressourceImage->save();
                             }
                         }
 
@@ -874,12 +917,12 @@ class DataCommuneController extends Controller
                         
                         $domaineCivil->infog_id = $infog->id;
                         $etatCivil->infog_id = $infog->id;
-                        $ressourceImage->infog_id = $infog->id;
+                        
 
                         
                         $domaineCivil->save();
                         $etatCivil->save();
-                        $ressourceImage->save();
+                        
                         
                     }
                 /**Initialisation de la table Pcd */
@@ -1034,7 +1077,7 @@ class DataCommuneController extends Controller
                 "domaineCivil" => Data::find($data_id)->infogs()->first()->domaineCivils()->first(),
                 "etatCivil" => Data::find($data_id)->infogs()->first()->etatCivils()->first(),
                 "partenaire" => Data::find($data_id)->infogs()->first()->partenaires()->get(),
-                "ressourceImage" => Data::find($data_id)->infogs()->first()->ressourceImages()->first(),
+                "ressourceImage" => Data::find($data_id)->infogs()->first()->ressourceImages()->get(),
                 "troisMeilleur" => Data::find($data_id)->infogs()->first()->troisMeilleurs()->get(),
 
                 "appreciation" => Data::find($data_id)->pcds()->first()->appreciations()->first(),

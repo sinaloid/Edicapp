@@ -108,7 +108,8 @@
         </div>
         <div class="card-body">
 
-            <form action="{{ route('data.update', isset($dataCommune) ? $dataCommune['data_id'] : 0) }}" method="post">
+            <form action="{{ route('data.update', isset($dataCommune) ? $dataCommune['data_id'] : 0) }}"
+                enctype="multipart/form-data" method="post">
                 @csrf
                 @method('put')
                 <!--div class="form-group">
@@ -737,6 +738,88 @@
                         </table>
                     </div>
                 </div>
+                @php
+                $img_carte_is_visible = true;
+                $img_logo_is_visible = true;
+                $img_autre_is_visible = true;
+                if($dataCommune != null){
+                ($dataCommune['ressourceImage'][0]->url != null) ? $img_carte_is_visible = false : $img_carte_is_visible = true;
+                ($dataCommune['ressourceImage'][1]->url != null) ? $img_logo_is_visible = false : $img_logo_is_visible = true;
+                ($dataCommune['ressourceImage'][2]->url != null) ? $img_autre_is_visible = false : $img_autre_is_visible = true;
+
+                }
+                @endphp
+                <div class="row mt-3">
+                    @if($img_carte_is_visible)
+                    <div class="col-12 col-md-6 font-weight-bolder text-center text-uppercase">
+                        <div class="custom-file mb-3">
+                            <input type="file"
+                                class="custom-file-input  @error('commune_img_carte') is-invalid @enderror"
+                                id="commune_img_carte" name="commune_img_carte">
+                            <label class="custom-file-label" for="customFile" style="font-size: 0.9em">Choisir carte de
+                                la commune</label>
+                            @error('commune_img_carte')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    @endif
+                    @if($img_logo_is_visible)
+                    <div class="col-12 col-md-6 font-weight-bolder text-center text-uppercase">
+                        <div class="custom-file mb-3">
+                            <input type="file"
+                                class="custom-file-input  @error('commune_img_logo') is-invalid @enderror"
+                                id="commune_img_logo" name="commune_img_logo">
+                            <label class="custom-file-label" for="customFile" style="font-size: 0.9em">Choisir logo de
+                                la commune</label>
+                            @error('commune_img_logo')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    @endif
+                    @if($img_autre_is_visible)
+                    <div class="col-12 font-weight-bolder text-center text-uppercase">
+                        <div class="custom-file mb-3">
+                            <input type="file"
+                                class="custom-file-input  @error('commune_img_autre') is-invalid @enderror"
+                                id="commune_img_autre" name="commune_img_autre">
+                            <label class="custom-file-label" for="customFile" style="font-size: 0.9em">Autre image de la
+                                commune</label>
+                            @error('commune_img_autre')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    @endif
+                </div>
+                <div class="row">
+                    @if(!$img_carte_is_visible)
+                    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+                        <img class="img-fluid" src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][0]->url) : ''  }}" style="width:auto; max-height:250px" alt="img1" />
+                        <a class="bg-danger font-weight-bold text-white btn delete" href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][0]->id : '') }}">supprimer</a>
+                    </div>
+                    @endif
+                    @if(!$img_logo_is_visible)
+                    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+                        <img class="img-fluid" src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][1]->url) : ''  }}" style="width:auto; max-height:250px" alt="img1" />
+                        <a class="bg-danger font-weight-bold text-white btn delete" href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][1]->id : '') }}">supprimer</a>
+                    </div>
+                    @endif
+                    @if(!$img_autre_is_visible) 
+                    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+                        <img class="img-fluid" src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][2]->url) : ''  }}" style="width:auto; max-height:250px" alt="img1" />
+                        <a class="bg-danger font-weight-bold text-white btn delete" href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][2]->id : '') }}">supprimer</a>
+                    </div>
+                    @endif
+                </div>
+                <script>
+                // Add the following code if you want the name of the file appear on select
+                $(".custom-file-input").on("change", function() {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                });
+                </script>
 
 
                 <h4 class="card-header bg-info text-white mt-3">PCD</h4>
