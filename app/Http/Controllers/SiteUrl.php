@@ -291,8 +291,8 @@ class SiteUrl extends Controller
         
         //$dataCommune = null;
         $pdf =  PDF::loadView('pdf_tdb', compact('data','dataCommune', 'qrcode'))->setPaper('a2')->setOrientation('landscape');
-         
-        
+    
+
         return $pdf->stream($file_name, array("Attachment" => false));
     }
 

@@ -13,10 +13,11 @@ use App\Models\Datas\Budget\Tables\{DepensFonct, DepensInvest, RecetFonct, Recet
 use App\Models\Datas\BudgetN\BudgetN;
 use App\Models\Datas\BudgetN\Tables\{DepensFonctN, DepensInvestN, RecetFonctN, RecetInvestN};
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+
 
 use Illuminate\Http\Request;
 use App\Http\Requests\DataCommuneRequest;
+use Illuminate\Support\Facades\Storage;
 
 class DataCommuneController extends Controller
 {
@@ -598,12 +599,16 @@ class DataCommuneController extends Controller
                 $ressourceImage[1]->url = $request->commune_img_logo->store(config('images.path'), 'public');
                 $ressourceImage[1]->save();
             }
+            if($request->commune_img_logo != null){
+                $ressourceImage[1]->url = $request->commune_img_logo->store(config('images.path'), 'public');
+                $ressourceImage[1]->save();
+            }
             if($request->commune_img_autre != null){
                 $ressourceImage[2]->url = $request->commune_img_autre->store(config('images.path'), 'public');
                 $ressourceImage[2]->save();
             }
-            
-            
+
+
 
 
             /* Pcd */
@@ -794,21 +799,21 @@ class DataCommuneController extends Controller
         return back();
     }
 
-    public function deleteImg($id=''){
+        public function deleteImg($id=''){
 
-        
-        $ressourceImage = RessourceImage::where('id',$id)->first();
-        if($ressourceImage != null){
-            $url = $ressourceImage->url;
-            $ressourceImage->url = null;
-            $ressourceImage->save();
-            Storage::disk('public')->delete($url);
+
+            $ressourceImage = RessourceImage::where('id',$id)->first();
+            if($ressourceImage != null){
+                $url = $ressourceImage->url;
+                $ressourceImage->url = null;
+                $ressourceImage->save();
+                Storage::disk('public')->delete($url);
+            }
+            //Storage::delete();
+
+            //dd($ressourceImage);
+            return back();
         }
-        //Storage::delete();
-        
-        //dd($ressourceImage);
-        return back();
-    }
 
     public function datasView(Request $request) {
 
@@ -875,7 +880,7 @@ class DataCommuneController extends Controller
                         $domaineCivil = new DomaineCivil();
                         $etatCivil = new EtatCivil();
                         
-                        ;
+                        $ressourceImage = new RessourceImage();
 
                         for($i=0; $i <=3; $i++){
                             $recette = new Recettes();
@@ -890,12 +895,13 @@ class DataCommuneController extends Controller
                             if($i < 3){
                                 $troisMeilleur = new TroisMeilleurs();
                                 $ressourceImage = new RessourceImage();
-                                
+                                 
                                 $ressourceImage->infog_id = $infog->id;
                                 $troisMeilleur->infog_id = $infog->id;
 
                                 $troisMeilleur->save();
                                 $ressourceImage->save();
+
                             }
                         }
 
@@ -917,12 +923,12 @@ class DataCommuneController extends Controller
                         
                         $domaineCivil->infog_id = $infog->id;
                         $etatCivil->infog_id = $infog->id;
-                        
+                       
 
                         
                         $domaineCivil->save();
                         $etatCivil->save();
-                        
+                       
                         
                     }
                 /**Initialisation de la table Pcd */
