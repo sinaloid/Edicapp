@@ -815,6 +815,19 @@ class DataCommuneController extends Controller
             return back();
         }
 
+        public function image($slug){
+            $data = Data::where('slug', $slug)->first()->infogs()->first();
+            $img1 = new RessourceImage();
+            $img2 = new RessourceImage();
+
+            $img1->infog_id = $data->id;
+            $img2->infog_id = $data->id;
+            $img1->save();
+            $img2->save();
+
+            return 'ok';
+        }
+
     public function datasView(Request $request) {
 
         $countries = Country::all();

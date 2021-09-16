@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteUrl;
 use Spatie\Browsershot\Browsershot;
-
+use App\Models\Datas\Infog\Tables\RessourceImage;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +32,8 @@ Route::get('home', function () {
     return 'Vue de test';
   })->middleware(['verified']);
 
-  Route::get('test12', function () {
-    return 'Vue de test';
-  })->middleware(['auth', 'password.confirm']);
-  
+
+
 /*********************************************/
 Route::get('home/data', function () {
   return view('home');
@@ -80,5 +78,6 @@ Route::resource('data', App\Http\Controllers\DataCommuneController::class)->midd
 Route::put('data/terminer/{data}', [App\Http\Controllers\DataCommuneController::class, 'terminer'])->middleware(['auth','verified'])->name('data.terminer');
 Route::put('data/encour/{data}', [App\Http\Controllers\DataCommuneController::class, 'encour'])->middleware(['auth','verified'])->name('data.encour');
 Route::get('data/deleteImg/{id?}', [App\Http\Controllers\DataCommuneController::class, 'deleteImg'])->middleware(['auth','verified'])->name('deleteImg');
+Route::get('image/{slug}', [App\Http\Controllers\DataCommuneController::class, 'image']);
 
 Route::post('make_pdf', [SiteUrl::class, 'makePdf'])->name('make_pdf');
