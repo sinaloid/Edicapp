@@ -412,7 +412,7 @@
                 </div>
                 <br>
                 <div class="col-xs table-responsive mt-2 px-0">
-                    <table class="table-sm table-hover ">
+                    <table class="table table-bordered table-hover ">
                         <thead>
                             <tr>
                                 <th class="sin-table-bg">#</th>
@@ -487,7 +487,7 @@
                     (toute contribution)</div>
                     <br>
                 <div class="col-12 table-responsive mt-2 px-0">
-                    <table class="table-sm table-hover">
+                    <table class="table table-bordered table-hover">
 
                         <thead>
                             <tr>
