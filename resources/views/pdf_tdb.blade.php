@@ -405,8 +405,9 @@
         </div>
         <br>
 
+        <!-- tableau restant-->
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-12">
                 <div class="col-xs-12 title text-center text-uppercase"> Contribution des autres partenaires à la
                     commune
                 </div>
@@ -480,7 +481,7 @@
                     </table>
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-12">
                 <div class="col-xs-12 title text-center text-uppercase"> Contribution des dix (10)
                     meilleurs
                     villages
@@ -570,9 +571,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
-
-        </div>
+        
 
 
 
