@@ -1,64 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{ public_path('/css/bootstrap.min3.3.6.css') }}">
+    <link href="{{ public_path('/css/pdf.css') }}" rel="stylesheet">
     <link href="{{ public_path('1/css/sin.css') }}" rel="stylesheet">
     <link href="{{ public_path('1/css/table.css') }}" rel="stylesheet">
-    <style>
-    div > p {
-        font-weight: bold;
-        font-size: 1.1em;
-    }
 
-    .title {
-        font-weight: bold;
-        font-size: 1.5em;
-        color:#ff8043;
-    }
-
-    table {
-        font-weight: bold;
-        font-size: 0.9em;
-        width:100%;
-        
-    }
-
-    .tb_pcd{
-        height:300px;
-    }
-
-    @page {
-        margin: 30px 0px 0px 0px !important;
-        padding: 0px 0px 0px 0px !important;
-    }
-
-    .text-edicp {
-        border-radius: 25px;
-        border: 2px solid #ff8043
-    }
-
-    .text-edicp>p {
-        text-transform: uppercase;
-        color: #444444;
-        font-weight: bold;
-        font-size: 4.1em;
-
-    }
-
-    .text-edicp>p>span {
-        color: #ff8043;
-    }
-
-    .text-edicp>p:last-child {
-        color: #b87333;
-    }
-    </style>
 </head>
 
 <body style="width: 3408px; height:2480px;">
@@ -68,7 +23,7 @@
                 <p><span>E</span>space de <span>d</span>ialogue et d'<span>i</span>nterpretation
                     <span>c</span>ommunautaire
                 </p>
-                <p>Bilan d'action 2019 de la commune</p>
+                <p>Bilan d'action {{ isset($dataCommune) ? $dataCommune['annee'] : '' }} de la commune</p>
             </div>
 
             <div class="col-xs-3 col-md-4">
@@ -76,16 +31,14 @@
             </div>
         </div>
 
-        <div class="row" style="height:350px">
-        <br>
-        <br>
+        <div class="row">
+            <br>
+            <br>
             <div class="col-xs-3">
-                <div class="title text-center text-uppercase"  >Informations générales sur le PCD
+                <div class="title text-center text-uppercase">Informations générales sur le PCD
                 </div>
                 <br>
-                <div class="w-100 mt-2 px-0">
 
-                </div>
                 <table class="table-bordered tb_pcd table-hover">
                     <tr>
                         <th class="sin-table-bg">Date de Conception</th>
@@ -123,46 +76,47 @@
                 </table>
             </div>
 
-            <div class="col-xs-3 ">
-                <div class="title text-center text-uppercase" >Appréciation du niveau d'exécution
+            <div class="col-xs-3">
+                <div class="title text-center text-uppercase">Appréciation du niveau d'exécution
                     du PCD</div> <br>
-                <img class="img-responsive " src="{{ $data['hidden_pcd'] }}" style="width:100%; height:100%" alt="">
+                <img class="google" class="img-responsive " src="{{ $data['hidden_pcd'] }}" alt="">
             </div>
-            <div class="col-xs-3 ">
-                <div class="title text-center text-uppercase" >Evolution des recettes 3 ans</div>
+            <div class="col-xs-3">
+                <div class="title text-center text-uppercase">Evolution des recettes 3 ans</div>
                 <br>
-                <img class="img-responsive " src="{{ $data['hidden_recette'] }}" style="width:100%" alt="">
+                <img class="google" class="img-responsive " src="{{ $data['hidden_recette'] }}" alt="">
             </div>
-            <div class="col-xs-3 ">
-                <div class="title text-center text-uppercase" >Evolution des depenses 3 ans</div>
+            <div class="col-xs-3">
+                <div class="title text-center text-uppercase">Evolution des depenses 3 ans</div>
                 <br>
-                <img class="img-responsive " src="{{ $data['hidden_depense'] }}" style="width:100%" alt="">
+                <img class="google" class="img-responsive " src="{{ $data['hidden_depense'] }}" alt="">
             </div>
         </div>
 
         <div class="row">
             <!-- Pie Chart -->
             <div class="col-xs-8">
-                <div class="col-xs-12 title text-center text-uppercase" >Bilan du fonctionnement
+                <div class="col-xs-12 title text-center text-uppercase">Bilan du fonctionnement
                 </div> <br> <br>
                 <div class="row ">
-                    <div class="col-xs-1  px-0"><img class="img-responsive"
-                            src="{{ public_path('/img/arg.png') }}" style="width:100%;height:555px" alt="image argent">
+                    <div class="col-xs-1  px-0"><img class="img-responsive" src="{{ public_path('/img/arg.png') }}"
+                            style="width:100%;height:350px; max-height:350px" alt="image argent">
                     </div>
                     <div class="col-xs-11">
                         <div class="row">
                             <div class="col-xs-6">
-                                <img class="img-responsive" src="{{ $data['hidden_bg_recett_fcnt'] }}"
-                                    style="width:100%" alt="">
+                                <img class="google" class="img-responsive" src="{{ $data['hidden_bg_recett_fcnt'] }}"
+                                    alt="">
                             </div>
                             <div class="col-xs-6">
-                                <img class="img-responsive" src="{{ $data['hidden_bg_depens_fnct'] }}"
-                                    style="width:100%" alt="">
+                                <img class="google" class="img-responsive" src="{{ $data['hidden_bg_depens_fnct'] }}"
+                                    alt="">
                             </div>
                             <div class="row">
                                 <div class="col-xs-6">
-                                <br>
-                                    <h4 class="card-header title text-center text-uppercase bg-info text-white">Recettes de fonctionnement
+                                    <br>
+                                    <h4 class="card-header title text-center text-uppercase bg-info text-white">Recettes
+                                        de fonctionnement
                                     </h4>
                                     <div class="col-xs-12 mt-3 table-responsive px-0">
                                         <div class="card">
@@ -184,8 +138,9 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-6">
-                                <br>
-                                    <h4 class="card-header title text-center text-uppercase bg-info text-white">Dépenses de fonctionnement
+                                    <br>
+                                    <h4 class="card-header title text-center text-uppercase bg-info text-white">Dépenses
+                                        de fonctionnement
                                     </h4>
                                     <div class="col-12 mt-3 table-responsive px-0">
                                         <div class="card">
@@ -213,46 +168,48 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 title text-center text-uppercase" >Bilan d'investissement
+                    <div class="col-xs-12 title text-center text-uppercase">Bilan d'investissement
                     </div>
-                    <div class="col-xs-1 px-0"><img class="img-responsive"
-                            src="{{ public_path('/img/arg.png') }}" style="width:100%;height:555px" alt="image argent"></div>
-                    <div class="col-xs-11"> 
-                    <div class="col-xs-6">
-                        <img src="{{ $data['hidden_bg_recett_invest'] }}" style="width:100%" alt="">
-                        <br>
-                        <br>
-                        <h4 class="card-header title text-center text-uppercase bg-info text-white">Recettes d'investissement</h4>
-                    </div>
-                    <div class="col-xs-6">
-                        <img src="{{ $data['hidden_bg_depens_invest'] }}" style="width:100%" alt="">
-                        <br>
-                        <br>
-                        <h4 class="card-header title text-center text-uppercase bg-info text-white">Depenses d'investissement</h4>
-                    </div>
+                    <div class="col-xs-1 px-0"><img class="img-responsive" src="{{ public_path('/img/arg.png') }}"
+                            style="width:100%;height:350px; max-height:350px" alt="image argent"></div>
+                    <div class="col-xs-11">
+                        <div class="col-xs-6">
+                            <img class="google" src="{{ $data['hidden_bg_recett_invest'] }}" alt="">
+                            <br>
+                            <br>
+                            <h4 class="card-header title text-center text-uppercase bg-info text-white">Recettes
+                                d'investissement</h4>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="google" src="{{ $data['hidden_bg_depens_invest'] }}" alt="">
+                            <br>
+                            <br>
+                            <h4 class="card-header title text-center text-uppercase bg-info text-white">Depenses
+                                d'investissement</h4>
+                        </div>
                     </div>
                 </div>
                 @if($dataCommune != null)
-                 <div class="row justify-content-center mt-2">
+                <div class="row justify-content-center mt-2">
                     @if($dataCommune['ressourceImage'][0]->url != null)
                     <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
                         <img class="img-fluid" src="{{ public_path('/'.$dataCommune['ressourceImage'][0]->url) }}"
-                                style="width:auto; max-height:400px" alt="img1" />
+                            style="width:auto; max-height:400px" alt="img1" />
                     </div>
                     @endif
                     @if($dataCommune['ressourceImage'][1]->url != null)
                     <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
                         <img class="img-fluid" src="{{ public_path('/'.$dataCommune['ressourceImage'][1]->url) }}"
-                                style="width:auto; max-height:400px" alt="img1" />
+                            style="width:auto; max-height:400px" alt="img1" />
                     </div>
                     @endif
                     @if($dataCommune['ressourceImage'][2]->url != null)
                     <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
                         <img class="img-fluid" src="{{ public_path('/'.$dataCommune['ressourceImage'][2]->url) }}"
-                                style="width:auto; max-height:400px" alt="img1" />
+                            style="width:auto; max-height:400px" alt="img1" />
                     </div>
                     @endif
-                 </div>
+                </div>
                 @endif
 
 
@@ -261,7 +218,7 @@
             <!-- Table -->
             <div class="col-xs-4">
                 <div class="row mt-3">
-                    <div class="col-xs-12 title text-center text-uppercase" > Etat civil et
+                    <div class="col-xs-12 title text-center text-uppercase"> Etat civil et
                         domaine</div>
                     <div class="col-xs-12 table-responsive px-0 ">
                         <table class="table table-hover ">
@@ -382,7 +339,7 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-xs-12 title text-center text-uppercase" > Contribution
+                    <div class="col-xs-12 title text-center text-uppercase"> Contribution
                         des
                         trois (03) meilleurs marcher</div>
                     <div class="col-xs-6 table-responsive px-0">
@@ -427,9 +384,9 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12 ">
                         <h4 class="card-header bg-info text-white">Resultat de l'excercice</h4>
-                        <img src="{{ $data['hidden_resultat'] }}" style="width:100%" alt="">
+                        <img class="google" src="{{ $data['hidden_resultat'] }}" alt="">
                     </div>
                 </div>
                 <br>
@@ -440,11 +397,181 @@
                     </div>
                 </div>
 
-                
+
                 <!--img src="{{ $data['hidden_resultat'] }}" style="width:100%" alt="">
                 <img src="{{ $data['hidden_bg_recett_invest'] }}" style="width:100%" alt="">
                 <img src="{{ $data['hidden_bg_depens_invest'] }}" style="width:100%" alt=""-->
             </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="col-xs-12 title text-center text-uppercase"> Contribution des autres partenaires à la
+                    commune
+                </div>
+                <br>
+                <div class="col-xs table-responsive mt-2 px-0">
+                    <table class="table-sm table-hover ">
+                        <thead>
+                            <tr>
+                                <th class="sin-table-bg">#</th>
+                                <th class="sin-table-bg">PRF 1</th>
+                                <th class="sin-table-bg">PRF 2 </th>
+                                <th class="sin-table-bg">PRF 3 </th>
+                                <th class="sin-table-bg">PRF 4 </th>
+                                <th class="sin-table-bg">PRF 5 </th>
+                                <th class="sin-table-bg">PRF 6 </th>
+                                <th class="sin-table-bg">PRF 7 </th>
+                                <th class="sin-table-bg">PRF 8 </th>
+                                <th class="sin-table-bg">PRF 9 </th>
+                                <th class="sin-table-bg">PRF 10</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <th>Identité PTF</th>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->identite_ptf : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->identite_ptf : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->identite_ptf : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->identite_ptf : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->identite_ptf : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->identite_ptf : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->identite_ptf : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->identite_ptf : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->identite_ptf : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->identite_ptf : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Evaluation contribution</th>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->evaluation_contribution : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->evaluation_contribution : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->evaluation_contribution : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->evaluation_contribution : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->evaluation_contribution : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->evaluation_contribution : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->evaluation_contribution : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->evaluation_contribution : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->evaluation_contribution : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->evaluation_contribution : '' }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Principales actions</th>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->principale_action : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->principale_action : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->principale_action : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->principale_action : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->principale_action : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->principale_action : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->principale_action : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->principale_action : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->principale_action : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="col-xs-12 title text-center text-uppercase"> Contribution des dix (10)
+                    meilleurs
+                    villages
+                    (toute contribution)</div>
+                    <br>
+                <div class="col-12 table-responsive mt-2 px-0">
+                    <table class="table-sm table-hover">
+
+                        <thead>
+                            <tr>
+                                <th class="sin-table-bg">#</th>
+                                <th class="sin-table-bg">1 er</th>
+                                <th class="sin-table-bg">2 ème</th>
+                                <th class="sin-table-bg">3 ème</th>
+                                <th class="sin-table-bg">4 ème</th>
+                                <th class="sin-table-bg">5 ème</th>
+                                <th class="sin-table-bg">6 ème</th>
+                                <th class="sin-table-bg">7 ème</th>
+                                <th class="sin-table-bg">8 ème</th>
+                                <th class="sin-table-bg">9 ème</th>
+                                <th class="sin-table-bg">10 ème</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <th>Le village</th>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->le_village : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->le_village : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->le_village : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][3]->le_village : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][4]->le_village : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][5]->le_village : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][6]->le_village : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][7]->le_village : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][8]->le_village : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][9]->le_village : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Montant attendu</th>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->attendu : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->attendu : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->attendu : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][3]->attendu : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][4]->attendu : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][5]->attendu : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][6]->attendu : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][7]->attendu : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][8]->attendu : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][9]->attendu : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Montant mobilisé</th>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->mobilise : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->mobilise : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->mobilise : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][3]->mobilise : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][4]->mobilise : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][5]->mobilise : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][6]->mobilise : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][7]->mobilise : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][8]->mobilise : '' }}</td>
+                            <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][9]->mobilise : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Taux mobilisation /Prévisions</th>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][0]->attendu !=null && $dataCommune['dixMeilleur'][0]->attendu !=0) ? round($dataCommune['dixMeilleur'][0]->mobilise * 100 / $dataCommune['dixMeilleur'][0]->attendu) .'%' : 0 : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][1]->attendu !=null && $dataCommune['dixMeilleur'][1]->attendu !=0) ? round($dataCommune['dixMeilleur'][1]->mobilise * 100 / $dataCommune['dixMeilleur'][1]->attendu) .'%' : 0 : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][2]->attendu !=null && $dataCommune['dixMeilleur'][2]->attendu !=0) ? round($dataCommune['dixMeilleur'][2]->mobilise * 100 / $dataCommune['dixMeilleur'][2]->attendu) .'%' : 0 : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][3]->attendu !=null && $dataCommune['dixMeilleur'][3]->attendu !=0) ? round($dataCommune['dixMeilleur'][3]->mobilise * 100 / $dataCommune['dixMeilleur'][3]->attendu) .'%' : 0 : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][4]->attendu !=null && $dataCommune['dixMeilleur'][4]->attendu !=0) ? round($dataCommune['dixMeilleur'][4]->mobilise * 100 / $dataCommune['dixMeilleur'][4]->attendu) .'%' : 0 : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][5]->attendu !=null && $dataCommune['dixMeilleur'][5]->attendu !=0) ? round($dataCommune['dixMeilleur'][5]->mobilise * 100 / $dataCommune['dixMeilleur'][5]->attendu) .'%' : 0 : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][6]->attendu !=null && $dataCommune['dixMeilleur'][6]->attendu !=0) ? round($dataCommune['dixMeilleur'][6]->mobilise * 100 / $dataCommune['dixMeilleur'][6]->attendu) .'%' : 0 : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][7]->attendu !=null && $dataCommune['dixMeilleur'][7]->attendu !=0) ? round($dataCommune['dixMeilleur'][7]->mobilise * 100 / $dataCommune['dixMeilleur'][7]->attendu) .'%' : 0 : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][8]->attendu !=null && $dataCommune['dixMeilleur'][8]->attendu !=0) ? round($dataCommune['dixMeilleur'][8]->mobilise * 100 / $dataCommune['dixMeilleur'][8]->attendu) .'%' : 0 : '' }}
+                            </td>
+                            <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][9]->attendu !=null && $dataCommune['dixMeilleur'][9]->attendu !=0) ? round($dataCommune['dixMeilleur'][9]->mobilise * 100 / $dataCommune['dixMeilleur'][9]->attendu) .'%' : 0 : '' }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+
         </div>
 
 

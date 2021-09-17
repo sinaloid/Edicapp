@@ -1,0 +1,56 @@
+
+
+    
+    div > p {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 1.5em;
+        color:#ff8043;
+    }
+
+    table {
+        font-weight: bold;
+        font-size: 0.9em;
+        width:100%;
+        
+    }
+
+    .tb_pcd{
+        height:300px;
+    }
+
+    @page {
+        margin: 30px 0px 0px 0px !important;
+        padding: 0px 0px 0px 0px !important;
+    }
+
+    .text-edicp {
+        border-radius: 25px;
+        border: 2px solid #ff8043
+    }
+
+    .text-edicp>p {
+        text-transform: uppercase;
+        color: #444444;
+        font-weight: bold;
+        font-size: 4.1em;
+
+    }
+
+    .text-edicp>p>span {
+        color: #ff8043;
+    }
+
+    .text-edicp>p:last-child {
+        color: #b87333;
+    }
+    th,td{
+        font-size: 1.6em;
+    }
+    .google {
+        width:100%;height:auto; max-height:400px
+    }

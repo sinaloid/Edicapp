@@ -286,13 +286,17 @@ class SiteUrl extends Controller
         //dd($data);
 
         $file_name = 'google_chart.pdf';
-        $qrcode = QrCode::size(400)->generate($request->hidden_url);
+        $qrcode = QrCode::size(200)->generate($request->hidden_url);
         //dd($qrcode);
         
         //$dataCommune = null;
         $pdf =  PDF::loadView('pdf_tdb', compact('data','dataCommune', 'qrcode'))->setPaper('a2')->setOrientation('landscape');
-    
-
+        $pdf->setOption('lowquality', false);
+        $pdf->setOption('dpi', 300);
+        $pdf->setOption('image-quality', 900);
+        $pdf->setOption('image-dpi', 300);
+        // return view('pdf_tdb', compact('data','dataCommune', 'qrcode'));
+        //return $pdf->download($file_name, array("Attachment" => false));
         return $pdf->stream($file_name, array("Attachment" => false));
     }
 
