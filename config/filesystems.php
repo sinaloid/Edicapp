@@ -40,7 +40,7 @@ return [
             //'root' => storage_path('app/public'),
             'root' => public_path(),
             //'url' => env('APP_URL').'/storage',
-            'url' => env('APP_URL').'/public',
+            'url' => env('APP_URL'),
             'visibility' => 'public',
         ],
 
