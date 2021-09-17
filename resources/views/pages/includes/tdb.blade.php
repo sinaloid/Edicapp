@@ -479,24 +479,24 @@
  <div class="row justify-content-center mt-2">
     @if($dataCommune['ressourceImage'][0]->url != null)
     <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
-        <a class="col-sm-6" href="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}"><img class="img-fluid" src="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}"
+        <a href="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}"><img class="img-fluid" src="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}"
             style="width:auto; max-height:250px" alt="img1" /> </a>
     </div>
     @endif
     @if($dataCommune['ressourceImage'][1]->url != null)
     <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
-        <a class="col-sm-6" href="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}"><img class="img-fluid" src="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}"
+        <a href="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}"><img class="img-fluid" src="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}"
             style="width:auto; max-height:250px" alt="img1" /> </a>
     </div>
     @endif
     @if($dataCommune['ressourceImage'][2]->url != null)
     <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
-        <a class="col-sm-6" href="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}"><img class="img-fluid" src="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}"
+        <a href="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}"><img class="img-fluid" src="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}"
             style="width:auto; max-height:250px" alt="img1" /> </a>
     </div>
     @endif
  </div>
-+@endif
+@endif
 
 <div class="col-12 card-header font-weight-bold my-2 text-center">Ce Bilan à été réalisé avec la précieuse contribution
     du #PAGOF sur financement de l'Agence Française de Développement </div>
