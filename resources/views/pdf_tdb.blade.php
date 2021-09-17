@@ -411,7 +411,7 @@
                     commune
                 </div>
                 <br>
-                <div class="col-xs table-responsive mt-2 px-0">
+                <div class="col-xs-12 table-responsive mt-2 px-0">
                     <table class="table table-bordered table-hover ">
                         <thead>
                             <tr>
@@ -486,7 +486,7 @@
                     villages
                     (toute contribution)</div>
                     <br>
-                <div class="col-12 table-responsive mt-2 px-0">
+                <div class="col-xs-12 table-responsive mt-2 px-0">
                     <table class="table table-bordered table-hover">
 
                         <thead>
