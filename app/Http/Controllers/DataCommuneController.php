@@ -782,6 +782,11 @@ class DataCommuneController extends Controller
      */
     public function destroy(Data $data)
     {
+        $ressourceImages = Data::find($data->id)->infogs()->first()->ressourceImages()->get();
+        //dd($ressourceImages);
+        foreach($ressourceImages as $rImage){
+            $this->deleteImg($rImage->id);
+        }
         $data->delete();
 
         return back();
@@ -814,20 +819,6 @@ class DataCommuneController extends Controller
             //dd($ressourceImage);
             return back();
         }
-
-        public function image($slug){
-            $data = Data::where('slug', $slug)->first()->infogs()->first();
-            $img1 = new RessourceImage();
-            $img2 = new RessourceImage();
-
-            $img1->infog_id = $data->id;
-            $img2->infog_id = $data->id;
-            $img1->save();
-            $img2->save();
-
-            return 'ok';
-        }
-
     public function datasView(Request $request) {
 
         $countries = Country::all();

@@ -512,6 +512,7 @@
         <input type="hidden" name="hidden_bg_recett_invest" id="hidden_bg_recett_invest" />
         <input type="hidden" name="hidden_bg_depens_invest" id="hidden_bg_depens_invest" />
         <input type="hidden" name="slug" id="hidden_slug" value="{{isset($dataCommune) ? $dataCommune['slug'] : ''}}" />
+        <input type="hidden" name="hidden_url" value="{{ url()->current() }}" />
         <!--button type="button" name="create_pdf" id="create_pdf" class="btn btn-danger btn-xs">Make PDF</button-->
     </form>
 </div>

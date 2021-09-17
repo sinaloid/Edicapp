@@ -272,7 +272,7 @@ class SiteUrl extends Controller
             "hidden_bg_depens_fnct" => $request->hidden_bg_depens_fnct,
             "hidden_resultat" => $request->hidden_resultat,
             "hidden_bg_recett_invest" => $request->hidden_bg_recett_invest,
-            "hidden_bg_depens_invest" => $request->hidden_bg_depens_invest
+            "hidden_bg_depens_invest" => $request->hidden_bg_depens_invest,
         ];
 
         $input_data = Data::where('slug',$request->slug)->first();
@@ -286,7 +286,7 @@ class SiteUrl extends Controller
         //dd($data);
 
         $file_name = 'google_chart.pdf';
-        $qrcode = QrCode::size(400)->generate("Je suis un QR Code");
+        $qrcode = QrCode::size(400)->generate($request->hidden_url);
         //dd($qrcode);
         
         //$dataCommune = null;

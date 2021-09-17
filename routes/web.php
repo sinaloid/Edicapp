@@ -20,7 +20,7 @@ Route::get('/', [SiteUrl::class, 'index'])->name('acceuil');
 
 /*login*/
 Route::get('home', function () {
-    $datas = App\Models\Datas\Data::all();
+    $datas = App\Models\Datas\Data::orderBy('id', 'DESC')->get();
     return view('home', compact('datas'));
   })->middleware(['auth','verified'])->name('home');
 

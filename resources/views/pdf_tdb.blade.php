@@ -142,15 +142,15 @@
 
         <div class="row">
             <!-- Pie Chart -->
-            <div class="col-xs-8 bg-success1">
+            <div class="col-xs-8">
                 <div class="col-xs-12 title text-center text-uppercase" >Bilan du fonctionnement
                 </div> <br> <br>
                 <div class="row ">
-                    <div class="col-xs-1 bg-success px-0"><img class="img-responsive"
+                    <div class="col-xs-1  px-0"><img class="img-responsive"
                             src="{{ public_path('/img/arg.png') }}" style="width:100%;height:555px" alt="image argent">
                     </div>
-                    <div class="col-xs-11 bg-success">
-                        <div class="row bg-success">
+                    <div class="col-xs-11">
+                        <div class="row">
                             <div class="col-xs-6">
                                 <img class="img-responsive" src="{{ $data['hidden_bg_recett_fcnt'] }}"
                                     style="width:100%" alt="">
@@ -215,7 +215,7 @@
                 <div class="row">
                     <div class="col-xs-12 title text-center text-uppercase" >Bilan d'investissement
                     </div>
-                    <div class="col-xs-1 bg-success px-0"><img class="img-responsive"
+                    <div class="col-xs-1 px-0"><img class="img-responsive"
                             src="{{ public_path('/img/arg.png') }}" style="width:100%;height:555px" alt="image argent"></div>
                     <div class="col-xs-11"> 
                     <div class="col-xs-6">
@@ -432,99 +432,15 @@
                         <img src="{{ $data['hidden_resultat'] }}" style="width:100%" alt="">
                     </div>
                 </div>
-
-                <div class="row mt-2">
+                <br>
+                <br>
+                <div class="row mt-3">
                     <div class="col-xs-12 text-center">
                         <p>{{ $qrcode }} </p>
                     </div>
                 </div>
+
                 
-                <div class="row mt-2">
-                    <div class="col-xs-12 title text-center text-uppercase" >Contribution des
-                        dix (10) meilleurs villages (toute
-                        contribution)</div>
-                    <div class="col-xs-12 table-responsive px-0">
-                        <table class="table table-condensed table-hover">
-                            <thead>
-                                <tr>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">1 er</th>
-                                    <th class="sin-table-bg">2 ème</th>
-                                    <th class="sin-table-bg">3 ème</th>
-                                    <th class="sin-table-bg">4 ème</th>
-                                    <th class="sin-table-bg">5 ème</th>
-                                    <th class="sin-table-bg">6 ème</th>
-                                    <th class="sin-table-bg">7 ème</th>
-                                    <th class="sin-table-bg">8 ème</th>
-                                    <th class="sin-table-bg">9 ème</th>
-                                    <th class="sin-table-bg">10 ème</th>
-                                </tr>
-                            </thead>
-                            <tr>
-                                <th>Le village</th>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->le_village : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->le_village : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->le_village : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][3]->le_village : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][4]->le_village : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][5]->le_village : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][6]->le_village : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][7]->le_village : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][8]->le_village : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][9]->le_village : '' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Montant attendu</th>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->attendu : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->attendu : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->attendu : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][3]->attendu : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][4]->attendu : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][5]->attendu : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][6]->attendu : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][7]->attendu : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][8]->attendu : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][9]->attendu : '' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Montant mobilisé</th>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->mobilise : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->mobilise : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->mobilise : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][3]->mobilise : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][4]->mobilise : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][5]->mobilise : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][6]->mobilise : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][7]->mobilise : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][8]->mobilise : '' }}</td>
-                                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][9]->mobilise : '' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Taux mobilisation /Prévisions</th>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][0]->attendu !=null && $dataCommune['dixMeilleur'][0]->attendu !=0) ? round($dataCommune['dixMeilleur'][0]->mobilise * 100 / $dataCommune['dixMeilleur'][0]->attendu) .'%' : 0 : '' }}
-                                </td>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][1]->attendu !=null && $dataCommune['dixMeilleur'][1]->attendu !=0) ? round($dataCommune['dixMeilleur'][1]->mobilise * 100 / $dataCommune['dixMeilleur'][1]->attendu) .'%' : 0 : '' }}
-                                </td>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][2]->attendu !=null && $dataCommune['dixMeilleur'][2]->attendu !=0) ? round($dataCommune['dixMeilleur'][2]->mobilise * 100 / $dataCommune['dixMeilleur'][2]->attendu) .'%' : 0 : '' }}
-                                </td>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][3]->attendu !=null && $dataCommune['dixMeilleur'][3]->attendu !=0) ? round($dataCommune['dixMeilleur'][3]->mobilise * 100 / $dataCommune['dixMeilleur'][3]->attendu) .'%' : 0 : '' }}
-                                </td>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][4]->attendu !=null && $dataCommune['dixMeilleur'][4]->attendu !=0) ? round($dataCommune['dixMeilleur'][4]->mobilise * 100 / $dataCommune['dixMeilleur'][4]->attendu) .'%' : 0 : '' }}
-                                </td>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][5]->attendu !=null && $dataCommune['dixMeilleur'][5]->attendu !=0) ? round($dataCommune['dixMeilleur'][5]->mobilise * 100 / $dataCommune['dixMeilleur'][5]->attendu) .'%' : 0 : '' }}
-                                </td>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][6]->attendu !=null && $dataCommune['dixMeilleur'][6]->attendu !=0) ? round($dataCommune['dixMeilleur'][6]->mobilise * 100 / $dataCommune['dixMeilleur'][6]->attendu) .'%' : 0 : '' }}
-                                </td>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][7]->attendu !=null && $dataCommune['dixMeilleur'][7]->attendu !=0) ? round($dataCommune['dixMeilleur'][7]->mobilise * 100 / $dataCommune['dixMeilleur'][7]->attendu) .'%' : 0 : '' }}
-                                </td>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][8]->attendu !=null && $dataCommune['dixMeilleur'][8]->attendu !=0) ? round($dataCommune['dixMeilleur'][8]->mobilise * 100 / $dataCommune['dixMeilleur'][8]->attendu) .'%' : 0 : '' }}
-                                </td>
-                                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][9]->attendu !=null && $dataCommune['dixMeilleur'][9]->attendu !=0) ? round($dataCommune['dixMeilleur'][9]->mobilise * 100 / $dataCommune['dixMeilleur'][9]->attendu) .'%' : 0 : '' }}
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
                 <!--img src="{{ $data['hidden_resultat'] }}" style="width:100%" alt="">
                 <img src="{{ $data['hidden_bg_recett_invest'] }}" style="width:100%" alt="">
                 <img src="{{ $data['hidden_bg_depens_invest'] }}" style="width:100%" alt=""-->

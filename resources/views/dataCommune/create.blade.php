@@ -108,7 +108,7 @@
         </div>
         <div class="card-body">
 
-        <form action="{{ route('data.update', isset($dataCommune) ? $dataCommune['data_id'] : 0) }}"
+            <form action="{{ route('data.update', isset($dataCommune) ? $dataCommune['data_id'] : 0) }}"
                 enctype="multipart/form-data" method="post">
                 @csrf
                 @method('put')
@@ -743,13 +743,16 @@
                 $img_logo_is_visible = true;
                 $img_autre_is_visible = true;
                 if($dataCommune != null){
-                ($dataCommune['ressourceImage'][0]->url != null) ? $img_carte_is_visible = false : $img_carte_is_visible = true;
-                ($dataCommune['ressourceImage'][1]->url != null) ? $img_logo_is_visible = false : $img_logo_is_visible = true;
-                ($dataCommune['ressourceImage'][2]->url != null) ? $img_autre_is_visible = false : $img_autre_is_visible = true;
+                ($dataCommune['ressourceImage'][0]->url != null) ? $img_carte_is_visible = false : $img_carte_is_visible
+                = true;
+                ($dataCommune['ressourceImage'][1]->url != null) ? $img_logo_is_visible = false : $img_logo_is_visible =
+                true;
+                ($dataCommune['ressourceImage'][2]->url != null) ? $img_autre_is_visible = false : $img_autre_is_visible
+                = true;
 
                 }
                 @endphp
-               <div class="row mt-3">
+                <div class="row mt-3">
                     @if($img_carte_is_visible)
                     <div class="col-12 col-md-6 font-weight-bolder text-center text-uppercase">
                         <div class="custom-file mb-3">
@@ -778,7 +781,7 @@
                         </div>
                     </div>
                     @endif
-@if($img_autre_is_visible)
+                    @if($img_autre_is_visible)
                     <div class="col-12 font-weight-bolder text-center text-uppercase">
                         <div class="custom-file mb-3">
                             <input type="file"
@@ -792,24 +795,33 @@
                         </div>
                     </div>
                     @endif
-</div>
-<div class="row">
+                </div>
+                <div class="row">
                     @if(!$img_carte_is_visible)
                     <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
-                        <img class="img-fluid" src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][0]->url) : ''  }}" style="width:auto; max-height:250px" alt="img1" />
-                        <a class="bg-danger font-weight-bold text-white btn delete" href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][0]->id : '') }}">supprimer</a>
+                        <img class="img-fluid"
+                            src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][0]->url) : ''  }}"
+                            style="width:auto; max-height:250px" alt="img1" />
+                        <a class="bg-danger font-weight-bold text-white btn delete"
+                            href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][0]->id : '') }}">supprimer</a>
                     </div>
                     @endif
                     @if(!$img_logo_is_visible)
                     <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
-                        <img class="img-fluid" src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][1]->url) : ''  }}" style="width:auto; max-height:250px" alt="img1" />
-                        <a class="bg-danger font-weight-bold text-white btn delete" href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][1]->id : '') }}">supprimer</a>
+                        <img class="img-fluid"
+                            src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][1]->url) : ''  }}"
+                            style="width:auto; max-height:250px" alt="img1" />
+                        <a class="bg-danger font-weight-bold text-white btn delete"
+                            href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][1]->id : '') }}">supprimer</a>
                     </div>
                     @endif
-                    @if(!$img_autre_is_visible) 
+                    @if(!$img_autre_is_visible)
                     <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
-                        <img class="img-fluid" src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][2]->url) : ''  }}" style="width:auto; max-height:250px" alt="img1" />
-                        <a class="bg-danger font-weight-bold text-white btn delete" href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][2]->id : '') }}">supprimer</a>
+                        <img class="img-fluid"
+                            src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][2]->url) : ''  }}"
+                            style="width:auto; max-height:250px" alt="img1" />
+                        <a class="bg-danger font-weight-bold text-white btn delete"
+                            href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][2]->id : '') }}">supprimer</a>
                     </div>
                     @endif
                 </div>
