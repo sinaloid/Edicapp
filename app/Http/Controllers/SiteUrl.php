@@ -286,7 +286,7 @@ class SiteUrl extends Controller
         //dd($data);
 
         $file_name = 'google_chart.pdf';
-        $qrcode = QrCode::size(200)->generate($request->hidden_url);
+        $qrcode = QrCode::size(400)->generate($request->hidden_url);
         //dd($qrcode);
         
         //$dataCommune = null;

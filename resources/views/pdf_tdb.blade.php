@@ -211,7 +211,104 @@
                     @endif
                 </div>
                 @endif
-
+                <br>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="col-xs-12 title text-center text-uppercase"> Contribution des autres partenaires à
+                            la
+                            commune
+                        </div>
+                        <br>
+                        <div class="col-xs-12 table-responsive mt-2 px-0">
+                            <table class="table table-bordered table-hover ">
+                                <thead>
+                                    <tr>
+                                        <th class="sin-table-bg">#</th>
+                                        <th class="sin-table-bg">PRF 1</th>
+                                        <th class="sin-table-bg">PRF 2 </th>
+                                        <th class="sin-table-bg">PRF 3 </th>
+                                        <th class="sin-table-bg">PRF 4 </th>
+                                        <th class="sin-table-bg">PRF 5 </th>
+                                        <th class="sin-table-bg">PRF 6 </th>
+                                        <th class="sin-table-bg">PRF 7 </th>
+                                        <th class="sin-table-bg">PRF 8 </th>
+                                        <th class="sin-table-bg">PRF 9 </th>
+                                        <th class="sin-table-bg">PRF 10</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <th>Identité PTF</th>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->identite_ptf : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->identite_ptf : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->identite_ptf : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->identite_ptf : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->identite_ptf : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->identite_ptf : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->identite_ptf : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->identite_ptf : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->identite_ptf : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->identite_ptf : '' }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Evaluation contribution</th>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->evaluation_contribution : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->evaluation_contribution : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->evaluation_contribution : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->evaluation_contribution : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->evaluation_contribution : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->evaluation_contribution : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->evaluation_contribution : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->evaluation_contribution : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->evaluation_contribution : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->evaluation_contribution : '' }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Principales actions</th>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->principale_action : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->principale_action : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->principale_action : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->principale_action : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->principale_action : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->principale_action : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->principale_action : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->principale_action : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->principale_action : '' }}
+                                    </td>
+                                    <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
@@ -407,86 +504,13 @@
 
         <!-- tableau restant-->
         <div class="row">
-            <div class="col-xs-12">
-                <div class="col-xs-12 title text-center text-uppercase"> Contribution des autres partenaires à la
-                    commune
-                </div>
-                <br>
-                <div class="col-xs-12 table-responsive mt-2 px-0">
-                    <table class="table table-bordered table-hover ">
-                        <thead>
-                            <tr>
-                                <th class="sin-table-bg">#</th>
-                                <th class="sin-table-bg">PRF 1</th>
-                                <th class="sin-table-bg">PRF 2 </th>
-                                <th class="sin-table-bg">PRF 3 </th>
-                                <th class="sin-table-bg">PRF 4 </th>
-                                <th class="sin-table-bg">PRF 5 </th>
-                                <th class="sin-table-bg">PRF 6 </th>
-                                <th class="sin-table-bg">PRF 7 </th>
-                                <th class="sin-table-bg">PRF 8 </th>
-                                <th class="sin-table-bg">PRF 9 </th>
-                                <th class="sin-table-bg">PRF 10</th>
-                            </tr>
-                        </thead>
-                        <tr>
-                            <th>Identité PTF</th>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->identite_ptf : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->identite_ptf : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->identite_ptf : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->identite_ptf : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->identite_ptf : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->identite_ptf : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->identite_ptf : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->identite_ptf : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->identite_ptf : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->identite_ptf : '' }}</td>
-                        </tr>
-                        <tr>
-                            <th>Evaluation contribution</th>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->evaluation_contribution : '' }}
-                            </td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->evaluation_contribution : '' }}
-                            </td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->evaluation_contribution : '' }}
-                            </td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->evaluation_contribution : '' }}
-                            </td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->evaluation_contribution : '' }}
-                            </td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->evaluation_contribution : '' }}
-                            </td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->evaluation_contribution : '' }}
-                            </td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->evaluation_contribution : '' }}
-                            </td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->evaluation_contribution : '' }}
-                            </td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->evaluation_contribution : '' }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Principales actions</th>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->principale_action : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->principale_action : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->principale_action : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->principale_action : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->principale_action : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->principale_action : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->principale_action : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->principale_action : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->principale_action : '' }}</td>
-                            <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+
             <div class="col-xs-12">
                 <div class="col-xs-12 title text-center text-uppercase"> Contribution des dix (10)
                     meilleurs
                     villages
                     (toute contribution)</div>
-                    <br>
+                <br>
                 <div class="col-xs-12 table-responsive mt-2 px-0">
                     <table class="table table-bordered table-hover">
 
@@ -571,7 +595,7 @@
                 </div>
             </div>
         </div>
-        
+
 
 
 
