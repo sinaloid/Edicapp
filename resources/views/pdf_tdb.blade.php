@@ -16,17 +16,19 @@
 
 </head>
 
-<body style="width: 3408px; height:2480px;">
+<body style="width: 4408px; height:2480px;">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-9 col-md-8 text-center text-edicp">
+            <div class="col-xs-8  text-center text-edicp">
+            <br>
+            <br>
                 <p><span>E</span>space de <span>d</span>ialogue et d'<span>i</span>nterpretation
                     <span>c</span>ommunautaire
                 </p>
                 <p>Bilan d'action {{ isset($dataCommune) ? $dataCommune['annee'] : '' }} de la commune</p>
             </div>
 
-            <div class="col-xs-3 col-md-4">
+            <div class="col-xs-4 ">
                 <img class="img-responsive" src="{{ public_path('/img/EDICApp_banier.png') }}" alt="banier edicapp">
             </div>
         </div>
@@ -483,6 +485,7 @@
             </div>
             <br>
             <div class="col-xs-12">
+                <br>
                 <div class="col-xs-12 title text-center text-uppercase"> Contribution des dix (10)
                     meilleurs
                     villages

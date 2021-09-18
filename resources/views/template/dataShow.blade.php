@@ -143,7 +143,7 @@
 
 
             @include("pages.menu.menu")
-            <div class="container px-1">
+            <div id="pdf" class="container px-1">
                 <h3 class="my-4">@yield('dataTitle')</h3>
                 <hr style="height:1px;border-width:5;color:#444;background-color:#444">
                 @yield('dataContent')

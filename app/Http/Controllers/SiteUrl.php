@@ -290,11 +290,20 @@ class SiteUrl extends Controller
         //dd($qrcode);
         
         //$dataCommune = null;
-        $pdf =  PDF::loadView('pdf_tdb', compact('data','dataCommune', 'qrcode'))->setPaper('a2')->setOrientation('landscape');
+        $pdf =  PDF::loadView('pdf_tdb', compact('data','dataCommune', 'qrcode'))->setPaper('a1')->setOrientation('landscape');
         $pdf->setOption('lowquality', false);
         $pdf->setOption('dpi', 300);
-        $pdf->setOption('image-quality', 900);
+        $pdf->setOption('image-quality', 1200);
         $pdf->setOption('image-dpi', 300);
+        //$pdf->setOption('viewport-size', '5280x8024');
+        $pdf->setOption('zoom', 1);
+        //$pdf->setOption('page-size', 'a2');
+        $pdf->setOption('page-height', 80);
+       // $pdf->setOption('page-size', 'a2');
+        //$pdf->setOption('minimum-font-size', 30);
+        $pdf->setOption('enable-smart-shrinking', true);
+        $pdf->setOption('user-style-sheet', ''.public_path('/css/bootstrap.min4.css'));
+        //$pdf->setOption('window-status', 'window.status');
         // return view('pdf_tdb', compact('data','dataCommune', 'qrcode'));
         //return $pdf->download($file_name, array("Attachment" => false));
         return $pdf->stream($file_name, array("Attachment" => false));
