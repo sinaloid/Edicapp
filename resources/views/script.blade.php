@@ -71,9 +71,9 @@
 
       var data2 = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" } ],
-        ["{{ isset($dataCommune) ? $dataCommune['depense'][0]->annee : '' }}", {{ isset($dataCommune) ? $dataCommune['depense'][0]->fonctionnement + $dataCommune['depense'][0]->investissement : '' }}, "red"],
-        ["{{ isset($dataCommune) ? $dataCommune['depense'][1]->annee : '' }}", {{ isset($dataCommune) ? $dataCommune['depense'][1]->fonctionnement + $dataCommune['depense'][1]->investissement : '' }}, "red"],
-        ["{{ isset($dataCommune) ? $dataCommune['depense'][2]->annee : '' }}", {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }}, "red"]
+        ["{{ isset($dataCommune) ? $dataCommune['depense'][0]->annee : '' }}", {{ isset($dataCommune) ? $dataCommune['depense'][0]->fonctionnement + $dataCommune['depense'][0]->investissement : '' }}, "silver"],
+        ["{{ isset($dataCommune) ? $dataCommune['depense'][1]->annee : '' }}", {{ isset($dataCommune) ? $dataCommune['depense'][1]->fonctionnement + $dataCommune['depense'][1]->investissement : '' }}, "silver"],
+        ["{{ isset($dataCommune) ? $dataCommune['depense'][2]->annee : '' }}", {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }}, "silver"]
         /*["Platinum", 21.45, "color: #e5e4e2"]*/
         /*["Platinum", 21.45, "color: #e5e4e2"]*/
       ]);
@@ -91,7 +91,7 @@
                 + $dataCommune['depensInvest']->batiment
                 + $dataCommune['depensInvest']->emprunt
                 + $dataCommune['depensInvest']->autre_investissement
-                + $dataCommune['depensInvest']->deficit_excedent) : '' }}, "red"],
+                + $dataCommune['depensInvest']->deficit_excedent) : '' }}, "green"],
         ["Résultat de fonctionnement", {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exploitation
                 + $dataCommune['recetFonct']->produit_domaniaux
                 + $dataCommune['recetFonct']->produit_financier
@@ -110,7 +110,7 @@
                 + $dataCommune['depensFonct']->salaire_indemnite
                 + $dataCommune['depensFonct']->entretien_vehicule
                 + $dataCommune['depensFonct']->appui_fonctionnement
-                + $dataCommune['depensFonct']->exedent_prelevement) : '' }}, "red"],
+                + $dataCommune['depensFonct']->exedent_prelevement) : '' }}, "#b87333"],
         ["Résultat global {{ isset($dataCommune) ? $dataCommune['annee'] : '' }}", {{ isset($dataCommune) ? 
                 ($dataCommune['recetInvest']->dotation_globale
                 + $dataCommune['recetInvest']->subvention_equipement
@@ -171,6 +171,13 @@
                          type: "string",
                          role: "annotation" },
                        2]);
+    view3.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
 
       var options = {
         title: "",
@@ -228,7 +235,7 @@
       var hidden_bg_recett_invest = document.getElementById('hidden_bg_recett_invest');
       var hidden_bg_depens_invest = document.getElementById('hidden_bg_depens_invest');
 
-      chart.draw(view, options);
+      chart.draw(view, options1);
       chart1.draw(view1, options1);
       chart2.draw(view2, options2);
       chart3.draw(view3, options2);
