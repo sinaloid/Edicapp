@@ -19,7 +19,7 @@
 <body style="width: 4408px; height:2480px;">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-8  text-center text-edicp">
+            <div class="col-xs-9  text-center text-edicp">
             <br>
             <br>
                 <p><span>E</span>space de <span>d</span>ialogue et d'<span>i</span>nterpretation
@@ -28,7 +28,7 @@
                 <p>Bilan d'action {{ isset($dataCommune) ? $dataCommune['annee'] : '' }} de la commune</p>
             </div>
 
-            <div class="col-xs-4 ">
+            <div class="col-xs-3 ">
                 <img class="img-responsive" src="{{ public_path('/img/EDICApp_banier.png') }}" alt="banier edicapp">
             </div>
         </div>
@@ -41,7 +41,7 @@
                 </div>
                 <br>
 
-                <table class="table-bordered tb_pcd table-hover">
+                <table class="table tb_pcd">
                     <tr>
                         <th class="sin-table-bg">Date de Conception</th>
                         <th>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_de_conception : '' }}</th>
@@ -102,7 +102,7 @@
                 </div> <br> <br>
                 <div class="row ">
                     <div class="col-xs-1  px-0"><img class="img-responsive" src="{{ public_path('/img/arg.png') }}"
-                            style="width:100%;height:350px; max-height:350px" alt="image argent">
+                            style="width:100%;height:580px;max-height:580px" alt="image argent">
                     </div>
                     <div class="col-xs-11">
                         <div class="row">
@@ -173,7 +173,7 @@
                     <div class="col-xs-12 title text-center text-uppercase">Bilan d'investissement
                     </div>
                     <div class="col-xs-1 px-0"><img class="img-responsive" src="{{ public_path('/img/arg.png') }}"
-                            style="width:100%;height:350px; max-height:350px" alt="image argent"></div>
+                            style="width:100%;height:580px;max-height:580px" alt="image argent"></div>
                     <div class="col-xs-11">
                         <div class="col-xs-6">
                             <img class="google" src="{{ $data['hidden_bg_recett_invest'] }}" alt="">
@@ -189,30 +189,37 @@
                             <h4 class="card-header title text-center text-uppercase bg-info text-white">Depenses
                                 d'investissement</h4>
                         </div>
-                    </div>
-                </div>
-                @if($dataCommune != null)
+                        @if($dataCommune != null)
                 <div class="row justify-content-center mt-2">
                     @if($dataCommune['ressourceImage'][0]->url != null)
                     <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
+                        <br>
+                        <br>
                         <img class="img-fluid" src="{{ public_path('/'.$dataCommune['ressourceImage'][0]->url) }}"
                             style="width:auto; max-height:400px" alt="img1" />
                     </div>
                     @endif
                     @if($dataCommune['ressourceImage'][1]->url != null)
                     <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
+                        <br>
+                        <br>
                         <img class="img-fluid" src="{{ public_path('/'.$dataCommune['ressourceImage'][1]->url) }}"
                             style="width:auto; max-height:400px" alt="img1" />
                     </div>
                     @endif
                     @if($dataCommune['ressourceImage'][2]->url != null)
                     <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
+                    <br>
+                    <br>
                         <img class="img-fluid" src="{{ public_path('/'.$dataCommune['ressourceImage'][2]->url) }}"
                             style="width:auto; max-height:400px" alt="img1" />
                     </div>
                     @endif
                 </div>
                 @endif
+                    </div>
+                </div>
+                
 
 
 
@@ -223,14 +230,14 @@
                     <div class="col-xs-12 title text-center text-uppercase"> Etat civil et
                         domaine</div>
                     <div class="col-xs-12 table-responsive px-0 ">
-                        <table class="table table-hover ">
-                            <thead>
+                        <table class="table">
+                            
                                 <tr>
                                     <th class="sin-table-bg">#</th>
                                     <th class="sin-table-bg">Nombre</th>
                                     <th class="sin-table-bg">Observations (3 mots maximun)</th>
                                 </tr>
-                            </thead>
+                           
                             <tr>
                                 <th>Naissances</th>
                                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->naissance_nombre : '' }}</td>
@@ -273,9 +280,9 @@
                         </table>
                     </div>
                     <div class="col-xs-12 table-responsive px-0 ">
-                        <table class="table table-hover ">
-                            <caption> </caption>
-                            <thead>
+                        <table class="table">
+                            
+                            
                                 <tr>
                                     <th class="sin-table-bg align-middle" rowspan="2">Désignation / type d'usage</th>
                                     <th class="sin-table-bg text-center" colspan="3">Nombre</th>
@@ -285,7 +292,7 @@
                                     <th>Parcelles attribuées</th>
                                     <th> Parcelles restantes</th>
                                 </tr>
-                            </thead>
+                           
                             <tr>
                                 <th>Zone d'habitation</th>
                                 <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_degagee : '' }}
@@ -345,15 +352,15 @@
                         des
                         trois (03) meilleurs marcher</div>
                     <div class="col-xs-6 table-responsive px-0">
-                        <table class="table table-hover">
-                            <thead>
+                        <table class="table">
+                            
                                 <tr>
                                     <th class="sin-table-bg">#</th>
                                     <th class="sin-table-bg">1</th>
                                     <th class="sin-table-bg">2</th>
                                     <th class="sin-table-bg">3</th>
                                 </tr>
-                            </thead>
+                            
                             <tr>
                                 <th>Marchés</th>
                                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->marche : '' }}</td>
@@ -415,8 +422,8 @@
                 </div>
                 <br>
                 <div class="col-xs-11 table-responsive px-0">
-                    <table class="table table-bordered table-hover ">
-                        <thead>
+                    <table class="table">
+                        
                             <tr>
                                 <th class="sin-table-bg">#</th>
                                 <th class="sin-table-bg">PRF 1</th>
@@ -430,7 +437,7 @@
                                 <th class="sin-table-bg">PRF 9 </th>
                                 <th class="sin-table-bg">PRF 10</th>
                             </tr>
-                        </thead>
+                        
                         <tr>
                             <th>Identité PTF</th>
                             <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->identite_ptf : '' }}</td>
@@ -492,9 +499,9 @@
                     (toute contribution)</div>
                     <br>
                 <div class="col-xs-12 table-responsive mt-2 px-0">
-                    <table class="table table-bordered table-hover">
+                    <table class="table">
 
-                        <thead>
+                        
                             <tr>
                                 <th class="sin-table-bg">#</th>
                                 <th class="sin-table-bg">1 er</th>
@@ -508,7 +515,7 @@
                                 <th class="sin-table-bg">9 ème</th>
                                 <th class="sin-table-bg">10 ème</th>
                             </tr>
-                        </thead>
+                    
                         <tr>
                             <th>Le village</th>
                             <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->le_village : '' }}</td>
