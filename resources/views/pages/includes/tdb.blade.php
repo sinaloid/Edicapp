@@ -552,15 +552,3 @@ $(document).ready(function() {
     });
 })
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-<script>
-  /*  alert('ok')
-    $("#create_pdf").on("click", function(){
-        var html = document.querySelector('#pdf')
-const doc = new jsPDF();
-console.log(html)
-doc.fromHTML(html, 10, 10);
-doc.save("a4.pdf")
-    })
-   
-</script>
