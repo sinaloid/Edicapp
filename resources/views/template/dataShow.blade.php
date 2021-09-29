@@ -137,11 +137,11 @@
                     <!--p class="sin-ic">Partager sur : <a href="#"><i class="fab fa-facebook"></i> Facebook</a> |
                         <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
                     </p-->
-                   <div class="row mt-3">
+                   <div class="row my-3">
                     <div class="col-6">
                     <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0&appId=241600270424722&autoLogAppEvents=1" nonce="zHViDRRh"></script>
-<div class="fb-like" data-href="http://{{url()->current()}}/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
+<div class="fb-like" data-href="http://edicapp.herokuapp.com/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
                     
                     </div>
                     
