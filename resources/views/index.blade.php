@@ -14,17 +14,17 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Task', 'taux de contribution'],
+        ['Task', 'montant'],
         ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[0]->attendu : 1 }} ],
         ['Contribution', {{isset($troisMeilleur) ? $troisMeilleur[0]->contribution : 0 }}],
     ]);
     var data1 = google.visualization.arrayToDataTable([
-        ['Task', 'taux de contribution'],
+        ['Task', 'montant'],
         ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[1]->attendu : 1 }} ],
         ['Contribution', {{isset($troisMeilleur) ? $troisMeilleur[1]->contribution : 0 }}],
     ]);
     var data2 = google.visualization.arrayToDataTable([
-        ['Task', 'taux de contribution'],
+        ['Task', 'montant'],
         ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[2]->attendu : 1 }} ],
         ['Contribution', {{isset($troisMeilleur) ? $troisMeilleur[2]->contribution : 0 }}],
     ]);
@@ -32,6 +32,9 @@ function drawChart() {
     var options = {
         title: '{{ isset($troisMeilleur) ? $troisMeilleur[0]->marche : '
         ' }}',
+        legend: 'none',
+        pieSliceText: 'label',
+        pieStartAngle: 100,
         is3D: true,
         chartArea: {
             left: 20,
@@ -44,6 +47,9 @@ function drawChart() {
     var options1 = {
         title: '{{ isset($troisMeilleur) ? $troisMeilleur[1]->marche : '
         ' }}',
+        legend: 'none',
+        pieSliceText: 'label',
+        pieStartAngle: 100,
         is3D: true,
         chartArea: {
             left: 20,
@@ -56,6 +62,9 @@ function drawChart() {
     var options2 = {
         title: '{{ isset($troisMeilleur) ? $troisMeilleur[2]->marche : '
         '}}',
+        legend: 'none',
+        pieSliceText: 'label',
+        pieStartAngle: 100,
         is3D: true,
         chartArea: {
             left: 20,
@@ -230,7 +239,7 @@ function drawChart() {
                                                                   
                                                                   </div> -->
                             <div class="card">
-                                <h4 class="card-header">village 1</h4>
+                                <h4 class="card-header">Marché 1</h4>
                                 <div class="card-body p-0">
                                     <!-- <h5 class="card-title">Nom du village</h5> -->
                                     <div id="piechart_3d" style="width: 100%;"></div>
@@ -241,7 +250,7 @@ function drawChart() {
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg justify-content-center">
                             <div class="card">
-                                <h4 class="card-header">village 2</h4>
+                                <h4 class="card-header">Marché 2</h4>
                                 <div class="card-body p-0">
                                     <div id="piechart_4d" style="width: 100%;"></div>
                                 </div>
@@ -249,7 +258,7 @@ function drawChart() {
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg justify-content-center">
                             <div class="card">
-                                <h4 class="card-header">village 3</h4>
+                                <h4 class="card-header">Marché 3</h4>
                                 <div class="card-body p-0">
                                     <div id="piechart_5d" style="width: 100%;"></div>
                                 </div>
