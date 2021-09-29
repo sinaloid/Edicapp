@@ -554,14 +554,14 @@
         datasets: [{
                 label: "Data, baby!",
                 fill: false,
-                backgroundColor: 'rgb(190, 99, 255, 0.25)',
+                backgroundColor: 'rgb(190, 99, 255, 0.6)',
                 borderColor: 'rgb(190, 99, 255)',
                 data: dataBaby,
             },
             {
                 label: "More data, baby!",
                 fill: true,
-                backgroundColor: 'rgba(255, 99, 132, 0.25)',
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: moreDataBaby,
             }
