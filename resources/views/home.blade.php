@@ -80,7 +80,7 @@
                     <form action="{{ route('data.encour',$data->id) }}" method="post">
                         @csrf
                         @method('PUT')
-                        <button type="submit" class="btn btn-warning mx-1" style="min-width:90px">En cour</button>
+                        <button type="submit" class="btn btn-warning mx-1" style="min-width:90px">En-cours</button>
                     </form>
                     @endif
                     <a href="{{ route('data.edit',$data->id) }}" id="" class="btn btn-info mx-1"

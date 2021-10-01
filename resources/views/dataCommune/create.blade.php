@@ -242,7 +242,7 @@
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="depens_invest3" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][2]->investissement : '' }}"
-                                        aria-describedby="nameHelp"></tdinvestissement>
+                                        aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="depens_invest4" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][3]->investissement : '' }}"
                                         aria-describedby="nameHelp"></td>
