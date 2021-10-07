@@ -25,7 +25,7 @@ $(document).ready(function() {
                         $('#commune_2').empty();
                         $('#region').focus;
                         $('#region').append(
-                            '<option value="">-- Selectionnez votre region --</option>');
+                            '<option value="">-- Sélectionnez votre région --</option>');
                         $.each(data, function(key, value) {
                             $('select[name="region"]').append(
                                 '<option value="' + key + '">' + value
@@ -72,7 +72,7 @@ $(document).ready(function() {
                        $('#commune_2').empty();
                        $('#province').focus;
                        $('#province').append(
-                           '<option value="">-- Selectionnez votre province --</option>');
+                           '<option value="">-- Sélectionnez votre province --</option>');
                        $.each(data, function(key, value) {
                            $('select[name="province"]').append(
                                '<option value="' + key + '">' + value
@@ -114,7 +114,7 @@ $(document).ready(function() {
                        $('#commune_1').empty();
                        $('#commune_1').focus;
                        $('#commune_1').append(
-                           '<option value="">-- Selectionnez votre commune --</option>');
+                           '<option value="">-- Sélectionnez votre commune --</option>');
                        $.each(data, function(key, value) {
                            $('select[name="commune_1"]').append(
                                '<option value="' + key + '">' + value
@@ -128,7 +128,7 @@ $(document).ready(function() {
                     $('#commune_2').empty();
                     $('#commune_2').focus;
                     $('#commune_2').append(
-                        '<option value="">-- Selectionnez votre commune --</option>');
+                        '<option value="">-- Sélectionnez votre commune --</option>');
                     $.each(data, function(key, value) {
                         $('select[name="commune_2"]').append(
                             '<option value="' + key + '">' + value
@@ -167,7 +167,7 @@ $(document).ready(function() {
                 if (data) {
                     /*$('#commune').empty();
                         $('#commune').focus;
-                        $('#commune').append('<option value="">-- Selectionnez votre commune --</option>');
+                        $('#commune').append('<option value="">-- Sélectionnez votre commune --</option>');
                         $.each(data, function(key, value) {
                         $('select[name="commune"]').append('<option value="' + key + '">' + value + '</option>');
                     });*/

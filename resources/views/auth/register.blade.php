@@ -65,7 +65,7 @@
                             <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Pays') }}</label>
                             <div class="col-md-6">
                                 <select class="form-control my-0" id="country" name="country" required>
-                                    <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
+                                    <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
                                     @foreach($countries as $country)
                                     <option value="{{ $country->id }}">
                                         {{ $country->country_name }}</option>
@@ -225,7 +225,7 @@
                             $('#commune').empty();
                             $('#region').focus;
                             $('#region').append(
-                                '<option value="">-- Selectionnez votre region --</option>');
+                                '<option value="">-- Sélectionnez votre region --</option>');
                             $.each(data, function(key, value) {
                                 $('select[name="region"]').append(
                                     '<option value="' + key + '">' + value
@@ -269,7 +269,7 @@
                            $('#commune').empty();
                            $('#province').focus;
                            $('#province').append(
-                               '<option value="">-- Selectionnez votre province --</option>');
+                               '<option value="">-- Sélectionnez votre province --</option>');
                            $.each(data, function(key, value) {
                                $('select[name="province"]').append(
                                    '<option value="' + key + '">' + value
@@ -310,7 +310,7 @@
                            $('#commune').empty();
                            $('#commune').focus;
                            $('#commune').append(
-                               '<option value="">-- Selectionnez votre commune --</option>');
+                               '<option value="">-- Sélectionnez votre commune --</option>');
                            $.each(data, function(key, value) {
                                $('select[name="commune"]').append(
                                    '<option value="' + key + '">' + value

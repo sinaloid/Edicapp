@@ -13,7 +13,7 @@
     </div>
 
     <p id="output" class="text-center">
-        Veuilliez Selectionnez un Budget
+        Veuilliez Sélectionnez un Budget
         <script>
             var rbudget = document.getElementById("budget-n");
             let rbudget1 = document.getElementById("budget-n-1");

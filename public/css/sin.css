@@ -32,6 +32,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
        /***Generale ****/
        body{
 	      	background:rgba(0, 0, 0, 0.76);
+          background-color: #4A403A;
           color: #444444 !important;
           line-height: 1.5rem;
           font-size: 1.1em;

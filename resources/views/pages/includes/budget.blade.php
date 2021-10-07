@@ -6,9 +6,9 @@
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">#</th>
+                    <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                 </tr>
             </thead>
             <tr>
@@ -60,9 +60,9 @@
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">#</th>
+                    <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                 </tr>
             </thead>
             <tr>
@@ -140,9 +140,9 @@
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">#</th>
+                    <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                 </tr>
             </thead>
             <tr>
@@ -201,9 +201,9 @@
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">#</th>
+                    <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                 </tr>
             </thead>
             <tr>

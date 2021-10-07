@@ -160,7 +160,7 @@ $(document).ready(function() {
                 if (data) {
                     /*$('#commune').empty();
                         $('#commune').focus;
-                        $('#commune').append('<option value="">-- Selectionnez votre commune --</option>');
+                        $('#commune').append('<option value="">-- Sélectionnez votre commune --</option>');
                         $.each(data, function(key, value) {
                         $('select[name="commune"]').append('<option value="' + key + '">' + value + '</option>');
                     });*/

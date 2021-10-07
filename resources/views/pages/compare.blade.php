@@ -46,7 +46,7 @@
                             </p>
                             <div class="form-group mt">
                                 <select class="form-control mt-1" id="country" name="country" required>
-                                    <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
+                                    <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
                                     @foreach($countries ?? '' as $country)
                                     <option value="{{ $country->id }}">
                                         {{ $country->country_name }}</option>
@@ -197,7 +197,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <select class="form-control" id="annee" name="annee" required>
-                                            <option value="">{{ __('-- Selectionnez l année --') }}</option>
+                                            <option value="">{{ __('-- Sélectionnez l année --') }}</option>
                                             @for($i = Date('Y'); 2000<= $i; $i--) <option value="{{ $i}}">
                                                 {{ $i }}</option>
                                                 @endfor
@@ -231,7 +231,7 @@
                     <div class="card-body py-0">
                         <div class="form-group">
                             <select class="form-control my-1" id="country" name="country" required>
-                                <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
+                                <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
                                 @foreach($countries as $country)
                                 <option value="{{ $country->id }}">
                                     {{ $country->country_name }}</option>

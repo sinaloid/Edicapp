@@ -2,7 +2,7 @@
         <div class="row justify-content-center">
             <div class ="col-12 text-center text-white">
                <hr style="height:2px;border-width:0;color:#fff;background-color:#fff" />
-               <p>Telecharger <strong>EDICApp</strong> sur le: </p>
+               <p>Télécharger <strong>EDIC</strong> sur le: </p>
                <div class ="row justify-content-center">
                   <div class ="col-12 col-sm-4 col-md-3">
                   <a href="javascript:void();" class="google btn mybtn mt-1"><i class="fa fa-android"></i> Google Play</a>

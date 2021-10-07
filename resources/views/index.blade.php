@@ -102,7 +102,7 @@ function drawChart() {
 
                 </div>
                 <!-- <h4 class="card-title">Auteur Inconnue</h4> -->
-                <a href="{{ route('actu') }}" class="btn sin-bg-3">Actualité</a>
+                <a href="{{ route('actu') }}" class="btn sin-bg-3 font-weight-bold text-white">Actualités</a>
             </div>
         </div>
     </div>
@@ -135,7 +135,7 @@ function drawChart() {
                             <div class="col-sm-12 sin-bg-2 p-0">
                                 <div class="form-group mt">
                                     <select class="form-control mt-1" id="country" name="country" required>
-                                        <option value="">{{ __('-- Selectionnez votre pays --') }}</option>
+                                        <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
                                         @foreach($countries ?? '' as $country)
                                         <option value="{{ $country->id }}">
                                             {{ $country->country_name }}</option>
@@ -187,7 +187,7 @@ function drawChart() {
                                     <div class="col-12 col-md">
                                         <div class="form-group">
                                             <select class="form-control" id="commune4" name="annee" required>
-                                                <option value="">{{ __('-- Selectionnez l année --') }}</option>
+                                                <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
                                                 @for($i = Date('Y'); 2000<= $i; $i--) <option value="{{ $i}}">
                                                     {{ $i }}</option>
                                                     @endfor
@@ -207,7 +207,7 @@ function drawChart() {
                         <div class="col-12">
                             <div class="mx-auto">
                                 <button type="submit"
-                                    class="btn sin-bg-3 my-1 font-weight-bold text-white">validé</button>
+                                    class="btn sin-bg-3 my-1 font-weight-bold text-white">valider</button>
                                 <!--a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
                                 <a class="btn sin-bg-3" href="{{ route('pdf') }}">Exporter</a-->
                             </div>
@@ -219,7 +219,7 @@ function drawChart() {
                                 </strong>
 
                                 <small>
-                                    {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune->id)->commune->commune_name : 'donnée non existant'}}
+                                    {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune->id)->commune->commune_name : 'donnée non existante'}}
 
                                 </small>
 
@@ -230,7 +230,7 @@ function drawChart() {
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="sin-title">Contribution des trois (03) meilleurs marché</p>
+                    <p class="sin-title">Contribution des trois (03) meilleurs marchés</p>
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg justify-content-center">
                             <!-- <div class = " div_in_card">
@@ -267,10 +267,10 @@ function drawChart() {
                     </div>
                 </div>
                 <div class="col-sm-12 sin-btn-data">
-                    <a class="btn sin-bg-3"
+                    <a class="btn sin-bg-3 font-weight-bold text-white"
                         href="{{ route('datas.tdb', isset($dataCommune) ? $dataCommune['slug'] : 'tdb') }}">
                         Données(TdB)</a>
-                    <a class="btn sin-bg-3"
+                    <a class="btn sin-bg-3 font-weight-bold text-white"
                         href="{{ route('datas.cmp', isset($dataCommune) ? $dataCommune['slug'] : 'cmp') }}">Comparaison</a>
                 </div>
             </div>
@@ -284,28 +284,28 @@ function drawChart() {
     <!--Categorie -->
     <div class="row justify-content-center">
         <p class="col-12 text-white sin-title">Données par catégories</p>
-        <div class="col-6 col-lg-2 mt-3">
+        <div class="col-6 col-lg-2 mt-3" title="Informations générales">
             <a id="inf" class="col-card card w-75 p-2"
                 href="{{ route('datas.info',isset($dataCommune) ? $dataCommune['slug'] : 'info_generale') }}">
                 <img class="mx-auto" src="img/infog.png" alt="img tdb">
                 <h4 class="m-auto font-weight-bolder">Info G</h4>
             </a>
         </div>
-        <div class="col-6 col-lg-2 mt-3">
+        <div class="col-6 col-lg-2 mt-3" title="Plan Communal de Développement">
             <a id="pcd" class="col-card card w-75 p-2"
                 href="{{ route('datas.pcd', isset($dataCommune) ? $dataCommune['slug'] : 'pcd') }}">
                 <img class="mx-auto" src="img/pcd.png" alt="img pcd">
                 <h4 class="m-auto font-weight-bolder">PCD</h4>
             </a>
         </div>
-        <div class="col-6 col-lg-2 mt-3">
+        <div class="col-6 col-lg-2 mt-3" title="Informations budgétaires">
             <a id="budget" class="col-card card w-75 p-2"
                 href="{{ route('datas.bg', isset($dataCommune) ? $dataCommune['slug'] : 'bg') }}">
                 <img class="mx-auto" src="img/budget.png" alt="img budget">
                 <h4 class="m-auto font-weight-bolder">Budget</h4>
             </a>
         </div>
-        <div class="col-6 col-lg-2 mt-3">
+        <div class="col-6 col-lg-2 mt-3" title="Tableau de Bord">
             <a id="tdb" class="col-card card w-75 p-2"
                 href="{{ route('datas.tdb', isset($dataCommune) ? $dataCommune['slug'] : 'tdb') }}">
                 <img class="mx-auto" src="img/tdb.png" alt="img tdb">

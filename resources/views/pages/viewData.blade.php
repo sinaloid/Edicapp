@@ -449,7 +449,7 @@
                         $('#commune_2').empty();
                         $('#region_2').focus;
                         $('#region_2').append(
-                            '<option value="">-- Selectionnez votre region --</option>');
+                            '<option value="">-- Sélectionnez votre region --</option>');
                         $.each(data, function(key, value) {
                             $('select[name="region_2"]').append(
                                 '<option value="' + key + '">' + value
