@@ -1,5 +1,5 @@
 <div class="row ">
-    <div class="col-12 font-weight-bolder text-center text-uppercase">Evolution du budget de la commune les trois années
+    <div class="col-12 font-weight-bolder text-center text-uppercase">Évolution du budget de la commune les trois dernières années
     </div>
     <div class="col-12 table-responsive mt-2 px-0">
         <table class="table-sm table-hover mx-auto">
@@ -103,32 +103,32 @@
         <table class="table-sm table-hover mx-auto">
             <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">1</th>
-                    <th class="sin-table-bg">2</th>
-                    <th class="sin-table-bg">3</th>
+                    <th class="sin-table-bg"></th>
+                    <th class="sin-table-bg">Marché 1</th>
+                    <th class="sin-table-bg">Marché 2</th>
+                    <th class="sin-table-bg">Marché 3</th>
                 </tr>
             </thead>
             <tr>
-                <th>Marchés</th>
+                <th>Nom du marché</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->marche : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][1]->marche : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][2]->marche : '' }}</td>
             </tr>
             <tr>
-                <th>Attendu</th>
+                <th>Montant attendu</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->attendu : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][1]->attendu : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][2]->attendu : '' }}</td>
             </tr>
             <tr>
-                <th>Contribution</th>
+                <th>Montant mobilisé</th>
                 <td> {{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->contribution : '' }}</td>
                 <td> {{ isset($dataCommune) ? $dataCommune['troisMeilleur'][1]->contribution : '' }}</td>
                 <td> {{ isset($dataCommune) ? $dataCommune['troisMeilleur'][2]->contribution : '' }}</td>
             </tr>
             <tr>
-                <th>Taux</th>
+                <th>Taux (mobilisé / attendu)</th>
                 <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][0]->attendu != null && $dataCommune['troisMeilleur'][0]->attendu != 0) ? round($dataCommune['troisMeilleur'][0]->contribution *100 / $dataCommune['troisMeilleur'][0]->attendu, 2) . '%' : 0 : '' }}
                 </td>
                 <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][1]->attendu != null && $dataCommune['troisMeilleur'][1]->attendu != 0) ? round($dataCommune['troisMeilleur'][1]->contribution *100 / $dataCommune['troisMeilleur'][1]->attendu, 2) . '%' : 0 : '' }}
@@ -148,7 +148,7 @@
 
             <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
+                    <th class="sin-table-bg"></th>
                     <th class="sin-table-bg">1 er</th>
                     <th class="sin-table-bg">2 ème</th>
                     <th class="sin-table-bg">3 ème</th>
@@ -162,7 +162,7 @@
                 </tr>
             </thead>
             <tr>
-                <th>Le village</th>
+                <th>Nom du village</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->le_village : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->le_village : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->le_village : '' }}</td>
@@ -201,7 +201,7 @@
                 <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][9]->mobilise : '' }}</td>
             </tr>
             <tr>
-                <th>Taux mobilisation /Prévisions</th>
+                <th>Taux (mobilisé / attendu)</th>
                 <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][0]->attendu !=null && $dataCommune['dixMeilleur'][0]->attendu !=0) ? round($dataCommune['dixMeilleur'][0]->mobilise * 100 / $dataCommune['dixMeilleur'][0]->attendu) .'%' : 0 : '' }}
                 </td>
                 <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][1]->attendu !=null && $dataCommune['dixMeilleur'][1]->attendu !=0) ? round($dataCommune['dixMeilleur'][1]->mobilise * 100 / $dataCommune['dixMeilleur'][1]->attendu) .'%' : 0 : '' }}
@@ -228,23 +228,23 @@
 </div>
 
 <div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des autres partenaires à la commune
+    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des autres partenaires de la commune
     </div>
     <div class="col-12 table-responsive mt-2 px-0">
         <table class="table-sm table-hover ">
             <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">PRF 1</th>
-                    <th class="sin-table-bg">PRF 2 </th>
-                    <th class="sin-table-bg">PRF 3 </th>
-                    <th class="sin-table-bg">PRF 4 </th>
-                    <th class="sin-table-bg">PRF 5 </th>
-                    <th class="sin-table-bg">PRF 6 </th>
-                    <th class="sin-table-bg">PRF 7 </th>
-                    <th class="sin-table-bg">PRF 8 </th>
-                    <th class="sin-table-bg">PRF 9 </th>
-                    <th class="sin-table-bg">PRF 10</th>
+                    <th class="sin-table-bg"></th>
+                    <th class="sin-table-bg">PTF 1</th>
+                    <th class="sin-table-bg">PTF 2 </th>
+                    <th class="sin-table-bg">PTF 3 </th>
+                    <th class="sin-table-bg">PTF 4 </th>
+                    <th class="sin-table-bg">PTF 5 </th>
+                    <th class="sin-table-bg">PTF 6 </th>
+                    <th class="sin-table-bg">PTF 7 </th>
+                    <th class="sin-table-bg">PTF 8 </th>
+                    <th class="sin-table-bg">PTF 9 </th>
+                    <th class="sin-table-bg">PTF 10</th>
                 </tr>
             </thead>
             <tr>
@@ -261,7 +261,7 @@
                 <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->identite_ptf : '' }}</td>
             </tr>
             <tr>
-                <th>Evaluation contribution</th>
+                <th>Évaluation contribution</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->evaluation_contribution : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->evaluation_contribution : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->evaluation_contribution : '' }}</td>
@@ -291,7 +291,7 @@
 </div>
 
 <div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase">ETAT CIVIL ET DOMAINE</div>
+    <div class="col-12 font-weight-bolder text-center text-uppercase">ETAT CIVIL</div>
     <div class="col-12 table-responsive mt-2 px-0">
         <table class="table-sm table-hover mx-auto ">
 
@@ -328,7 +328,7 @@
                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->autre_acte_nombre_observation : '' }}</td>
             </tr>
             <tr>
-                <th>Vente de timbres (valeur)</th>
+                <th>Timbres vendus</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->vente_timbre_nombre : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->vente_timbre_observation : '' }}</td>
             </tr>
@@ -336,10 +336,10 @@
     </div>
 </div>
 
-<div class="row ">
-    <div class="col-12 table-responsive px-0 ">
+<div class="row mt-3">
+<div class="col-12 font-weight-bolder text-center text-uppercase">Situation domaniale</div>
+    <div class="col-12 table-responsive px-0 mt-2">
         <table class="table-sm table-hover mx-auto ">
-            <caption> </caption>
             <thead>
                 <tr>
                     <th class="sin-table-bg align-middle" rowspan="2">Désignation / type d'usage</th>
@@ -384,7 +384,7 @@
                 <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_autre_parcelle_restante : '' }}</td>
             </tr>
             <tr>
-                <th>Surfaces en ha ou en m<sup>2</sup></th>
+                <th>Superficies en ha ou en m<sup>2</sup></th>
                 <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_degagee 
                 + $dataCommune['domaineCivil']->zone_commerciale_parcelle_degagee 
                 + $dataCommune['domaineCivil']->zone_administrative_parcelle_degagee 

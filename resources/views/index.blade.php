@@ -207,7 +207,7 @@ function drawChart() {
                         <div class="col-12">
                             <div class="mx-auto">
                                 <button type="submit"
-                                    class="btn sin-bg-3 my-1 font-weight-bold text-white">valider</button>
+                                    class="btn sin-bg-3 my-1 font-weight-bold text-white">Valider</button>
                                 <!--a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
                                 <a class="btn sin-bg-3" href="{{ route('pdf') }}">Exporter</a-->
                             </div>
@@ -219,7 +219,7 @@ function drawChart() {
                                 </strong>
 
                                 <small>
-                                    {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune->id)->commune->commune_name : 'donnée non existante'}}
+                                    {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune->id)->commune->commune_name : 'inexistante'}}
 
                                 </small>
 

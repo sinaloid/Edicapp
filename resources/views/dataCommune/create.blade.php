@@ -475,16 +475,16 @@
                             <thead>
                                 <tr>
                                     <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">PRF 1</th>
-                                    <th class="sin-table-bg">PRF 2 </th>
-                                    <th class="sin-table-bg">PRF 3 </th>
-                                    <th class="sin-table-bg">PRF 4 </th>
-                                    <th class="sin-table-bg">PRF 5 </th>
-                                    <th class="sin-table-bg">PRF 6 </th>
-                                    <th class="sin-table-bg">PRF 7 </th>
-                                    <th class="sin-table-bg">PRF 8 </th>
-                                    <th class="sin-table-bg">PRF 9 </th>
-                                    <th class="sin-table-bg">PRF 10</th>
+                                    <th class="sin-table-bg">PTF 1</th>
+                                    <th class="sin-table-bg">PTF 2 </th>
+                                    <th class="sin-table-bg">PTF 3 </th>
+                                    <th class="sin-table-bg">PTF 4 </th>
+                                    <th class="sin-table-bg">PTF 5 </th>
+                                    <th class="sin-table-bg">PTF 6 </th>
+                                    <th class="sin-table-bg">PTF 7 </th>
+                                    <th class="sin-table-bg">PTF 8 </th>
+                                    <th class="sin-table-bg">PTF 9 </th>
+                                    <th class="sin-table-bg">PTF 10</th>
                                 </tr>
                             </thead>
                             <tr>

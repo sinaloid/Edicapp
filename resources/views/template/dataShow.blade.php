@@ -81,7 +81,7 @@
                                 <div class="col-12 col-md">
                                     <div class="form-group">
                                         <select class="form-control" id="commune4" name="annee" required>
-                                            <option value="">{{ __('-- Sélectionnez l année --') }}</option>
+                                            <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
                                             @for($i = Date('Y'); 2000<= $i; $i--) <option value="{{ $i}}">
                                                 {{ $i }}</option>
                                                 @endfor
@@ -100,7 +100,7 @@
                     <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
                     <div class="col-12">
                         <div class="mx-auto">
-                            <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">validé</button>
+                            <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">Valider</button>
                             <a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
                             @if (Route::currentRouteName() == 'datas.tdb') 
                             <button class="btn sin-bg-3 text-white" type="button" name="create_pdf" id="create_pdf">Exporter</button>
@@ -113,7 +113,7 @@
                                 </span>
                             </strong>
                             <small>
-                                {{isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune['data_id'])->commune->commune_name : 'donnée non existant'}}
+                                {{isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune['data_id'])->commune->commune_name : 'inexistante'}}
                             </small>
 
                         </p>
