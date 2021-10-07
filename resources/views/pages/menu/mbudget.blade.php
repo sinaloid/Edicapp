@@ -7,7 +7,7 @@
 @section('dataContent')
     <div class="radio-bg mt-2">
         <input type="radio" name="budget" id="budget-n">
-        <label class="small1" for="budget-n">Budget N EDIC</label>
+        <label class="small1" for="budget-n">Budget N (EDIC)</label>
         <input type="radio" name="budget" id="budget-n-1">
         <label for="budget-n-1">Budget N + 1</label>
     </div>

@@ -17,18 +17,18 @@
                 <td> {{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_globale : '' }}</td>
             </tr>
             <tr>
-                <th>103 - 104</th>
-                <td>Subvention d'équipement</td>
+                <th>103</th>
+                <td>Subventions d'équipement</td>
                 <td> {{ isset($dataCommune) ? $dataCommune['recetInvest']->subvention_equipement : '' }} </td>
             </tr>
             <tr>
                 <th>11</th>
-                <td>Contribution propre/Reserves</td>
+                <td>Contribution propre/Réserves</td>
                 <td>  {{ isset($dataCommune) ? $dataCommune['recetInvest']->contribution_propre : '' }}</td>
             </tr>
             <tr>
                 <th>102</th>
-                <td>Dotation liée aux compétences transférées</td>
+                <td>Dotations liées aux compétences transférées</td>
                 <td>  {{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_liee : '' }}</td>
             </tr>
             <tr>
@@ -42,7 +42,7 @@
                 <td> {{ isset($dataCommune) ? $dataCommune['recetInvest']->autre_subvention   : '' }}</td>
             </tr>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>Total</th>
                 <td> {{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_globale
                 + $dataCommune['recetInvest']->subvention_equipement
@@ -92,12 +92,12 @@
             </tr>
             <tr>
                 <th>75 </th>
-                <td> Impots taxes et contributions directes</td>
+                <td> Impôts taxes et contributions directes</td>
                 <td>  {{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_c_direct : '' }}</td>
             </tr>
             <tr>
                 <th>76 </th>
-                <td> Impots et taxes indirects</td>
+                <td> Impôts et taxes indirects</td>
                 <td>  {{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_indirect : '' }}</td>
             </tr>
             <tr>
@@ -111,12 +111,12 @@
                 <td>  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_anterieur : '' }}</td>
             </tr>
             <tr>
-                <th>73/735 </th>
+                <th>735</th>
                 <td>Autres dotations de transfert</td>
                 <td> {{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }}</td>
             </tr>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>Total</th>
                 <td> {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exploitation
                 + $dataCommune['recetFonct']->produit_domaniaux
@@ -132,10 +132,10 @@
     </div>
 </div>
 
-<p class="col-8 mt-3 mx-auto font-weight-bolder text-center text-white bg-danger text-uppercase ">Les depenses</p>
+<p class="col-8 mt-3 mx-auto font-weight-bolder text-center text-white bg-danger text-uppercase ">Les dépenses</p>
 
 <div class="row mt-3">
-<div class="col-12 font-weight-bolder text-center text-uppercase">  Depenses d'investissement</div>
+<div class="col-12 font-weight-bolder text-center text-uppercase">  Dépenses d'investissement</div>
     <div class="col-12 table-responsive mt-2 px-0 ">
         <table class="table-sm table-hover mx-auto ">
             <thead>
@@ -147,7 +147,7 @@
             </thead>
             <tr>
                 <th>13/132 </th>
-                <td>Etudes & Recherche</td>
+                <td>Études & Recherches</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['depensInvest']->etude_recherche : '' }}</td>
             </tr>
             <tr>
@@ -157,12 +157,12 @@
             </tr>
             <tr>
                 <th>21/214+215+216+218 </th>
-                <td>Equipement</td>
+                <td>Équipement</td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensInvest']->equipement : '' }}</td>
             </tr>
             <tr>
                 <th>23/232+235 </th>
-                <td> Batiment</td>
+                <td> Bâtiment</td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensInvest']->batiment : '' }}</td>
             </tr>
             <tr>
@@ -170,18 +170,18 @@
                 <td> Emprunt</td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensInvest']->emprunt : '' }}</td>
             </tr>
-            <tr>
+            <!--tr>
                 <th># </th>
                 <td> Autres investissements</td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensInvest']->autre_investissement : '' }}</td>
-            </tr>
+            </tr-->
             <tr>
                 <th>60 </th>
                 <td>Déficit / Excédent d'investissement exer anté</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['depensInvest']->deficit_excedent : '' }}</td>
             </tr>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>Total</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['depensInvest']->etude_recherche
                 + $dataCommune['depensInvest']->environnement
@@ -196,7 +196,7 @@
 </div>
 
 <div class="row mt-3">
-<div class="col-12 font-weight-bolder text-center text-uppercase">  Depenses de fonctionnement</div>
+<div class="col-12 font-weight-bolder text-center text-uppercase">  Dépenses de fonctionnement</div>
     <div class="col-12 table-responsive mt-2 px-0 ">
         <table class="table-sm table-hover mx-auto ">
             <thead>
@@ -232,7 +232,7 @@
                 <td> {{ isset($dataCommune) ? $dataCommune['depensFonct']->frais_financier : '' }}</td>
             </tr>
             <tr>
-                <th>63/612 </th>
+                <th>63/6312 </th>
                 <td>Refection /entretien batiment </td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensFonct']->refection_entretien : '' }}</td>
             </tr>
@@ -242,13 +242,19 @@
                 <td> {{ isset($dataCommune) ? $dataCommune['depensFonct']->salaire_indemnite : '' }}</td>
             </tr>
             <tr>
-                <th>63/1+17 </th>
+                <th>63/6317 </th>
                 <td>Entretien véhicule & autres [services extérieurs] </td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensFonct']->entretien_vehicule : '' }}</td>
             </tr>
             <tr>
-                <th>60/65/66 </th>
+                <th>66</th>
                 <td> Appui Fonctionnement /Autres dépenses de fonctionnement</td>
+                <td> {{ isset($dataCommune) ? $dataCommune['depensFonct']->appui_fonctionnement : '' }}</td>
+            </tr>
+            <tr>
+                <th>699</th>
+                <td>Autres charges exceptionnels</td>
+                <!-- cot -->
                 <td> {{ isset($dataCommune) ? $dataCommune['depensFonct']->appui_fonctionnement : '' }}</td>
             </tr>
             <tr>

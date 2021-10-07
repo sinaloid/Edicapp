@@ -47,6 +47,7 @@
                     <th> Pas Satisfaisant</th>
                 </tr>
             </thead>
+            <!--cot-->
             <tr>
                 <th class="sin-table-bg">1 : Consolider la résilience, la sécurité, la cohésion sociale et la paix :</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_tres_satisfaisant : '' }}</td>
