@@ -313,7 +313,7 @@ class SiteUrl extends Controller
     {
         /*Pays*/
 
-            $countries = ["Burkina Faso", "Côte d'Ivoire", "Mali"];
+            $countries = ["Burkina Faso"];
             $this->countryConfig($countries, 226, 1);
 
         /*regions*/
@@ -344,10 +344,10 @@ class SiteUrl extends Controller
             $centreSud = ["Bazéga","Nahouri","Zoundwéogo"];
             $this->countryConfig($centreSud, 7, 3);
 
-            $est = ["Gnagna","Gourma","Komondjari (Komandjoari)","Kompienga","Tapoa"];
+            $est = ["Gnagna","Gourma","Komandjoari","Kompienga","Tapoa"];
             $this->countryConfig($est, 8, 3);
 
-            $haut = ["Houet","Kénédougou","Tuy (Tui)"];
+            $haut = ["Houet","Kénédougou","Tuy"];
             $this->countryConfig($haut, 9, 3);
 
             $nord = ["Loroum","Passoré","Yatenga","Zondoma"];
@@ -359,7 +359,7 @@ class SiteUrl extends Controller
             $sahel = ["Oudalan","Séno","Soum","Yagha"];
             $this->countryConfig($sahel, 12, 3);
 
-            $sudOuest = ["Bougouriba","Loba","Noumbiel","Poni"];
+            $sudOuest = ["Bougouriba","Ioba","Noumbiel","Poni"];
             $this->countryConfig($sudOuest, 13, 3);
 
 
@@ -377,10 +377,10 @@ class SiteUrl extends Controller
             $mouhoun = ["Bondokuy","Dédougou","Douroula","Kona","Ouarkoye","Safané","Tchériba"];
             $this->countryConfig($mouhoun, 4, 4);
 
-            $nayala = ["Gassan (ou Gassam)","Gossina","Kougny","Toma","Yaba","Yé"];
+            $nayala = ["Gassan","Gossina","Kougny","Toma","Yaba","Yé"];
             $this->countryConfig($nayala, 5, 4);
 
-            $Sourou = ["Di","Gomboro","Kassoum","Kiembara","Lanfièra (Lanfiéra)","Lankoué","Toéni","Tougan"];
+            $Sourou = ["Di","Gomboro","Kassoum","Kiembara","Lanfièra","Lankoué","Toéni","Tougan"];
             $this->countryConfig($Sourou, 6, 4);
 
         /*2*/
@@ -391,11 +391,11 @@ class SiteUrl extends Controller
             $this->countryConfig($Leraba, 8, 4);
 
         /*3*/
-            $Kadiogo = ["Komki-Ipala","Komsilga","Koubri","Ouagadougou (Ouaga)","Pabré","Saaba","Tanghin-Dassouri"];
+            $Kadiogo = ["Komki-Ipala","Komsilga","Koubri","Ouagadougou","Pabré","Saaba","Tanghin-Dassouri"];
             $this->countryConfig($Kadiogo, 9, 4);
 
         /*4*/
-            $Boulgou = ["Bagré","Bané","Béguédo","Bissiga","Bitou (Bittou)","Boussouma","Garango","Komtoèga","Niaogho (Niaogo)","Tenkodogo","Zabré","Zoaga","Zonsé"];
+            $Boulgou = ["Bagré","Bané","Béguédo","Bissiga","Bittou","Boussouma","Garango","Komtoèga","Niaogho","Tenkodogo","Zabré","Zoaga","Zonsé"];
             $this->countryConfig($Boulgou, 10, 4);
 
             $Koulpelogo = ["Comin-Yanga","Dourtenga","Lalgaye","Ouargaye","Sangha (Sanga)","Soudougui","Yargatenga","Yondé"];
@@ -431,20 +431,20 @@ class SiteUrl extends Controller
             $Bazega = ["Doulougou","Gaongo","Ipelcé","Kayao","Kombissiri","Saponé","Toécé"];
             $this->countryConfig($Bazega, 20, 4);
 
-            $Nahouri = ["Guiaro","Pô (Po)","Tiébélé (Tiebele)","Zecco","Ziou (Zio)"];
+            $Nahouri = ["Guiaro","Pô","Tiébélé","Zecco","Ziou"];
             $this->countryConfig($Nahouri, 21, 4);
 
-            $Zoundweogo = ["Béré (Bere)","Bindé (Binde)","Gogo","Gomboussougou (Gombousougou)","Guiba","Manga","Nobéré"];
+            $Zoundweogo = ["Béré","Bindé","Gogo","Gomboussougou","Guiba","Manga","Nobéré"];
             $this->countryConfig($Zoundweogo, 22, 4);
 
         /*8*/
-            $Gnagna = ["Bilanga","Bogandé","Coalla","Liptougou","Manni (Mani)","Piéla","Thion"];
+            $Gnagna = ["Bilanga","Bogandé","Coalla","Liptougou","Manni","Piéla","Thion"];
             $this->countryConfig($Gnagna, 23, 4);
 
             $Gourma = ["Diabo","Diapangou","Fada N’Gourma","Matiacoali","Tibga","Yamba"];
             $this->countryConfig($Gourma, 24, 4);
 
-            $Komondjari = ["Bartiébougou (Batiébougou)","Foutouri","Gayéri"];
+            $Komondjari = ["Bartiébougou","Foutouri","Gayéri"];
             $this->countryConfig($Komondjari, 25, 4);
 
             $Kompienga = ["Kompienga","Madjoari","Pama"];
@@ -457,10 +457,10 @@ class SiteUrl extends Controller
             $Houet = ["Bama","Bobo-Dioulasso","Dandé","Faramana","Fô","Karangasso-Sambla","Karangasso-Vigué","Koundougou","Léna","Padéma","Péni","Satiri","Toussiana"];
             $this->countryConfig($Houet, 28, 4);
 
-            $Kenedougou = ["Banzon","Djigouéra","Kangala","Kayan","Koloko","Kourignon (Kourinion)","Kourouma","Morolaba","N’dorola","Orodara","Samogohiri (Samoghohiri)","Samorogouan","Sindo"];
+            $Kenedougou = ["Banzon","Djigouéra","Kangala","Kayan","Koloko","Kourignon","Kourouma","Morolaba","N’dorola","Orodara","Samogohiri","Samorogouan","Sindo"];
             $this->countryConfig($Kenedougou, 29, 4);
 
-            $Tuy = ["Bekuy","Béréba","Boni","Founzan","Houndé","Koti","Koumbia"];
+            $Tuy = ["Békuy","Béréba","Boni","Founzan","Houndé","Koti","Koumbia"];
             $this->countryConfig($Tuy, 30, 4);
 
         /*10*/
@@ -470,14 +470,14 @@ class SiteUrl extends Controller
             $Passore = ["Arbollé","Bagaré","Bokin","Gomponsom","Kirsi","Lâ-Todin","Pilimpikou","Samba","Yako"];
             $this->countryConfig($Passore, 32, 4);
 
-            $Yatenga = ["Barga","Kaïn (Kain)","Kalsaga (Kalsaka)","Kossouka","Koumbri","Namissiguima","Ouahigouya","Oula","Rambo","Séguénéga","Tangaye","Thiou","Zogoré"];
+            $Yatenga = ["Barga","Kaïn","Kalsaka","Kossouka","Koumbri","Namissiguima","Ouahigouya","Oula","Rambo","Séguénéga","Tangaye","Thiou","Zogoré"];
             $this->countryConfig($Yatenga, 33, 4);
 
             $Zondoma = ["Bassi","Boussou","Gourcy","Léba","Tougo"];
             $this->countryConfig($Zondoma, 34, 4);
 
         /*11*/
-            $Ganzourgou = ["Boudry","Kogho (Kogo)","Méguet","Mogtédo","Salogo","Zam","Zorgho","Zoungou"];
+            $Ganzourgou = ["Boudry","Kogho","Méguet","Mogtédo","Salogo","Zam","Zorgho","Zoungou"];
             $this->countryConfig($Ganzourgou, 35, 4);
 
             $Kourweogo = ["Boussé","Laye","Niou","Sourgoubila","Toéghin"];
@@ -487,26 +487,26 @@ class SiteUrl extends Controller
             $this->countryConfig($Oubritenga, 37, 4);
 
         /*12*/
-            $Oudalan = ["Déou","Gorom-Gorom (Gorom Gorom)","Markoye","Oursi","Tin-Akoff (Tin-Akof)"];
+            $Oudalan = ["Déou","Gorom-Gorom","Markoye","Oursi","Tin-Akoff"];
             $this->countryConfig($Oudalan, 38, 4);
 
-            $Seno = ["Bani","Dori","Falangountou (Falagountou)","Gorgadji","Sampelga","Seytenga"];
+            $Seno = ["Bani","Dori","Falangountou","Gorgadji","Sampelga","Seytenga"];
             $this->countryConfig($Seno, 39, 4);
 
-            $Soum = ["Arbinda (Aribinda)","Baraboulé","Djibo","Djiguel (Diguel)","Kelbo","Koutougou","Nassoumbou","Pobé-Mengao","Tongomaye"];
+            $Soum = ["Arbinda","Baraboulé","Djibo","Diguel","Kelbo","Koutougou","Nassoumbou","Pobé-Mengao","Tongomayel"];
             $this->countryConfig($Soum, 40, 4);
 
-            $Yagha = ["Boundoré","Mansila","Sébba (Sebba)","Solhan (Solan)","Tankougounadié","Titabé"];
+            $Yagha = ["Boundoré","Mansila","Sebba","Solhan","Tankougounadié","Titabé"];
             $this->countryConfig($Yagha, 41, 4);
 
         /*13*/
-            $Bougouriba = ["Bondigui","Diébougou","Dolo","Iolonioro (Nioronioro)","Tiankoura"];
+            $Bougouriba = ["Bondigui","Diébougou","Dolo","Nioronioro","Tiankoura"];
             $this->countryConfig($Bougouriba, 42, 4);
 
-            $Loba = ["Dano","Dissin","Guéguéré","Koper","Niégo (Niego)","Oronkua","Ouessa","Zambo"];
-            $this->countryConfig($Loba, 43, 4);
+            $Ioba = ["Dano","Dissin","Guéguéré","Koper","Niégo","Oronkua","Ouessa","Zambo"];
+            $this->countryConfig($Ioba, 43, 4);
             
-            $Noumbiel = ["Batié","Boussoukoula","Kpuéré (Kpueré)","Legmoin","Midébdo (Midebdo)"];
+            $Noumbiel = ["Batié","Boussoukoula","Kpuéré","Legmoin","Midébdo"];
             $this->countryConfig($Noumbiel, 44, 4);
 
             $Poni = ["Bouroum-Bouroum","Bousséra","Djigoué","Gaoua","Gbomblora","Kampti","Loropéni","Malba","Nako","Périgban"];
