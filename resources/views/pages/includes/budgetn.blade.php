@@ -229,17 +229,17 @@
             </tr>
             <tr>
                 <th>63/612 </th>
-                <td>Refection /entretien batiment </td>
+                <td>Réfection /entretien bâtiment </td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensFonctN']->refection_entretien : '' }}</td>
             </tr>
             <tr>
                 <th>65/650+655+658</th>
-                <td>Salaire & Indemnités </td>
+                <td>Salaires & Indemnités </td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensFonctN']->salaire_indemnite : '' }}</td>
             </tr>
             <tr>
                 <th>63/1+17 </th>
-                <td>Entretien véhicule & autres [services extérieurs] </td>
+                <td>Entretien véhicules & autres [services extérieurs] </td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensFonctN']->entretien_vehicule : '' }}</td>
             </tr>
             <tr>
@@ -249,7 +249,7 @@
             </tr>
             <tr>
                 <th>83/831 </th>
-                <td>Excedent / Prélèvement </td>
+                <td>Excédent / Prélèvement </td>
                 <td> {{ isset($dataCommune) ? $dataCommune['depensFonctN']->exedent_prelevement : '' }}</td>
             </tr>
             <tr>
