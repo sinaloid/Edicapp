@@ -38,49 +38,33 @@ class ApiDataCommuneController extends Controller
     {
         //dd(json_decode($request->getContent(), true));
         $data = $request->all();
+        //dd($data);
         $country = $data[0];
-        /*Infog */
-        $depenses = $data[1]; 
-        $recettes = $data[2];
-        $marches = $data[3];
-        $villages = $data[4];
-        $partenairs = $data[5];
-        $etatCivil = $data[6];
-        $domaine = $data[7];
-
-        /*pcd*/
-        $appreciations = $data[8];
-        $donneNotes = $data[9];
-        
-        /*budget */
-        $recetFoncts = $data[10];
-        $depensFoncts = $data[11];
-        $recetInvests = $data[12];
-        $depensInvests = $data[13];
-        /*budget n */
-        $recetNFoncts = $data[14];
-        $depensNFoncts = $data[15];
-        $recetNInvests = $data[16];
-        $depensNInvests = $data[17];
-       
-
 
         //Country::create(['country_name' => json_encode($data), 'indicatif' => 1, 'slug' => json_encode($data[0])]);
         //dd($data[0]['data']['id_depense']);
         //dd($data[0]['data']['id_depense']);
-        $message = $this->findOrCreateData($country);
+        $response = $this->findOrCreateData($country);
         //dd($depensNInvests);
-        if(1){
+        if( $response['id'] != null ){
+            $ok = $this->update($data, $response['id']);
+            if($ok == 'ok'){
+                return response()->json([
+                    "data" => $data,
+                    "status" => 200,
+                    "message" => $response['message']
+                ], 200);
+            }
             return response()->json([
                 "data" => $data,
                 "status" => 200,
-                "message" => $message
+                "message" => "erreur d'envoi, vérifiez vos données !"
             ], 200);
         } else {
             return response()->json([
                 "data" => $data,
                 "status" => 400,
-                "message" => $message
+                "message" => $response['message']
             ], 200);
         }
     }
@@ -96,13 +80,19 @@ class ApiDataCommuneController extends Controller
         ])->first();
             //dd($data);
         if($data == null) {
-            $dataCommune = $this->newDataCommune($request);
-            //dd($dataCommune);
+            $dataCommuneID = $this->newDataCommune($request);
+            //dd($dataCommuneID);
             //$dataCommune = $this->getDataCommune($data->id);
-            return "envoyé avec succès !";
+            return [
+                "message" => "envoyé avec succès !",
+                "id" => $dataCommuneID
+            ];
         }else{
             //$dataCommune = $this->getDataCommune($data->id);
-            return "échec d'envoi, les données existent déjâ!";
+            return [
+                "message" => "échec d'envoi, les données existent déjâ !",
+                "id" => null
+            ];
         }
     }
 
@@ -124,11 +114,337 @@ class ApiDataCommuneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($data, $id)
     {
-        //
-    }
+         
 
+        $dataCommune = Data::find($id)->first();
+        //dd($data, $dataCommune);
+        
+
+        if($data != null){
+
+            /*Infog */
+         $recettes = $data[1];
+         $depenses = $data[2]; 
+         $marches = $data[3];
+         $villages = $data[4];
+         $partenairs = $data[5];
+         $etat_Civil = $data[6];
+         $domaine = $data[7];
+ 
+         /*pcd*/
+         $appreciations = $data[8];
+         $donneNotes = $data[9];
+         
+         /*budget */
+         $recetFoncts = $data[10];
+         $depensFoncts = $data[11];
+         $recetInvests = $data[12];
+         $depensInvests = $data[13];
+         /*budget n */
+         $recetNFoncts = $data[14];
+         $depensNFoncts = $data[15];
+         $recetNInvests = $data[16];
+         $depensNInvests = $data[17];
+
+            /*infog*/
+
+            /*recette */
+            $recettes_infogs = Data::find($id)->infogs()->first()->recettes()->get();
+            $i = 0;
+            foreach($recettes as $recette){
+                
+                $recettes_infogs[$i]->annee = $recette['annee'];
+                $recettes_infogs[$i]->fonctionnement = $recette['fonctionnement'];
+                $recettes_infogs[$i]->investissement = $recette['investissement'];
+                $recettes_infogs[$i]->save();
+                $i++;
+                if($i == 4){
+                    break;
+                }
+            }
+            $i = 0;
+
+            /*Depense */
+            $depense_infogs = Data::find($id)->infogs()->first()->depenses()->get();
+            foreach($depenses as $depense){
+                $depense_infogs[$i]->annee = $depense['annee'];
+                $depense_infogs[$i]->fonctionnement = $depense['fonctionnement'];
+                $depense_infogs[$i]->investissement = $depense['investissement'];
+                $depense_infogs[$i]->save();
+                $i++;
+                if($i == 4){
+                    break;
+                }
+                
+            }
+            $i = 0;
+            /*trois meilleurs */
+
+            $troisMeilleur = Data::find($id)->infogs()->first()->troisMeilleurs()->get();
+            foreach($marches as $marche){
+                $troisMeilleur[$i]->marche = $marche['marche'];
+                $troisMeilleur[$i]->attendu = $marche['attendu'];
+                $troisMeilleur[$i]->contribution = $marche['contribution'];
+                $troisMeilleur[$i]->save();
+                $i++;
+                if($i == 3){
+                    break;
+                }
+                
+            }
+            $i = 0;
+
+            /*Dix meilleurs village */
+
+            $dixMeilleur = Data::find($id)->infogs()->first()->dixMeilleurs()->get();
+            foreach($villages as $village){
+                $dixMeilleur[$i]->le_village = $village['le_village'];
+                $dixMeilleur[$i]->attendu = $village['attendu'];
+                $dixMeilleur[$i]->mobilise = $village['mobilise'];
+                $dixMeilleur[$i]->save();
+                $i++;
+                if($i == 10){
+                    break;
+                }
+                
+            }
+            $i = 0;
+
+            /*partenaire */
+
+            $partenaires = Data::find($id)->infogs()->first()->partenaires()->get();
+            foreach($partenairs as $partenair){
+                $partenaires[$i]->identite_ptf = $partenair['identite_ptf'];
+                $partenaires[$i]->evaluation_contribution = $partenair['evaluation_contribution'];
+                $partenaires[$i]->principale_action = $partenair['principale_action'];
+                $partenaires[$i]->save();
+                $i++;
+                if($i == 10){
+                    break;
+                }
+                
+            }
+            $i = 0;
+            
+
+            /*Etat civil */
+
+            $etatCivil = Data::find($id)->infogs()->first()->etatCivils()->first();
+            
+            $etatCivil->naissance_nombre = $etat_Civil[0]['naissance_nombre'];
+            $etatCivil->acte_de_naissance_nombre = $etat_Civil[0]['acte_de_naissance_nombre'];
+            $etatCivil->acte_de_deces_nombre = $etat_Civil[0]['acte_de_deces_nombre'];
+            $etatCivil->mariage_celebre_nombre = $etat_Civil[0]['mariage_celebre_nombre'];
+            $etatCivil->autre_acte_nombre = $etat_Civil[0]['autre_acte_nombre'];
+            $etatCivil->vente_timbre_nombre = $etat_Civil[0]['vente_timbre_nombre'];
+
+            $etatCivil->naissance_observation = $etat_Civil[0]['naissance_observation'];
+            $etatCivil->acte_de_naissance_observation = $etat_Civil[0]['acte_de_naissance_observation'];
+            $etatCivil->acte_de_deces_observation = $etat_Civil[0]['acte_de_deces_observation'];
+            $etatCivil->mariage_celebre_observation = $etat_Civil[0]['mariage_celebre_observation'];
+            $etatCivil->autre_acte_nombre_observation = $etat_Civil[0]['autre_acte_observation'];
+            $etatCivil->vente_timbre_observation = $etat_Civil[0]['vente_timbre_observation'];
+
+            $etatCivil->save();
+            /*domaine civil */
+
+            $domaineCivil = Data::find($id)->infogs()->first()->domaineCivils()->first();
+
+            $domaineCivil->zone_habitation_parcelle_degagee = $domaine[0]['zone_habitation_parcelle_degagee'];
+            $domaineCivil->zone_commerciale_parcelle_degagee = $domaine[0]['zone_commerciale_parcelle_degagee'];
+            $domaineCivil->zone_administrative_parcelle_degagee = $domaine[0]['zone_administrative_parcelle_degagee'];
+            $domaineCivil->zone_autre_parcelle_degagee = $domaine[0]['zone_autre_parcelle_degagee'];
+            
+            $domaineCivil->zone_habitation_parcelle_attribuee = $domaine[0]['zone_habitation_parcelle_attribuee'];
+            $domaineCivil->zone_commerciale_parcelle_attribuee = $domaine[0]['zone_commerciale_parcelle_attribuee'];
+            $domaineCivil->zone_administrative_parcelle_attribuee = $domaine[0]['zone_administrative_parcelle_attribuee'];
+            $domaineCivil->zone_autre_parcelle_attribuee = $domaine[0]['zone_autre_parcelle_attribuee'];
+            
+            $domaineCivil->zone_habitation_parcelle_restante = $domaine[0]['zone_habitation_parcelle_restante'];
+            $domaineCivil->zone_commerciale_parcelle_restante = $domaine[0]['zone_commerciale_parcelle_restante'];
+            $domaineCivil->zone_administrative_parcelle_restante = $domaine[0]['zone_administrative_parcelle_restante'];
+            $domaineCivil->zone_autre_parcelle_restante = $domaine[0]['zone_autre_parcelle_restante'];
+
+            $domaineCivil->save();
+            
+
+            /*ressource image*/
+
+            /*$ressourceImage = Data::find($id)->infogs()->first()->ressourceimages()->get();
+            //dd($request);
+            if($request->commune_img_carte != null){
+                $ressourceImage[0]->url = $request->commune_img_carte->store(config('images.path'), 'public');
+                $ressourceImage[0]->save();
+            }
+            if($request->commune_img_logo != null){
+                $ressourceImage[1]->url = $request->commune_img_logo->store(config('images.path'), 'public');
+                $ressourceImage[1]->save();
+            }
+            if($request->commune_img_logo != null){
+                $ressourceImage[1]->url = $request->commune_img_logo->store(config('images.path'), 'public');
+                $ressourceImage[1]->save();
+            }
+            if($request->commune_img_autre != null){
+                $ressourceImage[2]->url = $request->commune_img_autre->store(config('images.path'), 'public');
+                $ressourceImage[2]->save();
+            }
+
+            */
+
+
+
+
+            /* Pcd */
+            /* appreciation */
+            
+            $appreciation = Data::find($id)->pcds()->first()->appreciations()->first();
+
+            $appreciation->date_de_conception = $appreciations[0]['date_de_conception'];
+            $appreciation->date_d_expiration = $appreciations[0]['date_d_expiration'];
+            $appreciation->montant_total = $appreciations[0]['montant_total'];
+            $appreciation->montant_mobilise = $appreciations[0]['montant_mobilise'];
+            $appreciation->probleme_majeur = $appreciations[0]['probleme_majeur'];
+            $appreciation->perpective_dix_mot = $appreciations[0]['perpective_dix_mot'];
+
+            $appreciation->save();
+            
+            /*satisfaction */
+
+            $satisfaction = Data::find($id)->pcds()->first()->satisfactions()->first();
+
+            $satisfaction->reforme_tres_satisfaisant = $donneNotes[0]['reforme_tres_satisfaisant'];
+            $satisfaction->developper_tres_satisfaisant = $donneNotes[0]['developper_tres_satisfaisant'];
+            $satisfaction->dynamiser_tres_satisfaisant = $donneNotes[0]['dynamiser_tres_satisfaisant'];
+
+            $satisfaction->reforme_satisfaisant = $donneNotes[0]['reforme_satisfaisant'];
+            $satisfaction->developper_satisfaisant = $donneNotes[0]['developper_satisfaisant'];
+            $satisfaction->dynamiser_satisfaisant = $donneNotes[0]['dynamiser_satisfaisant'];
+
+            $satisfaction->reforme_pas_satisfaisant = $donneNotes[0]['reforme_pas_satisfaisant'];
+            $satisfaction->developper_pas_satisfaisant = $donneNotes[0]['developper_pas_satisfaisant'];
+            $satisfaction->dynamiser_pas_satisfaisant = $donneNotes[0]['dynamiser_pas_satisfaisant'];
+            $satisfaction->commentaire_appreciation = $donneNotes[0]['commenteaire_appreciation'];
+
+            $satisfaction->save();
+            
+            /*Budget */
+            /* recette invest */
+            
+            $recetInvest = Data::find($id)->budgets()->first()->recetInvests()->first();
+            $recetInvest->dotation_globale = $recetInvests[0]['dotation_globale'];
+            $recetInvest->subvention_equipement = $recetInvests[0]['subvention_equipement'];
+            $recetInvest->contribution_propre = $recetInvests[0]['contribution_propre'];
+            $recetInvest->dotation_liee = $recetInvests[0]['dotation_liee'];
+            $recetInvest->resultat_exercice = $recetInvests[0]['resultat_exercice'];
+            $recetInvest->autre_subvention = $recetInvests[0]['autre_subvention'];
+
+            $recetInvest->save();
+
+            /*recette fonct */
+
+            $recetFonct = Data::find($id)->budgets()->first()->recetFoncts()->first();
+            $recetFonct->produit_exploitation = $recetFoncts[0]['produit_exploitation'];
+            $recetFonct->produit_domaniaux = $recetFoncts[0]['produit_domaniaux'];
+            $recetFonct->produit_financier = $recetFoncts[0]['produit_financier'];
+            $recetFonct->recouvrement = $recetFoncts[0]['recouvrement'];
+            $recetFonct->produit_diver = $recetFoncts[0]['produit_diver'];
+            $recetFonct->impots_taxe_c_direct = $recetFoncts[0]['impots_taxe_c_direct'];
+            $recetFonct->impots_taxe_indirect = $recetFoncts[0]['impots_taxe_indirect'];
+            $recetFonct->produit_exceptionnel = $recetFoncts[0]['produit_exceptionnel'];
+            $recetFonct->produit_anterieur = $recetFoncts[0]['produit_anterieur'];
+            $recetFonct->autres_dotations = $recetFoncts[0]['autres_dotations'];
+
+            $recetFonct->save();
+
+            /*depense invest */
+            $depensInvest = Data::find($id)->budgets()->first()->depensInvests()->first();
+            $depensInvest->etude_recherche = $depensInvests[0]['etude_recherche'];
+            $depensInvest->environnement = $depensInvests[0]['environnement'];
+            $depensInvest->equipement = $depensInvests[0]['equipement'];
+            $depensInvest->batiment = $depensInvests[0]['batiment'];
+            $depensInvest->emprunt = $depensInvests[0]['emprunt'];
+            $depensInvest->autre_investissement = $depensInvests[0]['autre_investissement'];
+            $depensInvest->deficit_excedent = $depensInvests[0]['deficit_excedent'];
+            
+            $depensInvest->save();
+
+            /*depense fonct */
+            $depensFonct = Data::find($id)->budgets()->first()->depensFoncts()->first();
+            $depensFonct->sante = $depensFoncts[0]['sante'];
+            $depensFonct->appui_scolaire = $depensFoncts[0]['appui_scolaire'];
+            $depensFonct->sport_culture = $depensFoncts[0]['sport_culture'];
+            $depensFonct->participation = $depensFoncts[0]['participation'];
+            $depensFonct->frais_financier = $depensFoncts[0]['frais_financier'];
+            $depensFonct->refection_entretien = $depensFoncts[0]['refection_entretien'];
+            $depensFonct->salaire_indemnite = $depensFoncts[0]['salaire_indemnite'];
+            $depensFonct->entretien_vehicule = $depensFoncts[0]['entretien_vehicule'];
+            $depensFonct->appui_fonctionnement = $depensFoncts[0]['appui_fonctionnement'];
+            $depensFonct->exedent_prelevement = $depensFoncts[0]['exedent_prelevement'];
+
+            $depensFonct->save();
+
+            /*budget n*/
+            //dd($satisfaction);
+            /*recette invest*/
+            $recetInvestN = Data::find($id)->budgetns()->first()->recetInvestns()->first();
+            $recetInvestN->dotation_globale = $recetNInvests[0]['dotation_globale'];
+            $recetInvestN->subvention_equipement = $recetNInvests[0]['subvention_equipement'];
+            $recetInvestN->contribution_propre = $recetNInvests[0]['contribution_propre'];
+            $recetInvestN->dotation_liee = $recetNInvests[0]['dotation_liee'];
+            $recetInvestN->resultat_exercice = $recetNInvests[0]['resultat_exercice'];
+            $recetInvestN->autre_dotation = $recetNInvests[0]['autre_dotation'];
+
+            $recetInvestN->save();
+
+            /*recette fonct*/
+            $recetFonctN = Data::find($id)->budgetns()->first()->recetFonctns()->first();
+            $recetFonctN->produit_exploitation = $recetNFoncts[0]['produit_exploitation'];
+            $recetFonctN->produit_domaniaux = $recetNFoncts[0]['produit_domaniaux'];
+            $recetFonctN->produit_financier = $recetNFoncts[0]['produit_financier'];
+            $recetFonctN->recouvrement = $recetNFoncts[0]['recouvrement'];
+            $recetFonctN->produit_diver = $recetNFoncts[0]['produit_diver'];
+            $recetFonctN->impots_taxe_c_direct = $recetNFoncts[0]['impots_taxe_c_direct'];
+            $recetFonctN->impots_taxe_indirect = $recetNFoncts[0]['impots_taxe_indirect'];
+            $recetFonctN->produit_exceptionnel = $recetNFoncts[0]['produit_exceptionnel'];
+            $recetFonctN->produit_anterieur = $recetNFoncts[0]['produit_anterieur'];
+
+            $recetFonctN->save();
+
+            /*depense invest*/
+            $depensInvestN = Data::find($id)->budgetns()->first()->depensInvestns()->first();
+            $depensInvestN->etude_recherche = $depensNInvests[0]['etude_recherche'];
+            $depensInvestN->environnement = $depensNInvests[0]['environnement'];
+            $depensInvestN->equipement = $depensNInvests[0]['equipement'];
+            $depensInvestN->batiment = $depensNInvests[0]['batiment'];
+            $depensInvestN->emprunt = $depensNInvests[0]['emprunt'];
+            $depensInvestN->autre_investissement = $depensNInvests[0]['autre_investissement'];
+
+            $depensInvestN->save();
+
+            /*depense fonct*/
+            $depensFonctN = Data::find($id)->budgetns()->first()->depensFonctns()->first();
+            $depensFonctN->sante = $depensNFoncts[0]['sante'];
+            $depensFonctN->appui_scolaire = $depensNFoncts[0]['appui_scolaire'];
+            $depensFonctN->sport_culture = $depensNFoncts[0]['sport_culture'];
+            $depensFonctN->eau_assainissement = $depensNFoncts[0]['eau_assainissement'];
+            $depensFonctN->participation = $depensNFoncts[0]['participation'];
+            $depensFonctN->frais_financier = $depensNFoncts[0]['frais_financier'];
+            $depensFonctN->refection_entretien = $depensNFoncts[0]['refection_entretien'];
+            $depensFonctN->salaire_indemnite = $depensNFoncts[0]['salaire_indemnite'];
+            $depensFonctN->entretien_vehicule = $depensNFoncts[0]['entretien_vehicule'];
+            $depensFonctN->appui_fonctionnement = $depensNFoncts[0]['appui_fonctionnement'];
+            $depensFonctN->exedent_prelevement = $depensNFoncts[0]['exedent_prelevement'];
+
+            $depensFonctN->save();
+
+
+        }
+
+        return 'ok';
+        
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -283,19 +599,6 @@ class ApiDataCommuneController extends Controller
                 
             }
 
-            //return $this->getDataCommune($data->id);
-            
-            /*dd(
-                //$save,
-                $data->id,
-                'Commune null: create is ok !',
-                $data->user_id,
-                $request->country,
-                $request->region,
-                $request->province,
-                $data->commune_id,
-                $data->annee,
-                $data->slug
-            );*/
+            return $data->id;
     }
 }

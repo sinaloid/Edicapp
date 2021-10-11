@@ -109,7 +109,7 @@ class DataCommuneController extends Controller
      */
     public function update(DataCommuneRequest $request, $id)
     {
-    /*dd(
+        /*dd(
         $request->recet_annee1,
         $request->recet_annee2,
         $request->recet_annee3,
@@ -124,7 +124,7 @@ class DataCommuneController extends Controller
         $request->recet_invest2,
         $request->recet_invest3,
         $request->recet_invest4,
-    );*/
+        );*/
         /*dd(
             $request->depens_annee1,
             $request->depens_annee2,
