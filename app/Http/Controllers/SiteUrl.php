@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 /*A supprimer*/
 use App\Models\Countries\{ Region, Country, Province, Commune };
-use App\Models\EdicUser\User;
+use App\Models\User;
 //use App\Models\Datas\Data;
 //use App\Models\Datas\Infog\Infog;
 //use App\Models\Datas\Infog\Tables\TroisMeilleurs;
@@ -312,7 +312,7 @@ class SiteUrl extends Controller
     public function test()
     {
         /*Pays*/
-
+            
             $countries = ["Burkina Faso"];
             $this->countryConfig($countries, 226, 1);
 
@@ -558,6 +558,17 @@ class SiteUrl extends Controller
             $JsonObject
         );*/
         return view('test');
+    }
+
+    public function userRole(Request $request){
+        //dd($request);
+        $user = User::where('id', $request->id)->first();
+        $user->role = $request->role;
+        //dd($user->role);
+        $user->save();
+
+        return json_encode($user);
+
     }
 
     public function countryConfig($names, $id, $table){

@@ -90,7 +90,7 @@ class ApiDataCommuneController extends Controller
         }else{
             //$dataCommune = $this->getDataCommune($data->id);
             return [
-                "message" => "échec d'envoi, les données existent déjâ !",
+                "message" => "échec d'envoi, les données existent déjà !",
                 "id" => null
             ];
         }

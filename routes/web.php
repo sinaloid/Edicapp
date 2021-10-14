@@ -66,6 +66,7 @@ Route::get('forum', [SiteUrl::class, 'forum'])->name('forum');
 Route::get('contact', [SiteUrl::class, 'contact'])->name('contact');
 Route::get('about', [SiteUrl::class, 'about'])->name('about');
 Route::get('test', [SiteUrl::class, 'test'])->name('test');
+Route::get('role', [SiteUrl::class, 'userRole'])->name('userRole');
 Route::get('getdata', [SiteUrl::class, 'getdata'])->name('getdata');
 
 //Route::delete('films/force/{id}', [FilmController::class, 'forceDestroy'])->name('films.force.destroy');
