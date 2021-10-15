@@ -175,7 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
-
+        
+        Laravel\Passport\PassportServiceProvider::class,
         // Service Provider DomPDF
         //Barryvdh\DomPDF\ServiceProvider::class,
 
