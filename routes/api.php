@@ -19,7 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('v1', ApiDataCommuneController::class);
 
 Route::group([
     'prefix' => 'auth'
@@ -31,6 +30,8 @@ Route::group([
     ], function() {
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('user', [AuthController::class, 'user']);
+        Route::apiResource('v1', ApiDataCommuneController::class);
+        
     });
 });
 Route::get('datas/info/{slug?}', [SiteUrl::class, 'datasInfo'])->name('datas.info');
