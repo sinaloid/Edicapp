@@ -44,7 +44,10 @@ class ApiDataCommuneController extends Controller
         //Country::create(['country_name' => json_encode($data), 'indicatif' => 1, 'slug' => json_encode($data[0])]);
         //dd($data[0]['data']['id_depense']);
         //dd($data[0]['data']['id_depense']);
-        $response = $this->findOrCreateData($country);
+        $user = $request->user();
+        if($user->id != null){
+            $response = $this->findOrCreateData($country, $user);
+        }
         //dd($depensNInvests);
         if( $response['id'] != null ){
             $ok = $this->update($data, $response['id']);
@@ -69,18 +72,18 @@ class ApiDataCommuneController extends Controller
         }
     }
 
-    public function findOrCreateData($request){
+    public function findOrCreateData($request, $user){
 
         //dd($request);
         $request['id_commune'] = Commune::where('commune_name', $request['commune'])->first()->id;
         $data = Data::where([
             ['commune_id', $request['id_commune']],
             ['annee', $request['annee']],
-            //['user_id', Auth::id()]
+            ['user_id', $user->id]
         ])->first();
             //dd($data);
         if($data == null) {
-            $dataCommuneID = $this->newDataCommune($request);
+            $dataCommuneID = $this->newDataCommune($request, $user);
             //dd($dataCommuneID);
             //$dataCommune = $this->getDataCommune($data->id);
             return [
@@ -456,11 +459,11 @@ class ApiDataCommuneController extends Controller
         //
     }
 
-    public function newDataCommune($request){
+    public function newDataCommune($request, $user){
 
         $data = new Data();
             $data->commune_id = $request['id_commune'];
-            $data->user_id = 1; // Auth::id();
+            $data->user_id = $user->id; // Auth::id();
             $data->annee = $request['annee'];
             $data->slug = Str::slug(Str::random(10));
             $saveData = $data->save();
