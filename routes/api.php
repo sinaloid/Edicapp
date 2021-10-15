@@ -25,12 +25,12 @@ Route::group([
     'prefix' => 'auth'
 ], function () {
     Route::post('login', [AuthController::class, 'login'])->name('api_login');
-    Route::post('register', [AuthController::class, 'api_register']);
+    Route::post('register', [AuthController::class, 'register']);
     Route::group([
       'middleware' => 'auth:api'
     ], function() {
-        Route::get('logout', [AuthController::class, 'api_logout']);
-        Route::get('user', [AuthController::class, 'api_user']);
+        Route::get('logout', [AuthController::class, 'logout']);
+        Route::get('user', [AuthController::class, 'user']);
     });
 });
 Route::get('datas/info/{slug?}', [SiteUrl::class, 'datasInfo'])->name('datas.info');
