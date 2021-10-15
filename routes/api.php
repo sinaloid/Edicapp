@@ -21,16 +21,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('v1', ApiDataCommuneController::class);
 
-/*Route::group([
+Route::group([
     'prefix' => 'auth'
 ], function () {
-    Route::post('login', [AuthController::class, 'login'])->name('login');
-    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login'])->name('api_login');
+    Route::post('register', [AuthController::class, 'api_register']);
     Route::group([
       'middleware' => 'auth:api'
     ], function() {
-        Route::get('logout', [AuthController::class, 'logout']);
-        Route::get('user', [AuthController::class, 'user']);
+        Route::get('logout', [AuthController::class, 'api_logout']);
+        Route::get('user', [AuthController::class, 'api_user']);
     });
-});*/
+});
 Route::get('datas/info/{slug?}', [SiteUrl::class, 'datasInfo'])->name('datas.info');
