@@ -150,7 +150,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn sin-bg-3">
+                                <button type="submit" class="btn sin-bg-3 font-weight-bold text-white">
                                     {{ __('S\'inscrire') }}
                                 </button>
                                 @if (Route::has('login'))

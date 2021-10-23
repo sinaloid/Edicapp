@@ -59,7 +59,7 @@
 
                         <div class="form-group row mb-01">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn sin-bg-3">
+                                <button type="submit" class="btn sin-bg-3 font-weight-bold text-white">
                                     {{ __('Connexion') }}
                                 </button>
 

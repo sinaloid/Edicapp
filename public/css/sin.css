@@ -166,7 +166,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         .sin-bg-3 {
           background: #ff8043;
         }
-        
+        .sin-bg-commune {
+          background-color: #334756;
+        }
           .bg-sin-logo {
             font-size : 1.2em;
             font-weight : bold;

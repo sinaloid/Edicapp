@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\DataCommuneRequest;
 use Illuminate\Support\Facades\Storage;
+use Session;
 
 class DataCommuneController extends Controller
 {
@@ -52,6 +53,7 @@ class DataCommuneController extends Controller
      */
     public function store(Request $request)
     {
+        $dataCommune = null;
         $data = Data::where([
             ['commune_id', $request->commune],
             ['annee', $request->annee],
@@ -59,11 +61,19 @@ class DataCommuneController extends Controller
         ])->first();
 
         if($data == null) {
-            $dataCommune = $this->newDataCommune($request);
+            if(auth()->user()->commune_id == $request->commune || auth()->user()->role =='admin' ){
+                $dataCommune = $this->newDataCommune($request);
+                Session::flash('autorisé',"Vous pouvez commencer à insérer les nouvelles données de la commune.");
+            }else{
+                Session::flash('non-autorisé',"Vous n'êtes pas autorisé à créer les données d'une commune différente du vôtre.");
+                //return back();
+            }
             //$dataCommune = $this->getDataCommune($data->id);
             
         }else{
             $dataCommune = $this->getDataCommune($data->id);
+            Session::flash('récupéré',"Vous pouvez commencer à modifier les données de la commune.");
+
             
         }
         
@@ -109,274 +119,13 @@ class DataCommuneController extends Controller
      */
     public function update(DataCommuneRequest $request, $id)
     {
-        /*dd(
-        $request->recet_annee1,
-        $request->recet_annee2,
-        $request->recet_annee3,
-        $request->recet_annee4,
-
-        $request->recet_fonct1,
-        $request->recet_fonct2,
-        $request->recet_fonct3,
-        $request->recet_fonct4,
-
-        $request->recet_invest1,
-        $request->recet_invest2,
-        $request->recet_invest3,
-        $request->recet_invest4,
-        );*/
-        /*dd(
-            $request->depens_annee1,
-            $request->depens_annee2,
-            $request->depens_annee3,
-            $request->depens_annee4,
-    
-            $request->depens_fonct1,
-            $request->depens_fonct2,
-            $request->depens_fonct3,
-            $request->depens_fonct4,
-    
-            $request->depens_invest1,
-            $request->depens_invest2,
-            $request->depens_invest3,
-            $request->depens_invest4, 
-        );*/
-
-        /*dd(
-            $request->marche1,
-            $request->marche2,
-            $request->marche3,
-            
-            $request->attendu1,
-            $request->attendu2,
-            $request->attendu3,
-
-            $request->contribution1,
-            $request->contribution2,
-            $request->contribution3,
-        );*/
        
-        /*dd(
-            $request->village1,
-            $request->village2,
-            $request->village3,
-            $request->village4,
-            $request->village5,
-            $request->village6,
-            $request->village7,
-            $request->village8,
-            $request->village9,
-            $request->village10,
-
-            $request->attendu1,
-            $request->attendu2,
-            $request->attendu3,
-            $request->attendu4,
-            $request->attendu5,
-            $request->attendu6,
-            $request->attendu7,
-            $request->attendu8,
-            $request->attendu9,
-            $request->attendu10,
-
-            $request->mobilise1,
-            $request->mobilise2,
-            $request->mobilise3,
-            $request->mobilise4,
-            $request->mobilise5,
-            $request->mobilise6,
-            $request->mobilise7,
-            $request->mobilise8,
-            $request->mobilise9,
-            $request->mobilise10,
-
-        );*/
-
-        /*dd(
-            $request->identite1,
-            $request->identite2,
-            $request->identite3,
-            $request->identite4,
-            $request->identite5,
-            $request->identite6,
-            $request->identite7,
-            $request->identite8,
-            $request->identite9,
-            $request->identite10,
-
-            $request->evalut_contrib1,
-            $request->evalut_contrib2,
-            $request->evalut_contrib3,
-            $request->evalut_contrib4,
-            $request->evalut_contrib5,
-            $request->evalut_contrib6,
-            $request->evalut_contrib7,
-            $request->evalut_contrib8,
-            $request->evalut_contrib9,
-            $request->evalut_contrib10,
-
-            $request->princ_action1,
-            $request->princ_action2,
-            $request->princ_action3,
-            $request->princ_action4,
-            $request->princ_action5,
-            $request->princ_action6,
-            $request->princ_action7,
-            $request->princ_action8,
-            $request->princ_action9,
-            $request->princ_action10,
-
-        );*/
-
-        /*dd(
-            $request->nombre1,
-            $request->nombre2,
-            $request->nombre3,
-            $request->nombre4,
-            $request->nombre5,
-            $request->nombre6,
-
-            $request->observation1,
-            $request->observation2,
-            $request->observation3,
-            $request->observation4,
-            $request->observation5,
-            $request->observation6,
-        );*/
-
-        /*dd(
-            $request->parcel_degag1,
-            $request->parcel_degag2,
-            $request->parcel_degag3,
-            $request->parcel_degag4,
-            $request->parcel_degag5,
-
-            $request->parcel_attribu1,
-            $request->parcel_attribu2,
-            $request->parcel_attribu3,
-            $request->parcel_attribu4,
-            $request->parcel_attribu5,
-
-            $request->parcel_rest1,
-            $request->parcel_rest2,
-            $request->parcel_rest3,
-            $request->parcel_rest4,
-            $request->parcel_rest5,
-
-        );*/
-
-        /*dd(
-            $request->date_concep,
-            $request->date_expir,
-            $request->montant_total,
-            $request->montant_mobilise,
-            $request->problem_majeur,
-            $request->prespective,
-        );*/
-
-        /*dd(
-            $request->tres_satisfait1,
-            $request->tres_satisfait2,
-            $request->tres_satisfait3,
-
-            $request->satisfait1,
-            $request->satisfait2,
-            $request->satisfait3,
-
-            $request->pas_satisfait1,
-            $request->pas_satisfait2,
-            $request->pas_satisfait3,
-            $request->commentaire
-        );*/
-
-        /*dd(
-            $request->budget_recet_invest1,
-            $request->budget_recet_invest2,
-            $request->budget_recet_invest3,
-            $request->budget_recet_invest4,
-            $request->budget_recet_invest5,
-            $request->budget_recet_invest6,
-        );*/
-
-        /*dd(
-            $request->budget_recet_fonct1,
-            $request->budget_recet_fonct2,
-            $request->budget_recet_fonct3,
-            $request->budget_recet_fonct4,
-            $request->budget_recet_fonct5,
-            $request->budget_recet_fonct6,
-            $request->budget_recet_fonct7,
-            $request->budget_recet_fonct8,
-            $request->budget_recet_fonct9,
-            $request->budget_recet_fonct10,
-        );*/
-
-        /*dd(
-            $request->budget_depens_invest1,
-            $request->budget_depens_invest2,
-            $request->budget_depens_invest3,
-            $request->budget_depens_invest4,
-            $request->budget_depens_invest5,
-            $request->budget_depens_invest6,
-            $request->budget_depens_invest7,  
-        );*/
-
-        /*dd(
-            $request->budget_depens_fonct1,
-            $request->budget_depens_fonct2,
-            $request->budget_depens_fonct3,
-            $request->budget_depens_fonct4,
-            $request->budget_depens_fonct5,
-            $request->budget_depens_fonct6,
-            $request->budget_depens_fonct7,
-            $request->budget_depens_fonct8,
-            $request->budget_depens_fonct9,
-            $request->budget_depens_fonct10,
-        );*/
-
-        /*dd(
-            $request->budget_n_recet_invest1,
-            $request->budget_n_recet_invest2,
-            $request->budget_n_recet_invest3,
-            $request->budget_n_recet_invest4,
-            $request->budget_n_recet_invest5,
-            $request->budget_n_recet_invest6,
-        );*/
-
-        /*dd(
-            $request->budget_n_recet_fonct1,
-            $request->budget_n_recet_fonct2,
-            $request->budget_n_recet_fonct3,
-            $request->budget_n_recet_fonct4,
-            $request->budget_n_recet_fonct5,
-            $request->budget_n_recet_fonct6,
-            $request->budget_n_recet_fonct7,
-            $request->budget_n_recet_fonct8,
-            $request->budget_n_recet_fonct9,
-        );*/
-
-        /*dd(
-            $request->budget_n_depens_invest1,
-            $request->budget_n_depens_invest2,
-            $request->budget_n_depens_invest3,
-            $request->budget_n_depens_invest4,
-            $request->budget_n_depens_invest5,
-            $request->budget_n_depens_invest6,
-        );*/
-
-        /*dd(
-            $request->budget_n_depens_fonct1,
-            $request->budget_n_depens_fonct2,
-            $request->budget_n_depens_fonct3,
-            $request->budget_n_depens_fonct4,
-            $request->budget_n_depens_fonct5,
-            $request->budget_n_depens_fonct6,
-            $request->budget_n_depens_fonct7,
-            $request->budget_n_depens_fonct8,
-            $request->budget_n_depens_fonct9,
-            $request->budget_n_depens_fonct10,
-            $request->budget_n_depens_fonct11,
-        );*/
+        if(Data::find($id) == null){
+            $dataCommune = null;
+            $countries = Country::all();
+            $annee = date('Y');
+            return view('dataCommune.create', compact('countries','annee', 'dataCommune'));
+        }
 
         $data = Data::find($id)->first();
 
@@ -759,7 +508,7 @@ class DataCommuneController extends Controller
 
         if($data == null) {
 
-            dd('data null');
+            //dd('data null');
             //$dataCommune = $this->newDataCommune($request);
             //$dataCommune = $this->getDataCommune($data->id);
             
@@ -768,6 +517,7 @@ class DataCommuneController extends Controller
             
         }
         
+        Session::flash('enregistrer',"Les données ont été très bien enregistrer.");
         $countries = Country::all();
         $annee = date('Y');
         return view('dataCommune.create', compact('countries','annee', 'dataCommune'));
@@ -788,18 +538,38 @@ class DataCommuneController extends Controller
             $this->deleteImg($rImage->id);
         }
         $data->delete();
-
+        Session::flash('supprimer',"Les données ont bien été supprimées.");
         return back();
     }
 
     public function terminer(Data $data) {
-        $data->terminer = 0;
+        if($data->terminer == 0){
+            $data->terminer = 1;
+            Session::flash('terminer',"La modification ou insertion des données est bien désactivé.");
+            //notify()->success('La modification ou insertion des données est bien désactivé.');
+        }else{
+            $data->terminer = 0;
+            if($data->publier != 0){
+                $data->publier = 0;
+            }
+            Session::flash('non-terminer',"La modification ou insertion des données est bien activé.");
+        }
         $data->save();
         return back();
     }
 
-    public function encour(Data $data) {
-        $data->terminer = 1;
+    public function publier(Data $data) {
+        if($data->publier == 0){
+            if($data->terminer != 0){
+                $data->publier = 1;
+                Session::flash('publier',"Les données ont bien été publier.");
+            }else{
+                Session::flash('non-terminer',"La modification ou insertion des données n'est pas encore terminée.");
+            }
+        }else{
+            $data->publier = 0;
+            Session::flash('non-publier',"Publication des données annulées.");
+        }
         $data->save();
         return back();
     }

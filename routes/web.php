@@ -77,6 +77,7 @@ Route::get('province/{province_id}', [SiteUrl::class, 'getCountryRegionProvinceC
 Route::get('/pdf', [SiteUrl::class, 'pdf'])->name('pdf');
 Route::resource('data', App\Http\Controllers\DataCommuneController::class)->middleware(['auth','verified']);
 Route::put('data/terminer/{data}', [App\Http\Controllers\DataCommuneController::class, 'terminer'])->middleware(['auth','verified'])->name('data.terminer');
+Route::put('data/publier/{data}', [App\Http\Controllers\DataCommuneController::class, 'publier'])->middleware(['auth','verified'])->name('data.publier');
 Route::put('data/encour/{data}', [App\Http\Controllers\DataCommuneController::class, 'encour'])->middleware(['auth','verified'])->name('data.encour');
 Route::get('data/deleteImg/{id?}', [App\Http\Controllers\DataCommuneController::class, 'deleteImg'])->middleware(['auth','verified'])->name('deleteImg');
 Route::get('image/{slug}', [App\Http\Controllers\DataCommuneController::class, 'image']);

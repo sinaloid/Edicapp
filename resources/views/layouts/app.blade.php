@@ -27,9 +27,7 @@
 <body>
     @include("header")
     <div id="app" class="container sin-m-t pb-0">
-        <main class="p-0 m-0">
-            @yield('content')
-        </main>
+        @yield('content')
     </div>
     @include("footer")
     @livewireScripts

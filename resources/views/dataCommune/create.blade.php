@@ -65,7 +65,7 @@
             <div class="col-12 col-md">
                 <div class="form-group">
                     <select class="form-control" id="commune4" name="annee" required>
-                        <option value="">{{ __('-- Sélectionnez l année --') }}</option>
+                        <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
                         @for($i = $annee; 2000<= $i; $i--) <option value="{{ $i}}">
                             {{ $i }}</option>
                             @endfor
@@ -82,7 +82,17 @@
         </div>
         <div class="row">
             <div class="mx-auto">
-                <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">validé</button>
+                <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">Valider</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="flash">
+                    @include('flashMessage.flash-message')
+
+
+                    @yield('content')
+                </div>
             </div>
         </div>
     </div>
@@ -95,17 +105,41 @@
         <div class="card-header">
             Données de la commune
         </div>
-        <div class="card-body">
-            <p><span class="font-weight-bold">Pays:</span> {{ isset($dataCommune) ? $dataCommune["pays"] : 'null' }}</p>
-            <p><span class="font-weight-bold">Region:</span> {{ isset($dataCommune) ? $dataCommune["region"] : 'null' }}
-            </p>
-            <p><span class="font-weight-bold">Province:</span>
-                {{ isset($dataCommune) ? $dataCommune["province"] : 'null' }}</p>
-            <p><span class="font-weight-bold">Commune:</span>
-                {{ isset($dataCommune) ? $dataCommune["commune"] : 'null' }}</p>
-            <p><span class="font-weight-bold">Année:</span> {{ isset($dataCommune) ? $dataCommune["annee"] : 'null' }}
-            </p>
+        <div class="row sin-bg-commune m-1 text-white">
+            <div class="col-12 col-sm-6">
+                <div class="card-body">
+                    <p><span class="font-weight-bold">Pays:</span>
+                        {{ isset($dataCommune) ? $dataCommune["pays"] : 'null' }}
+                    </p>
+                    <p><span class="font-weight-bold">Region:</span>
+                        {{ isset($dataCommune) ? $dataCommune["region"] : 'null' }}
+                    </p>
+                    <p><span class="font-weight-bold">Province:</span>
+                        {{ isset($dataCommune) ? $dataCommune["province"] : 'null' }}</p>
+                    <p><span class="font-weight-bold">Commune:</span>
+                        {{ isset($dataCommune) ? $dataCommune["commune"] : 'null' }}</p>
+                    <p><span class="font-weight-bold">Année:</span>
+                        {{ isset($dataCommune) ? $dataCommune["annee"] : 'null' }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="card-body">
+                    <p><span class="font-weight-bold">Superficie:</span>
+                        {{ isset($dataCommune) ? $dataCommune["pays"] : 'null' }}
+                    </p>
+                    <p><span class="font-weight-bold">Population totale:</span>
+                        {{ isset($dataCommune) ? $dataCommune["region"] : 'null' }}
+                    </p>
+                    <p><span class="font-weight-bold">Hommes:</span>
+                        {{ isset($dataCommune) ? $dataCommune["province"] : 'null' }}</p>
+                    <p><span class="font-weight-bold">Femmes:</span>
+                        {{ isset($dataCommune) ? $dataCommune["commune"] : 'null' }}</p>
+
+                </div>
+            </div>
         </div>
+
         <div class="card-body">
 
             <form action="{{ route('data.update', isset($dataCommune) ? $dataCommune['data_id'] : 0) }}"

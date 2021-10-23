@@ -33,6 +33,7 @@ class CreateDataTable extends Migration
 
             $table->string('annee');
             $table->bigInteger('terminer')->default(0);
+            $table->bigInteger('publier')->default(0);
             $table->string('slug');
             $table->timestamps();
         });
