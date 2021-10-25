@@ -274,7 +274,6 @@ class SiteUrl extends Controller
             "hidden_bg_recett_invest" => $request->hidden_bg_recett_invest,
             "hidden_bg_depens_invest" => $request->hidden_bg_depens_invest,
         ];
-
         $input_data = Data::where('slug',$request->slug)->first();
          //dd($data);
          if($input_data != null){
@@ -306,7 +305,7 @@ class SiteUrl extends Controller
         //$pdf->setOption('window-status', 'window.status');
         // return view('pdf_tdb', compact('data','dataCommune', 'qrcode'));
         //return $pdf->download($file_name, array("Attachment" => false));
-        return $pdf->stream($file_name, array("Attachment" => false));
+        return $pdf->inline($file_name, array("Attachment" => false));
     }
 
     public function test()
