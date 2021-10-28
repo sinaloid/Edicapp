@@ -58,6 +58,8 @@ Route::get('datas/budget/mbudgetn/{slug?}', [SiteUrl::class, 'getBudgetN'])->nam
 Route::get('datas/tdb/{slug?}', [SiteUrl::class, 'datasTdb'])->name('datas.tdb');
 Route::get('datas/cmp', [SiteUrl::class, 'Compare'])->name('datas.cmp');
 Route::get('datas/cmpdt', [SiteUrl::class, 'datasCompare'])->name('datas.cmpdt');
+Route::get('datas/{id}', [SiteUrl::class, 'getDatasCompare']);
+
 
 /*user*/
 //Route::get('login', [SiteUrl::class, 'login'])->name('login');

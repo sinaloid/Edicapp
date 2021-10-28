@@ -61,7 +61,7 @@
                             <p class="p-0">
                                 <strong>
                                     <span class="badge badge-dark">
-                                        #Regions:
+                                        #Régions:
                                     </span>
                                 </strong>
                             </p>
@@ -197,7 +197,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <select class="form-control" id="annee" name="annee" required>
-                                            <option value="">{{ __('-- Sélectionnez l année --') }}</option>
+                                            <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
                                             @for($i = Date('Y'); 2000<= $i; $i--) <option value="{{ $i}}">
                                                 {{ $i }}</option>
                                                 @endfor
@@ -216,7 +216,7 @@
                     <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
                     <div class="col-12">
                         <div class="mx-auto">
-                            <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">validé</button>
+                            <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">Valider</button>
                         </div>
                     </div>
                 </form>

@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-12 card">
                 <div class="card-header">
-                    Sources de donées
+                    Sources des données
                 </div>
                 <div class="card-body">
                     <div class="row card-title">
@@ -44,58 +44,58 @@
                     <div class="row card-title">
                         <div class="col-5 col-md-2 font-weight-bold">Region:</div>
                         <div class="col-7 col-md-10">
-                        @php
-                            
-                            if($dataCompare != null){
-                                $str = $dataCompare["region"];
-                                if($dataCompare["region_2"] !=''){
-                                    $str = $str.' et '.$dataCompare["region_2"];
-                                }
+                            @php
 
-                                echo $str;
+                            if($dataCompare != null){
+                            $str = $dataCompare["region"];
+                            if($dataCompare["region_2"] !=''){
+                            $str = $str.' et '.$dataCompare["region_2"];
                             }
-                        @endphp </div>
+
+                            echo $str;
+                            }
+                            @endphp </div>
                     </div>
                     <div class="row card-title">
                         <div class="col-5 col-md-2 font-weight-bold">Province:</div>
                         <div class="col-7 col-md-10">
-                        @php
-                            
-                            if($dataCompare != null){
-                                $str = $dataCompare["province"];
-                                if($dataCompare["province_2"] !=''){
-                                    $str = $str.' et '.$dataCompare["province_2"];
-                                }
+                            @php
 
-                                echo $str;
+                            if($dataCompare != null){
+                            $str = $dataCompare["province"];
+                            if($dataCompare["province_2"] !=''){
+                            $str = $str.' et '.$dataCompare["province_2"];
                             }
-                        @endphp
+
+                            echo $str;
+                            }
+                            @endphp
                         </div>
                     </div>
                     <div class="row card-title ">
                         <div class="col-5 col-md-2 font-weight-bold">Commune:</div>
                         <div class="col-7 col-md-10 ">
-                        @php
+                            @php
                             if($dataCompare != null){
-                                $str = $dataCompare["commune_1"];
-                                if($dataCompare["commune_2"] !=''){
-                                    $str = $str.' , '.$dataCompare["commune_2"];
-                                }
-                                if($dataCompare["commune_3"] !=''){
-                                    $str = $str.' , '.$dataCompare["commune_3"];
-                                }
-                                if($dataCompare["commune_4"] !=''){
-                                    $str = $str.' et '.$dataCompare["commune_4"];
-                                }
-
-                                echo $str;
+                            $str = $dataCompare["commune_1"];
+                            if($dataCompare["commune_2"] !=''){
+                            $str = $str.' , '.$dataCompare["commune_2"];
                             }
-                        @endphp
-                       </div>
+                            if($dataCompare["commune_3"] !=''){
+                            $str = $str.' , '.$dataCompare["commune_3"];
+                            }
+                            if($dataCompare["commune_4"] !=''){
+                            $str = $str.' et '.$dataCompare["commune_4"];
+                            }
+
+                            echo $str;
+                            }
+                            @endphp
+                        </div>
 
                     </div>
 
-                    <a class="btn sin-bg-3 mt-2" href="{{ route('datas.cmp') }}">Modifiez</a>
+                    <a class="btn sin-bg-3 mt-2" href="{{ route('datas.cmp') }}">Modifier</a>
                 </div>
             </div>
         </div>
@@ -153,17 +153,33 @@
                             </a>
                         </div>
                         <div id="collapseOne" class="collapse" data-parent="#accordion">
-                            <div class="card-body">
+                            <div class="card-body p-0">
                                 <div class="list-group">
-                                    <span id="recette" href="#" class="list-group-item list-group-item-action">Recette</span>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-success">Depense</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Trois meilleurs marchers</a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Dix meilleurs villages</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-warning">Etat Civil</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-danger">Domaine</a>
+                                    <button id="recetteFonct" href="#" class="list-group-item list-group-item-action"
+                                        onclick="show(this)">Recette Fonct</button>
+                                    <button id="recetteInvest" href="#" class="list-group-item list-group-item-action"
+                                        onclick="show(this)">Recette Invest</button>
+                                    <button href="#" id="depenseFonct"
+                                        class="list-group-item list-group-item-action list-group-item-success" onclick="show(this)">Depense
+                                        Fonct</button>
+                                    <button href="#" id="depenseInvest"
+                                        class="list-group-item list-group-item-action list-group-item-success" onclick="show(this)">Depense
+                                        Invest</button>
+                                    <button id="marchesAttendu"
+                                        class="list-group-item list-group-item-action list-group-item-secondary" onclick="show(this)">3
+                                        meilleurs marchers - attendu</button>
+                                        <button id="marchesMobilise"
+                                        class="list-group-item list-group-item-action list-group-item-secondary" onclick="show(this)">3
+                                        meilleurs marchers - mobilisé</button>
+                                    <button id="villagesAttendu" class="list-group-item list-group-item-action list-group-item-info" onclick="show(this)">10
+                                        meilleurs villages - attendu</button>
+                                        <button id="villagesMobilise" class="list-group-item list-group-item-action list-group-item-info" onclick="show(this)">10
+                                        meilleurs villages - mobilisé</button>
+                                    <button id="etatCivil"
+                                        class="list-group-item list-group-item-action list-group-item-warning" onclick="show(this)">Etat
+                                        Civil</button>
+                                    <button id="#"
+                                        class="list-group-item list-group-item-action list-group-item-danger" onclick="show(this)">Domaine</button>
                                 </div>
                             </div>
                         </div>
@@ -193,16 +209,21 @@
                         <div id="collapseThree" class="collapse" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Recette d'investissement</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Recette
+                                        d'investissement</a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-success">Recette de Fonctionnement
-                                        </a>
+                                        class="list-group-item list-group-item-action list-group-item-success">Recette
+                                        de Fonctionnement
+                                    </a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Depense d'investissement
-                                        </a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Depense de fonctionnement
-                                        </a>
-                                    
+                                        class="list-group-item list-group-item-action list-group-item-secondary">Depense
+                                        d'investissement
+                                    </a>
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action list-group-item-info">Depense de
+                                        fonctionnement
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -217,15 +238,20 @@
                         <div id="collapseFor" class="collapse" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action">Recette d'investissement</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Recette
+                                        d'investissement</a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-success">Recette de Fonctionnement
-                                        </a>
+                                        class="list-group-item list-group-item-action list-group-item-success">Recette
+                                        de Fonctionnement
+                                    </a>
                                     <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Depense d'investissement
-                                        </a>
-                                    <a href="#" class="list-group-item list-group-item-action list-group-item-info">Depense de fonctionnement
-                                        </a>
+                                        class="list-group-item list-group-item-action list-group-item-secondary">Depense
+                                        d'investissement
+                                    </a>
+                                    <a href="#"
+                                        class="list-group-item list-group-item-action list-group-item-info">Depense de
+                                        fonctionnement
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -234,7 +260,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-8 card mt-3">
-                <p class="font-weight-bold mt-2"> Choix de la view de donnée</p>
+                <p class="font-weight-bold mt-2"> Choix de la vue de données</p>
                 <div class="row card-header">
                     <!--div class="btn-group btn-group-sm">
                         <button type="button" id='line' class="btn sin-bg-3">Line</button>
@@ -242,7 +268,7 @@
                         <button type="button" id="bar" class="btn sin-bg-3">Bar</button>
                     </div-->
                     <div class="controls">
-                        <h5 class="label">Chart Type</h5>
+                        <h5 class="label">Type de graphique</h5>
                         <select class="form-control" name="chartType" id="chartType" onchange="updateChartType()">
                             <option value="line">Line</option>
                             <option value="bar">Bar</option>
@@ -550,19 +576,33 @@
     let dataBaby = [1, 10, 5, 2, 20, 30, 45];
     let moreDataBaby = [20, 30, 15, 12, 21, 30, 40];
     myData = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: [],
         datasets: [{
-                label: "Data, baby!",
+                label: "",
                 fill: false,
                 backgroundColor: 'rgb(190, 99, 255, 0.6)',
                 borderColor: 'rgb(190, 99, 255)',
                 data: dataBaby,
             },
             {
-                label: "More data, baby!",
+                label: "",
                 fill: true,
                 backgroundColor: 'rgba(255, 99, 132, 0.6)',
                 borderColor: 'rgb(255, 99, 132)',
+                data: moreDataBaby,
+            },
+            {
+                label: "",
+                fill: true,
+                backgroundColor: 'rgba(55, 130, 212, 0.6)',
+                borderColor: 'rgb(55, 130, 212)',
+                data: moreDataBaby,
+            },
+            {
+                label: "",
+                fill: true,
+                backgroundColor: 'rgba(25, 99, 132, 0.6)',
+                borderColor: 'rgb(25, 99, 132)',
                 data: moreDataBaby,
             }
         ]
@@ -592,8 +632,50 @@
         myChart.update();
         console.log(newDataBaby);
     };
-    </script>
 
+    let commune = {
+        "id": "",
+        "slug1": '{{ isset($dataCompare) ? $dataCompare["data_commune_1"] : null}}',
+        "slug2": '{{ isset($dataCompare) ? $dataCompare["data_commune_2"] : null}}',
+        "slug3": '{{ isset($dataCompare) ? $dataCompare["data_commune_3"] : null}}',
+        "slug4": '{{ isset($dataCompare) ? $dataCompare["data_commune_4"] : null}}'
+    }
+
+    function show(btn) {
+        commune.id = btn.id
+        console.log('Button id:', commune);
+        $.ajax({
+            //alert('coucou');
+            url: '/datas/' + JSON.stringify(commune),
+            type: "GET",
+            data: {
+                "_token": "{{ csrf_token() }}"
+            },
+            dataType: "json",
+            success: function(dataCmp) {
+                console.log('data: ' + JSON.stringify(dataCmp) + ' ' + commune.slug1);
+                //var response = JSON.parse(data);
+                //console.log(response);
+                if (dataCmp) {
+                    myData.labels = dataCmp.labels
+                    myData.datasets[0].label = dataCmp.commune_1
+                    myData.datasets[1].label = dataCmp.commune_2
+                    myData.datasets[2].label = dataCmp.commune_3
+                    myData.datasets[3].label = dataCmp.commune_4
+
+                    myData.datasets[0].data = dataCmp.data1
+                    myData.datasets[1].data = dataCmp.data2
+                    myData.datasets[2].data = dataCmp.data3
+                    myData.datasets[3].data = dataCmp.data4
+                    myChart.update();
+                } else {
+
+
+                }
+            }
+        });
+    }
+    </script>
     @include("footer")
 
 </body>

@@ -209,6 +209,429 @@ class SiteUrl extends Controller
         
     }
 
+    public function getDatasCompare($req){
+
+        $request = json_decode($req);
+        $response = [
+            "id" => $request->id,
+            "labels" => null,
+            "commune_1" => null,
+            "commune_2" => null,
+            "commune_3" => null,
+            "commune_4" => null,
+            "data1" => null,
+            "data2" => null,
+            "data3" => null,
+            "data4" => null,
+        ];
+
+        //Info g
+        //recette fonct
+        if($request->id == "recetteFonct"){
+
+            
+
+            if($request->slug1 != null){
+                $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->recettes()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->recettes()->pluck('fonctionnement');
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                $labels = Data::where('slug',$request->slug2)->first()->infogs()->first()->recettes()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->recettes()->pluck('fonctionnement');
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                $labels = Data::where('slug',$request->slug3)->first()->infogs()->first()->recettes()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->recettes()->pluck('fonctionnement');
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                $labels = Data::where('slug',$request->slug4)->first()->infogs()->first()->recettes()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->recettes()->pluck('fonctionnement');
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+        //recette Invest
+        if($request->id == "recetteInvest"){
+
+            
+
+            if($request->slug1 != null){
+                $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->recettes()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->recettes()->pluck('investissement');
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                $labels = Data::where('slug',$request->slug2)->first()->infogs()->first()->recettes()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->recettes()->pluck('investissement');
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                $labels = Data::where('slug',$request->slug3)->first()->infogs()->first()->recettes()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->recettes()->pluck('investissement');
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                $labels = Data::where('slug',$request->slug4)->first()->infogs()->first()->recettes()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->recettes()->pluck('investissement');
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        // depense invest
+        if($request->id == "depenseFonct"){
+
+            if($request->slug1 != null){
+                $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->depenses()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->depenses()->pluck('fonctionnement');
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                $labels = Data::where('slug',$request->slug2)->first()->infogs()->first()->depenses()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->depenses()->pluck('fonctionnement');
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                $labels = Data::where('slug',$request->slug3)->first()->infogs()->first()->depenses()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->depenses()->pluck('fonctionnement');
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                $labels = Data::where('slug',$request->slug4)->first()->infogs()->first()->depenses()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->depenses()->pluck('fonctionnement');
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+        //depense Invest
+        if($request->id == "depenseInvest"){
+
+            if($request->slug1 != null){
+                $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->depenses()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->depenses()->pluck('investissement');
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                $labels = Data::where('slug',$request->slug2)->first()->infogs()->first()->depenses()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->depenses()->pluck('investissement');
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                $labels = Data::where('slug',$request->slug3)->first()->infogs()->first()->depenses()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->depenses()->pluck('investissement');
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                $labels = Data::where('slug',$request->slug4)->first()->infogs()->first()->depenses()->pluck('annee');
+                $response['labels'] = $labels;
+
+                $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->depenses()->pluck('investissement');
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        //Trois meilleurs attendu
+        if($request->id == "marchesAttendu"){
+
+            $response['labels'] = ['marché 1','marché 2','marché 3'];
+            if($request->slug1 != null){
+
+                $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->troismeilleurs()->pluck('attendu');
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->troismeilleurs()->pluck('attendu');
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->troismeilleurs()->pluck('attendu');
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->troismeilleurs()->pluck('attendu');
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        // Trois meilleurs mobilisé
+        if($request->id == "marchesMobilise"){
+
+            $response['labels'] = ['marché 1','marché 2','marché 3'];
+            if($request->slug1 != null){
+
+                $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->troismeilleurs()->pluck('contribution');
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->troismeilleurs()->pluck('contribution');
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->troismeilleurs()->pluck('contribution');
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->troismeilleurs()->pluck('contribution');
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        //Dix meilleurs attendu
+        if($request->id == "villagesAttendu"){
+
+            $response['labels'] = ['marché 1','marché 2','marché 3'];
+            if($request->slug1 != null){
+
+                $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->dixmeilleurs()->pluck('attendu');
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->dixmeilleurs()->pluck('attendu');
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->dixmeilleurs()->pluck('attendu');
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->dixmeilleurs()->pluck('attendu');
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        // dix meilleurs mobilisé
+        if($request->id == "villagesMobilise"){
+
+            $response['labels'] = ['marché 1','marché 2','marché 3'];
+            if($request->slug1 != null){
+
+                $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->dixmeilleurs()->pluck('mobilise');
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->dixmeilleurs()->pluck('mobilise');
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->dixmeilleurs()->pluck('mobilise');
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->dixmeilleurs()->pluck('mobilise');
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        // etat civil
+        if($request->id == "etatCivil"){
+            
+            
+            
+            
+            
+            
+            $response['labels'] = ['naissances',
+                'actes de naissances',
+                'actes de décès',
+                'mariages célébrés',
+                'autres actes',
+                //'vente de timbre'
+            ];
+            if($request->slug1 != null){
+
+                //pluck('', '', '', '', '', '');
+
+                $tmp = Data::where('slug',$request->slug1)->first()->infogs()->first()->etatcivils()->first();
+                $data1 = [
+                    $tmp->naissance_nombre,
+                    $tmp->acte_de_naissance_nombre,
+                    $tmp->acte_de_deces_nombre,
+                    $tmp->mariage_celebre_nombre,
+                    $tmp->autre_acte_nombre,
+                    //$tmp->vente_timbre_nombre,
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->infogs()->first()->etatcivils()->first();
+                $data2 = [
+                    $tmp->naissance_nombre,
+                    $tmp->acte_de_naissance_nombre,
+                    $tmp->acte_de_deces_nombre,
+                    $tmp->mariage_celebre_nombre,
+                    $tmp->autre_acte_nombre,
+                    //$tmp->vente_timbre_nombre,
+                ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->infogs()->first()->etatcivils()->first();
+                $data3 = [
+                    $tmp->naissance_nombre,
+                    $tmp->acte_de_naissance_nombre,
+                    $tmp->acte_de_deces_nombre,
+                    $tmp->mariage_celebre_nombre,
+                    $tmp->autre_acte_nombre,
+                    //$tmp->vente_timbre_nombre,
+                ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->infogs()->first()->etatcivils()->first();
+                $data4 = [
+                    $tmp->naissance_nombre,
+                    $tmp->acte_de_naissance_nombre,
+                    $tmp->acte_de_deces_nombre,
+                    $tmp->mariage_celebre_nombre,
+                    $tmp->autre_acte_nombre,
+                    //$tmp->vente_timbre_nombre,
+                ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+        
+        
+        //$slug1 = 'ok good, slug1: '.$request->slug1;
+
+        //return response()->json($slug1);
+    }
+
     public function login(){
 
         return view('pages.login');
