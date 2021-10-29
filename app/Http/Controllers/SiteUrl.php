@@ -200,6 +200,7 @@ class SiteUrl extends Controller
             "data_commune_2" => isset($request->commune_2) ? (Commune::find($request->commune_2)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_2)->data()->where('annee', $request->annee)->first()->slug : '' : '',
             "data_commune_3" => isset($request->commune_3) ? (Commune::find($request->commune_3)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_3)->data()->where('annee', $request->annee)->first()->slug : '' : '',
             "data_commune_4" => isset($request->commune_4) ? (Commune::find($request->commune_4)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_4)->data()->where('annee', $request->annee)->first()->slug : '' : '',
+            "annee" => $request->annee
         ];
 
         //dd($dataCompare);
@@ -546,12 +547,7 @@ class SiteUrl extends Controller
 
         // etat civil
         if($request->id == "etatCivil"){
-            
-            
-            
-            
-            
-            
+       
             $response['labels'] = ['naissances',
                 'actes de naissances',
                 'actes de décès',
@@ -560,8 +556,6 @@ class SiteUrl extends Controller
                 //'vente de timbre'
             ];
             if($request->slug1 != null){
-
-                //pluck('', '', '', '', '', '');
 
                 $tmp = Data::where('slug',$request->slug1)->first()->infogs()->first()->etatcivils()->first();
                 $data1 = [
@@ -625,7 +619,815 @@ class SiteUrl extends Controller
             }
             return response()->json($response);
         }
+        //situation Domaniale
+        if($request->id == "situationDomaniale"){
+ 
+            $response['labels'] = ['Parcelles Dégagées',
+                'Parcelles attribuées',
+                'Parcelles restantes',
+            ];
+            if($request->slug1 != null){
+
+                
+
+                $tmp = Data::where('slug',$request->slug1)->first()->infogs()->first()->domainecivils()->first();
+                $data1 = [
+                     $tmp->zone_habitation_parcelle_degagee 
+                    + $tmp->zone_commerciale_parcelle_degagee 
+                    + $tmp->zone_administrative_parcelle_degagee 
+                    + $tmp->zone_autre_parcelle_degagee,
+                      $tmp->zone_habitation_parcelle_attribuee 
+                    + $tmp->zone_commerciale_parcelle_attribuee 
+                    + $tmp->zone_administrative_parcelle_attribuee 
+                    + $tmp->zone_autre_parcelle_attribuee,
+                      $tmp->zone_habitation_parcelle_restante 
+                    + $tmp->zone_commerciale_parcelle_restante 
+                    + $tmp->zone_administrative_parcelle_restante 
+                    + $tmp->zone_autre_parcelle_restante 
+                  
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->infogs()->first()->domainecivils()->first();
+                $data2 = [
+                    $tmp->zone_habitation_parcelle_degagee 
+                   + $tmp->zone_commerciale_parcelle_degagee 
+                   + $tmp->zone_administrative_parcelle_degagee 
+                   + $tmp->zone_autre_parcelle_degagee,
+                     $tmp->zone_habitation_parcelle_attribuee 
+                   + $tmp->zone_commerciale_parcelle_attribuee 
+                   + $tmp->zone_administrative_parcelle_attribuee 
+                   + $tmp->zone_autre_parcelle_attribuee,
+                     $tmp->zone_habitation_parcelle_restante 
+                   + $tmp->zone_commerciale_parcelle_restante 
+                   + $tmp->zone_administrative_parcelle_restante 
+                   + $tmp->zone_autre_parcelle_restante 
+               ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->infogs()->first()->domainecivils()->first();
+                $data3 = [
+                    $tmp->zone_habitation_parcelle_degagee 
+                   + $tmp->zone_commerciale_parcelle_degagee 
+                   + $tmp->zone_administrative_parcelle_degagee 
+                   + $tmp->zone_autre_parcelle_degagee,
+                     $tmp->zone_habitation_parcelle_attribuee 
+                   + $tmp->zone_commerciale_parcelle_attribuee 
+                   + $tmp->zone_administrative_parcelle_attribuee 
+                   + $tmp->zone_autre_parcelle_attribuee,
+                     $tmp->zone_habitation_parcelle_restante 
+                   + $tmp->zone_commerciale_parcelle_restante 
+                   + $tmp->zone_administrative_parcelle_restante 
+                   + $tmp->zone_autre_parcelle_restante  
+               ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->infogs()->first()->domainecivils()->first();
+                $data4 = [
+                    $tmp->zone_habitation_parcelle_degagee 
+                   + $tmp->zone_commerciale_parcelle_degagee 
+                   + $tmp->zone_administrative_parcelle_degagee 
+                   + $tmp->zone_autre_parcelle_degagee,
+                     $tmp->zone_habitation_parcelle_attribuee 
+                   + $tmp->zone_commerciale_parcelle_attribuee 
+                   + $tmp->zone_administrative_parcelle_attribuee 
+                   + $tmp->zone_autre_parcelle_attribuee,
+                     $tmp->zone_habitation_parcelle_restante 
+                   + $tmp->zone_commerciale_parcelle_restante 
+                   + $tmp->zone_administrative_parcelle_restante 
+                   + $tmp->zone_autre_parcelle_restante 
+               ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
         
+        //Budget
+        //recette invest
+        if($request->id == "recetInves"){
+ 
+            $response['labels'] = ['Dotation globale',
+                'Subventions d’équipement',
+                'Contribution propre/Réserves',
+                'Dotations liées aux compétences transférées',
+                'Résultats exercices ant. Excédent/déficit Inv Rep',
+                'Autres subventions d’équipement',
+            ];
+            if($request->slug1 != null){
+
+                $tmp = Data::where('slug',$request->slug1)->first()->budgets()->first()->recetinvests()->first();
+                $data1 = [
+                    $tmp->dotation_globale, 
+                    $tmp->subvention_equipement, 
+                    $tmp->contribution_propre, 
+                    $tmp->dotation_liee,
+                    $tmp->resultat_exercice, 
+                    $tmp->autre_subvention,
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->budgets()->first()->recetinvests()->first();
+                $data2 = [
+                    $tmp->dotation_globale, 
+                    $tmp->subvention_equipement, 
+                    $tmp->contribution_propre, 
+                    $tmp->dotation_liee,
+                    $tmp->resultat_exercice, 
+                    $tmp->autre_subvention,
+                ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->budgets()->first()->recetinvests()->first();
+                $data3 = [
+                    $tmp->dotation_globale, 
+                    $tmp->subvention_equipement, 
+                    $tmp->contribution_propre, 
+                    $tmp->dotation_liee,
+                    $tmp->resultat_exercice, 
+                    $tmp->autre_subvention,
+                ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->budgets()->first()->recetinvests()->first();
+                $data4 = [
+                    $tmp->dotation_globale, 
+                    $tmp->subvention_equipement, 
+                    $tmp->contribution_propre, 
+                    $tmp->dotation_liee,
+                    $tmp->resultat_exercice, 
+                    $tmp->autre_subvention,
+                ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        //recette fonct
+        if($request->id == "recetFonct"){
+ 
+            $response['labels'] = ['Produits de l’exploitation',
+                'Produits domaniaux',
+                'Produits financiers',
+                'Recouvrements et participations',
+                'Produits divers',
+                'Impôts taxes et contributions directes',
+                'Impôts et taxes indirects',
+                'Produits exceptionnels',
+                'Produits antérieurs',
+                'Autres dotations de transfert',
+            ];
+
+            if($request->slug1 != null){
+
+                $tmp = Data::where('slug',$request->slug1)->first()->budgets()->first()->recetfoncts()->first();
+                $data1 = [
+                    $tmp->produit_exploitation, 
+                    $tmp->produit_domaniaux, 
+                    $tmp->produit_financier, 
+                    $tmp->recouvrement,
+                    $tmp->produit_diver, 
+                    $tmp->impots_taxe_c_direct,
+                    $tmp->impots_taxe_indirect,
+                    $tmp->produit_exceptionnel,
+                    $tmp->produit_anterieur,
+                    $tmp->autres_dotations,
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->budgets()->first()->recetfoncts()->first();
+                $data2 = [
+                    $tmp->produit_exploitation, 
+                    $tmp->produit_domaniaux, 
+                    $tmp->produit_financier, 
+                    $tmp->recouvrement,
+                    $tmp->produit_diver, 
+                    $tmp->impots_taxe_c_direct,
+                    $tmp->impots_taxe_indirect,
+                    $tmp->produit_exceptionnel,
+                    $tmp->produit_anterieur,
+                    $tmp->autres_dotations,
+                ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->budgets()->first()->recetfoncts()->first();
+                $data3 = [
+                    $tmp->produit_exploitation, 
+                    $tmp->produit_domaniaux, 
+                    $tmp->produit_financier, 
+                    $tmp->recouvrement,
+                    $tmp->produit_diver, 
+                    $tmp->impots_taxe_c_direct,
+                    $tmp->impots_taxe_indirect,
+                    $tmp->produit_exceptionnel,
+                    $tmp->produit_anterieur,
+                    $tmp->autres_dotations,
+                ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->budgets()->first()->recetfoncts()->first();
+                $data4 = [
+                    $tmp->produit_exploitation, 
+                    $tmp->produit_domaniaux, 
+                    $tmp->produit_financier, 
+                    $tmp->recouvrement,
+                    $tmp->produit_diver, 
+                    $tmp->impots_taxe_c_direct,
+                    $tmp->impots_taxe_indirect,
+                    $tmp->produit_exceptionnel,
+                    $tmp->produit_anterieur,
+                    $tmp->autres_dotations,
+                ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+        
+        //depense invest
+        if($request->id == "depensInvest"){
+ 
+            $response['labels'] = ['Études & Recherches',
+                'Environnement',
+                'Équipement',
+                'Bâtiment',
+                'Emprunt',
+                '	Déficit / Excédent d’investissement exer anté',
+            ];
+
+            if($request->slug1 != null){
+          
+                $tmp = Data::where('slug',$request->slug1)->first()->budgets()->first()->depensInvests()->first();
+                $data1 = [
+                    $tmp->etude_recherche, 
+                    $tmp->environnement, 
+                    $tmp->equipement, 
+                    $tmp->batiment,
+                    $tmp->emprunt, 
+                    $tmp->autre_investissement,
+                    $tmp->deficit_excedent,
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->budgets()->first()->depensInvests()->first();
+                $data2 = [
+                    $tmp->etude_recherche, 
+                    $tmp->environnement, 
+                    $tmp->equipement, 
+                    $tmp->batiment,
+                    $tmp->emprunt, 
+                    $tmp->autre_investissement,
+                    $tmp->deficit_excedent,
+                ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->budgets()->first()->depensInvests()->first();
+                $data3 = [
+                    $tmp->etude_recherche, 
+                    $tmp->environnement, 
+                    $tmp->equipement, 
+                    $tmp->batiment,
+                    $tmp->emprunt, 
+                    $tmp->autre_investissement,
+                    $tmp->deficit_excedent,
+                ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->budgets()->first()->depensInvests()->first();
+                $data4 = [
+                    $tmp->etude_recherche, 
+                    $tmp->environnement, 
+                    $tmp->equipement, 
+                    $tmp->batiment,
+                    $tmp->emprunt, 
+                    $tmp->autre_investissement,
+                    $tmp->deficit_excedent,
+                ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        //Depense fonct
+        if($request->id == "depensFonct"){
+ 
+            $response['labels'] = ['Santé',
+                'Appui scolaire',
+                'Sport & culture & jeunesse',
+                'Participation et prestation',
+                'Frais financier',
+                'Réfection /entretien bâtiment',
+                'Salaires & Indemnités',
+                'Entretien véhicules & autres',
+                'Appui Fonctionnement /Autres dépenses ',
+                'Autres charges exceptionnels',
+                'Excédent / Prélèvement',
+            ];
+
+            if($request->slug1 != null){
+               
+                $tmp = Data::where('slug',$request->slug1)->first()->budgets()->first()->depensFoncts()->first();
+                $data1 = [
+                    $tmp->sante, 
+                    $tmp->appui_scolaire, 
+                    $tmp->sport_culture, 
+                    $tmp->participation,
+                    $tmp->frais_financier, 
+                    $tmp->refection_entretien,
+                    $tmp->salaire_indemnite,
+                    $tmp->entretien_vehicule,
+                    $tmp->appui_fonctionnement,
+                    $tmp->exedent_prelevement,
+
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->budgets()->first()->depensFoncts()->first();
+                $data2 = [
+                    $tmp->sante, 
+                    $tmp->appui_scolaire, 
+                    $tmp->sport_culture, 
+                    $tmp->participation,
+                    $tmp->frais_financier, 
+                    $tmp->refection_entretien,
+                    $tmp->salaire_indemnite,
+                    $tmp->entretien_vehicule,
+                    $tmp->appui_fonctionnement,
+                    $tmp->exedent_prelevement,
+
+                ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->budgets()->first()->depensFoncts()->first();
+                $data3 = [
+                    $tmp->sante, 
+                    $tmp->appui_scolaire, 
+                    $tmp->sport_culture, 
+                    $tmp->participation,
+                    $tmp->frais_financier, 
+                    $tmp->refection_entretien,
+                    $tmp->salaire_indemnite,
+                    $tmp->entretien_vehicule,
+                    $tmp->appui_fonctionnement,
+                    $tmp->exedent_prelevement,
+
+                ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->budgets()->first()->depensFoncts()->first();
+                $data4 = [
+                    $tmp->sante, 
+                    $tmp->appui_scolaire, 
+                    $tmp->sport_culture, 
+                    $tmp->participation,
+                    $tmp->frais_financier, 
+                    $tmp->refection_entretien,
+                    $tmp->salaire_indemnite,
+                    $tmp->entretien_vehicule,
+                    $tmp->appui_fonctionnement,
+                    $tmp->exedent_prelevement,
+
+                ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        //Budget n+
+        //recette invest
+        if($request->id == "recetInvestn"){
+ 
+            $response['labels'] = ['Dotation globale',
+                'Subventions d’équipement',
+                'Contribution propre/Réserves',
+                'Dotations liées aux compétences transférées',
+                'Résultats exercices ant. Excédent/déficit Inv Rep',
+                'Autres subventions d’équipement',
+            ];
+            if($request->slug1 != null){
+
+                $tmp = Data::where('slug',$request->slug1)->first()->budgetns()->first()->recetinvestns()->first();
+                $data1 = [
+                    $tmp->dotation_globale, 
+                    $tmp->subvention_equipement, 
+                    $tmp->contribution_propre, 
+                    $tmp->dotation_liee,
+                    $tmp->resultat_exercice, 
+                    $tmp->autre_subvention,
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->budgetns()->first()->recetinvestns()->first();
+                $data2 = [
+                    $tmp->dotation_globale, 
+                    $tmp->subvention_equipement, 
+                    $tmp->contribution_propre, 
+                    $tmp->dotation_liee,
+                    $tmp->resultat_exercice, 
+                    $tmp->autre_subvention,
+                ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->budgetns()->first()->recetinvestns()->first();
+                $data3 = [
+                    $tmp->dotation_globale, 
+                    $tmp->subvention_equipement, 
+                    $tmp->contribution_propre, 
+                    $tmp->dotation_liee,
+                    $tmp->resultat_exercice, 
+                    $tmp->autre_subvention,
+                ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->budgetns()->first()->recetinvestns()->first();
+                $data4 = [
+                    $tmp->dotation_globale, 
+                    $tmp->subvention_equipement, 
+                    $tmp->contribution_propre, 
+                    $tmp->dotation_liee,
+                    $tmp->resultat_exercice, 
+                    $tmp->autre_subvention,
+                ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        //recette fonct
+        if($request->id == "recetFonctn"){
+ 
+            $response['labels'] = ['Produits de l’exploitation',
+                'Produits domaniaux',
+                'Produits financiers',
+                'Recouvrements et participations',
+                'Produits divers',
+                'Impôts taxes et contributions directes',
+                'Impôts et taxes indirects',
+                'Produits exceptionnels',
+                'Produits antérieurs',
+                //'Autres dotations de transfert',
+            ];
+
+            if($request->slug1 != null){
+
+                $tmp = Data::where('slug',$request->slug1)->first()->budgetns()->first()->recetfonctns()->first();
+                $data1 = [
+                    $tmp->produit_exploitation, 
+                    $tmp->produit_domaniaux, 
+                    $tmp->produit_financier, 
+                    $tmp->recouvrement,
+                    $tmp->produit_diver, 
+                    $tmp->impots_taxe_c_direct,
+                    $tmp->impots_taxe_indirect,
+                    $tmp->produit_exceptionnel,
+                    $tmp->produit_anterieur,
+                    //$tmp->autres_dotations,
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->budgetns()->first()->recetfonctns()->first();
+                $data2 = [
+                    $tmp->produit_exploitation, 
+                    $tmp->produit_domaniaux, 
+                    $tmp->produit_financier, 
+                    $tmp->recouvrement,
+                    $tmp->produit_diver, 
+                    $tmp->impots_taxe_c_direct,
+                    $tmp->impots_taxe_indirect,
+                    $tmp->produit_exceptionnel,
+                    $tmp->produit_anterieur,
+                    //$tmp->autres_dotations,
+                ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->budgetns()->first()->recetfonctns()->first();
+                $data3 = [
+                    $tmp->produit_exploitation, 
+                    $tmp->produit_domaniaux, 
+                    $tmp->produit_financier, 
+                    $tmp->recouvrement,
+                    $tmp->produit_diver, 
+                    $tmp->impots_taxe_c_direct,
+                    $tmp->impots_taxe_indirect,
+                    $tmp->produit_exceptionnel,
+                    $tmp->produit_anterieur,
+                   // $tmp->autres_dotations,
+                ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->budgetns()->first()->recetfonctns()->first();
+                $data4 = [
+                    $tmp->produit_exploitation, 
+                    $tmp->produit_domaniaux, 
+                    $tmp->produit_financier, 
+                    $tmp->recouvrement,
+                    $tmp->produit_diver, 
+                    $tmp->impots_taxe_c_direct,
+                    $tmp->impots_taxe_indirect,
+                    $tmp->produit_exceptionnel,
+                    $tmp->produit_anterieur,
+                    //$tmp->autres_dotations,
+                ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+        
+        //depense invest
+        if($request->id == "depensInvestn"){
+ 
+            $response['labels'] = ['Études & Recherches',
+                'Environnement',
+                'Équipement',
+                'Bâtiment',
+                'Emprunt',
+                //'	Déficit / Excédent d’investissement exer anté',
+            ];
+
+            if($request->slug1 != null){
+          
+                $tmp = Data::where('slug',$request->slug1)->first()->budgetns()->first()->depensInvestns()->first();
+                $data1 = [
+                    $tmp->etude_recherche, 
+                    $tmp->environnement, 
+                    $tmp->equipement, 
+                    $tmp->batiment,
+                    $tmp->emprunt, 
+                    $tmp->autre_investissement,
+                   // $tmp->deficit_excedent,
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->budgetns()->first()->depensInvestns()->first();
+                $data2 = [
+                    $tmp->etude_recherche, 
+                    $tmp->environnement, 
+                    $tmp->equipement, 
+                    $tmp->batiment,
+                    $tmp->emprunt, 
+                    $tmp->autre_investissement,
+                    //$tmp->deficit_excedent,
+                ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->budgetns()->first()->depensInvestns()->first();
+                $data3 = [
+                    $tmp->etude_recherche, 
+                    $tmp->environnement, 
+                    $tmp->equipement, 
+                    $tmp->batiment,
+                    $tmp->emprunt, 
+                    $tmp->autre_investissement,
+                    //$tmp->deficit_excedent,
+                ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->budgetns()->first()->depensInvestns()->first();
+                $data4 = [
+                    $tmp->etude_recherche, 
+                    $tmp->environnement, 
+                    $tmp->equipement, 
+                    $tmp->batiment,
+                    $tmp->emprunt, 
+                    $tmp->autre_investissement,
+                    //$tmp->deficit_excedent,
+                ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
+
+        //Depense fonct
+        if($request->id == "depensFonctn"){
+ 
+            $response['labels'] = ['Santé',
+                'Appui scolaire',
+                'Sport & culture & jeunesse',
+                'Eau assainissement enviro',
+                'Participation et prestation',
+                'Frais financier',
+                'Réfection /entretien bâtiment',
+                'Salaires & Indemnités',
+                'Entretien véhicules & autres',
+                'Appui Fonctionnement /Autres dépenses ',
+                //'Autres charges exceptionnels',
+                'Excédent / Prélèvement',
+            ];
+
+            if($request->slug1 != null){
+                
+                $tmp = Data::where('slug',$request->slug1)->first()->budgetns()->first()->depensFonctns()->first();
+                $data1 = [
+                    $tmp->sante, 
+                    $tmp->appui_scolaire, 
+                    $tmp->sport_culture, 
+                    $tmp->eau_assainissement, 
+                    $tmp->participation,
+                    $tmp->frais_financier, 
+                    $tmp->refection_entretien,
+                    $tmp->salaire_indemnite,
+                    $tmp->entretien_vehicule,
+                    $tmp->appui_fonctionnement,
+                    $tmp->exedent_prelevement,
+
+                ];
+                $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
+                $response['data1'] = $data1;
+                $response['commune_1'] = $commune_1;
+            }
+            if($request->slug2 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug2)->first()->budgetns()->first()->depensFonctns()->first();
+                $data2 = [
+                    $tmp->sante, 
+                    $tmp->appui_scolaire, 
+                    $tmp->sport_culture, 
+                    $tmp->eau_assainissement, 
+                    $tmp->participation,
+                    $tmp->frais_financier, 
+                    $tmp->refection_entretien,
+                    $tmp->salaire_indemnite,
+                    $tmp->entretien_vehicule,
+                    $tmp->appui_fonctionnement,
+                    $tmp->exedent_prelevement,
+
+                ];
+                $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
+                $response['data2'] = $data2;
+                $response['commune_2'] = $commune_2;
+            }
+            if($request->slug3 != null){
+                 
+
+                $tmp = Data::where('slug',$request->slug3)->first()->budgetns()->first()->depensFonctns()->first();
+                $data3 = [
+                    $tmp->sante, 
+                    $tmp->appui_scolaire, 
+                    $tmp->sport_culture, 
+                    $tmp->eau_assainissement, 
+                    $tmp->participation,
+                    $tmp->frais_financier, 
+                    $tmp->refection_entretien,
+                    $tmp->salaire_indemnite,
+                    $tmp->entretien_vehicule,
+                    $tmp->appui_fonctionnement,
+                    $tmp->exedent_prelevement,
+
+                ];
+                $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
+                $response['data3'] = $data3;
+                $response['commune_3'] = $commune_3;
+            }
+            if($request->slug4 != null){
+                 
+                $tmp = Data::where('slug',$request->slug4)->first()->budgetns()->first()->depensFonctns()->first();
+                $data4 = [
+                    $tmp->sante, 
+                    $tmp->appui_scolaire, 
+                    $tmp->sport_culture, 
+                    $tmp->eau_assainissement, 
+                    $tmp->participation,
+                    $tmp->frais_financier, 
+                    $tmp->refection_entretien,
+                    $tmp->salaire_indemnite,
+                    $tmp->entretien_vehicule,
+                    $tmp->appui_fonctionnement,
+                    $tmp->exedent_prelevement,
+
+                ];
+                $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
+                $response['data4'] = $data4;
+                $response['commune_4'] = $commune_4;
+            }
+            return response()->json($response);
+        }
         
         //$slug1 = 'ok good, slug1: '.$request->slug1;
 

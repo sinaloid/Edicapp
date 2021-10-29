@@ -38,11 +38,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row card-title">
-                        <div class="col-5 col-md-2 font-weight-bold">Pays:</div>
+                        <div class="col-5 col-md-2 font-weight-bold">Pays :</div>
                         <div class="col-7 col-md-10">{{ isset($dataCompare) ? $dataCompare["pays"] : 'Pays null'}}</div>
                     </div>
                     <div class="row card-title">
-                        <div class="col-5 col-md-2 font-weight-bold">Region:</div>
+                        <div class="col-5 col-md-2 font-weight-bold">Region :</div>
                         <div class="col-7 col-md-10">
                             @php
 
@@ -57,7 +57,7 @@
                             @endphp </div>
                     </div>
                     <div class="row card-title">
-                        <div class="col-5 col-md-2 font-weight-bold">Province:</div>
+                        <div class="col-5 col-md-2 font-weight-bold">Province :</div>
                         <div class="col-7 col-md-10">
                             @php
 
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="row card-title ">
-                        <div class="col-5 col-md-2 font-weight-bold">Commune:</div>
+                        <div class="col-5 col-md-2 font-weight-bold">Commune :</div>
                         <div class="col-7 col-md-10 ">
                             @php
                             if($dataCompare != null){
@@ -94,7 +94,10 @@
                         </div>
 
                     </div>
-
+                    <div class="row card-title">
+                        <div class="col-5 col-md-2 font-weight-bold">Année :</div>
+                        <div class="col-7 col-md-10">{{ isset($dataCompare) ? $dataCompare["annee"] : 'année null'}}</div>
+                    </div>
                     <a class="btn sin-bg-3 mt-2" href="{{ route('datas.cmp') }}">Modifier</a>
                 </div>
             </div>
@@ -178,51 +181,38 @@
                                     <button id="etatCivil"
                                         class="list-group-item list-group-item-action list-group-item-warning" onclick="show(this)">Etat
                                         Civil</button>
-                                    <button id="#"
-                                        class="list-group-item list-group-item-action list-group-item-danger" onclick="show(this)">Domaine</button>
+                                    <button id="situationDomaniale"
+                                        class="list-group-item list-group-item-action list-group-item-danger" onclick="show(this)">Situation Domaniale</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card">
-                        <div class="card-header">
-                            <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                                PCD
-                            </a>
-                        </div>
-                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Axes strategiques</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <div class="card">
                         <div class="card-header">
                             <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                                Budget 2021
+                                Budget {{ isset($dataCompare) ? $dataCompare["annee"] : 'année null'}}
                             </a>
                         </div>
                         <div id="collapseThree" class="collapse" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Recette
-                                        d'investissement</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-success">Recette
-                                        de Fonctionnement
-                                    </a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Depense
+                                    <button id="recetInves" class="list-group-item list-group-item-action" onclick="show(this)">Recette
+                                        d'investissement</button>
+                                    <button id="recetFonct"
+                                        class="list-group-item list-group-item-action list-group-item-success" onclick="show(this)">Recette
+                                        de fonctionnement
+                                    </button>
+                                    <button id="depensInvest"
+                                        class="list-group-item list-group-item-action list-group-item-secondary" onclick="show(this)">Depense
                                         d'investissement
-                                    </a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-info">Depense de
+                                    </button>
+                                    <button id="depensFonct"
+                                        class="list-group-item list-group-item-action list-group-item-info" onclick="show(this)">Depense de
                                         fonctionnement
-                                    </a>
+                                    </button>
 
                                 </div>
                             </div>
@@ -232,24 +222,24 @@
                     <div class="card">
                         <div class="card-header">
                             <a class="collapsed card-link" data-toggle="collapse" href="#collapseFor">
-                                Budget 2022
+                                Budget {{ isset($dataCompare) ? $dataCompare["annee"] + 1 : 'année null'}}
                             </a>
                         </div>
                         <div id="collapseFor" class="collapse" data-parent="#accordion">
                             <div class="card-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action">Recette
+                                    <a id="recetInvestn" class="list-group-item list-group-item-action" onclick="show(this)">Recette
                                         d'investissement</a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-success">Recette
+                                    <a id="recetFonctn"
+                                        class="list-group-item list-group-item-action list-group-item-success" onclick="show(this)">Recette
                                         de Fonctionnement
                                     </a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-secondary">Depense
+                                    <a id="depensInvestn"
+                                        class="list-group-item list-group-item-action list-group-item-secondary" onclick="show(this)">Depense
                                         d'investissement
                                     </a>
-                                    <a href="#"
-                                        class="list-group-item list-group-item-action list-group-item-info">Depense de
+                                    <a id="depensFonctn"
+                                        class="list-group-item list-group-item-action list-group-item-info" onclick="show(this)">Depense de
                                         fonctionnement
                                     </a>
                                 </div>
