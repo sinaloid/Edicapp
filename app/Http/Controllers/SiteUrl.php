@@ -216,6 +216,7 @@ class SiteUrl extends Controller
         $response = [
             "id" => $request->id,
             "labels" => null,
+            "name" => null,
             "commune_1" => null,
             "commune_2" => null,
             "commune_3" => null,
@@ -231,7 +232,7 @@ class SiteUrl extends Controller
         if($request->id == "recetteFonct"){
 
             
-
+            $response['name'] = "Info G : Recettes de fonctionnement";
             if($request->slug1 != null){
                 $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->recettes()->pluck('annee');
                 $response['labels'] = $labels;
@@ -274,7 +275,7 @@ class SiteUrl extends Controller
         if($request->id == "recetteInvest"){
 
             
-
+            $response['name'] = "Info G : Recettes d'investissement";
             if($request->slug1 != null){
                 $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->recettes()->pluck('annee');
                 $response['labels'] = $labels;
@@ -317,6 +318,7 @@ class SiteUrl extends Controller
         // depense invest
         if($request->id == "depenseFonct"){
 
+            $response['name'] = "Info G : Dépenses de fonctionnement";
             if($request->slug1 != null){
                 $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->depenses()->pluck('annee');
                 $response['labels'] = $labels;
@@ -358,6 +360,7 @@ class SiteUrl extends Controller
         //depense Invest
         if($request->id == "depenseInvest"){
 
+            $response['name'] = "Info G : Dépenses d'investissement";
             if($request->slug1 != null){
                 $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->depenses()->pluck('annee');
                 $response['labels'] = $labels;
@@ -400,6 +403,7 @@ class SiteUrl extends Controller
         //Trois meilleurs attendu
         if($request->id == "marchesAttendu"){
 
+            $response['name'] = "Info G : Contribution des trois meilleurs marchés (attendu)";
             $response['labels'] = ['marché 1','marché 2','marché 3'];
             if($request->slug1 != null){
 
@@ -437,6 +441,7 @@ class SiteUrl extends Controller
         // Trois meilleurs mobilisé
         if($request->id == "marchesMobilise"){
 
+            $response['name'] = "Info G : Contribution des trois meilleurs marchés (mobilisé)";
             $response['labels'] = ['marché 1','marché 2','marché 3'];
             if($request->slug1 != null){
 
@@ -474,7 +479,10 @@ class SiteUrl extends Controller
         //Dix meilleurs attendu
         if($request->id == "villagesAttendu"){
 
-            $response['labels'] = ['marché 1','marché 2','marché 3'];
+            $response['name'] = "Info G : Contribution des dix meilleurs villages (attendu)";
+            $response['labels'] = ['village 1','village 2','village 3',
+            'village 4','village 5','village 6','village 7','village 8','village 9','village 10',
+            ];
             if($request->slug1 != null){
 
                 $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->dixmeilleurs()->pluck('attendu');
@@ -511,7 +519,10 @@ class SiteUrl extends Controller
         // dix meilleurs mobilisé
         if($request->id == "villagesMobilise"){
 
-            $response['labels'] = ['marché 1','marché 2','marché 3'];
+            $response['name'] = "Info G : Contribution des dix meilleurs villages (mobilisé)";
+            $response['labels'] = ['village 1','village 2','village 3',
+            'village 4','village 5','village 6','village 7','village 8','village 9','village 10',
+            ];
             if($request->slug1 != null){
 
                 $data1 = Data::where('slug',$request->slug1)->first()->infogs()->first()->dixmeilleurs()->pluck('mobilise');
@@ -548,6 +559,7 @@ class SiteUrl extends Controller
         // etat civil
         if($request->id == "etatCivil"){
        
+            $response['name'] = "Info G : Etat civil";
             $response['labels'] = ['naissances',
                 'actes de naissances',
                 'actes de décès',
@@ -622,6 +634,7 @@ class SiteUrl extends Controller
         //situation Domaniale
         if($request->id == "situationDomaniale"){
  
+            $response['name'] = "Info G : Situation domaniale";
             $response['labels'] = ['Parcelles Dégagées',
                 'Parcelles attribuées',
                 'Parcelles restantes',
@@ -722,6 +735,7 @@ class SiteUrl extends Controller
         //recette invest
         if($request->id == "recetInves"){
  
+            $response['name'] = "Budget ".$request->annee." : Recettes d'investissement";
             $response['labels'] = ['Dotation globale',
                 'Subventions d’équipement',
                 'Contribution propre/Réserves',
@@ -797,6 +811,7 @@ class SiteUrl extends Controller
         //recette fonct
         if($request->id == "recetFonct"){
  
+            $response['name'] = "Budget ".$request->annee." : Recettes de fonctionnement";
             $response['labels'] = ['Produits de l’exploitation',
                 'Produits domaniaux',
                 'Produits financiers',
@@ -893,6 +908,7 @@ class SiteUrl extends Controller
         //depense invest
         if($request->id == "depensInvest"){
  
+            $response['name'] = "Budget ".$request->annee." : Dépenses d'investissement";
             $response['labels'] = ['Études & Recherches',
                 'Environnement',
                 'Équipement',
@@ -973,6 +989,7 @@ class SiteUrl extends Controller
         //Depense fonct
         if($request->id == "depensFonct"){
  
+            $response['name'] = "Budget ".$request->annee." : Dépenses de fonctionnement";
             $response['labels'] = ['Santé',
                 'Appui scolaire',
                 'Sport & culture & jeunesse',
@@ -1075,6 +1092,7 @@ class SiteUrl extends Controller
         //recette invest
         if($request->id == "recetInvestn"){
  
+            $response['name'] = "Budget n+ (".($request->annee + 1).") : Recettes d'investissement";
             $response['labels'] = ['Dotation globale',
                 'Subventions d’équipement',
                 'Contribution propre/Réserves',
@@ -1150,6 +1168,7 @@ class SiteUrl extends Controller
         //recette fonct
         if($request->id == "recetFonctn"){
  
+            $response['name'] = "Budget n+ (".($request->annee + 1).") : Recettes de fonctionnement";
             $response['labels'] = ['Produits de l’exploitation',
                 'Produits domaniaux',
                 'Produits financiers',
@@ -1246,6 +1265,7 @@ class SiteUrl extends Controller
         //depense invest
         if($request->id == "depensInvestn"){
  
+            $response['name'] = "Budget n+ (".($request->annee + 1).") : Dépenses de d'investissement";
             $response['labels'] = ['Études & Recherches',
                 'Environnement',
                 'Équipement',
@@ -1326,6 +1346,7 @@ class SiteUrl extends Controller
         //Depense fonct
         if($request->id == "depensFonctn"){
  
+            $response['name'] = "Budget n+ (".($request->annee + 1).") : Dépenses de fonctionnement";
             $response['labels'] = ['Santé',
                 'Appui scolaire',
                 'Sport & culture & jeunesse',

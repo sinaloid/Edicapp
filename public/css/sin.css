@@ -437,12 +437,23 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         .sin-ic {
           text-align: right;
         }
+        .sin-chart-responsive {
+          min-width:600px !important;
+          min-height:600px !important; 
+        }
+        
 
+        
         
       }
       @media (max-width : 768px){
         .nav-pills .nav-link {
           font-size: 0.9rem;
+      }
+
+      .sin-chart-responsive {
+        min-width:600px !important;
+        height:800px !important; 
       }
 
       }

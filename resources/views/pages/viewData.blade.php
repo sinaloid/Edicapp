@@ -96,7 +96,8 @@
                     </div>
                     <div class="row card-title">
                         <div class="col-5 col-md-2 font-weight-bold">Année :</div>
-                        <div class="col-7 col-md-10">{{ isset($dataCompare) ? $dataCompare["annee"] : 'année null'}}</div>
+                        <div class="col-7 col-md-10">{{ isset($dataCompare) ? $dataCompare["annee"] : 'année null'}}
+                        </div>
                     </div>
                     <a class="btn sin-bg-3 mt-2" href="{{ route('datas.cmp') }}">Modifier</a>
                 </div>
@@ -152,43 +153,53 @@
                     <div class="card">
                         <div class="card-header">
                             <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                Info General
+                            Info Générale
                             </a>
                         </div>
                         <div id="collapseOne" class="collapse" data-parent="#accordion">
                             <div class="card-body p-0">
                                 <div class="list-group">
-                                    <button id="recetteFonct" href="#" class="list-group-item list-group-item-action"
-                                        onclick="show(this)">Recette Fonct</button>
                                     <button id="recetteInvest" href="#" class="list-group-item list-group-item-action"
-                                        onclick="show(this)">Recette Invest</button>
-                                    <button href="#" id="depenseFonct"
-                                        class="list-group-item list-group-item-action list-group-item-success" onclick="show(this)">Depense
-                                        Fonct</button>
+                                        onclick="show(this)">Recettes d'investissement</button>
+                                    <button id="recetteFonct" href="#" class="list-group-item list-group-item-action"
+                                        onclick="show(this)">Recettes fonctionnement</button>
                                     <button href="#" id="depenseInvest"
-                                        class="list-group-item list-group-item-action list-group-item-success" onclick="show(this)">Depense
-                                        Invest</button>
+                                        class="list-group-item list-group-item-action list-group-item-success"
+                                        onclick="show(this)">Dépenses
+                                        d'investissement</button>
+                                    <button href="#" id="depenseFonct"
+                                        class="list-group-item list-group-item-action list-group-item-success"
+                                        onclick="show(this)">Dépenses
+                                        fonctionnement</button>
                                     <button id="marchesAttendu"
-                                        class="list-group-item list-group-item-action list-group-item-secondary" onclick="show(this)">3
+                                        class="list-group-item list-group-item-action list-group-item-secondary"
+                                        onclick="show(this)">3
                                         meilleurs marchers - attendu</button>
-                                        <button id="marchesMobilise"
-                                        class="list-group-item list-group-item-action list-group-item-secondary" onclick="show(this)">3
+                                    <button id="marchesMobilise"
+                                        class="list-group-item list-group-item-action list-group-item-secondary"
+                                        onclick="show(this)">3
                                         meilleurs marchers - mobilisé</button>
-                                    <button id="villagesAttendu" class="list-group-item list-group-item-action list-group-item-info" onclick="show(this)">10
+                                    <button id="villagesAttendu"
+                                        class="list-group-item list-group-item-action list-group-item-info"
+                                        onclick="show(this)">10
                                         meilleurs villages - attendu</button>
-                                        <button id="villagesMobilise" class="list-group-item list-group-item-action list-group-item-info" onclick="show(this)">10
+                                    <button id="villagesMobilise"
+                                        class="list-group-item list-group-item-action list-group-item-info"
+                                        onclick="show(this)">10
                                         meilleurs villages - mobilisé</button>
                                     <button id="etatCivil"
-                                        class="list-group-item list-group-item-action list-group-item-warning" onclick="show(this)">Etat
-                                        Civil</button>
+                                        class="list-group-item list-group-item-action list-group-item-warning"
+                                        onclick="show(this)">Etat
+                                        civil</button>
                                     <button id="situationDomaniale"
-                                        class="list-group-item list-group-item-action list-group-item-danger" onclick="show(this)">Situation Domaniale</button>
+                                        class="list-group-item list-group-item-action list-group-item-danger"
+                                        onclick="show(this)">Situation domaniale</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    
+
 
                     <div class="card">
                         <div class="card-header">
@@ -197,20 +208,24 @@
                             </a>
                         </div>
                         <div id="collapseThree" class="collapse" data-parent="#accordion">
-                            <div class="card-body">
+                            <div class="card-body p-0">
                                 <div class="list-group">
-                                    <button id="recetInves" class="list-group-item list-group-item-action" onclick="show(this)">Recette
+                                    <button id="recetInves" class="list-group-item list-group-item-action"
+                                        onclick="show(this)">Recettes
                                         d'investissement</button>
                                     <button id="recetFonct"
-                                        class="list-group-item list-group-item-action list-group-item-success" onclick="show(this)">Recette
+                                        class="list-group-item list-group-item-action list-group-item-success"
+                                        onclick="show(this)">Recettes
                                         de fonctionnement
                                     </button>
                                     <button id="depensInvest"
-                                        class="list-group-item list-group-item-action list-group-item-secondary" onclick="show(this)">Depense
+                                        class="list-group-item list-group-item-action list-group-item-secondary"
+                                        onclick="show(this)">Dépenses
                                         d'investissement
                                     </button>
                                     <button id="depensFonct"
-                                        class="list-group-item list-group-item-action list-group-item-info" onclick="show(this)">Depense de
+                                        class="list-group-item list-group-item-action list-group-item-info"
+                                        onclick="show(this)">Dépenses de
                                         fonctionnement
                                     </button>
 
@@ -226,22 +241,26 @@
                             </a>
                         </div>
                         <div id="collapseFor" class="collapse" data-parent="#accordion">
-                            <div class="card-body">
+                            <div class="card-body p-0">
                                 <div class="list-group">
-                                    <a id="recetInvestn" class="list-group-item list-group-item-action" onclick="show(this)">Recette
-                                        d'investissement</a>
-                                    <a id="recetFonctn"
-                                        class="list-group-item list-group-item-action list-group-item-success" onclick="show(this)">Recette
-                                        de Fonctionnement
-                                    </a>
-                                    <a id="depensInvestn"
-                                        class="list-group-item list-group-item-action list-group-item-secondary" onclick="show(this)">Depense
+                                    <button id="recetInvestn" class="list-group-item list-group-item-action"
+                                        onclick="show(this)">Recettes
+                                        d'investissement</button>
+                                    <button id="recetFonctn"
+                                        class="list-group-item list-group-item-action list-group-item-success"
+                                        onclick="show(this)">Recettes
+                                        de fonctionnement
+                                    </button>
+                                    <button id="depensInvestn"
+                                        class="list-group-item list-group-item-action list-group-item-secondary"
+                                        onclick="show(this)">Dépenses
                                         d'investissement
-                                    </a>
-                                    <a id="depensFonctn"
-                                        class="list-group-item list-group-item-action list-group-item-info" onclick="show(this)">Depense de
+                                    </button>
+                                    <button id="depensFonctn"
+                                        class="list-group-item list-group-item-action list-group-item-info"
+                                        onclick="show(this)">Dépenses de
                                         fonctionnement
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -267,11 +286,19 @@
                             <option value="doughnut">Doughnut</option>
                         </select>
                         <!--button onclick="randomizeData()">Randomize Data!</button-->
+                        <div>
+                            <span id="loading"></span>
+                            <span id="output"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <canvas id="myChart" class="table" style="min-height:320px; max-height:400px"></canvas>
+                    <div class="sin-chart-responsive">
+                        <canvas id="myChart" width="600" height="600"></canvas>
+                        <!--canvas id="myChart" class="table" style="min-height:320px; max-height:400px"></canvas-->
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -595,7 +622,19 @@
                 borderColor: 'rgb(25, 99, 132)',
                 data: moreDataBaby,
             }
-        ]
+        ],
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Custom Chart Title',
+                    padding: {
+                        top: 10,
+                        bottom: 30
+                    }
+                }
+            }
+        }
     };
     // Default chart defined with type: 'line'
     //Chart.defaults.global.defaultFontFamily = "monospace";
@@ -628,12 +667,17 @@
         "slug1": '{{ isset($dataCompare) ? $dataCompare["data_commune_1"] : null}}',
         "slug2": '{{ isset($dataCompare) ? $dataCompare["data_commune_2"] : null}}',
         "slug3": '{{ isset($dataCompare) ? $dataCompare["data_commune_3"] : null}}',
-        "slug4": '{{ isset($dataCompare) ? $dataCompare["data_commune_4"] : null}}'
+        "slug4": '{{ isset($dataCompare) ? $dataCompare["data_commune_4"] : null}}',
+        "annee": '{{ isset($dataCompare) ? $dataCompare["annee"] :  null }}'
     }
 
     function show(btn) {
         commune.id = btn.id
         console.log('Button id:', commune);
+        var loading = document.getElementById('loading')
+        var output = document.getElementById('output')
+        loading.className = "spinner-border"
+        output.innerText = "Chargement en cours...."
         $.ajax({
             //alert('coucou');
             url: '/datas/' + JSON.stringify(commune),
@@ -658,6 +702,8 @@
                     myData.datasets[2].data = dataCmp.data3
                     myData.datasets[3].data = dataCmp.data4
                     myChart.update();
+                    loading.classList.remove("spinner-border")
+                    output.innerText = dataCmp.name
                 } else {
 
 
