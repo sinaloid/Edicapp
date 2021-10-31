@@ -23,8 +23,7 @@ $(document).ready(function() {
                         $('#province').empty();
                         $('#commune').empty();
                         $('#region').focus;
-                        $('#region').append(
-                            '<option value="">-- Sélectionnez votre région --</option>');
+                        $('#region').append('<option value="">-- Sélectionnez votre région --</option>');
                         $.each(data, function(key, value) {
                             $('select[name="region"]').append(
                                 '<option value="' + key + '">' + value

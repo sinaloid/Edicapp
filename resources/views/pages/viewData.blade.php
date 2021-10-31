@@ -107,47 +107,6 @@
         <div class="row mt-1">
             <div class="col-12 col-md-4 card mt-3">
                 <p class="font-weight-bold mt-2"> Choix de donnée</p>
-
-                <!--div class="d-md-flex" style="background:#d1d4c9">
-                    <div class="mx-auto overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light w-100"
-                        style="max-width1: 260px; max-height: 200px; ">
-                        <div class="card">
-                            <div class="card-body">Basic card</div>
-                        </div>
-                        <br>
-                        <div class="card bg-primary text-white">
-                            <div class="card-body">Primary card</div>
-                        </div>
-                        <br>
-                        <div class="card bg-success text-white">
-                            <div class="card-body">Success card</div>
-                        </div>
-                        <br>
-                        <div class="card bg-info text-white">
-                            <div class="card-body">Info card</div>
-                        </div>
-                        <br>
-                        <div class="card bg-warning text-white">
-                            <div class="card-body">Warning card</div>
-                        </div>
-                        <br>
-                        <div class="card bg-danger text-white">
-                            <div class="card-body">Danger card</div>
-                        </div>
-                        <br>
-                        <div class="card bg-secondary text-white">
-                            <div class="card-body">Secondary card</div>
-                        </div>
-                        <br>
-                        <div class="card bg-dark text-white">
-                            <div class="card-body">Dark card</div>
-                        </div>
-                        <br>
-                        <div class="card bg-light text-dark">
-                            <div class="card-body">Light card</div>
-                        </div>
-                    </div>
-                </div-->
                 <div id="accordion">
 
                     <div class="card">
@@ -301,7 +260,11 @@
 
             </div>
         </div>
+        <div id="data-table" class="row mt-3">
+            
+        </div>
     </div>
+
     <!--div class="container card mt-2 px-1">
 
         <div class="row mt-2">
@@ -704,6 +667,46 @@
                     myChart.update();
                     loading.classList.remove("spinner-border")
                     output.innerText = dataCmp.name
+                    $('#data-table').empty()
+                    $('#data-table').addClass("card")
+                    $('#data-table').append(
+                        '<div class="col-12 font-weight-bolder text-center text-uppercase">'+dataCmp.name+'</div>');
+                    $('#data-table').append(
+                    `<div class="col-12 table-responsive px-0 mt-2">
+                        <table id="data-input" class="table-sm table-hover mx-auto mb-3 ">  </table></div>`);
+                    $('#data-input').append(`
+                        <thead> 
+                            <tr id="input-head"> 
+                                <th class="sin-table-bg align-middle">Communes</th> 
+                            </tr> 
+                        </thead>`)
+                    $.each(dataCmp.labels, function(key,value) {
+                        $('#input-head').append('<th class="sin-table-bg align-middle">'+value+'</th>');});
+
+                    if(dataCmp.data1 != null){
+                        $('#data-input').append('<tr id="commune_1"> <th>'+dataCmp.commune_1+'</th> </tr>')
+                        $.each(dataCmp.data1, function(key,value) {
+                            value = (value !=null) ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : 0
+                            $('#commune_1').append('<td>'+value+'</td>');});
+                    }
+                    if(dataCmp.data2 != null){
+                        $('#data-input').append('<tr id="commune_2"> <th>'+dataCmp.commune_2+'</th> </tr>')
+                        $.each(dataCmp.data2, function(key,value) {
+                            value = (value !=null) ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : 0
+                            $('#commune_2').append('<td>'+value+'</td>');});
+                    }
+                    if(dataCmp.data3 != null){
+                        $('#data-input').append('<tr id="commune_3"> <th>'+dataCmp.commune_3+'</th> </tr>')
+                        $.each(dataCmp.data3, function(key,value) {
+                            value = (value !=null) ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : 0
+                            $('#commune_3').append('<td>'+value+'</td>');});
+                    }
+                    if(dataCmp.data4 != null){
+                        $('#data-input').append('<tr id="commune_4"> <th>'+dataCmp.commune_4+'</th> </tr>')
+                        $.each(dataCmp.data4, function(key,value) {
+                            value = (value !=null) ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") : 0
+                            $('#commune_4').append('<td>'+value+'</td>');});
+                    }
                 } else {
 
 
