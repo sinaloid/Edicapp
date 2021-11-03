@@ -10,10 +10,10 @@
                 <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_d_expiration  : '' }}</td>
             </tr>
             <tr>
-                <th class="sin-table-bg">Montant Total</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_total  : '' }}</td>
+                <th class="sin-table-bg">Montant total</th>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['appreciation']->montant_total,0,",",".")  : '' }}</td>
                 <th class="sin-table-bg">Montant mobilisé</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_mobilise  : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['appreciation']->montant_mobilise,0,",",".")  : '' }}</td>
             </tr>
             <tr>
                 <th class="sin-table-bg">Problèmes majeurs (en quelques mots)</th>

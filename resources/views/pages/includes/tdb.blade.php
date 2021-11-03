@@ -10,30 +10,30 @@
 </div>
 
 <div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase" style="color:#ff8043">Appréciation de l'exécution
-        du PCD de la commune / le PAIC</div>
+    <div class="col-12 font-weight-bolder text-center text-uppercase" style="color:#ff8043">Évaluation de l'exécution
+        du PCD de la commune</div>
     <div class="col-12 mt-2 table-responsive px-0">
         <table class="table-sm table-hover mx-auto">
-            <tr>
-                <th class="sin-table-bg">Date de Conception</th>
-                <th>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_de_conception  : '' }}</th>
-                <th class="sin-table-bg">Date d'expiration</th>
+        <tr>
+                <th class="sin-table-bg">Date de début</th>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_de_conception  : '' }}</td>
+                <th class="sin-table-bg">Date de fin</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_d_expiration  : '' }}</td>
             </tr>
             <tr>
-                <th class="sin-table-bg">Montant Total FCFA</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_total  : '' }}</td>
-                <th class="sin-table-bg">Montant mobilisé FCFA</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_mobilise  : '' }}</td>
+                <th class="sin-table-bg">Montant total</th>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['appreciation']->montant_total,0,",",".")  : '' }}</td>
+                <th class="sin-table-bg">Montant mobilisé</th>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['appreciation']->montant_mobilise,0,",",".")  : '' }}</td>
             </tr>
             <tr>
-                <th class="sin-table-bg">Problème majeur (10 mots)</th>
+                <th class="sin-table-bg">Problèmes majeurs (en quelques mots)</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->probleme_majeur  : '' }}</td>
                 <!--td> </td>
                 <td> </td-->
             </tr>
             <tr>
-                <th class="sin-table-bg">Perpectives (10 mots)</th>
+                <th class="sin-table-bg">Perspectives (en quelques mots)</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->perpective_dix_mot  : '' }}</td>
                 <!--td> </td>
                 <td> </td-->
@@ -42,7 +42,7 @@
                 <td clospan="5">#</td>
             </tr>
             <tr>
-                <th class="sin-table-bg">Perpectives/suggestions</th>
+                <th class="sin-table-bg">Commentaires</th>
                 <td colspan="3">{{ isset($dataCommune) ? $dataCommune['satisfaction']->commentaire_appreciation : '' }}
                 </td>
             </tr>
@@ -62,7 +62,7 @@
 
     <div class="col-12 col-md-6 mt-3 p-0">
         <div class="card">
-            <h4 class="card-header  bg-info text-white">Evolution des recettes 3 ans</h4>
+            <h4 class="card-header  bg-info text-white">Évolution des recettes des trois dernières années</h4>
             <div class="card-body">
                 <div id="columnchart_values1" style="width: 100%; height: 100%;"></div>
             </div>
@@ -71,7 +71,7 @@
 
     <div class="col-12 col-md-6 mt-3 p-0">
         <div class="card">
-            <h4 class="card-header  bg-info text-white">Evolution des dépenses 3 ans</h4>
+            <h4 class="card-header  bg-info text-white">Évolution des dépenses des trois dernières années</h4>
             <div class="card-body">
                 <div id="columnchart_values2" style="width: 100%; height: 100%;"></div>
             </div>
@@ -81,7 +81,7 @@
 
 <div class="row mt-3">
     <div class="col-12 myform sin-bg-3 font-weight-bolder text-white text-center"> Bilan du fonctionnement</div>
-    <div class="col-12 col-md-6 mt-3 p-0">
+    <div class="col-12 col-md-6 mt-2 p-0">
         <div class="card">
             <h4 class="card-header bg-info text-white">Recettes de fonctionnement</h4>
             <div class="card-body">
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-3 p-0">
+    <div class="col-12 col-md-6 mt-2 p-0">
         <div class="card">
             <h4 class="card-header bg-info text-white">Dépenses de fonctionnement</h4>
             <div class="card-body">
@@ -109,7 +109,7 @@
                 <tr>
                 <tr>
                     <th class="bg-info text-white">Total Fonctionnement</th>
-                    <td>{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exploitation
+                    <td>{{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->produit_exploitation
                 + $dataCommune['recetFonct']->produit_domaniaux
                 + $dataCommune['recetFonct']->produit_financier
                 + $dataCommune['recetFonct']->recouvrement
@@ -117,8 +117,8 @@
                 + $dataCommune['recetFonct']->impots_taxe_c_direct
                 + $dataCommune['recetFonct']->impots_taxe_indirect
                 + $dataCommune['recetFonct']->produit_exceptionnel
-                + $dataCommune['recetFonct']->produit_anterieur  : '' }}</td>
-                    <td>{{ isset($dataCommune) ? $dataCommune['depensFonct']->sante
+                + $dataCommune['recetFonct']->produit_anterieur,0,",",".")  : '' }}</td>
+                    <td>{{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->sante
                 + $dataCommune['depensFonct']->appui_scolaire
                 + $dataCommune['depensFonct']->sport_culture
                 + $dataCommune['depensFonct']->participation
@@ -127,7 +127,7 @@
                 + $dataCommune['depensFonct']->salaire_indemnite
                 + $dataCommune['depensFonct']->entretien_vehicule
                 + $dataCommune['depensFonct']->appui_fonctionnement
-                + $dataCommune['depensFonct']->exedent_prelevement : '' }}</td>
+                + $dataCommune['depensFonct']->exedent_prelevement,0,",",".") : '' }}</td>
 
             </table>
         </div>
@@ -143,18 +143,18 @@
                 <tr>
                 <tr>
                     <th class="bg-info text-white">Total Investissements</th>
-                    <td>{{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_globale
+                    <td>{{ isset($dataCommune) ? number_format($dataCommune['recetInvest']->dotation_globale
                 + $dataCommune['recetInvest']->subvention_equipement
                 + $dataCommune['recetInvest']->contribution_propre
                 + $dataCommune['recetInvest']->dotation_liee
-                + $dataCommune['recetInvest']->resultat_exercice : '' }}</td>
-                    <td>{{ isset($dataCommune) ? $dataCommune['depensInvest']->etude_recherche
+                + $dataCommune['recetInvest']->resultat_exercice,0,",",".") : '' }}</td>
+                    <td>{{ isset($dataCommune) ? number_format($dataCommune['depensInvest']->etude_recherche
                 + $dataCommune['depensInvest']->environnement
                 + $dataCommune['depensInvest']->equipement
                 + $dataCommune['depensInvest']->batiment
                 + $dataCommune['depensInvest']->emprunt
                 + $dataCommune['depensInvest']->autre_investissement
-                + $dataCommune['depensInvest']->deficit_excedent : '' }}</td>
+                + $dataCommune['depensInvest']->deficit_excedent,0,",",".") : '' }}</td>
 
             </table>
         </div>
@@ -162,11 +162,11 @@
 
 </div>
 
-<div class="row mt-3">
-    <div class="col-12 myform sin-bg-3 my-3 font-weight-bolder text-white text-center"> Etat civil et domaine</div>
+<div class="row mt-2">
+    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center"> Etat civil</div>
     <div class="col-12 table-responsive px-0 ">
         <table class="table table-hover ">
-            <thead>
+        <thead>
                 <tr>
                     <th class="sin-table-bg">#</th>
                     <th class="sin-table-bg">Nombre</th>
@@ -175,32 +175,32 @@
             </thead>
             <tr>
                 <th>Naissances</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->naissance_nombre : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['etatCivil']->naissance_nombre,0,",",".") : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->naissance_observation : '' }}</td>
             </tr>
             <tr>
                 <th>Actes de naissances</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->acte_de_naissance_nombre : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['etatCivil']->acte_de_naissance_nombre,0,",",".") : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->acte_de_naissance_observation : '' }}</td>
             </tr>
             <tr>
                 <th>Actes de décès</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->acte_de_deces_nombre : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['etatCivil']->acte_de_deces_nombre,0,",",".") : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->acte_de_deces_observation : '' }}</td>
             </tr>
             <tr>
                 <th>Mariages célébrés</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->mariage_celebre_nombre : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['etatCivil']->mariage_celebre_nombre,0,",",".") : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->mariage_celebre_observation : '' }}</td>
             </tr>
             <tr>
                 <th>Autres actes civils (divers)</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->autre_acte_nombre : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['etatCivil']->autre_acte_nombre,0,",",".") : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->autre_acte_nombre_observation : '' }}</td>
             </tr>
             <tr>
-                <th>Vente de timbres (valeur)</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->vente_timbre_nombre : '' }}</td>
+                <th>Timbres vendus</th>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['etatCivil']->vente_timbre_nombre,0,",",".") : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['etatCivil']->vente_timbre_observation : '' }}</td>
             </tr>
         </table>
@@ -208,10 +208,10 @@
 </div>
 
 <div class="row mt-2">
+<div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Situation domaniale</div>
     <div class="col-12 table-responsive px-0 ">
         <table class="table table-hover ">
-            <caption> </caption>
-            <thead>
+        <thead>
                 <tr>
                     <th class="sin-table-bg align-middle" rowspan="2">Désignation / type d'usage</th>
                     <th class="sin-table-bg text-center" colspan="3">Nombre</th>
@@ -224,50 +224,50 @@
             </thead>
             <tr>
                 <th>Zone d'habitation</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_degagee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_attribuee : '' }}
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_habitation_parcelle_degagee,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_habitation_parcelle_attribuee,0,",",".") : '' }}
                 </td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_restante : '' }}
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_habitation_parcelle_restante,0,",",".") : '' }}
                 </td>
             </tr>
             <tr>
                 <th>Zone commerciale</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_degagee : '' }}
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_commerciale_parcelle_degagee,0,",",".") : '' }}
                 </td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_attribuee : '' }}
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_commerciale_parcelle_attribuee,0,",",".") : '' }}
                 </td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_restante : '' }}
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_commerciale_parcelle_restante,0,",",".") : '' }}
                 </td>
             </tr>
             <tr>
                 <th>Zone administrative</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_degagee : '' }}
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_administrative_parcelle_degagee,0,",",".") : '' }}
                 </td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_attribuee : '' }}
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_administrative_parcelle_attribuee,0,",",".") : '' }}
                 </td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_restante : '' }}
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_administrative_parcelle_restante,0,",",".") : '' }}
                 </td>
             </tr>
             <tr>
                 <th>Autres....</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_autre_parcelle_degagee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_autre_parcelle_attribuee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_autre_parcelle_restante : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_autre_parcelle_degagee,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_autre_parcelle_attribuee,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_autre_parcelle_restante,0,",",".") : '' }}</td>
             </tr>
             <tr>
-                <th>Surfaces en ha ou en m<sup>2</sup></th>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_degagee 
+                <th>Superficies en ha ou en m<sup>2</sup></th>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_habitation_parcelle_degagee 
                 + $dataCommune['domaineCivil']->zone_commerciale_parcelle_degagee 
                 + $dataCommune['domaineCivil']->zone_administrative_parcelle_degagee 
-                + $dataCommune['domaineCivil']->zone_autre_parcelle_degagee : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_attribuee 
+                + $dataCommune['domaineCivil']->zone_autre_parcelle_degagee,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_habitation_parcelle_attribuee 
                 + $dataCommune['domaineCivil']->zone_commerciale_parcelle_attribuee 
                 + $dataCommune['domaineCivil']->zone_administrative_parcelle_attribuee 
-                + $dataCommune['domaineCivil']->zone_autre_parcelle_attribuee: '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_habitation_parcelle_restante 
+                + $dataCommune['domaineCivil']->zone_autre_parcelle_attribuee,0,",","."): '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['domaineCivil']->zone_habitation_parcelle_restante 
                 + $dataCommune['domaineCivil']->zone_commerciale_parcelle_restante 
                 + $dataCommune['domaineCivil']->zone_administrative_parcelle_restante 
-                + $dataCommune['domaineCivil']->zone_autre_parcelle_restante : '' }}</td>
+                + $dataCommune['domaineCivil']->zone_autre_parcelle_restante,0,",",".") : '' }}</td>
             </tr>
         </table>
     </div>
@@ -278,34 +278,34 @@
         meilleurs marcher</div>
     <div class="col-12 table-responsive px-0">
         <table class="table table-hover">
-            <thead>
+        <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
-                    <th class="sin-table-bg">1</th>
-                    <th class="sin-table-bg">2</th>
-                    <th class="sin-table-bg">3</th>
+                    <th class="sin-table-bg"></th>
+                    <th class="sin-table-bg">Marché 1</th>
+                    <th class="sin-table-bg">Marché 2</th>
+                    <th class="sin-table-bg">Marché 3</th>
                 </tr>
             </thead>
             <tr>
-                <th>Marchés</th>
+                <th>Nom du marché</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->marche : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][1]->marche : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][2]->marche : '' }}</td>
             </tr>
             <tr>
-                <th>Attendu</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][1]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][2]->attendu : '' }}</td>
+                <th>Montant attendu</th>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][0]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][1]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][2]->attendu,0,",",".") : '' }}</td>
             </tr>
             <tr>
-                <th>Contribution</th>
-                <td> {{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->contribution : '' }}</td>
-                <td> {{ isset($dataCommune) ? $dataCommune['troisMeilleur'][1]->contribution : '' }}</td>
-                <td> {{ isset($dataCommune) ? $dataCommune['troisMeilleur'][2]->contribution : '' }}</td>
+                <th>Montant mobilisé</th>
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][0]->contribution,0,",",".") : '' }}</td>
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][1]->contribution,0,",",".") : '' }}</td>
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][2]->contribution,0,",",".") : '' }}</td>
             </tr>
             <tr>
-                <th>Taux</th>
+                <th>Taux (mobilisé / attendu)</th>
                 <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][0]->attendu != null && $dataCommune['troisMeilleur'][0]->attendu != 0) ? round($dataCommune['troisMeilleur'][0]->contribution *100 / $dataCommune['troisMeilleur'][0]->attendu, 2) . '%' : 0 : '' }}
                 </td>
                 <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][1]->attendu != null && $dataCommune['troisMeilleur'][1]->attendu != 0) ? round($dataCommune['troisMeilleur'][1]->contribution *100 / $dataCommune['troisMeilleur'][1]->attendu, 2) . '%' : 0 : '' }}
@@ -318,7 +318,7 @@
 
     <div class="col-12 mt-2 p-0">
         <div class="card">
-            <h4 class="card-header bg-info text-white">Resultat de l'excercice</h4>
+            <h4 class="card-header bg-info text-white">Résultat de l'excercice</h4>
             <div class="card-body">
                 <div id="columnchart_values3" style="width: 100%; height: 100%;"></div>
             </div>
@@ -328,7 +328,7 @@
 
 <div class="row">
 
-    <div class="col-12 myform sin-bg-3 mt-2 font-weight-bolder text-white text-center"> Bilan du d'investissement</div>
+    <div class="col-12 myform sin-bg-3 mt-2 font-weight-bolder text-white text-center"> Bilan de l'investissement</div>
     <div class="col-12 col-md-6 mt-2 p-0">
         <div class="card">
             <h4 class="card-header bg-info text-white">Recettes d'investissement</h4>
@@ -355,9 +355,9 @@
         contribution)</div>
     <div class="col-12 table-responsive px-0">
         <table class="table table-hover">
-            <thead>
+        <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
+                    <th class="sin-table-bg"></th>
                     <th class="sin-table-bg">1 er</th>
                     <th class="sin-table-bg">2 ème</th>
                     <th class="sin-table-bg">3 ème</th>
@@ -371,7 +371,7 @@
                 </tr>
             </thead>
             <tr>
-                <th>Le village</th>
+                <th>Nom du village</th>
                 <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->le_village : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->le_village : '' }}</td>
                 <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->le_village : '' }}</td>
@@ -385,32 +385,32 @@
             </tr>
             <tr>
                 <th>Montant attendu</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][3]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][4]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][5]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][6]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][7]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][8]->attendu : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][9]->attendu : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][0]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][1]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][2]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][3]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][4]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][5]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][6]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][7]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][8]->attendu,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][9]->attendu,0,",",".") : '' }}</td>
             </tr>
             <tr>
                 <th>Montant mobilisé</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->mobilise : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][1]->mobilise : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][2]->mobilise : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][3]->mobilise : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][4]->mobilise : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][5]->mobilise : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][6]->mobilise : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][7]->mobilise : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][8]->mobilise : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][9]->mobilise : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][0]->mobilise,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][1]->mobilise,0,",","."): '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][2]->mobilise,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][3]->mobilise,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][4]->mobilise,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][5]->mobilise,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][6]->mobilise,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][7]->mobilise,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][8]->mobilise,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][9]->mobilise,0,",",".") : '' }}</td>
             </tr>
             <tr>
-                <th>Taux mobilisation /Prévisions</th>
+                <th>Taux (mobilisé / attendu)</th>
                 <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][0]->attendu !=null && $dataCommune['dixMeilleur'][0]->attendu !=0) ? round($dataCommune['dixMeilleur'][0]->mobilise * 100 / $dataCommune['dixMeilleur'][0]->attendu) .'%' : 0 : '' }}
                 </td>
                 <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][1]->attendu !=null && $dataCommune['dixMeilleur'][1]->attendu !=0) ? round($dataCommune['dixMeilleur'][1]->mobilise * 100 / $dataCommune['dixMeilleur'][1]->attendu) .'%' : 0 : '' }}
@@ -438,13 +438,13 @@
 
 <div class="row mt-2">
     <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Contribution des autres
-        partenaires à la commune
+        partenaires de la commune
     </div>
     <div class="col-12 table-responsive px-0">
         <table class="table-sm table-hover ">
-            <thead>
+        <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
+                    <th class="sin-table-bg"></th>
                     <th class="sin-table-bg">PTF 1</th>
                     <th class="sin-table-bg">PTF 2 </th>
                     <th class="sin-table-bg">PTF 3 </th>
@@ -471,17 +471,17 @@
                 <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->identite_ptf : '' }}</td>
             </tr>
             <tr>
-                <th>Evaluation contribution</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->evaluation_contribution : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->evaluation_contribution : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->evaluation_contribution : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->evaluation_contribution : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->evaluation_contribution : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->evaluation_contribution : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->evaluation_contribution : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->evaluation_contribution : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->evaluation_contribution : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->evaluation_contribution : '' }}</td>
+                <th>Évaluation contribution</th>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][0]->evaluation_contribution,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][1]->evaluation_contribution,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][2]->evaluation_contribution,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][3]->evaluation_contribution,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][4]->evaluation_contribution,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][5]->evaluation_contribution,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][6]->evaluation_contribution,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][7]->evaluation_contribution,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][8]->evaluation_contribution,0,",",".") : '' }}</td>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['partenaire'][9]->evaluation_contribution,0,",",".") : '' }}</td>
             </tr>
             <tr>
                 <th>Principales actions</th>
