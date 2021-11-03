@@ -111,9 +111,10 @@
                 <td>  {{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->produit_anterieur,0,",",".") : '' }}</td>
             </tr>
             <tr>
+            <!-- text-->
                 <th>735</th>
                 <td>Autres dotations de transfert</td>
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->autres_dotations,0,",",".") : '' }}</td>
+                <td> {{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }}</td>
             </tr>
             <tr>
                 <th></th>
