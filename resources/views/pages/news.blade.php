@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container sin-m-t myform article">
-    <div class="row card-header"> <h2>EdicApp Infos</h2></div>
+    <div class="row card-header"> <h2>Edic Infos</h2></div>
     <div class="row">
         <form class="form-inline w-100 justify-content-center">
             <input class="form-control mr-sm-2 w-75" type="search" placeholder="Rechercher" aria-label="Search">

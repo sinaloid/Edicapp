@@ -9,12 +9,12 @@
 @stop
 @section('content')
     <div class="container sin-m-t myform article">
-    <div class="row card-header"> <h2>EdicApp Infos</h2></div>
-        <div class="row ">
-            <form class="form-inline w-100 justify-content-center">
-                <input class="form-control " type="search" placeholder="Rechercher" aria-label="Search">
-                <button class="btn sin-btn w-20  my-2 my-sm-0 mx-sm-1" type="submit">Rechercher</button>
-            </form>
+    <div class="row card-header"> <h2>Edic Infos</h2></div>
+        <div class="row">
+        <form class="form-inline w-100 justify-content-center">
+            <input class="form-control mr-sm-2 w-75" type="search" placeholder="Rechercher" aria-label="Search">
+            <button class="btn sin-btn  my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>
         </div>
         <div class="row">
             <div class="col-sm-11 mx-auto mt-2 card sin-bg-2">
@@ -31,13 +31,16 @@
                         <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
                     </p>
                 </div>
-                <div class="col-11  mx-auto px-0 sin-bg-2">
-                    <img src="https://via.placeholder.com/420x250/ff7f7f/333333?text=Image ou Video EDICApp"
-                        alt="https://placeimg.com/640/480/people">
+                <div class="col-11  mx-auto px-0">
+                    <p class="text-center">
+                    <img class="img-fluid" src="https://via.placeholder.com/1100x450/ff7f7f/333333?text=Image ou Video EDICApp"
+                        alt="https://placeimg.com/640/480/people" style="width:auto; max-height:400px">
+                    </p>
+                    
                     <p class="date">Posté le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time></p>
                 </div>
 
-                <div class="col-11 px-3 mx-auto">
+                <div class="col-12 px-5">
 
                     <h2>Resumé rapide</h2>
                     <p class="text-justify mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero totam,

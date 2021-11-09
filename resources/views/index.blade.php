@@ -102,7 +102,7 @@ function drawChart() {
 
                 </div>
                 <!-- <h4 class="card-title">Auteur Inconnue</h4> -->
-                <a href="{{ route('actu') }}" class="btn sin-bg-3 font-weight-bold text-white">Actualités</a>
+                <a href="{{ route('actu') }}" class="btn sin-bg-3 my-1 font-weight-bold text-white">Actualités</a>
             </div>
         </div>
     </div>

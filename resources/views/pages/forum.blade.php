@@ -10,12 +10,12 @@
 
 @section('content')
     <div class="container sin-m-t myform main-body">
-    <div class="row card-header"> <h2>EdicApp Forum</h2></div>
+    <div class="row card-header"> <h2>Edic Forum</h2></div>
         <div class="row">
             <div class="col-12 col-md-3 mt-2">
                 <div class="row justify-content-center">
                     <div class="col-10">
-                        <button class="btn sin-bg-3 has-icon btn-block" type="button" data-toggle="modal"
+                        <button class="btn sin-bg-3 has-icon btn-block font-weight-bold text-white" type="button" data-toggle="modal"
                             data-target="#threadModal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -33,7 +33,8 @@
                                     <div class="simplebar-height-auto-observer-wrapper">
                                         <div class="simplebar-height-auto-observer"></div>
                                     </div>
-                                    <div class="simplebar-mask">
+                                    <!-- A revoir plutard-->
+                                    <!--div class="simplebar-mask">
                                         <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
                                             <div class="simplebar-content-wrapper"
                                                 style="height: 100%; overflow: hidden scroll;">
@@ -55,7 +56,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div-->
                                     <!-- div class="simplebar-placeholder" style="width: 234px; height: 292px;"></div -->
                                 </div>
                                 <!-- div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div>
@@ -71,14 +72,14 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="inner-main-header">
-                            <a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none" href="#"
-                                data-toggle="inner-sidebar"><i class="material-icons">arrow_forward_ios</i></a>
+                            <!--a class="nav-link nav-icon rounded-circle nav-link-faded mr-3 d-md-none" href="#"
+                                data-toggle="inner-sidebar"><i class="material-icons">arrow_forward_ios</i></a-->
                             <select class="custom-select custom-select-sm w-auto mr-1">
-                                <option selected="">Latest</option>
-                                <option value="1">Popular</option>
-                                <option value="3">Solved</option>
-                                <option value="3">Unsolved</option>
-                                <option value="3">No Replies Yet</option>
+                                <option selected="">Dernier</option>
+                                <option value="1">Populaire</option>
+                                <!--option value="3">Résolu</option>
+                                <option value="3">Non résolu</option>
+                                <option value="3">No Replies Yet</option-->
                             </select>
                             <!--span class="input-icon input-icon-sm ml-auto w-auto">
                                 <input type="text"
