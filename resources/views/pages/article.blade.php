@@ -37,7 +37,7 @@
                         alt="https://placeimg.com/640/480/people" style="width:auto; max-height:400px">
                     </p>
                     
-                    <p class="date">Posté le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time></p>
+                    <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 </div>
 
                 <div class="col-12 px-5">
@@ -61,31 +61,25 @@
         </div>
         <!-- </div>
             <div class="container commentaires"> -->
-        <div class="row">
-            <div class="col-10 mx-auto ">
+        <div class="row commentaire">
+        <div class="col-10 mx-auto py-3 text-center">
                 <h1>Commentaires</h1>
             </div>
-        </div>
-        <div class="row commentaire">
             <div class="col-10 mx-auto ">
-                <p class="date mt-3">Posté par Pseudo le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time> :
+                <p class="date px-3 sin-bg-3 font-weight-bold text-white d-inline-block">Posté par Pseudo le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time>
                 </p>
                 <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam deserunt,
                     necessitatibus reprehenderit asperiores quaerat reiciendis minus totam rerum quis aliquam laborum
                     laboriosam deleniti inventore dolor debitis recusandae, dolorum doloribus! Laborum.</p>
             </div>
-        </div>
-        <div class="row commentaire">
             <div class="col-10 mx-auto ">
-                <p class="date">Posté par Pseudo le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time> :</p>
+                <p class="date px-3 sin-bg-3 font-weight-bold text-white d-inline-block">Posté par Pseudo le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time> </p>
                 <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam deserunt,
                     necessitatibus reprehenderit asperiores quaerat reiciendis minus totam rerum quis aliquam laborum
                     laboriosam deleniti inventore dolor debitis recusandae, dolorum doloribus! Laborum.</p>
             </div>
-        </div>
-        <div class="row commentaire">
             <div class="col-10 mx-auto ">
-                <p class="date">Posté par Pseudo le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time> :</p>
+                <p class="date px-3 sin-bg-3 font-weight-bold text-white d-inline-block">Posté par Pseudo le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time> </p>
                 <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam deserunt,
                     necessitatibus reprehenderit asperiores quaerat reiciendis minus totam rerum quis aliquam laborum
                     laboriosam deleniti inventore dolor debitis recusandae, dolorum doloribus! Laborum.</p>

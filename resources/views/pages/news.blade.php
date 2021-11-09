@@ -26,7 +26,7 @@
         <div class="col-md-4 col-sm-6">
             <article>
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
-                <p class="date">Posté le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time></p>
+                <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
@@ -37,7 +37,7 @@
         <div class="col-md-4 col-sm-6">
             <article>
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
-                <p class="date">Posté le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time></p>
+                <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
@@ -48,7 +48,7 @@
         <div class="col-md-4 col-sm-6">
             <article>
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
-                <p class="date">Posté le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time></p>
+                <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
@@ -59,7 +59,7 @@
         <div class="col-md-4 col-sm-6">
             <article>
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
-                <p class="date">Posté le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time></p>
+                <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
@@ -70,7 +70,7 @@
         <div class="col-md-4 col-sm-6">
             <article>
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
-                <p class="date">Posté le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time></p>
+                <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
@@ -81,7 +81,7 @@
         <div class="col-md-4 col-sm-6">
             <article>
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
-                <p class="date">Posté le <time datetime="2015-10-20 20:29">20 octobre 2015 à 20:29</time></p>
+                <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit similique eum sequi! Culpa quam
                     earum, iusto atque incidunt porro ad quae sint, doloremque molestiae qui recusandae repudiandae
