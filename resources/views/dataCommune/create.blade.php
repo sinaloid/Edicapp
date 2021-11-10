@@ -159,14 +159,22 @@
                 <h4 class="card-header bg-info text-white">Info G</h4>
                 <!--Recette infog -->
                 <div class="row ">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase">Evolution du budget de la commune
-                        les
-                        trois années</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase">Évolution du budget de la commune les trois dernières années</div>
                     <div class="col-12 table-responsive mt-2 px-0">
                         <table class="table-sm table-hover mx-auto">
                             <tr>
                                 <th class="sin-table-bg" colspan="5">Recettes</th>
                             <tr>
+                                @php
+                                if($dataCommune){
+                                    if($dataCommune['recette'][0]->annee == null){
+                                        $dataCommune['recette'][0]->annee = $dataCommune["annee"] - 3;
+                                        $dataCommune['recette'][1]->annee = $dataCommune["annee"] - 2;
+                                        $dataCommune['recette'][2]->annee = $dataCommune["annee"] - 1;
+                                        $dataCommune['recette'][3]->annee = $dataCommune["annee"];
+                                    }
+                                }
+                                @endphp
                             <tr>
                                 <th>années</th>
                                 <th><input type="text" name="recet_annee1" class="form-control"
@@ -236,6 +244,16 @@
                             <tr>
                                 <th class="sin-table-bg" colspan="5">Dépenses</th>
                             <tr>
+                            @php
+                                if($dataCommune){
+                                    if($dataCommune['depense'][0]->annee == null){
+                                        $dataCommune['depense'][0]->annee = $dataCommune["annee"] - 3;
+                                        $dataCommune['depense'][1]->annee = $dataCommune["annee"] - 2;
+                                        $dataCommune['depense'][2]->annee = $dataCommune["annee"] - 1;
+                                        $dataCommune['depense'][3]->annee = $dataCommune["annee"];
+                                    }
+                                }
+                                @endphp
                             <tr>
                                 <th>années</th>
                                 <th><input type="text" name="depens_annee1" class="form-control"
@@ -301,21 +319,19 @@
 
                 <!-- Trois meilleurs -->
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase">Contribution des trois (03)
-                        meilleurs
-                        marchés</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase">Contribution des trois (03) meilleurs marchés</div>
                     <div class="col-12 table-responsive mt-2 px-0">
                         <table class="table-sm table-hover mx-auto">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">1</th>
-                                    <th class="sin-table-bg">2</th>
-                                    <th class="sin-table-bg">3</th>
+                                <th class="sin-table-bg"></th>
+                    <th class="sin-table-bg">Marché 1</th>
+                    <th class="sin-table-bg">Marché 2</th>
+                    <th class="sin-table-bg">Marché 3</th>
                                 </tr>
                             </thead>
                             <tr>
-                                <th>Marchés</th>
+                            <th>Nom du marché</th>
                                 <td><input type="text" name="marche1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->marche : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -327,7 +343,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>Attendu</th>
+                            <th>Montant attendu</th>
                                 <td><input type="text" name="m_attendu1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->attendu : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -339,7 +355,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>Contribution</th>
+                            <th>Montant mobilisé</th>
                                 <td><input type="text" name="contribution1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->contribution : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -362,15 +378,14 @@
 
                 <!-- Dix meilleurs -->
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des dix (10)
-                        meilleurs
-                        villages (toute contribution)</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des dix (10) meilleurs villages
+        (toute contribution)</div>
                     <div class="col-12 table-responsive mt-2 px-0">
                         <table class="table-sm table-hover">
 
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
+                                    <th class="sin-table-bg"></th>
                                     <th class="sin-table-bg">1 er</th>
                                     <th class="sin-table-bg">2 ème</th>
                                     <th class="sin-table-bg">3 ème</th>
@@ -384,7 +399,7 @@
                                 </tr>
                             </thead>
                             <tr>
-                                <th>Le village</th>
+                            <th>Nom du village</th>
                                 <td><input type="text" name="village1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->le_village : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -417,7 +432,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>Montant attendu</th>
+                            <th>Montant attendu</th>
                                 <td><input type="text" name="attendu1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->attendu : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -450,7 +465,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>Montant mobilisé</th>
+                            <th>Montant mobilisé</th>
                                 <td><input type="text" name="mobilise1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->mobilise : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -501,14 +516,12 @@
 
                 <!-- Partenaire -->
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des autres
-                        partenaires à
-                        la commune</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase">  Contribution des autres partenaires de la commune</div>
                     <div class="col-12 table-responsive mt-2 px-0">
                         <table class="table-sm table-hover ">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
+                                    <th class="sin-table-bg"></th>
                                     <th class="sin-table-bg">PTF 1</th>
                                     <th class="sin-table-bg">PTF 2 </th>
                                     <th class="sin-table-bg">PTF 3 </th>
@@ -555,7 +568,7 @@
                                         aria-describedby="nameHelp"> </td>
                             </tr>
                             <tr>
-                                <th>Evaluation contribution</th>
+                                <th>Évaluation contribution</th>
                                 <td> <input type="text" name="evalut_contrib1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->evaluation_contribution : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -626,13 +639,13 @@
 
                 <!-- Etat civil et domaine -->
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase">ETAT CIVIL ET DOMAINE</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase">ETAT CIVIL</div>
                     <div class="col-12 table-responsive mt-2 px-0">
                         <table class="table-sm table-hover mx-auto ">
 
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
+                                    <th class="sin-table-bg"></th>
                                     <th class="sin-table-bg">Nombre</th>
                                     <th class="sin-table-bg">Observations (3 mots maximun)</th>
                                 </tr>
@@ -683,7 +696,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>Vente de timbres (valeur)</th>
+                                <th>Timbres vendus</th>
                                 <td><input type="text" name="vente_timbre_nombre" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['etatCivil']->vente_timbre_nombre : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -697,8 +710,9 @@
 
                 <div class="row ">
                     <div class="col-12 table-responsive px-0 ">
+<div class="col-12 font-weight-bolder text-center text-uppercase">Situation domaniale</div>
+
                         <table class="table-sm table-hover mx-auto ">
-                            <caption> </caption>
                             <thead>
                                 <tr>
                                     <th class="sin-table-bg align-middle" rowspan="2">Désignation / type d'usage</th>
@@ -871,34 +885,32 @@
                 <h4 class="card-header bg-info text-white mt-3">PCD</h4>
 
                 <div class="row">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase" style="color:#ff8043">Appréciation
-                        de
-                        l'exécution
-                        du PCD de la commune / le PAIC</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase" style="color:#ff8043">Évaluation de l'exécution
+        du PCD de la commune</div>
                     <div class="col-12 table-responsive mt-2 px-0 ">
                         <table class="table-sm table-hover mx-auto">
                             <tr>
-                                <th class="sin-table-bg">Date de Conception</th>
+                            <th class="sin-table-bg">Date de début</th>
                                 <th><input type="text" name="date_de_conception" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['appreciation']->date_de_conception  : '' }}"
                                         aria-describedby="nameHelp"></th>
-                                <th class="sin-table-bg">Date d'expiration</th>
+                                        <th class="sin-table-bg">Date de fin</th>
                                 <td><input type="text" name="date_d_expiration" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['appreciation']->date_d_expiration  : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th class="sin-table-bg">Montant Total FCFA</th>
+                                <th class="sin-table-bg">Montant Total</th>
                                 <td><input type="text" name="montant_total" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_total  : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <th class="sin-table-bg">Montant mobilisé (2018) FCFA</th>
+                                <th class="sin-table-bg">Montant mobilisé</th>
                                 <td><input type="text" name="montant_mobilise" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_mobilise  : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th class="sin-table-bg">Problème majeur (10 mots)</th>
+                                <th class="sin-table-bg">Problèmes majeurs (en quelques mots)</th>
                                 <td><input type="text" name="probleme_majeur" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['appreciation']->probleme_majeur  : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -908,7 +920,7 @@
                                     aria-describedby="nameHelp"></td-->
                             </tr>
                             <tr>
-                                <th class="sin-table-bg">Perpectives (10 mots)</th>
+                                <th class="sin-table-bg">Perspectives (en quelques mots)</th>
                                 <td><input type="text" name="perpective_dix_mot" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['appreciation']->perpective_dix_mot  : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -940,8 +952,7 @@
                                 </tr>
                             </thead>
                             <tr>
-                                <th class="sin-table-bg">1 : Reformer les institutions et moderniser l'administration
-                                </th>
+                            <th class="sin-table-bg">1 : Consolider la résilience, la sécurité, la cohésion sociale et la paix :</th>
                                 <td> <input type="text" name="reforme_tres_satisfaisant" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -953,7 +964,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th class="sin-table-bg">2 : Développer le capital humain</th>
+                            <th class="sin-table-bg">2 : Approvondir les réformes institutionnelles et moderniser l’administration publique</th>
                                 <td> <input type="text" name="developper_tres_satisfaisant" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -965,9 +976,18 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th class="sin-table-bg">3 : Dynamiser les secteurs porteurs pour l'économie et les
-                                    emplois
-                                </th>
+                            <th class="sin-table-bg">3 : Consolider le développement du capital humain et la solidarité nationale</th>
+                                <td> <input type="text" name="dynamiser_tres_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_tres_satisfaisant : '' }}"
+                                        aria-describedby="nameHelp"></td>
+                                <td> <input type="text" name="dynamiser_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_satisfaisant : '' }}"
+                                        aria-describedby="nameHelp"></td>
+                                <td> <input type="text" name="dynamiser_pas_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_pas_satisfaisant : '' }}"
+                                        aria-describedby="nameHelp"></td>
+                            </tr>
+                            <th class="sin-table-bg">4 : Dynamiser les secteurs porteurs pour l’économie et les emplois</th>
                                 <td> <input type="text" name="dynamiser_tres_satisfaisant" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -1005,7 +1025,7 @@
 
                 <h4 class="card-header bg-info text-white my-3">Budget</h4>
 
-                <h4 class="col-12 font-weight-bolder text-center text-white text-uppercase sin-bg-3">Bilan d'execution
+                <h4 class="col-12 font-weight-bolder text-center text-white text-uppercase sin-bg-3">Bilan d'exécution
                     année {{ isset($dataCommune) ? $dataCommune["annee"] : 'null' }}</h4>
                 <p class="col-8 mx-auto font-weight-bolder text-center bg-success text-uppercase ">Les recettes</p>
                 <div class="row mt-3">
@@ -1014,9 +1034,9 @@
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
+                                <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1027,7 +1047,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>103 - 104</th>
+                                <th>103</th>
                                 <td>Subvention d'équipement</td>
                                 <td><input type="text" name="budget_recet_invest_subvention_equipement"
                                         class="form-control"
@@ -1036,7 +1056,7 @@
                             </tr>
                             <tr>
                                 <th>11</th>
-                                <td>Contribution propre/Reserves</td>
+                                <td>Contribution propre/Réserves</td>
                                 <td> <input type="text" name="budget_recet_invest_contribution_propre"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvest']->contribution_propre : '' }}"
@@ -1044,7 +1064,7 @@
                             </tr>
                             <tr>
                                 <th>102</th>
-                                <td>Dotation liée aux compétences transférées</td>
+                                <td>Dotations liées aux compétences transférées</td>
                                 <td> <input type="text" name="budget_recet_invest_dotation_liee" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_liee : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -1080,9 +1100,9 @@
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
+                                <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1123,7 +1143,7 @@
                             </tr>
                             <tr>
                                 <th>75 </th>
-                                <td> Impots taxes et contributions directes</td>
+                                <td> Impôts taxes et contributions directes</td>
                                 <td> <input type="text" name="budget_recet_fonct_impots_taxe_c_direct"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_c_direct : '' }}"
@@ -1131,7 +1151,7 @@
                             </tr>
                             <tr>
                                 <th>76 </th>
-                                <td> Impots et taxes indirects</td>
+                                <td> Impôts et taxes indirects</td>
                                 <td> <input type="text" name="budget_recet_fonct_impots_taxe_indirect"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_indirect : '' }}"
@@ -1153,7 +1173,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>73/735 </th>
+                                <th>735 </th>
                                 <td>Autres dotations de transfert</td>
                                 <td><input type="text" name="budget_recet_fonct_autres_dotations" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }}"
@@ -1173,7 +1193,7 @@
                     depenses</p>
 
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Depenses d'investissement</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses d'investissement</div>
                     <div class="col-12 table-responsive mt-2 px-0 ">
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
@@ -1185,7 +1205,7 @@
                             </thead>
                             <tr>
                                 <th>13/132 </th>
-                                <td>Etudes & Recherche</td>
+                                <td>Études & Recherches</td>
                                 <td><input type="text" name="budget_depens_invest_etude_recherche" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->etude_recherche : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -1199,14 +1219,14 @@
                             </tr>
                             <tr>
                                 <th>21/214+215+216+218 </th>
-                                <td>Equipement</td>
+                                <td>Équipement</td>
                                 <td> <input type="text" name="budget_depens_invest_equipement" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->equipement : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>23/232+235 </th>
-                                <td> Batiment</td>
+                                <td> Bâtiment</td>
                                 <td> <input type="text" name="budget_depens_invest_batiment" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->batiment : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -1218,14 +1238,14 @@
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->emprunt : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
-                            <tr>
+                            <!--tr>
                                 <th># </th>
                                 <td> Autres investissements</td>
                                 <td> <input type="text" name="budget_depens_invest_autre_investissement"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->autre_investissement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                            </tr>
+                            </tr-->
                             <tr>
                                 <th>60 </th>
                                 <td>Déficit / Excédent d'investissement exer anté</td>
@@ -1244,14 +1264,14 @@
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Depenses de fonctionnement</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses de fonctionnement</div>
                     <div class="col-12 table-responsive mt-2 px-0 ">
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
+                                <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1290,8 +1310,8 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>63/612 </th>
-                                <td>Refection /entretien batiment </td>
+                                <th>63/6312 </th>
+                                <td>Réfection /entretien bâtiment </td>
                                 <td> <input type="text" name="budget_depens_fonct_refection_entretien"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonct']->refection_entretien : '' }}"
@@ -1299,22 +1319,22 @@
                             </tr>
                             <tr>
                                 <th>65/650+655+658</th>
-                                <td>Salaire & Indemnités </td>
+                                <td>Salaires & Indemnités </td>
                                 <td> <input type="text" name="budget_depens_fonct_salaire_indemnite"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonct']->salaire_indemnite : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>63/1+17 </th>
-                                <td>Entretien véhicule & autres [services extérieurs] </td>
+                                <th>63/6317 </th>
+                                <td>Entretien véhicules & autres [services extérieurs] </td>
                                 <td> <input type="text" name="budget_depens_fonct_entretien_vehicule"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonct']->entretien_vehicule : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>60/65/66 </th>
+                                <th>66 </th>
                                 <td> Appui Fonctionnement /Autres dépenses de fonctionnement</td>
                                 <td> <input type="text" name="budget_depens_fonct_appui_fonctionnement"
                                         class="form-control"
@@ -1322,8 +1342,14 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
+                <th>699</th>
+                <td>Autres charges exceptionnels</td>
+                <!-- cot -->
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->appui_fonctionnement,0,",",".") : '' }}</td>
+            </tr>
+                            <tr>
                                 <th>83/831 </th>
-                                <td>Excedent / Prélèvement </td>
+                                <td>Excédent / Prélèvement </td>
                                 <td> <input type="text" name="budget_depens_fonct_exedent_prelevement"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonct']->exedent_prelevement : '' }}"
@@ -1351,9 +1377,11 @@
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
+                                <tr>
+                    <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
+                </tr>
                                 </tr>
                             </thead>
                             <tr>
@@ -1365,8 +1393,8 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>103 - 104</th>
-                                <td>Subvention d'équipement</td>
+                                <th>103</th>
+                                <td>Subventions d'équipement</td>
                                 <td><input type="text" name="budget_n_recet_invest_subvention_equipement"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvestN']->subvention_equipement : '' }}"
@@ -1374,7 +1402,7 @@
                             </tr>
                             <tr>
                                 <th>11</th>
-                                <td>Contribution propre/Reserves</td>
+                                <td>Contribution propre/Réserves</td>
                                 <td> <input type="text" name="budget_n_recet_invest_contribution_propre"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvestN']->contribution_propre : '' }}"
@@ -1382,7 +1410,7 @@
                             </tr>
                             <tr>
                                 <th>102</th>
-                                <td>Dotation liée aux compétences transférées</td>
+                                <td>Dotations liées aux compétences transférées</td>
                                 <td> <input type="text" name="budget_n_recet_invest_dotation_liee" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvestN']->dotation_liee : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -1397,7 +1425,7 @@
                             </tr>
                             <tr>
                                 <th>10/104</th>
-                                <td>Autres Dotation de transfert</td>
+                                <td>Autres subventions d'équipemen</td>
                                 <td><input type="text" name="budget_n_recet_invest_autre_dotation" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvestN']->autre_dotation : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -1418,9 +1446,9 @@
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
+                                <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1463,7 +1491,7 @@
                             </tr>
                             <tr>
                                 <th>75 </th>
-                                <td> Impots taxes et contributions directes</td>
+                                <td> Impôts taxes et contributions directes</td>
                                 <td> <input type="text" name="budget_n_recet_fonct_impots_taxe_c_direct"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonctN']->impots_taxe_c_direct : '' }}"
@@ -1471,7 +1499,7 @@
                             </tr>
                             <tr>
                                 <th>76 </th>
-                                <td> Impots et taxes indirects</td>
+                                <td> Impôts et taxes indirects</td>
                                 <td> <input type="text" name="budget_n_recet_fonct_impots_taxe_indirect"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonctN']->impots_taxe_indirect : '' }}"
@@ -1507,19 +1535,19 @@
                     depenses</p>
 
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Depenses d'investissement</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses d'investissement</div>
                     <div class="col-12 table-responsive mt-2 px-0 ">
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
+                                <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
                                 <th>13/132 </th>
-                                <td>Etudes & Recherche</td>
+                                <td>Études & Recherches</td>
                                 <td><input type="text" name="budget_n_depens_invest_etude_recherche"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvestN']->etude_recherche : '' }}"
@@ -1534,14 +1562,14 @@
                             </tr>
                             <tr>
                                 <th>21/214+215+216+218 </th>
-                                <td>Equipement</td>
+                                <td>Équipement</td>
                                 <td> <input type="text" name="budget_n_depens_invest_equipement" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvestN']->equipement : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>23/232+235 </th>
-                                <td> Batiment</td>
+                                <td> Bâtiment</td>
                                 <td> <input type="text" name="budget_n_depens_invest_batiment" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvestN']->batiment : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -1553,14 +1581,14 @@
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvestN']->emprunt : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
-                            <tr>
+                            <!--tr>
                                 <th># </th>
                                 <td> Autres investissements</td>
                                 <td> <input type="text" name="budget_n_depens_invest_autre_investissement"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvestN']->autre_investissement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                            </tr>
+                            </tr-->
                             <!--tr>
                             <th>#</th>
                             <th>Total</th>
@@ -1572,14 +1600,14 @@
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Depenses de fonctionnement</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses de fonctionnement</div>
                     <div class="col-12 table-responsive mt-2 px-0 " style="width : 400px">
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
-                                    <th class="sin-table-bg">#</th>
+                                <th class="sin-table-bg">Codes</th>
+                    <th class="sin-table-bg">Libellés</th>
+                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1604,7 +1632,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th># </th>
+                                <th> </th>
                                 <td>Eau assainissement enviro</td>
                                 <td> <input type="text" name="budget_n_depens_fonct_eau_assainissement"
                                         class="form-control"
@@ -1627,11 +1655,19 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>63/612 </th>
-                                <td>Refection /entretien batiment </td>
+                                <th>63/6312 </th>
+                                <td>Réfection /entretien bâtiment </td>
                                 <td> <input type="text" name="budget_n_depens_fonct_refection_entretien"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonctN']->refection_entretien : '' }}"
+                                        aria-describedby="nameHelp"></td>
+                            </tr>
+                            <tr>
+                                <th>63/6317 </th>
+                                <td>Entretien véhicule & autres [services extérieurs] </td>
+                                <td> <input type="text" name="budget_n_depens_fonct_entretien_vehicule"
+                                        class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['depensFonctN']->entretien_vehicule : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
@@ -1643,15 +1679,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th>63/1+17 </th>
-                                <td>Entretien véhicule & autres [services extérieurs] </td>
-                                <td> <input type="text" name="budget_n_depens_fonct_entretien_vehicule"
-                                        class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['depensFonctN']->entretien_vehicule : '' }}"
-                                        aria-describedby="nameHelp"></td>
-                            </tr>
-                            <tr>
-                                <th>60/65/66 </th>
+                                <th>66 </th>
                                 <td> Appui Fonctionnement /Autres dépenses de fonctionnement</td>
                                 <td> <input type="text" name="budget_n_depens_fonct_appui_fonctionnement"
                                         class="form-control"
@@ -1659,8 +1687,14 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
+                <th>699</th>
+                <td>Autres charges exceptionnels</td>
+                <!-- cot -->
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->appui_fonctionnement,0,",",".") : '' }}</td>
+            </tr>
+                            <tr>
                                 <th>83/831 </th>
-                                <td>Excedent / Prélèvement </td>
+                                <td>Excédent / Prélèvement </td>
                                 <td> <input type="text" name="budget_n_depens_fonct_exedent_prelevement"
                                         class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonctN']->exedent_prelevement : '' }}"

@@ -51,7 +51,7 @@
                             <div class="col-md-6">
                                 <input id="mobile" type="number"
                                     class="form-control @error('mobile') is-invalid @enderror" name="mobile"
-                                    value="{{ old('mobile') }}" autocomplete="numero">
+                                    value="{{ old('mobile') }}" autocomplete="tel">
 
                                 @error('mobile')
                                 <span class="invalid-feedback" role="alert">

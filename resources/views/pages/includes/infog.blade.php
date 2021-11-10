@@ -297,7 +297,7 @@
 
             <thead>
                 <tr>
-                    <th class="sin-table-bg">#</th>
+                    <th class="sin-table-bg"></th>
                     <th class="sin-table-bg">Nombre</th>
                     <th class="sin-table-bg">Observations (3 mots maximun)</th>
                 </tr>

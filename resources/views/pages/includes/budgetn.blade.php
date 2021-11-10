@@ -228,9 +228,14 @@
                 <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonctN']->frais_financier,0,",",".") : '' }}</td>
             </tr>
             <tr>
-                <th>63/612 </th>
+                <th>63/6312 </th>
                 <td>Réfection /entretien bâtiment </td>
                 <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonctN']->refection_entretien,0,",",".") : '' }}</td>
+            </tr>
+            <tr>
+                <th>63/6317 </th>
+                <td>Entretien véhicules & autres [services extérieurs] </td>
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonctN']->entretien_vehicule,0,",",".") : '' }}</td>
             </tr>
             <tr>
                 <th>65/650+655+658</th>
@@ -238,14 +243,15 @@
                 <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonctN']->salaire_indemnite,0,",",".") : '' }}</td>
             </tr>
             <tr>
-                <th>63/1+17 </th>
-                <td>Entretien véhicules & autres [services extérieurs] </td>
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonctN']->entretien_vehicule,0,",",".") : '' }}</td>
-            </tr>
-            <tr>
-                <th>60/65/66 </th>
+                <th>66 </th>
                 <td> Appui Fonctionnement /Autres dépenses de fonctionnement</td>
                 <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonctN']->appui_fonctionnement,0,",",".") : '' }}</td>
+            </tr>
+            <tr>
+                <th>699</th>
+                <td>Autres charges exceptionnels</td>
+                <!-- cot -->
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->appui_fonctionnement,0,",",".") : '' }}</td>
             </tr>
             <tr>
                 <th>83/831 </th>

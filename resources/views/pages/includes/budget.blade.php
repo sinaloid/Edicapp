@@ -238,14 +238,14 @@
                 <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->refection_entretien,0,",",".") : '' }}</td>
             </tr>
             <tr>
-                <th>65/650+655+658</th>
-                <td>Salaires & Indemnités </td>
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->salaire_indemnite,0,",",".") : '' }}</td>
-            </tr>
-            <tr>
                 <th>63/6317 </th>
                 <td>Entretien véhicules & autres [services extérieurs] </td>
                 <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->entretien_vehicule,0,",",".") : '' }}</td>
+            </tr>
+            <tr>
+                <th>65/650+655+658</th>
+                <td>Salaires & Indemnités </td>
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->salaire_indemnite,0,",",".") : '' }}</td>
             </tr>
             <tr>
                 <th>66</th>

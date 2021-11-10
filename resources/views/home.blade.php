@@ -77,7 +77,7 @@
                 $status = $auth && $autorisation ? true : false;
                 @endphp
                 @if ($status == true || auth()->user()->role == 'admin')
-                @if (auth()->user()->role == 'verificateur')
+                @if (auth()->user()->role == 'verificateur' || auth()->user()->role == 'admin' )
                 <form action="{{ route('data.publier', $data->id) }}" method="post">
                     @csrf
                     @method('PUT')
