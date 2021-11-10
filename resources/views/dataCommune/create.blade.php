@@ -900,7 +900,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                                <th class="sin-table-bg">Montant Total</th>
+                                <th class="sin-table-bg">Montant total</th>
                                 <td><input type="text" name="montant_total" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_total  : '' }}"
                                         aria-describedby="nameHelp"></td>
