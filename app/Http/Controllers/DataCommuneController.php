@@ -378,17 +378,20 @@ class DataCommuneController extends Controller
 
             $satisfaction = Data::find($id)->pcds()->first()->satisfactions()->first();
 
-            $satisfaction->reforme_tres_satisfaisant = $request->reforme_tres_satisfaisant;
-            $satisfaction->developper_tres_satisfaisant = $request->developper_tres_satisfaisant;
-            $satisfaction->dynamiser_tres_satisfaisant = $request->dynamiser_tres_satisfaisant;
+            $satisfaction->consolider_resilience_tres_satisfaisant = $request->consolider_resilience_tres_satisfaisant;
+            $satisfaction->approfondir_reforme_tres_satisfaisant = $request->approfondir_reforme_tres_satisfaisant;
+            $satisfaction->consolider_developpement_tres_satisfaisant = $request->consolider_developpement_tres_satisfaisant;
+            $satisfaction->dynamiser_secteurs_tres_satisfaisant = $request->dynamiser_secteurs_tres_satisfaisant;
 
-            $satisfaction->reforme_satisfaisant = $request->reforme_satisfaisant;
-            $satisfaction->developper_satisfaisant = $request->developper_satisfaisant;
-            $satisfaction->dynamiser_satisfaisant = $request->dynamiser_satisfaisant;
+            $satisfaction->consolider_resilience_satisfaisant = $request->consolider_resilience_satisfaisant;
+            $satisfaction->approfondir_reforme_satisfaisant = $request->approfondir_reforme_satisfaisant;
+            $satisfaction->consolider_developpement_satisfaisant = $request->consolider_developpement_satisfaisant;
+            $satisfaction->dynamiser_secteurs_satisfaisant = $request->dynamiser_secteurs_satisfaisant;
 
-            $satisfaction->reforme_pas_satisfaisant = $request->reforme_pas_satisfaisant;
-            $satisfaction->developper_pas_satisfaisant = $request->developper_pas_satisfaisant;
-            $satisfaction->dynamiser_pas_satisfaisant = $request->dynamiser_pas_satisfaisant;
+            $satisfaction->consolider_resilience_pas_satisfaisant = $request->consolider_resilience_pas_satisfaisant;
+            $satisfaction->approfondir_reforme_pas_satisfaisant = $request->approfondir_reforme_pas_satisfaisant;
+            $satisfaction->consolider_developpement_pas_satisfaisant = $request->consolider_developpement_pas_satisfaisant;
+            $satisfaction->dynamiser_secteurs_pas_satisfaisant = $request->dynamiser_secteurs_pas_satisfaisant;
             $satisfaction->commentaire_appreciation = $request->commentaire_appreciation;
 
             $satisfaction->save();

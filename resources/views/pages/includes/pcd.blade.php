@@ -50,27 +50,27 @@
             <!--cot-->
             <tr>
                 <th class="sin-table-bg">1 : Consolider la résilience, la sécurité, la cohésion sociale et la paix :</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_tres_satisfaisant : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_satisfaisant : '' }}</td>
-                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_pas_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_resilience_tres_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_resilience_satisfaisant : '' }}</td>
+                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_resilience_pas_satisfaisant : '' }}</td>
             </tr>
             <tr>
-                <th class="sin-table-bg">2 : Approvondir les réformes institutionnelles et moderniser l’administration publique</th>
-                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_tres_satisfaisant : '' }}</td>
-                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_satisfaisant : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_pas_satisfaisant : '' }}</td>
+                <th class="sin-table-bg">2 : Approfondir les réformes institutionnelles et moderniser l’administration publique</th>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->approfondir_reforme_tres_satisfaisant : '' }}</td>
+                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->approfondir_reforme_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->approfondir_reforme_pas_satisfaisant : '' }}</td>
             </tr>
             <tr>
                 <th class="sin-table-bg">3 : Consolider le développement du capital humain et la solidarité nationale</th>
-                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_tres_satisfaisant : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_satisfaisant : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_pas_satisfaisant : '' }}</td>
+                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_developpement_tres_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_developpement_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_developpement_pas_satisfaisant : '' }}</td>
             </tr>
             <tr>
                 <th class="sin-table-bg">4 : Dynamiser les secteurs porteurs pour l’économie et les emplois</th>
-                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_tres_satisfaisant : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_satisfaisant : '' }}</td>
-                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_pas_satisfaisant : '' }}</td>
+                <td> {{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_tres_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_satisfaisant : '' }}</td>
+                <td>{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_pas_satisfaisant : '' }}</td>
             </tr>
         </table>
     </div>

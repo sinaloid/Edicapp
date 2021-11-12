@@ -23,15 +23,18 @@ class CreateSatisfactionsTable extends Migration
                     ->onDelete('cascade')
                     ->onUpdate('restrict');
                     
-            $table->string('reforme_tres_satisfaisant')->nullable();
-            $table->string('reforme_satisfaisant')->nullable();
-            $table->string('reforme_pas_satisfaisant')->nullable();
-            $table->string('developper_tres_satisfaisant')->nullable();
-            $table->string('developper_satisfaisant')->nullable();
-            $table->string('developper_pas_satisfaisant')->nullable();
-            $table->string('dynamiser_tres_satisfaisant')->nullable();
-            $table->string('dynamiser_satisfaisant')->nullable();
-            $table->string('dynamiser_pas_satisfaisant')->nullable();
+            $table->string('consolider_resilience_tres_satisfaisant')->nullable();
+            $table->string('consolider_resilience_satisfaisant')->nullable();
+            $table->string('consolider_resilience_pas_satisfaisant')->nullable();
+            $table->string('approfondir_reforme_tres_satisfaisant')->nullable();
+            $table->string('approfondir_reforme_satisfaisant')->nullable();
+            $table->string('approfondir_reforme_pas_satisfaisant')->nullable();
+            $table->string('consolider_developpement_tres_satisfaisant')->nullable();
+            $table->string('consolider_developpement_satisfaisant')->nullable();
+            $table->string('consolider_developpement_pas_satisfaisant')->nullable();
+            $table->string('dynamiser_secteurs_tres_satisfaisant')->nullable();
+            $table->string('dynamiser_secteurs_satisfaisant')->nullable();
+            $table->string('dynamiser_secteurs_pas_satisfaisant')->nullable();
             $table->string('commentaire_appreciation')->nullable();
             //$table->string('slug');
             $table->timestamps();

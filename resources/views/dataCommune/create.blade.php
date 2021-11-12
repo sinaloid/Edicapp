@@ -953,49 +953,49 @@
                             </thead>
                             <tr>
                             <th class="sin-table-bg">1 : Consolider la résilience, la sécurité, la cohésion sociale et la paix :</th>
-                                <td> <input type="text" name="reforme_tres_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_tres_satisfaisant : '' }}"
+                                <td> <input type="text" name="consolider_resilience_tres_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_resilience_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="reforme_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_satisfaisant : '' }}"
+                                <td> <input type="text" name="consolider_resilience_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_resilience_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="reforme_pas_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->reforme_pas_satisfaisant : '' }}"
+                                <td> <input type="text" name="consolider_resilience_pas_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_resilience_pas_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                             <th class="sin-table-bg">2 : Approvondir les réformes institutionnelles et moderniser l’administration publique</th>
-                                <td> <input type="text" name="developper_tres_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_tres_satisfaisant : '' }}"
+                                <td> <input type="text" name="approfondir_reforme_tres_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->approfondir_reforme_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="developper_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_satisfaisant : '' }}"
+                                <td> <input type="text" name="approfondir_reforme_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->approfondir_reforme_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="developper_pas_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->developper_pas_satisfaisant : '' }}"
+                                <td> <input type="text" name="approfondir_reforme_pas_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->approfondir_reforme_pas_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                             <th class="sin-table-bg">3 : Consolider le développement du capital humain et la solidarité nationale</th>
-                                <td> <input type="text" name="dynamiser_tres_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_tres_satisfaisant : '' }}"
+                                <td> <input type="text" name="consolider_developpement_tres_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_developpement_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="dynamiser_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_satisfaisant : '' }}"
+                                <td> <input type="text" name="consolider_developpement_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_developpement_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="dynamiser_pas_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_pas_satisfaisant : '' }}"
+                                <td> <input type="text" name="consolider_developpement_pas_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_developpement_pas_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <th class="sin-table-bg">4 : Dynamiser les secteurs porteurs pour l’économie et les emplois</th>
-                                <td> <input type="text" name="dynamiser_tres_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_tres_satisfaisant : '' }}"
+                                <td> <input type="text" name="dynamiser_secteurs_tres_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="dynamiser_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_satisfaisant : '' }}"
+                                <td> <input type="text" name="dynamiser_secteurs_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="dynamiser_pas_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_pas_satisfaisant : '' }}"
+                                <td> <input type="text" name="dynamiser_secteurs_pas_satisfaisant" class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_pas_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                         </table>
