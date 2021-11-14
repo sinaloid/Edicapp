@@ -83,5 +83,7 @@ Route::put('data/publier/{data}', [App\Http\Controllers\DataCommuneController::c
 Route::put('data/encour/{data}', [App\Http\Controllers\DataCommuneController::class, 'encour'])->middleware(['auth','verified'])->name('data.encour');
 Route::get('data/deleteImg/{id?}', [App\Http\Controllers\DataCommuneController::class, 'deleteImg'])->middleware(['auth','verified'])->name('deleteImg');
 Route::get('image/{slug}', [App\Http\Controllers\DataCommuneController::class, 'image']);
+Route::post('data/updateCommune/{id?}', [App\Http\Controllers\DataCommuneController::class, 'updateCommune'])->middleware(['auth','verified'])->name('data.updateCommune');
+
 
 Route::post('make_pdf', [SiteUrl::class, 'makePdf'])->name('make_pdf');

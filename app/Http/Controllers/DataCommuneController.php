@@ -448,6 +448,7 @@ class DataCommuneController extends Controller
             $depensFonct->salaire_indemnite = $request->budget_depens_fonct_salaire_indemnite;
             $depensFonct->entretien_vehicule = $request->budget_depens_fonct_entretien_vehicule;
             $depensFonct->appui_fonctionnement = $request->budget_depens_fonct_appui_fonctionnement;
+            $depensFonct->autres_charges_exceptionnel = $request->budget_depens_fonct_autres_charges_exceptionnel;
             $depensFonct->exedent_prelevement = $request->budget_depens_fonct_exedent_prelevement;
 
             $depensFonct->save();
@@ -502,6 +503,7 @@ class DataCommuneController extends Controller
             $depensFonctN->salaire_indemnite = $request->budget_n_depens_fonct_salaire_indemnite;
             $depensFonctN->entretien_vehicule = $request->budget_n_depens_fonct_entretien_vehicule;
             $depensFonctN->appui_fonctionnement = $request->budget_n_depens_fonct_appui_fonctionnement;
+            $depensFonctN->autres_charges_exceptionnel = $request->budget_n_depens_fonct_autres_charges_exceptionnel;
             $depensFonctN->exedent_prelevement = $request->budget_n_depens_fonct_exedent_prelevement;
 
             $depensFonctN->save();
@@ -525,6 +527,35 @@ class DataCommuneController extends Controller
         $annee = date('Y');
         return view('dataCommune.create', compact('countries','annee', 'dataCommune'));
         
+    }
+
+    public function updateCommune(Request $request, $id) {
+       
+        $dataCommune = null;
+        $data = Data::where([
+            ['id', $request->data_id_commune],
+            ['annee', $request->annee_commune],
+            ['user_id', Auth::id()]
+        ])->first();
+
+        
+        if($data != null){
+            $data->commune->superficie = $request->superficie;
+            $data->commune->total_population = $request->total_population;
+            $data->commune->total_homme = $request->total_homme;
+            $data->commune->total_femme = $request->total_femme;
+            $data->commune->save();
+
+            if($id != 0){
+                $dataCommune = $this->getDataCommune($id);
+
+            }
+        }
+
+        //Session::flash('enregistrer',"Les données ont été très bien enregistrer.");
+        $countries = Country::all();
+        $annee = date('Y');
+        return view('dataCommune.create', compact('countries','annee', 'dataCommune'));
     }
 
     /**
@@ -851,6 +882,10 @@ class DataCommuneController extends Controller
             "region" => Data::find($data_id)->commune->province->region->region_name,
             "province" => Data::find($data_id)->commune->province->province_name,
             "commune" => Data::find($data_id)->commune->commune_name,
+            "superficie" => Data::find($data_id)->commune->superficie,
+            "total_population" => Data::find($data_id)->commune->total_population,
+            "total_homme" => Data::find($data_id)->commune->total_homme,
+            "total_femme" => Data::find($data_id)->commune->total_femme,
             "annee" => Data::find($data_id)->annee,
             "slug" =>  Data::find($data_id)->slug,
 

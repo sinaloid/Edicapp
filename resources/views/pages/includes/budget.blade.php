@@ -256,7 +256,7 @@
                 <th>699</th>
                 <td>Autres charges exceptionnels</td>
                 <!-- cot -->
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->appui_fonctionnement,0,",",".") : '' }}</td>
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->autres_charges_exceptionnel,0,",",".") : '' }}</td>
             </tr>
             <tr>
                 <th>83/831 </th>

@@ -32,6 +32,7 @@ class CreateDepensFonctsTable extends Migration
             $table->string('salaire_indemnite')->nullable();
             $table->string('entretien_vehicule')->nullable();
             $table->string('appui_fonctionnement')->nullable();
+            $table->string('autres_charges_exceptionnel')->nullable();
             $table->string('exedent_prelevement')->nullable();
             //$table->string('slug');
             $table->timestamps();

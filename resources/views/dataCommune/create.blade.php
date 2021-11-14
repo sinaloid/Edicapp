@@ -76,9 +76,7 @@
                     </span>
                     @enderror
                 </div>
-
             </div>
-
         </div>
         <div class="row">
             <div class="mx-auto">
@@ -124,19 +122,36 @@
                 </div>
             </div>
             <div class="col-12 col-sm-6">
-                <div class="card-body">
+            <form class="row mb-3" action="{{ route('data.updateCommune',isset($dataCommune) ? $dataCommune['data_id'] : 0) }}" method="post">
+            @csrf
+            <div class="card-body">
                     <p><span class="font-weight-bold">Superficie:</span>
-                        {{ isset($dataCommune) ? $dataCommune["pays"] : 'null' }}
+                        <input type="text" name="superficie" class="form-control d-inline-block w-50"
+                                        value="{{ isset($dataCommune) ? $dataCommune['superficie'] : '' }}">
                     </p>
                     <p><span class="font-weight-bold">Population totale:</span>
-                        {{ isset($dataCommune) ? $dataCommune["region"] : 'null' }}
+                        <input type="text" name="total_population" class="form-control d-inline-block w-50"
+                                        value="{{ isset($dataCommune) ? $dataCommune['total_population'] : '' }}">
                     </p>
                     <p><span class="font-weight-bold">Hommes:</span>
-                        {{ isset($dataCommune) ? $dataCommune["province"] : 'null' }}</p>
+                    <input type="text" name="total_homme" class="form-control d-inline-block w-50"
+                                        value="{{ isset($dataCommune) ? $dataCommune['total_homme'] : '' }}">
+                    </p>
                     <p><span class="font-weight-bold">Femmes:</span>
-                        {{ isset($dataCommune) ? $dataCommune["commune"] : 'null' }}</p>
-
+                    <input type="text" name="total_femme" class="form-control d-inline-block w-50"
+                                        value="{{ isset($dataCommune) ? $dataCommune['total_femme'] : '' }}">
+                    <input type="hidden" name="data_id_commune" class="form-control d-inline-block w-50"
+                                        value="{{ isset($dataCommune) ? $dataCommune['data_id'] : '' }}">
+                    <input type="hidden" name="annee_commune" class="form-control d-inline-block w-50"
+                                        value="{{ isset($dataCommune) ? $dataCommune['annee'] : '' }}">
+                    </p>
+                   
+            <div class="mx-auto">
+                <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">Modifier</button>
+            </div>
+       
                 </div>
+            </form>
             </div>
         </div>
 
@@ -1342,11 +1357,13 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                <th>699</th>
-                <td>Autres charges exceptionnels</td>
-                <!-- cot -->
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->appui_fonctionnement,0,",",".") : '' }}</td>
-            </tr>
+                                <th>699</th>
+                                <td>Autres charges exceptionnels</td>
+                                <td> <input type="text" name="budget_depens_fonct_autres_charges_exceptionnel"
+                                        class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['depensFonct']->autres_charges_exceptionnel : '' }}"
+                                        aria-describedby="nameHelp"></td>
+                            </tr>
                             <tr>
                                 <th>83/831 </th>
                                 <td>Excédent / Prélèvement </td>
@@ -1687,11 +1704,14 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                <th>699</th>
-                <td>Autres charges exceptionnels</td>
-                <!-- cot -->
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->appui_fonctionnement,0,",",".") : '' }}</td>
-            </tr>
+                            <tr>
+                                <th>699</th>
+                                <td>Autres charges exceptionnels</td>
+                                <td> <input type="text" name="budget_n_depens_fonct_autres_charges_exceptionnel"
+                                        class="form-control"
+                                        value="{{ isset($dataCommune) ? $dataCommune['depensFonctN']->autres_charges_exceptionnel : '' }}"
+                                        aria-describedby="nameHelp"></td>
+                            </tr>
                             <tr>
                                 <th>83/831 </th>
                                 <td>Excédent / Prélèvement </td>

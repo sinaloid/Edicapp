@@ -1,5 +1,5 @@
-  <script src="../js/edicappresize.js"></script>
-
+  <script src="{{ asset('js/edicappresize.js') }}"></script>
+  
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <script>
       //pcd, recettes
@@ -286,101 +286,54 @@
       google.charts.setOnLoadCallback(drawChart);
       
       function drawChart() {
-          var data = google.visualization.arrayToDataTable([
+          var dataRecetteFonct = google.visualization.arrayToDataTable([
               ['Language', 'Speakers (in millions)'],
-              ["Produits de l’exploitation",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exploitation : '' }}
-              ],
-              ["Produits domaniaux",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_domaniaux : '' }}
-              ],
-              ["Produits financiers",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_financier : '' }}
-              ],
-              ["Recouvrements et participations",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->recouvrement : '' }}
-              ],
+              ["Produits de l’exploitation",{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exploitation : '' }}],
+              ["Produits domaniaux",{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_domaniaux : '' }}],
+              ["Produits financiers",{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_financier : '' }}],
+              ["Recouvrements et participations",{{ isset($dataCommune) ? $dataCommune['recetFonct']->recouvrement : '' }}],
               ["Produits divers", {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_diver : '' }}],
-              ["Impots taxes et contributions directes",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_c_direct : '' }}
-              ],
-              ["Impots et taxes indirects",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_indirect : '' }}
-              ],
-              ["Produits exceptionnels",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exceptionnel : '' }}
-              ],
-              ["Produits antérieurs",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_anterieur : '' }}
-              ],
+              ["Impôts taxes et contributions directes",{{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_c_direct : '' }}],
+              ["Impôts et taxes indirects",{{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_indirect : '' }}],
+              ["Produits exceptionnels",{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exceptionnel : '' }}],
+              ["Produits antérieurs",{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_anterieur : '' }}],
               //["Autres dotations de transfert", {{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }} ],
           ]);
 
           var dataDepenseFonct = google.visualization.arrayToDataTable([
               ['Language', 'Speakers (in millions)'],
-              ["Etudes & Recherche",
-                  {{ isset($dataCommune) ? $dataCommune['depensInvest']->etude_recherche : '' }}
-              ],
-              ["Environnement", {{ isset($dataCommune) ? $dataCommune['depensInvest']->environnement : '' }}],
-              ["Equipement", {{ isset($dataCommune) ? $dataCommune['depensInvest']->equipement : '' }}],
-              ["Batiment", {{ isset($dataCommune) ? $dataCommune['depensInvest']->batiment : '' }}],
-              ["Emprunt", {{ isset($dataCommune) ? $dataCommune['depensInvest']->emprunt : '' }}],
-              /*["Autres investissements",
-                  {{ isset($dataCommune) ? $dataCommune['depensInvest']->autre_investissement : '' }}
-              ],*/
-              ["Déficit / Excédent d'investissement exer anté",
-                  {{ isset($dataCommune) ? $dataCommune['depensInvest']->deficit_excedent : '' }}
-              ],
+              ["Santé",{{ isset($dataCommune) ? $dataCommune['depensFonct']->sante : '' }}],
+              ["Appui scolaire", {{ isset($dataCommune) ? $dataCommune['depensFonct']->appui_scolaire : '' }}],
+              ["Sport & culture & jeunesse", {{ isset($dataCommune) ? $dataCommune['depensFonct']->sport_culture : '' }}],
+              ["Participation et prestation", {{ isset($dataCommune) ? $dataCommune['depensFonct']->participation : '' }}],
+              ["Frais financier", {{ isset($dataCommune) ? $dataCommune['depensFonct']->frais_financier : '' }}],
+              ["Réfection /entretien bâtiment", {{ isset($dataCommune) ? $dataCommune['depensFonct']->refection_entretien : '' }}],
+              ["Salaires & Indemnités", {{ isset($dataCommune) ? $dataCommune['depensFonct']->salaire_indemnite : '' }}],
+              ["Entretien véhicules & autres [services extérieurs]", {{ isset($dataCommune) ? $dataCommune['depensFonct']->entretien_vehicule : '' }}],
+              ["Appui Fonctionnement /Autres dépenses de fonctionnement", {{ isset($dataCommune) ? $dataCommune['depensFonct']->appui_fonctionnement : '' }}],
+              ["Autres charges exceptionnels", {{ isset($dataCommune) ? $dataCommune['depensFonct']->autres_charges_exceptionnel : '' }}],
+              ["Excédent / Prélèvement", {{ isset($dataCommune) ? $dataCommune['depensFonct']->exedent_prelevement : '' }}],
           ]);
 
           var dataRecetteInvest = google.visualization.arrayToDataTable([
               ['Language', 'Speakers (in millions)'],
-              ["Dotation globale",
-                  {{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_globale : '' }}
-              ],
-              ["Subvention d'équipement",
-                  {{ isset($dataCommune) ? $dataCommune['recetInvest']->subvention_equipement : '' }}
-              ],
-              ["Contribution propre/Reserves",
-                  {{ isset($dataCommune) ? $dataCommune['recetInvest']->contribution_propre : '' }}
-              ],
-              ["Dotation liée aux compétences transférées",
-                  {{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_liee : '' }}
-              ],
-              ["Résultats exercices ant. Excédent/déficit Inv Rep",
-                  {{ isset($dataCommune) ? $dataCommune['recetInvest']->resultat_exercice : '' }}
-              ],
-              /*["Autres subventions d'équipement", {{ isset($dataCommune) ? $dataCommune['recetInvest']->autre_subvention : '' }}], 
-               */
+              ["Dotation globale",{{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_globale : '' }}],
+              ["Subventions d'équipement",{{ isset($dataCommune) ? $dataCommune['recetInvest']->subvention_equipement : '' }}],
+              ["Contribution propre/Réserves",{{ isset($dataCommune) ? $dataCommune['recetInvest']->contribution_propre : '' }}],
+              ["Dotations liées aux compétences transférées",{{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_liee : '' }}],
+              ["Résultats exercices ant. Excédent/déficit Inv Rep",{{ isset($dataCommune) ? $dataCommune['recetInvest']->resultat_exercice : '' }}],
+              ["Autres subventions d'équipement", {{ isset($dataCommune) ? $dataCommune['recetInvest']->autre_subvention : '' }}], 
+               
           ]);
 
           var dataDepenseInvest = google.visualization.arrayToDataTable([
               ['Language', 'Speakers (in millions)'],
-              ['Produits de l’exploitation',
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exploitation : 0 }}
-              ],
-              ["Produits domaniaux",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_domaniaux : 0 }}
-              ],
-              ["Produits financiers",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_financier : 0 }}
-              ],
-              ["Recouvrements et participations",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->recouvrement : 0 }}
-              ],
-              ["Produits divers", {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_diver : '' }}],
-              ["Impots taxes et contributions directes",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_c_direct : 0 }}
-              ],
-              ["Impots et taxes indirects",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_indirect : 0 }}
-              ],
-              ["Produits exceptionnels",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exceptionnel : 0 }}
-              ],
-              ["Produits antérieurs",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_anterieur : 0 }}
-              ],
+              ['Études & Recherches',{{ isset($dataCommune) ? $dataCommune['depensInvest']->etude_recherche : 0 }}],
+              ["Environnement",{{ isset($dataCommune) ? $dataCommune['depensInvest']->environnement : 0 }}],
+              ["Équipement",{{ isset($dataCommune) ? $dataCommune['depensInvest']->equipement : 0 }}],
+              ["Bâtiment",{{ isset($dataCommune) ? $dataCommune['depensInvest']->batiment : 0 }}],
+              ["Emprunt", {{ isset($dataCommune) ? $dataCommune['depensInvest']->emprunt : '' }}],
+              ["Déficit / Excédent d'investissement exer anté",{{ isset($dataCommune) ? $dataCommune['depensInvest']->deficit_excedent : 0 }}],
               /*["Autres dotations de transfert", {{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }} ],*/
           ]);
 
@@ -479,16 +432,17 @@
               document.getElementById("hidden_bg_depens_invest").value = "" + chartDepenseInvest.getImageURI();
           })
 
-          chart.draw(data, options);
+          chart.draw(dataRecetteFonct, options);
           chart1.draw(dataDepenseFonct, options);
           chartRecetteInvest.draw(dataRecetteInvest, options);
           chartDepenseInvest.draw(dataDepenseInvest, options);
 
           $(window).smartresize(function() {
-              chart.draw(data, options);
+              chart.draw(dataRecetteFonct, options);
               chart1.draw(dataDepenseFonct, options);
+              chartRecetteInvest.draw(dataRecetteInvest, options);
+              chartDepenseInvest.draw(dataDepenseInvest, options);
           });
-          chartRecetteInvest.draw(dataRecetteInvest, options);
-          chartDepenseInvest.draw(dataDepenseInvest, options);
+          
       }
   </script>
