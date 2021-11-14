@@ -25,10 +25,10 @@ class CreateCommunesTable extends Migration
 
 
             $table->string('commune_name');
-            $table->string('superficie');
-            $table->string('total_population');
-            $table->string('total_homme');
-            $table->string('total_femme');
+            $table->string('superficie')->nullable();
+            $table->string('total_population')->nullable();
+            $table->string('total_homme')->nullable();
+            $table->string('total_femme')->nullable();
             $table->string('slug');
 
 
