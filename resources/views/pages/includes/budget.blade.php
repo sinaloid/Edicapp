@@ -281,7 +281,7 @@
                 </td>
             </tr>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>Total</th>
                 <td>{{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->sante + $dataCommune['depensFonct']->appui_scolaire + $dataCommune['depensFonct']->sport_culture + $dataCommune['depensFonct']->participation + $dataCommune['depensFonct']->frais_financier + $dataCommune['depensFonct']->refection_entretien + $dataCommune['depensFonct']->salaire_indemnite + $dataCommune['depensFonct']->entretien_vehicule + $dataCommune['depensFonct']->appui_fonctionnement + $dataCommune['depensFonct']->exedent_prelevement, 0, ',', '.') : '' }}
                 </td>
