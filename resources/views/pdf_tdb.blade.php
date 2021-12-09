@@ -42,39 +42,30 @@
                 <br>
 
                 <table class="table tb_pcd">
-                    <tr>
-                        <th class="sin-table-bg">Date de Conception</th>
-                        <th>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_de_conception : '' }}</th>
-                        <th class="sin-table-bg">Date d'expiration</th>
-                        <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_d_expiration : '' }}</td>
-                    </tr>
-                    <tr>
-                        <th class="sin-table-bg">Montant Total FCFA</th>
-                        <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_total : '' }}</td>
-                        <th class="sin-table-bg">Montant mobilisé FCFA</th>
-                        <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_mobilise : '' }}</td>
-                    </tr>
-                    <tr>
-                        <th class="sin-table-bg">Problème majeur (10 mots)</th>
-                        <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->probleme_majeur : '' }}</td>
-                        <!--td> </td>
-                            <td> </td-->
-                    </tr>
-                    <tr>
-                        <th class="sin-table-bg">Perpectives (10 mots)</th>
-                        <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->perpective_dix_mot : '' }}</td>
-                        <!--td> </td>
-                            <td> </td-->
-                    </tr>
-                    <tr>
-                        <td clospan="5">#</td>
-                    </tr>
-                    <tr>
-                        <th class="sin-table-bg">Perpectives/suggestions</th>
-                        <td colspan="3">
-                            {{ isset($dataCommune) ? $dataCommune['satisfaction']->commentaire_appreciation : '' }}
-                        </td>
-                    </tr>
+                <tr>
+                <th class="sin-table-bg">Date de début</th>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_de_conception  : '' }}</td>
+                <th class="sin-table-bg">Date de fin</th>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->date_d_expiration  : '' }}</td>
+            </tr>
+            <tr>
+                <th class="sin-table-bg">Montant total</th>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['appreciation']->montant_total,0,",",".")  : '' }}</td>
+                <th class="sin-table-bg">Montant mobilisé</th>
+                <td>{{ isset($dataCommune) ? number_format($dataCommune['appreciation']->montant_mobilise,0,",",".")  : '' }}</td>
+            </tr>
+            <tr>
+                <th class="sin-table-bg">Problèmes majeurs (en quelques mots)</th>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->probleme_majeur  : '' }}</td>
+                <!--td> </td>
+                <td> </td-->
+            </tr>
+            <tr>
+                <th class="sin-table-bg">Perspectives (en quelques mots)</th>
+                <td>{{ isset($dataCommune) ? $dataCommune['appreciation']->perpective_dix_mot  : '' }}</td>
+                <!--td> </td>
+                <td> </td-->
+            </tr>
                 </table>
             </div>
 
