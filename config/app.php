@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         
         // Service Provider DomPDF
         //Barryvdh\DomPDF\ServiceProvider::class,
@@ -234,6 +235,7 @@ return [
 
         // Façade DomPDF
         //"PDF" => Barryvdh\DomPDF\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

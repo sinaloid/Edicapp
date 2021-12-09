@@ -87,3 +87,4 @@ Route::post('data/updateCommune/{id?}', [App\Http\Controllers\DataCommuneControl
 
 
 Route::post('make_pdf', [SiteUrl::class, 'makePdf'])->name('make_pdf');
+Route::get('make_file_exporte/{route}/{file}/{slug}', [SiteUrl::class, 'makeFileExporte'])->name('make_file_exporte');

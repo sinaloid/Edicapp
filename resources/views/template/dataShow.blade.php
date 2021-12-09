@@ -116,7 +116,21 @@
                                 {{isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune['data_id'])->commune->commune_name : 'inexistante'}}
                             </small>
 
+                            <br>
+                            <span class="badge badge-dark">
+                                <a class="text-white" href="{{ route('make_file_exporte',[''.Route::currentRouteName(),'excel', isset($dataCommune) ? $dataCommune['slug'] : 'null'] ) }}"># excel</a>
+                            </span>
+                            <span class="badge badge-dark">
+                                <a class="text-white" href="{{ route('make_file_exporte', [''.Route::currentRouteName(),'pdf', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}"># pdf</a>
+                            </span>
+                            <span class="badge badge-dark">
+                                <a class="text-white" href="{{ route('make_file_exporte', [''.Route::currentRouteName(),'csv', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}"># csv</a>
+                            </span>
+                            <span class="badge badge-dark">
+                                <a class="text-white" href="{{ route('make_file_exporte', [''.Route::currentRouteName(),'json', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}"># json</a>
+                            </span>
                         </p>
+                        
                     </div>
                 </form>
             </div>

@@ -29,8 +29,33 @@ use App\Models\Datas\BudgetN\BudgetN;
 use App\Models\Datas\BudgetN\Tables\{DepensFonctN, DepensInvestN, RecetFonctN, RecetInvestN};
 
 use PDF;
+use Excel;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
+//use App\Invoice;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+
+class InvoicesExport implements FromView
+{
+
+    public function __construct(String $routeOrigin, String $slug)
+    {
+        $this->slug = $slug;
+    }
+
+    public function view(): View
+    {
+        return view('excel_tdb', [
+            'invoices' => [
+                ["name" => $this->slug,
+                "email" => "ilanis"],
+                ["name" => "ounoid",
+                "email" => "sinali"],
+            ]
+        ]);
+    }
+}
 
 class SiteUrl extends Controller
 {
@@ -1552,6 +1577,27 @@ class SiteUrl extends Controller
         // return view('pdf_tdb', compact('data','dataCommune', 'qrcode'));
         //return $pdf->download($file_name, array("Attachment" => false));
         return $pdf->inline($file_name, array("Attachment" => false));
+    }
+
+    public function makeFileExporte(String $routeOrigin, String $file, String $slug){
+
+        $users = [1,2,3,4,5,6,7,8];
+
+        //return App::make('excel');
+        if($file == "excel"){
+            //return (new InvoicesExport($routeOrigin, $slug))->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.xlsx',\Maatwebsite\Excel\Excel::XLSX);
+        } elseif($file == 'pdf'){
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.xlsx',\Maatwebsite\Excel\Excel::XLSX);
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.pdf', \Maatwebsite\Excel\Excel::PDF);
+        } elseif($file == 'csv'){
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.csv', \Maatwebsite\Excel\Excel::CSV);
+        }else{
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        }
+
+        
+
     }
 
     public function test()
