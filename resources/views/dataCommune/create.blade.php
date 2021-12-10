@@ -618,31 +618,31 @@
                             <tr>
                                 <th>Principales actions</th>
                                 <td><input type="text" name="princ_action1" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][0]->principale_action : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="princ_action2" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][1]->principale_action : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="princ_action3" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][2]->principale_action : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="princ_action4" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][3]->principale_action : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="princ_action5" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][4]->principale_action : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="princ_action6" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][5]->principale_action : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="princ_action7" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][6]->principale_action : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="princ_action8" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][7]->principale_action : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="princ_action9" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['partenaire'][8]->principale_action : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="text" name="princ_action10" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['partenaire'][9]->principale_action : '' }}"
