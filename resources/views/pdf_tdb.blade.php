@@ -913,7 +913,7 @@
 
                 <div class="row">
                     <div class="col-xs-1">
-                        <div class="col-xs-12 title text-center text-uppercase">Budget N+</div>
+                        <div class="col-xs-12 title text-center text-uppercase">Budget N+ (Prévision)</div>
                         <div class="col-xs-12 title text-center text-uppercase">
                             {{ isset($dataCommune) ? $dataCommune['annee'] + 1 : '' }}</div>
                     </div>
