@@ -919,7 +919,7 @@
                     </div>
                     <div class="col-xs-4 px-0 ">
                         <div class="col-xs-12 title text-center text-uppercase"> Recettes d'investissement</div>
-                        <table class="table-sm table-hover mx-auto ">
+                        <table class="table table-hover mx-auto ">
                             <thead>
                                 <tr>
                                     <th class="sin-table-bg">Codes</th>
