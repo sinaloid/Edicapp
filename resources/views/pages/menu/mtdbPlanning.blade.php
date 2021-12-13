@@ -1,7 +1,7 @@
 @extends('template.dataShow')
 
 @section('script')
-    @include("script")
+    @include("scriptPlanning")
 @stop
 @section('dataTitle')
     TdB
@@ -14,6 +14,6 @@
 @endsection
 
 @section('dataContent')
-    @include("pages.includes.tdb")
+    @include("pages.includes.tdbPlanning")
 @stop
 

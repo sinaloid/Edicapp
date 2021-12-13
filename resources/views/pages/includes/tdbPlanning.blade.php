@@ -110,24 +110,24 @@
                 <tr>
                     <th class="bg-info text-white">Total Fonctionnement</th>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->produit_exploitation
-                + $dataCommune['recetFonct']->produit_domaniaux
-                + $dataCommune['recetFonct']->produit_financier
-                + $dataCommune['recetFonct']->recouvrement
-                + $dataCommune['recetFonct']->produit_diver 
-                + $dataCommune['recetFonct']->impots_taxe_c_direct
-                + $dataCommune['recetFonct']->impots_taxe_indirect
-                + $dataCommune['recetFonct']->produit_exceptionnel
-                + $dataCommune['recetFonct']->produit_anterieur,0,",",".")  : '' }}</td>
+                + $dataCommune['recetFonctN']->produit_domaniaux
+                + $dataCommune['recetFonctN']->produit_financier
+                + $dataCommune['recetFonctN']->recouvrement
+                + $dataCommune['recetFonctN']->produit_diver 
+                + $dataCommune['recetFonctN']->impots_taxe_c_direct
+                + $dataCommune['recetFonctN']->impots_taxe_indirect
+                + $dataCommune['recetFonctN']->produit_exceptionnel
+                + $dataCommune['recetFonctN']->produit_anterieur,0,",",".")  : '' }}</td>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->sante
-                + $dataCommune['depensFonct']->appui_scolaire
-                + $dataCommune['depensFonct']->sport_culture
-                + $dataCommune['depensFonct']->participation
-                + $dataCommune['depensFonct']->frais_financier
-                + $dataCommune['depensFonct']->refection_entretien
-                + $dataCommune['depensFonct']->salaire_indemnite
-                + $dataCommune['depensFonct']->entretien_vehicule
-                + $dataCommune['depensFonct']->appui_fonctionnement
-                + $dataCommune['depensFonct']->exedent_prelevement,0,",",".") : '' }}</td>
+                + $dataCommune['depensFonctN']->appui_scolaire
+                + $dataCommune['depensFonctN']->sport_culture
+                + $dataCommune['depensFonctN']->participation
+                + $dataCommune['depensFonctN']->frais_financier
+                + $dataCommune['depensFonctN']->refection_entretien
+                + $dataCommune['depensFonctN']->salaire_indemnite
+                + $dataCommune['depensFonctN']->entretien_vehicule
+                + $dataCommune['depensFonctN']->appui_fonctionnement
+                + $dataCommune['depensFonctN']->exedent_prelevement,0,",",".") : '' }}</td>
 
             </table>
         </div>
@@ -167,17 +167,16 @@
                 <tr>
                     <th class="bg-info text-white">Total Investissements</th>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['recetInvest']->dotation_globale
-                + $dataCommune['recetInvest']->subvention_equipement
-                + $dataCommune['recetInvest']->contribution_propre
-                + $dataCommune['recetInvest']->dotation_liee
-                + $dataCommune['recetInvest']->resultat_exercice,0,",",".") : '' }}</td>
-                    <td>{{ isset($dataCommune) ? number_format($dataCommune['depensInvest']->etude_recherche
-                + $dataCommune['depensInvest']->environnement
-                + $dataCommune['depensInvest']->equipement
-                + $dataCommune['depensInvest']->batiment
-                + $dataCommune['depensInvest']->emprunt
-                + $dataCommune['depensInvest']->autre_investissement
-                + $dataCommune['depensInvest']->deficit_excedent,0,",",".") : '' }}</td>
+                + $dataCommune['recetInvestN']->subvention_equipement
+                + $dataCommune['recetInvestN']->contribution_propre
+                + $dataCommune['recetInvestN']->dotation_liee
+                + $dataCommune['recetInvestN']->resultat_exercice,0,",",".") : '' }}</td>
+                    <td>{{ isset($dataCommune) ? number_format($dataCommune['depensInvestN']->etude_recherche
+                + $dataCommune['depensInvestN']->environnement
+                + $dataCommune['depensInvestN']->equipement
+                + $dataCommune['depensInvestN']->batiment
+                + $dataCommune['depensInvestN']->emprunt
+                + $dataCommune['depensInvestN']->autre_investissement,0,",",".") : '' }}</td>
 
             </table>
         </div>
@@ -321,21 +320,6 @@
                 <td>{{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][1]->attendu,0,",",".") : '' }}</td>
                 <td>{{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][2]->attendu,0,",",".") : '' }}</td>
             </tr>
-            <tr>
-                <th>Montant mobilisé</th>
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][0]->contribution,0,",",".") : '' }}</td>
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][1]->contribution,0,",",".") : '' }}</td>
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['troisMeilleur'][2]->contribution,0,",",".") : '' }}</td>
-            </tr>
-            <tr>
-                <th>Taux (mobilisé / attendu)</th>
-                <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][0]->attendu != null && $dataCommune['troisMeilleur'][0]->attendu != 0) ? round($dataCommune['troisMeilleur'][0]->contribution *100 / $dataCommune['troisMeilleur'][0]->attendu, 2) . '%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][1]->attendu != null && $dataCommune['troisMeilleur'][1]->attendu != 0) ? round($dataCommune['troisMeilleur'][1]->contribution *100 / $dataCommune['troisMeilleur'][1]->attendu, 2) . '%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['troisMeilleur'][2]->attendu != null && $dataCommune['troisMeilleur'][2]->attendu != 0) ? round($dataCommune['troisMeilleur'][2]->contribution *100 / $dataCommune['troisMeilleur'][2]->attendu, 2) . '%' : 0 : '' }}
-                </td>
-            </tr>
         </table>
     </div>
 
@@ -397,42 +381,6 @@
                 <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][7]->attendu,0,",",".") : '' }}</td>
                 <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][8]->attendu,0,",",".") : '' }}</td>
                 <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][9]->attendu,0,",",".") : '' }}</td>
-            </tr>
-            <tr>
-                <th>Montant mobilisé</th>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][0]->mobilise,0,",",".") : '' }}</td>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][1]->mobilise,0,",","."): '' }}</td>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][2]->mobilise,0,",",".") : '' }}</td>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][3]->mobilise,0,",",".") : '' }}</td>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][4]->mobilise,0,",",".") : '' }}</td>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][5]->mobilise,0,",",".") : '' }}</td>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][6]->mobilise,0,",",".") : '' }}</td>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][7]->mobilise,0,",",".") : '' }}</td>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][8]->mobilise,0,",",".") : '' }}</td>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['dixMeilleur'][9]->mobilise,0,",",".") : '' }}</td>
-            </tr>
-            <tr>
-                <th>Taux (mobilisé / attendu)</th>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][0]->attendu !=null && $dataCommune['dixMeilleur'][0]->attendu !=0) ? round($dataCommune['dixMeilleur'][0]->mobilise * 100 / $dataCommune['dixMeilleur'][0]->attendu) .'%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][1]->attendu !=null && $dataCommune['dixMeilleur'][1]->attendu !=0) ? round($dataCommune['dixMeilleur'][1]->mobilise * 100 / $dataCommune['dixMeilleur'][1]->attendu) .'%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][2]->attendu !=null && $dataCommune['dixMeilleur'][2]->attendu !=0) ? round($dataCommune['dixMeilleur'][2]->mobilise * 100 / $dataCommune['dixMeilleur'][2]->attendu) .'%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][3]->attendu !=null && $dataCommune['dixMeilleur'][3]->attendu !=0) ? round($dataCommune['dixMeilleur'][3]->mobilise * 100 / $dataCommune['dixMeilleur'][3]->attendu) .'%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][4]->attendu !=null && $dataCommune['dixMeilleur'][4]->attendu !=0) ? round($dataCommune['dixMeilleur'][4]->mobilise * 100 / $dataCommune['dixMeilleur'][4]->attendu) .'%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][5]->attendu !=null && $dataCommune['dixMeilleur'][5]->attendu !=0) ? round($dataCommune['dixMeilleur'][5]->mobilise * 100 / $dataCommune['dixMeilleur'][5]->attendu) .'%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][6]->attendu !=null && $dataCommune['dixMeilleur'][6]->attendu !=0) ? round($dataCommune['dixMeilleur'][6]->mobilise * 100 / $dataCommune['dixMeilleur'][6]->attendu) .'%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][7]->attendu !=null && $dataCommune['dixMeilleur'][7]->attendu !=0) ? round($dataCommune['dixMeilleur'][7]->mobilise * 100 / $dataCommune['dixMeilleur'][7]->attendu) .'%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][8]->attendu !=null && $dataCommune['dixMeilleur'][8]->attendu !=0) ? round($dataCommune['dixMeilleur'][8]->mobilise * 100 / $dataCommune['dixMeilleur'][8]->attendu) .'%' : 0 : '' }}
-                </td>
-                <td>{{ isset($dataCommune) ? ($dataCommune['dixMeilleur'][9]->attendu !=null && $dataCommune['dixMeilleur'][9]->attendu !=0) ? round($dataCommune['dixMeilleur'][9]->mobilise * 100 / $dataCommune['dixMeilleur'][9]->attendu) .'%' : 0 : '' }}
-                </td>
             </tr>
         </table>
     </div>
