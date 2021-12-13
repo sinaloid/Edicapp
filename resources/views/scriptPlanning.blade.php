@@ -424,7 +424,7 @@
             document.getElementById("hidden_bg_recett_fcntn").value = "" + chartRecetteFonctn.getImageURI();
         })
         google.visualization.events.addListener(chartDepenseFonctn, 'ready', function() {
-            document.getElementById("hidden_bg_depens_fnctn").value = "" + chartDepenseFonctn.getImageURI();
+            document.getElementById("hidden_bg_depens_fcntn").value = "" + chartDepenseFonctn.getImageURI();
         })
         google.visualization.events.addListener(chartRecetteInvestn, 'ready', function() {
             document.getElementById("hidden_bg_recett_investn").value = "" + chartRecetteInvestn.getImageURI();

@@ -537,7 +537,7 @@
         <input type="hidden" name="hidden_recette" id="hidden_recette" />
         <input type="hidden" name="hidden_depense" id="hidden_depense" />
         <input type="hidden" name="hidden_bg_recett_fcnt" id="hidden_bg_recett_fcnt" />
-        <input type="hidden" name="hidden_bg_depens_fnct" id="hidden_bg_depens_fnct" />
+        <input type="hidden" name="hidden_bg_depens_fcnt" id="hidden_bg_depens_fnct" />
         <input type="hidden" name="hidden_resultat" id="hidden_resultat" />
         <input type="hidden" name="hidden_bg_recett_invest" id="hidden_bg_recett_invest" />
         <input type="hidden" name="hidden_bg_depens_invest" id="hidden_bg_depens_invest" />

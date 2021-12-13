@@ -91,6 +91,10 @@
               ["{{ isset($dataCommune) ? $dataCommune['recette'][2]->annee : '' }}",
                   {{ isset($dataCommune) ? $dataCommune['recette'][2]->fonctionnement + $dataCommune['recette'][2]->investissement : '' }},
                   "red"
+              ],
+              ["{{ isset($dataCommune) ? $dataCommune['recette'][3]->annee : '' }}",
+                  {{ isset($dataCommune) ? $dataCommune['recette'][2]->fonctionnement + $dataCommune['recette'][2]->investissement : '' }},
+                  "red"
               ]
               /*["Platinum", 21.45, "color: #e5e4e2"]*/
           ]);
@@ -108,6 +112,10 @@
                   "silver"
               ],
               ["{{ isset($dataCommune) ? $dataCommune['depense'][2]->annee : '' }}",
+                  {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }},
+                  "silver"
+              ],
+              ["{{ isset($dataCommune) ? $dataCommune['depense'][3]->annee : '' }}",
                   {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }},
                   "silver"
               ]
@@ -259,7 +267,7 @@
           })
 
           var hidden_bg_recett_fcnt = document.getElementById('hidden_bg_recett_fcnt');
-          var hidden_bg_depens_fnct = document.getElementById('hidden_bg_depens_fnct');
+          var hidden_bg_depens_fnct = document.getElementById('hidden_bg_depens_fcnt');
           var hidden_bg_recett_invest = document.getElementById('hidden_bg_recett_invest');
           var hidden_bg_depens_invest = document.getElementById('hidden_bg_depens_invest');
 

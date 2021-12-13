@@ -128,7 +128,7 @@
                 + $dataCommune['depensFonctN']->entretien_vehicule
                 + $dataCommune['depensFonctN']->appui_fonctionnement
                 + $dataCommune['depensFonctN']->exedent_prelevement,0,",",".") : '' }}</td>
-
+                </tr>
             </table>
         </div>
     </div>
@@ -485,7 +485,7 @@
         <input type="hidden" name="hidden_recette" id="hidden_recette" />
         <input type="hidden" name="hidden_depense" id="hidden_depense" />
         <input type="hidden" name="hidden_bg_recett_fcntn" id="hidden_bg_recett_fcntn" />
-        <input type="hidden" name="hidden_bg_depens_fnctn" id="hidden_bg_depens_fnctn" />
+        <input type="hidden" name="hidden_bg_depens_fcntn" id="hidden_bg_depens_fcntn" />
         <input type="hidden" name="hidden_resultat" id="hidden_resultat" />
         <input type="hidden" name="hidden_bg_recett_investn" id="hidden_bg_recett_investn" />
         <input type="hidden" name="hidden_bg_depens_investn" id="hidden_bg_depens_investn" />

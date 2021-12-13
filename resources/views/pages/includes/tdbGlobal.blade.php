@@ -644,7 +644,7 @@
         <input type="hidden" name="hidden_recette" id="hidden_recette" />
         <input type="hidden" name="hidden_depense" id="hidden_depense" />
         <input type="hidden" name="hidden_bg_recett_fcnt" id="hidden_bg_recett_fcnt" />
-        <input type="hidden" name="hidden_bg_depens_fnct" id="hidden_bg_depens_fnct" />
+        <input type="hidden" name="hidden_bg_depens_fcnt" id="hidden_bg_depens_fnct" />
         <input type="hidden" name="hidden_resultat" id="hidden_resultat" />
         <input type="hidden" name="hidden_bg_recett_invest" id="hidden_bg_recett_invest" />
         <input type="hidden" name="hidden_bg_depens_invest" id="hidden_bg_depens_invest" />
@@ -652,7 +652,7 @@
         <input type="hidden" name="hidden_url" value="{{ url()->current() }}" />
         <!--button type="button" name="create_pdf" id="create_pdf" class="btn btn-danger btn-xs">Make PDF</button-->
         <input type="hidden" name="hidden_bg_recett_fcntn" id="hidden_bg_recett_fcntn" />
-        <input type="hidden" name="hidden_bg_depens_fnctn" id="hidden_bg_depens_fnctn" />
+        <input type="hidden" name="hidden_bg_depens_fcntn" id="hidden_bg_depens_fcntn" />
         <input type="hidden" name="hidden_bg_recett_investn" id="hidden_bg_recett_investn" />
         <input type="hidden" name="hidden_bg_depens_investn" id="hidden_bg_depens_investn" />
     </form>

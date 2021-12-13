@@ -1534,16 +1534,46 @@ class SiteUrl extends Controller
 
     public function makePdf(Request $request){
        
-        $data = [
-            "hidden_pcd" => $request->hidden_pcd,
-            "hidden_recette" => $request->hidden_recette,
-            "hidden_depense" => $request->hidden_depense,
-            "hidden_bg_recett_fcnt" => $request->hidden_bg_recett_fcnt,
-            "hidden_bg_depens_fnct" => $request->hidden_bg_depens_fnct,
-            "hidden_resultat" => $request->hidden_resultat,
-            "hidden_bg_recett_invest" => $request->hidden_bg_recett_invest,
-            "hidden_bg_depens_invest" => $request->hidden_bg_depens_invest,
-        ];
+        if(str_contains($request->hidden_url, 'planning')){
+            $data = [
+                "hidden_pcd" => $request->hidden_pcd,
+                "hidden_recette" => $request->hidden_recette,
+                "hidden_depense" => $request->hidden_depense,
+                "hidden_bg_recett_fcntn" => $request->hidden_bg_recett_fcntn,
+                "hidden_bg_depens_fcntn" => $request->hidden_bg_depens_fcntn,
+                "hidden_resultat" => $request->hidden_resultat,
+                "hidden_bg_recett_investn" => $request->hidden_bg_recett_investn,
+                "hidden_bg_depens_investn" => $request->hidden_bg_depens_investn,
+            ];
+        }elseif(str_contains($request->hidden_url, 'global')){
+            $data = [
+                "hidden_pcd" => $request->hidden_pcd,
+                "hidden_recette" => $request->hidden_recette,
+                "hidden_depense" => $request->hidden_depense,
+                "hidden_bg_recett_fcnt" => $request->hidden_bg_recett_fcnt,
+                "hidden_bg_depens_fcnt" => $request->hidden_bg_depens_fcnt,
+                "hidden_resultat" => $request->hidden_resultat,
+                "hidden_bg_recett_invest" => $request->hidden_bg_recett_invest,
+                "hidden_bg_depens_invest" => $request->hidden_bg_depens_invest,
+
+                "hidden_bg_recett_fcntn" => $request->hidden_bg_recett_fcntn,
+                "hidden_bg_depens_fcntn" => $request->hidden_bg_depens_fcntn,
+                "hidden_bg_recett_investn" => $request->hidden_bg_recett_investn,
+                "hidden_bg_depens_investn" => $request->hidden_bg_depens_investn,
+            ];
+        }else {
+            $data = [
+                "hidden_pcd" => $request->hidden_pcd,
+                "hidden_recette" => $request->hidden_recette,
+                "hidden_depense" => $request->hidden_depense,
+                "hidden_bg_recett_fcnt" => $request->hidden_bg_recett_fcnt,
+                "hidden_bg_depens_fcnt" => $request->hidden_bg_depens_fcnt,
+                "hidden_resultat" => $request->hidden_resultat,
+                "hidden_bg_recett_invest" => $request->hidden_bg_recett_invest,
+                "hidden_bg_depens_invest" => $request->hidden_bg_depens_invest,
+            ];
+        }
+        
         $input_data = Data::where('slug',$request->slug)->first();
          //dd($data);
          if($input_data != null){
@@ -1559,7 +1589,14 @@ class SiteUrl extends Controller
         //dd($qrcode);
         
         //$dataCommune = null;
-        $pdf =  PDF::loadView('pdf_tdbV1', compact('data','dataCommune', 'qrcode'))->setPaper('a1')->setOrientation('landscape');
+        if(str_contains($request->hidden_url, 'planning')){
+            $pdf =  PDF::loadView('pdf_tdbPlanning', compact('data','dataCommune', 'qrcode'))->setPaper('a1')->setOrientation('landscape');
+        }elseif (str_contains($request->hidden_url, 'global')) {
+            $pdf =  PDF::loadView('pdf_tdbGlobal', compact('data','dataCommune', 'qrcode'))->setPaper('a0')->setOrientation('landscape');
+        }else {
+            $pdf =  PDF::loadView('pdf_tdbBilan', compact('data','dataCommune', 'qrcode'))->setPaper('a1')->setOrientation('landscape');
+        }
+        
         $pdf->setOption('lowquality', false);
         $pdf->setOption('dpi', 300);
         $pdf->setOption('image-quality', 1200);
