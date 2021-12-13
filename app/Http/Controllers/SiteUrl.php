@@ -193,10 +193,8 @@ class SiteUrl extends Controller
          }
 
          if($tdbType === 'planning'){
-            
             return view('pages.menu.mtdbPlanning',compact('countries', 'dataCommune'));
          }elseif($tdbType === 'global'){
-            $dataCommune = null; 
             return view('pages.menu.mtdbGlobal',compact('countries', 'dataCommune'));
          }else {
             return view('pages.menu.mtdb',compact('countries', 'dataCommune'));
@@ -1539,10 +1537,6 @@ class SiteUrl extends Controller
         return response()->json($communes);
     }
 
-    public function getdata() {
-        dd(Data::find(3)->pcds);
-    }
-
     public function makePdf(Request $request){
        
         $data = [
@@ -1570,7 +1564,7 @@ class SiteUrl extends Controller
         //dd($qrcode);
         
         //$dataCommune = null;
-        $pdf =  PDF::loadView('pdf_tdb', compact('data','dataCommune', 'qrcode'))->setPaper('a1')->setOrientation('landscape');
+        $pdf =  PDF::loadView('pdf_tdbV1', compact('data','dataCommune', 'qrcode'))->setPaper('a1')->setOrientation('landscape');
         $pdf->setOption('lowquality', false);
         $pdf->setOption('dpi', 300);
         $pdf->setOption('image-quality', 1200);

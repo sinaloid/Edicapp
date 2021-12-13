@@ -414,16 +414,16 @@
               height: 200,*/
           };
 
-          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-          var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+          var chartRecetteFonct = new google.visualization.PieChart(document.getElementById('piechart'));
+          var chartDepenseFonct = new google.visualization.PieChart(document.getElementById('piechart1'));
           var chartRecetteInvest = new google.visualization.PieChart(document.getElementById('piechart2'));
           var chartDepenseInvest = new google.visualization.PieChart(document.getElementById('piechart3'));
 
-          google.visualization.events.addListener(chart, 'ready', function() {
-              document.getElementById("hidden_bg_recett_fcnt").value = "" + chart.getImageURI();
+          google.visualization.events.addListener(chartRecetteFonct, 'ready', function() {
+              document.getElementById("hidden_bg_recett_fcnt").value = "" + chartRecetteFonct.getImageURI();
           })
-          google.visualization.events.addListener(chart1, 'ready', function() {
-              document.getElementById("hidden_bg_depens_fnct").value = "" + chart1.getImageURI();
+          google.visualization.events.addListener(chartDepenseFonct, 'ready', function() {
+              document.getElementById("hidden_bg_depens_fnct").value = "" + chartDepenseFonct.getImageURI();
           })
           google.visualization.events.addListener(chartRecetteInvest, 'ready', function() {
               document.getElementById("hidden_bg_recett_invest").value = "" + chartRecetteInvest.getImageURI();
@@ -432,16 +432,16 @@
               document.getElementById("hidden_bg_depens_invest").value = "" + chartDepenseInvest.getImageURI();
           })
 
-          chart.draw(dataRecetteFonct, options);
-          chart1.draw(dataDepenseFonct, options);
+          chartRecetteFonct.draw(dataRecetteFonct, options);
+          chartDepenseFonct.draw(dataDepenseFonct, options);
           chartRecetteInvest.draw(dataRecetteInvest, options);
           chartDepenseInvest.draw(dataDepenseInvest, options);
 
           $(window).smartresize(function() {
-              chart.draw(dataRecetteFonct, options);
-              chart1.draw(dataDepenseFonct, options);
-              chartRecetteInvest.draw(dataRecetteInvest, options);
-              chartDepenseInvest.draw(dataDepenseInvest, options);
+            chartRecetteFonct.draw(dataRecetteFonct, options);
+            chartDepenseFonct.draw(dataDepenseFonct, options);
+            chartRecetteInvest.draw(dataRecetteInvest, options);
+            chartDepenseInvest.draw(dataDepenseInvest, options);
           });
           
       }
