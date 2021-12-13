@@ -9,6 +9,6 @@
         <a class="nav-link @if (Route::currentRouteName() == 'datas.bg') active @endif" href="{{ route('datas.bg', isset($dataCommune) ? $dataCommune['slug'] : 'bg') }}">Budget</a>
     </li>
     <li class="nav-item" title="Tableau de Bord">
-        <a class="nav-link @if (Route::currentRouteName() == 'datas.tdb') active @endif" href="{{ route('datas.tdb', isset($dataCommune) ? $dataCommune['slug'] : 'tdb') }}">TdB</a>
+        <a class="nav-link @if (Route::currentRouteName() == 'datas.tdb') active @endif" href="{{ route('datas.tdb', isset($dataCommune) ? ['tdb_bilan',$dataCommune['slug']] : 'tdb') }}">TdB</a>
     </li>
 </ul>

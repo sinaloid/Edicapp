@@ -55,7 +55,7 @@ Route::get('datas/budget/{slug?}', [SiteUrl::class, 'datasBudget'])->name('datas
 Route::get('datas/budget/mbudget/{slug?}', [SiteUrl::class, 'getBudget'])->name('budget');
 Route::get('datas/budget/mbudgetn/{slug?}', [SiteUrl::class, 'getBudgetN'])->name('budgetn');
 
-Route::get('datas/tdb/{slug?}', [SiteUrl::class, 'datasTdb'])->name('datas.tdb');
+Route::get('datas/tdb/{tdbType?}/{slug?}', [SiteUrl::class, 'datasTdb'])->name('datas.tdb');
 Route::get('datas/cmp', [SiteUrl::class, 'Compare'])->name('datas.cmp');
 Route::get('datas/cmpdt', [SiteUrl::class, 'datasCompare'])->name('datas.cmpdt');
 Route::get('datas/{id}', [SiteUrl::class, 'getDatasCompare']);

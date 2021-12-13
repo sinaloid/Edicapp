@@ -129,6 +129,7 @@
                             <span class="badge badge-dark">
                                 <a class="text-white" href="{{ route('make_file_exporte', [''.Route::currentRouteName(),'json', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}"># json</a>
                             </span>
+                            
                         </p>
                         
                     </div>
@@ -171,6 +172,7 @@
             @include("pages.menu.menu")
             <div id="pdf" class="container px-1">
                 <h3 class="my-4">@yield('dataTitle')</h3>
+                <p class="my-4">@yield('allTdb')</p>
                 <hr style="height:1px;border-width:5;color:#444;background-color:#444">
                 @yield('dataContent')
             </div>

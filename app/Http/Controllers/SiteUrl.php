@@ -182,7 +182,7 @@ class SiteUrl extends Controller
         return view('pages.includes.budgetn',compact('countries', 'dataCommune'));
     }
 
-    public function datasTdb($slug = ''){
+    public function datasTdb($tdbType='',$slug = ''){
         $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
          //dd($data);
@@ -191,7 +191,17 @@ class SiteUrl extends Controller
          }else{
             $dataCommune = null; 
          }
-        return view('pages.menu.mtdb',compact('countries', 'dataCommune'));
+
+         if($tdbType === 'planning'){
+            
+            return view('pages.menu.mtdbPlanning',compact('countries', 'dataCommune'));
+         }elseif($tdbType === 'global'){
+            $dataCommune = null; 
+            return view('pages.menu.mtdbGlobal',compact('countries', 'dataCommune'));
+         }else {
+            return view('pages.menu.mtdb',compact('countries', 'dataCommune'));
+         }
+        
         
     }
 
