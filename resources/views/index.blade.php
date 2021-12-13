@@ -307,7 +307,7 @@ function drawChart() {
         </div>
         <div class="col-6 col-lg-2 mt-3" title="Tableau de Bord">
             <a id="tdb" class="col-card card w-75 p-2"
-                href="{{ route('datas.tdb', isset($dataCommune) ? $dataCommune['slug'] : 'tdb') }}">
+                href="{{ route('datas.tdb', isset($dataCommune) ? ['bilan',$dataCommune['slug']] : 'tdb') }}">
                 <img class="mx-auto" src="img/tdb.png" alt="img tdb">
                 <h4 class="m-auto font-weight-bolder">Tdb</h4>
             </a>
