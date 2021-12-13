@@ -192,13 +192,8 @@ class SiteUrl extends Controller
             $dataCommune = null; 
          }
 
-         if($tdbType === 'planning'){
-            return view('pages.menu.mtdbPlanning',compact('countries', 'dataCommune'));
-         }elseif($tdbType === 'global'){
-            return view('pages.menu.mtdbGlobal',compact('countries', 'dataCommune'));
-         }else {
-            return view('pages.menu.mtdb',compact('countries', 'dataCommune'));
-         }
+         return view('pages.menu.mtdb',compact('countries', 'dataCommune'));
+         
         
         
     }

@@ -103,8 +103,15 @@
                             <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">Valider</button>
                             <a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
                             @if (Route::currentRouteName() == 'datas.tdb') 
-                            <button class="btn sin-bg-3 text-white" type="button" name="create_pdf" id="create_pdf">Exporter</button>
+                                @if(str_contains(url()->current(), 'planning'))
+                                    <button class="btn sin-bg-3 text-white" type="button" name="create_pdf" id="create_pdf">Exporter Tdb Planning</button>
+                                @elseif(str_contains(url()->current(), 'global'))
+                                    <button class="btn sin-bg-3 text-white" type="button" name="create_pdf" id="create_pdf">Exporter Tdb Global</button>
+                                @else
+                                    <button class="btn sin-bg-3 text-white" type="button" name="create_pdf" id="create_pdf">Exporter Tdb Bilan</button>
+                                @endif
                             @endif
+
                         </div>
                         <p class="mt-3 p-0">
                             <strong>

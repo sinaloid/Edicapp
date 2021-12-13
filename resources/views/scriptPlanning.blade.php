@@ -1,6 +1,7 @@
 <script src="{{ asset('js/edicappresize.js') }}"></script>
   
 <script src="https://www.gstatic.com/charts/loader.js"></script>
+@if ( !str_contains(url()->current(), 'global'))
 <script>
     //pcd, recettes
     google.charts.load("current", {
@@ -276,7 +277,7 @@
         chart3.draw(view3, options2);
     }
 </script>
-
+@endif
 
 <script>
     // recettes fonctionnement
@@ -286,7 +287,7 @@
     google.charts.setOnLoadCallback(drawChart);
     
     function drawChart() {
-        var dataRecetteFonct = google.visualization.arrayToDataTable([
+        var dataRecetteFonctn = google.visualization.arrayToDataTable([
             ['Language', 'Speakers (in millions)'],
             ["Produits de l’exploitation",{{ isset($dataCommune) ? $dataCommune['recetFonctN']->produit_exploitation : '' }}],
             ["Produits domaniaux",{{ isset($dataCommune) ? $dataCommune['recetFonctN']->produit_domaniaux : '' }}],
@@ -300,7 +301,7 @@
             //["Autres dotations de transfert", {{ isset($dataCommune) ? $dataCommune['recetFonctN']->autres_dotations : '' }} ],
         ]);
 
-        var dataDepenseFonct = google.visualization.arrayToDataTable([
+        var dataDepenseFonctn = google.visualization.arrayToDataTable([
             ['Language', 'Speakers (in millions)'],
             ["Santé",{{ isset($dataCommune) ? $dataCommune['depensFonctN']->sante : '' }}],
             ["Appui scolaire", {{ isset($dataCommune) ? $dataCommune['depensFonctN']->appui_scolaire : '' }}],
@@ -315,7 +316,7 @@
             ["Excédent / Prélèvement", {{ isset($dataCommune) ? $dataCommune['depensFonctN']->exedent_prelevement : '' }}],
         ]);
 
-        var dataRecetteInvest = google.visualization.arrayToDataTable([
+        var dataRecetteInvestn = google.visualization.arrayToDataTable([
             ['Language', 'Speakers (in millions)'],
             ["Dotation globale",{{ isset($dataCommune) ? $dataCommune['recetInvestN']->dotation_globale : '' }}],
             ["Subventions d'équipement",{{ isset($dataCommune) ? $dataCommune['recetInvestN']->subvention_equipement : '' }}],
@@ -326,7 +327,7 @@
              
         ]);
 
-        var dataDepenseInvest = google.visualization.arrayToDataTable([
+        var dataDepenseInvestn = google.visualization.arrayToDataTable([
             ['Language', 'Speakers (in millions)'],
             ['Études & Recherches',{{ isset($dataCommune) ? $dataCommune['depensInvestN']->etude_recherche : 0 }}],
             ["Environnement",{{ isset($dataCommune) ? $dataCommune['depensInvestN']->environnement : 0 }}],
@@ -414,34 +415,34 @@
             height: 200,*/
         };
 
-        var chartRecetteFonct = new google.visualization.PieChart(document.getElementById('piechart'));
-        var chartDepenseFonct = new google.visualization.PieChart(document.getElementById('piechart1'));
-        var chartRecetteInvest = new google.visualization.PieChart(document.getElementById('piechart2'));
-        var chartDepenseInvest = new google.visualization.PieChart(document.getElementById('piechart3'));
+        var chartRecetteFonctn = new google.visualization.PieChart(document.getElementById('piechartn'));
+        var chartDepenseFonctn = new google.visualization.PieChart(document.getElementById('piechartn1'));
+        var chartRecetteInvestn = new google.visualization.PieChart(document.getElementById('piechartn2'));
+        var chartDepenseInvestn = new google.visualization.PieChart(document.getElementById('piechartn3'));
 
-        google.visualization.events.addListener(chartRecetteFonct, 'ready', function() {
-            document.getElementById("hidden_bg_recett_fcnt").value = "" + chartRecetteFonct.getImageURI();
+        google.visualization.events.addListener(chartRecetteFonctn, 'ready', function() {
+            document.getElementById("hidden_bg_recett_fcntn").value = "" + chartRecetteFonctn.getImageURI();
         })
-        google.visualization.events.addListener(chartDepenseFonct, 'ready', function() {
-            document.getElementById("hidden_bg_depens_fnct").value = "" + chartDepenseFonct.getImageURI();
+        google.visualization.events.addListener(chartDepenseFonctn, 'ready', function() {
+            document.getElementById("hidden_bg_depens_fnctn").value = "" + chartDepenseFonctn.getImageURI();
         })
-        google.visualization.events.addListener(chartRecetteInvest, 'ready', function() {
-            document.getElementById("hidden_bg_recett_invest").value = "" + chartRecetteInvest.getImageURI();
+        google.visualization.events.addListener(chartRecetteInvestn, 'ready', function() {
+            document.getElementById("hidden_bg_recett_investn").value = "" + chartRecetteInvestn.getImageURI();
         })
-        google.visualization.events.addListener(chartDepenseInvest, 'ready', function() {
-            document.getElementById("hidden_bg_depens_invest").value = "" + chartDepenseInvest.getImageURI();
+        google.visualization.events.addListener(chartDepenseInvestn, 'ready', function() {
+            document.getElementById("hidden_bg_depens_investn").value = "" + chartDepenseInvestn.getImageURI();
         })
 
-        chartRecetteFonct.draw(dataRecetteFonct, options);
-        chartDepenseFonct.draw(dataDepenseFonct, options);
-        chartRecetteInvest.draw(dataRecetteInvest, options);
-        chartDepenseInvest.draw(dataDepenseInvest, options);
+        chartRecetteFonctn.draw(dataRecetteFonctn, options);
+        chartDepenseFonctn.draw(dataDepenseFonctn, options);
+        chartRecetteInvestn.draw(dataRecetteInvestn, options);
+        chartDepenseInvestn.draw(dataDepenseInvestn, options);
 
         $(window).smartresize(function() {
-          chartRecetteFonct.draw(dataRecetteFonct, options);
-          chartDepenseFonct.draw(dataDepenseFonct, options);
-          chartRecetteInvest.draw(dataRecetteInvest, options);
-          chartDepenseInvest.draw(dataDepenseInvest, options);
+          chartRecetteFonctn.draw(dataRecetteFonctn, options);
+          chartDepenseFonctn.draw(dataDepenseFonctn, options);
+          chartRecetteInvestn.draw(dataRecetteInvestn, options);
+          chartDepenseInvestn.draw(dataDepenseInvestn, options);
         });
         
     }
