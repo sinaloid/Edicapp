@@ -16,7 +16,7 @@
 
 </head>
 
-<body style="width: 4408px; height:2480px;">
+<body style="width: 100%; height:2480px;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-9  text-center text-edicp">
@@ -187,11 +187,6 @@
                     </div>
                 </div>
 
-
-
-
-            </div>
-            <div class="col-xs-8">
                 <div class="col-xs-12 title text-center text-uppercase">Prévision du fonctionnement
                 </div> <br> <br>
                 <div class="row ">
@@ -308,40 +303,14 @@
                                 </div>
                             </div>
                         </div>
-                        @if ($dataCommune != null)
-                            <div class="row justify-content-center mt-2">
-                                @if ($dataCommune['ressourceImage'][0]->url != null)
-                                    <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
-                                        <br>
-                                        <br>
-                                        <img class="img-fluid"
-                                            src="{{ public_path('/' . $dataCommune['ressourceImage'][0]->url) }}"
-                                            style="width:auto; max-height:400px" alt="img1" />
-                                    </div>
-                                @endif
-                                @if ($dataCommune['ressourceImage'][1]->url != null)
-                                    <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
-                                        <br>
-                                        <br>
-                                        <img class="img-fluid"
-                                            src="{{ public_path('/' . $dataCommune['ressourceImage'][1]->url) }}"
-                                            style="width:auto; max-height:400px" alt="img1" />
-                                    </div>
-                                @endif
-                                @if ($dataCommune['ressourceImage'][2]->url != null)
-                                    <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
-                                        <br>
-                                        <br>
-                                        <img class="img-fluid"
-                                            src="{{ public_path('/' . $dataCommune['ressourceImage'][2]->url) }}"
-                                            style="width:auto; max-height:400px" alt="img1" />
-                                    </div>
-                                @endif
-                            </div>
-                        @endif
+                        
                     </div>
                 </div>
+
+
+
             </div>
+           
             <!-- Table -->
             <div class="col-xs-4">
                 <div class="row mt-3">
@@ -523,7 +492,37 @@
                     </div>
                 </div>
 
-
+                @if ($dataCommune != null)
+                <div class="row justify-content-center mt-2">
+                    @if ($dataCommune['ressourceImage'][0]->url != null)
+                        <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
+                            <br>
+                            <br>
+                            <img class="img-fluid"
+                                src="{{ public_path('/' . $dataCommune['ressourceImage'][0]->url) }}"
+                                style="width:auto; max-height:400px" alt="img1" />
+                        </div>
+                    @endif
+                    @if ($dataCommune['ressourceImage'][1]->url != null)
+                        <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
+                            <br>
+                            <br>
+                            <img class="img-fluid"
+                                src="{{ public_path('/' . $dataCommune['ressourceImage'][1]->url) }}"
+                                style="width:auto; max-height:400px" alt="img1" />
+                        </div>
+                    @endif
+                    @if ($dataCommune['ressourceImage'][2]->url != null)
+                        <div class="col-xs-4 col-md-4 font-weight-bolder text-center text-uppercase">
+                            <br>
+                            <br>
+                            <img class="img-fluid"
+                                src="{{ public_path('/' . $dataCommune['ressourceImage'][2]->url) }}"
+                                style="width:auto; max-height:400px" alt="img1" />
+                        </div>
+                    @endif
+                </div>
+            @endif
                 <!--img src="{{ $data['hidden_resultat'] }}" style="width:100%" alt="">
                 <img src="{{ $data['hidden_bg_recett_invest'] }}" style="width:100%" alt="">
                 <img src="{{ $data['hidden_bg_depens_invest'] }}" style="width:100%" alt=""-->
