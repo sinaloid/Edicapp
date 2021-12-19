@@ -168,7 +168,7 @@
                 <tr>
                 <tr>
                     <th class="bg-info text-white">Total Investissements</th>
-                    <td>{{ isset($dataCommune) ? number_format($dataCommune['recetInvest']->dotation_globale
+                    <td>{{ isset($dataCommune) ? number_format($dataCommune['recetInvestN']->dotation_globale
                 + $dataCommune['recetInvestN']->subvention_equipement
                 + $dataCommune['recetInvestN']->contribution_propre
                 + $dataCommune['recetInvestN']->dotation_liee
