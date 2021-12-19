@@ -109,7 +109,7 @@
                 <tr>
                 <tr>
                     <th class="bg-info text-white">Total Fonctionnement</th>
-                    <td>{{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->produit_exploitation
+                    <td>{{ isset($dataCommune) ? number_format($dataCommune['recetFonctN']->produit_exploitation
                 + $dataCommune['recetFonctN']->produit_domaniaux
                 + $dataCommune['recetFonctN']->produit_financier
                 + $dataCommune['recetFonctN']->recouvrement
@@ -118,7 +118,7 @@
                 + $dataCommune['recetFonctN']->impots_taxe_indirect
                 + $dataCommune['recetFonctN']->produit_exceptionnel
                 + $dataCommune['recetFonctN']->produit_anterieur,0,",",".")  : '' }}</td>
-                    <td>{{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->sante
+                    <td>{{ isset($dataCommune) ? number_format($dataCommune['depensFonctN']->sante
                 + $dataCommune['depensFonctN']->appui_scolaire
                 + $dataCommune['depensFonctN']->sport_culture
                 + $dataCommune['depensFonctN']->participation
