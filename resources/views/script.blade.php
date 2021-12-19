@@ -2,288 +2,322 @@
   
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <script>
-      //pcd, recettes
-      google.charts.load("current", {
-          packages: ['corechart']
-      });
-      google.charts.setOnLoadCallback(drawChart);
+    //pcd, recettes
+    google.charts.load("current", {
+        packages: ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-              ["Element", "Density", {
-                  role: "style"
-              }],
-              ["Consolider la résilience, la sécurité, la cohésion sociale et la paix",
-                  @php
-                  if ($dataCommune != null) {
-                      if ($dataCommune['satisfaction']->consolider_resilience_tres_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->consolider_resilience_tres_satisfaisant;
-                      } elseif ($dataCommune['satisfaction']->consolider_resilience_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->consolider_resilience_satisfaisant;
-                      } elseif ($dataCommune['satisfaction']->consolider_resilience_pas_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->consolider_resilience_pas_satisfaisant;
-                      } else {
-                          echo 0;
-                      }
-                  }
-                  @endphp, "#b87333"
-              ],
-              ["Approfondir les réformes institutionnelles et moderniser l’administration publique",
-                  @php
-                  if ($dataCommune != null) {
-                      if ($dataCommune['satisfaction']->approfondir_reforme_tres_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->approfondir_reforme_tres_satisfaisant;
-                      } elseif ($dataCommune['satisfaction']->approfondir_reforme_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->approfondir_reforme_satisfaisant;
-                      } elseif ($dataCommune['satisfaction']->approfondir_reforme_pas_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->approfondir_reforme_pas_satisfaisant;
-                      } else {
-                          echo 0;
-                      }
-                  }
-                  @endphp, "silver"
-              ],
-              ["Consolider le développement du capital humain et la solidarité nationale",
-                  @php
-                  if ($dataCommune != null) {
-                      if ($dataCommune['satisfaction']->consolider_developpement_tres_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->consolider_developpement_tres_satisfaisant;
-                      } elseif ($dataCommune['satisfaction']->consolider_developpement_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->consolider_developpement_satisfaisant;
-                      } elseif ($dataCommune['satisfaction']->consolider_developpement_pas_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->consolider_developpement_pas_satisfaisant;
-                      } else {
-                          echo 0;
-                      }
-                  }
-                  @endphp, "gold"
-              ],
-              /*["Platinum", 21.45, "color: #e5e4e2"]*/
-              ["Dynamiser les secteurs porteurs pour l’économie et les emplois",
-                  @php
-                  if ($dataCommune != null) {
-                      if ($dataCommune['satisfaction']->dynamiser_secteurs_tres_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->dynamiser_secteurs_tres_satisfaisant;
-                      } elseif ($dataCommune['satisfaction']->dynamiser_secteurs_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->dynamiser_secteurs_satisfaisant;
-                      } elseif ($dataCommune['satisfaction']->dynamiser_secteurs_pas_satisfaisant != null) {
-                          echo $dataCommune['satisfaction']->dynamiser_secteurs_pas_satisfaisant;
-                      } else {
-                          echo 0;
-                      }
-                  }
-                  @endphp, "silver"
-              ],
-          ]);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ["Element", "Consolider la résilience, la sécurité, la cohésion sociale et la paix",
+            "Approfondir les réformes institutionnelles et moderniser l’administration publique",
+            "Consolider le développement du capital humain et la solidarité nationale",
+            "Dynamiser les secteurs porteurs pour l’économie et les emplois",],
+            ['',
+                @php
+                if ($dataCommune != null) {
+                    if ($dataCommune['satisfaction']->consolider_resilience_tres_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->consolider_resilience_tres_satisfaisant;
+                    } elseif ($dataCommune['satisfaction']->consolider_resilience_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->consolider_resilience_satisfaisant;
+                    } elseif ($dataCommune['satisfaction']->consolider_resilience_pas_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->consolider_resilience_pas_satisfaisant;
+                    } else {
+                        echo 0;
+                    }
+                }
+                @endphp,
+                @php
+                if ($dataCommune != null) {
+                    if ($dataCommune['satisfaction']->approfondir_reforme_tres_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->approfondir_reforme_tres_satisfaisant;
+                    } elseif ($dataCommune['satisfaction']->approfondir_reforme_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->approfondir_reforme_satisfaisant;
+                    } elseif ($dataCommune['satisfaction']->approfondir_reforme_pas_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->approfondir_reforme_pas_satisfaisant;
+                    } else {
+                        echo 0;
+                    }
+                }
+                @endphp,
+                @php
+                if ($dataCommune != null) {
+                    if ($dataCommune['satisfaction']->consolider_developpement_tres_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->consolider_developpement_tres_satisfaisant;
+                    } elseif ($dataCommune['satisfaction']->consolider_developpement_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->consolider_developpement_satisfaisant;
+                    } elseif ($dataCommune['satisfaction']->consolider_developpement_pas_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->consolider_developpement_pas_satisfaisant;
+                    } else {
+                        echo 0;
+                    }
+                }
+                @endphp,
+                @php
+                if ($dataCommune != null) {
+                    if ($dataCommune['satisfaction']->dynamiser_secteurs_tres_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->dynamiser_secteurs_tres_satisfaisant;
+                    } elseif ($dataCommune['satisfaction']->dynamiser_secteurs_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->dynamiser_secteurs_satisfaisant;
+                    } elseif ($dataCommune['satisfaction']->dynamiser_secteurs_pas_satisfaisant != null) {
+                        echo $dataCommune['satisfaction']->dynamiser_secteurs_pas_satisfaisant;
+                    } else {
+                        echo 0;
+                    }
+                }
+                @endphp
+            ],
+        ]);
 
-          var data1 = google.visualization.arrayToDataTable([
-              ["Element", "Density", {
-                  role: "style"
-              }],
-              ["{{ isset($dataCommune) ? $dataCommune['recette'][0]->annee : '' }}",
-                  {{ isset($dataCommune) ? $dataCommune['recette'][0]->fonctionnement + $dataCommune['recette'][0]->investissement : '' }},
-                  "red"
-              ],
-              ["{{ isset($dataCommune) ? $dataCommune['recette'][1]->annee : '' }}",
-                  {{ isset($dataCommune) ? $dataCommune['recette'][1]->fonctionnement + $dataCommune['recette'][1]->investissement : '' }},
-                  "red"
-              ],
-              ["{{ isset($dataCommune) ? $dataCommune['recette'][2]->annee : '' }}",
-                  {{ isset($dataCommune) ? $dataCommune['recette'][2]->fonctionnement + $dataCommune['recette'][2]->investissement : '' }},
-                  "red"
-              ],
-              ["{{ isset($dataCommune) ? $dataCommune['recette'][3]->annee : '' }}",
-                  {{ isset($dataCommune) ? $dataCommune['recette'][2]->fonctionnement + $dataCommune['recette'][2]->investissement : '' }},
-                  "red"
-              ]
-              /*["Platinum", 21.45, "color: #e5e4e2"]*/
-          ]);
+        var data1 = google.visualization.arrayToDataTable([
+            ["Element", "Density", {
+                role: "style"
+            }],
+            ["{{ isset($dataCommune) ? $dataCommune['recette'][0]->annee : '' }}",
+                {{ isset($dataCommune) ? $dataCommune['recette'][0]->fonctionnement + $dataCommune['recette'][0]->investissement : '' }},
+                "#B61AAE"
+            ],
+            ["{{ isset($dataCommune) ? $dataCommune['recette'][1]->annee : '' }}",
+                {{ isset($dataCommune) ? $dataCommune['recette'][1]->fonctionnement + $dataCommune['recette'][1]->investissement : '' }},
+                "#AA4A30"
+            ],
+            ["{{ isset($dataCommune) ? $dataCommune['recette'][2]->annee : '' }}",
+                {{ isset($dataCommune) ? $dataCommune['recette'][2]->fonctionnement + $dataCommune['recette'][2]->investissement : '' }},
+                "#1687A7"
+            ]
+            /*["Platinum", 21.45, "color: #e5e4e2"]*/
+        ]);
 
-          var data2 = google.visualization.arrayToDataTable([
-              ["Element", "Density", {
-                  role: "style"
-              }],
-              ["{{ isset($dataCommune) ? $dataCommune['depense'][0]->annee : '' }}",
-                  {{ isset($dataCommune) ? $dataCommune['depense'][0]->fonctionnement + $dataCommune['depense'][0]->investissement : '' }},
-                  "silver"
-              ],
-              ["{{ isset($dataCommune) ? $dataCommune['depense'][1]->annee : '' }}",
-                  {{ isset($dataCommune) ? $dataCommune['depense'][1]->fonctionnement + $dataCommune['depense'][1]->investissement : '' }},
-                  "silver"
-              ],
-              ["{{ isset($dataCommune) ? $dataCommune['depense'][2]->annee : '' }}",
-                  {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }},
-                  "silver"
-              ],
-              ["{{ isset($dataCommune) ? $dataCommune['depense'][3]->annee : '' }}",
-                  {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }},
-                  "silver"
-              ]
-              /*["Platinum", 21.45, "color: #e5e4e2"]*/
-              /*["Platinum", 21.45, "color: #e5e4e2"]*/
-          ]);
+        var data2 = google.visualization.arrayToDataTable([
+            ["Element", "Density", {
+                role: "style"
+            }],
+            ["{{ isset($dataCommune) ? $dataCommune['depense'][0]->annee : '' }}",
+                {{ isset($dataCommune) ? $dataCommune['depense'][0]->fonctionnement + $dataCommune['depense'][0]->investissement : '' }},
+                "#519259"
+            ],
+            ["{{ isset($dataCommune) ? $dataCommune['depense'][1]->annee : '' }}",
+                {{ isset($dataCommune) ? $dataCommune['depense'][1]->fonctionnement + $dataCommune['depense'][1]->investissement : '' }},
+                "#516beb"
+            ],
+            ["{{ isset($dataCommune) ? $dataCommune['depense'][2]->annee : '' }}",
+                {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }},
+                "#8e806a"
+            ]
+            /*["Platinum", 21.45, "color: #e5e4e2"]*/
+            /*["Platinum", 21.45, "color: #e5e4e2"]*/
+        ]);
+            var resultat_inverst = ''
+            var resultat_fonct = ''
+        var data3 = google.visualization.arrayToDataTable([
+            ["Element", "Density", {
+                role: "style"
+            }],
+            ["Résultat d'investissement",
+            resultat_inverst = {{ isset($dataCommune) ? 
+                $dataCommune['recetInvest']->dotation_globale + 
+                $dataCommune['recetInvest']->subvention_equipement + 
+                $dataCommune['recetInvest']->contribution_propre + 
+                $dataCommune['recetInvest']->dotation_liee + 
+                $dataCommune['recetInvest']->resultat_exercice - 
+                ($dataCommune['depensInvest']->etude_recherche + 
+                $dataCommune['depensInvest']->environnement + 
+                $dataCommune['depensInvest']->equipement +
+                $dataCommune['depensInvest']->batiment + 
+                $dataCommune['depensInvest']->emprunt + 
+                $dataCommune['depensInvest']->autre_investissement + 
+                $dataCommune['depensInvest']->deficit_excedent) : '' }},
+                "green"
+            ],
+            ["Résultat de fonctionnement",
+            resultat_fonct = {{ isset($dataCommune) ? 
+                $dataCommune['recetFonct']->produit_exploitation + 
+                $dataCommune['recetFonct']->produit_domaniaux + 
+                $dataCommune['recetFonct']->produit_financier + 
+                $dataCommune['recetFonct']->recouvrement + 
+                $dataCommune['recetFonct']->produit_diver + 
+                $dataCommune['recetFonct']->impots_taxe_c_direct + 
+                $dataCommune['recetFonct']->impots_taxe_indirect + 
+                $dataCommune['recetFonct']->produit_exceptionnel + 
+                $dataCommune['recetFonct']->produit_anterieur - 
+                ($dataCommune['depensFonct']->sante + 
+                $dataCommune['depensFonct']->appui_scolaire + 
+                $dataCommune['depensFonct']->sport_culture + 
+                $dataCommune['depensFonct']->participation + 
+                $dataCommune['depensFonct']->frais_financier + 
+                $dataCommune['depensFonct']->refection_entretien + 
+                $dataCommune['depensFonct']->salaire_indemnite + 
+                $dataCommune['depensFonct']->entretien_vehicule + 
+                $dataCommune['depensFonct']->appui_fonctionnement + 
+                $dataCommune['depensFonct']->autres_charges_exceptionnel + 
+                $dataCommune['depensFonct']->exedent_prelevement) : '' }},
+                "#b87333"
+            ],
+            ["Résultat global {{ isset($dataCommune) ? $dataCommune['annee'] : '' }}",
+             resultat_inverst + resultat_fonct ,
+                "#F73859"
+            ]
+            /*["Platinum", 21.45, "color: #e5e4e2"]*/
+            /*["Platinum", 21.45, "color: #e5e4e2"]*/
+        ]);
 
-          var data3 = google.visualization.arrayToDataTable([
-              ["Element", "Density", {
-                  role: "style"
-              }],
-              ["Résultat d'investissement",
-                  {{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_globale + $dataCommune['recetInvest']->subvention_equipement + $dataCommune['recetInvest']->contribution_propre + $dataCommune['recetInvest']->dotation_liee + $dataCommune['recetInvest']->resultat_exercice - ($dataCommune['depensInvest']->etude_recherche + $dataCommune['depensInvest']->environnement + $dataCommune['depensInvest']->equipement + $dataCommune['depensInvest']->batiment + $dataCommune['depensInvest']->emprunt + $dataCommune['depensInvest']->autre_investissement + $dataCommune['depensInvest']->deficit_excedent) : '' }},
-                  "green"
-              ],
-              ["Résultat de fonctionnement",
-                  {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exploitation + $dataCommune['recetFonct']->produit_domaniaux + $dataCommune['recetFonct']->produit_financier + $dataCommune['recetFonct']->recouvrement + $dataCommune['recetFonct']->produit_diver + $dataCommune['recetFonct']->impots_taxe_c_direct + $dataCommune['recetFonct']->impots_taxe_indirect + $dataCommune['recetFonct']->produit_exceptionnel + $dataCommune['recetFonct']->produit_anterieur - ($dataCommune['depensFonct']->sante + $dataCommune['depensFonct']->appui_scolaire + $dataCommune['depensFonct']->sport_culture + $dataCommune['depensFonct']->participation + $dataCommune['depensFonct']->frais_financier + $dataCommune['depensFonct']->refection_entretien + $dataCommune['depensFonct']->salaire_indemnite + $dataCommune['depensFonct']->entretien_vehicule + $dataCommune['depensFonct']->appui_fonctionnement + $dataCommune['depensFonct']->exedent_prelevement) : '' }},
-                  "#b87333"
-              ],
-              ["Résultat global {{ isset($dataCommune) ? $dataCommune['annee'] : '' }}",
-                  {{ isset($dataCommune)
-                      ? $dataCommune['recetInvest']->dotation_globale +
-                          $dataCommune['recetInvest']->subvention_equipement +
-                          $dataCommune['recetInvest']->contribution_propre +
-                          $dataCommune['recetInvest']->dotation_liee +
-                          $dataCommune['recetInvest']->resultat_exercice -
-                          ($dataCommune['depensInvest']->etude_recherche + $dataCommune['depensInvest']->environnement + $dataCommune['depensInvest']->equipement + $dataCommune['depensInvest']->batiment + $dataCommune['depensInvest']->emprunt + $dataCommune['depensInvest']->autre_investissement + $dataCommune['depensInvest']->deficit_excedent) +
-                          ($dataCommune['recetFonct']->produit_exploitation + $dataCommune['recetFonct']->produit_domaniaux + $dataCommune['recetFonct']->produit_financier + $dataCommune['recetFonct']->recouvrement + $dataCommune['recetFonct']->produit_diver + $dataCommune['recetFonct']->impots_taxe_c_direct + $dataCommune['recetFonct']->impots_taxe_indirect + $dataCommune['recetFonct']->produit_exceptionnel + $dataCommune['recetFonct']->produit_anterieur - ($dataCommune['depensFonct']->sante + $dataCommune['depensFonct']->appui_scolaire + $dataCommune['depensFonct']->sport_culture + $dataCommune['depensFonct']->participation + $dataCommune['depensFonct']->frais_financier + $dataCommune['depensFonct']->refection_entretien + $dataCommune['depensFonct']->salaire_indemnite + $dataCommune['depensFonct']->entretien_vehicule + $dataCommune['depensFonct']->appui_fonctionnement + $dataCommune['depensFonct']->exedent_prelevement))
-                      : '' }},
-                  "red"
-              ]
-              /*["Platinum", 21.45, "color: #e5e4e2"]*/
-              /*["Platinum", 21.45, "color: #e5e4e2"]*/
-          ]);
+        var view = new google.visualization.DataView(data);
+        var view1 = new google.visualization.DataView(data1);
+        var view2 = new google.visualization.DataView(data2);
+        var view3 = new google.visualization.DataView(data3);
+        view.setColumns([0, 1,
+            {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2,
+            {
+                calc: "stringify",
+                sourceColumn: 2,
+                type: "string",
+                role: "annotation"
+            },
+            3,
+            {
+                calc: "stringify",
+                sourceColumn: 3,
+                type: "string",
+                role: "annotation"
+            },
+            4,
+            {
+                calc: "stringify",
+                sourceColumn: 4,
+                type: "string",
+                role: "annotation"
+            }
+        ]);
 
-          var view = new google.visualization.DataView(data);
-          var view1 = new google.visualization.DataView(data1);
-          var view2 = new google.visualization.DataView(data2);
-          var view3 = new google.visualization.DataView(data3);
-          view.setColumns([0, 1,
-              {
-                  calc: "stringify",
-                  sourceColumn: 1,
-                  type: "string",
-                  role: "annotation"
-              },
-              2
-          ]);
+        view1.setColumns([0, 1,
+            {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2
+        ]);
 
-          view1.setColumns([0, 1,
-              {
-                  calc: "stringify",
-                  sourceColumn: 1,
-                  type: "string",
-                  role: "annotation"
-              },
-              2
-          ]);
-
-          view2.setColumns([0, 1,
-              {
-                  calc: "stringify",
-                  sourceColumn: 1,
-                  type: "string",
-                  role: "annotation"
-              },
-              2
-          ]);
-          view3.setColumns([0, 1,
-              {
-                  calc: "stringify",
-                  sourceColumn: 1,
-                  type: "string",
-                  role: "annotation"
-              },
-              2
-          ]);
+        view2.setColumns([0, 1,
+            {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2
+        ]);
+        view3.setColumns([0, 1,
+            {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2
+        ]);
 
 
-          var options = {
-              title: "",
-              /* width: 320,
-               height: 220,*/
-              bar: {
-                  groupWidth: "90%"
-              },
-              legend: {
-                  position: "false"
-              },
-              chartArea: {
-                  top: 20,
-                  width: '100%',
-                  height: '75%'
-              }
-          };
+        var options = {
+            title: "",
+            /* width: 320,
+             height: 220,*/
+            bar: {
+                groupWidth: "90%"
+            },
+            legend: {
+                position: "bottom"
+            },
+            chartArea: {
+                top: 20,
+                width: '100%',
+                height: '75%'
+            },
+            
+            
+        };
+        
 
-          var options1 = {
-              title: "",
-              /*width: 320,
-              height: 220,*/
-              bar: {
-                  groupWidth: "90%"
-              },
-              legend: {
-                  position: "true"
-              },
-              chartArea: {
-                  top: 20,
-                  width: '100%',
-                  height: '75%'
-              }
-          };
+        var options1 = {
+            title: "",
+            /*width: 320,
+            height: 220,*/
+            bar: {
+                groupWidth: "90%"
+            },
+            legend: {
+                position: "true"
+            },
+            chartArea: {
+                top: 20,
+                width: '100%',
+                height: '75%'
+            }
+        };
 
-          var options2 = {
-              title: "",
-              /*width: 320,
-              height: 220,*/
-              bar: {
-                  groupWidth: "90%"
-              },
-              legend: {
-                  position: "true"
-              },
-              chartArea: {
-                  top: 20,
-                  width: '100%',
-                  height: '75%'
-              }
+        var options2 = {
+            title: "",
+            /*width: 320,
+            height: 220,*/
+            bar: {
+                groupWidth: "90%"
+            },
+            legend: {
+                position: "true"
+            },
+            chartArea: {
+                top: 20,
+                width: '100%',
+                height: '75%'
+            }
 
-          };
+        };
 
-          var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-          var chart1 = new google.visualization.ColumnChart(document.getElementById("columnchart_values1"));
-          var chart2 = new google.visualization.ColumnChart(document.getElementById("columnchart_values2"));
-          var chart3 = new google.visualization.ColumnChart(document.getElementById("columnchart_values3"));
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        var chart1 = new google.visualization.ColumnChart(document.getElementById("columnchart_values1"));
+        var chart2 = new google.visualization.ColumnChart(document.getElementById("columnchart_values2"));
+        var chart3 = new google.visualization.ColumnChart(document.getElementById("columnchart_values3"));
 
-          /*image*/
-          google.visualization.events.addListener(chart, 'ready', function() {
-              document.getElementById("hidden_pcd").value = "" + chart.getImageURI();
-          })
-          google.visualization.events.addListener(chart1, 'ready', function() {
-              document.getElementById("hidden_recette").value = "" + chart1.getImageURI();
-          })
-          google.visualization.events.addListener(chart2, 'ready', function() {
-              document.getElementById("hidden_depense").value = "" + chart2.getImageURI();
-          })
-          google.visualization.events.addListener(chart3, 'ready', function() {
-              document.getElementById("hidden_resultat").value = "" + chart3.getImageURI();
-          })
+        /*image*/
+        google.visualization.events.addListener(chart, 'ready', function() {
+            document.getElementById("hidden_pcd").value = "" + chart.getImageURI();
+        })
+        google.visualization.events.addListener(chart1, 'ready', function() {
+            document.getElementById("hidden_recette").value = "" + chart1.getImageURI();
+        })
+        google.visualization.events.addListener(chart2, 'ready', function() {
+            document.getElementById("hidden_depense").value = "" + chart2.getImageURI();
+        })
+        google.visualization.events.addListener(chart3, 'ready', function() {
+            document.getElementById("hidden_resultat").value = "" + chart3.getImageURI();
+        })
 
-          var hidden_bg_recett_fcnt = document.getElementById('hidden_bg_recett_fcnt');
-          var hidden_bg_depens_fnct = document.getElementById('hidden_bg_depens_fcnt');
-          var hidden_bg_recett_invest = document.getElementById('hidden_bg_recett_invest');
-          var hidden_bg_depens_invest = document.getElementById('hidden_bg_depens_invest');
+        var hidden_bg_recett_fcnt = document.getElementById('hidden_bg_recett_fcnt');
+        var hidden_bg_depens_fnct = document.getElementById('hidden_bg_depens_fcnt');
+        var hidden_bg_recett_invest = document.getElementById('hidden_bg_recett_invest');
+        var hidden_bg_depens_invest = document.getElementById('hidden_bg_depens_invest');
 
-          chart.draw(view, options1);
-          chart1.draw(view1, options1);
-          chart2.draw(view2, options2);
-          chart3.draw(view3, options2);
+        chart.draw(view, options);
+        chart1.draw(view1, options1);
+        chart2.draw(view2, options2);
+        chart3.draw(view3, options2);
 
-          $(window).smartresize(function() {
-              chart.draw(view, options);
-              chart1.draw(view1, options1);
-              chart2.draw(view2, options2);
-          });
-          chart3.draw(view3, options2);
-      }
-  </script>
+        $(window).smartresize(function() {
+            chart.draw(view, options);
+            chart1.draw(view1, options1);
+            chart2.draw(view2, options2);
+        });
+        chart3.draw(view3, options2);
+    }
+</script>
 
 
   <script>
@@ -305,7 +339,7 @@
               ["Impôts et taxes indirects",{{ isset($dataCommune) ? $dataCommune['recetFonct']->impots_taxe_indirect : '' }}],
               ["Produits exceptionnels",{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exceptionnel : '' }}],
               ["Produits antérieurs",{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_anterieur : '' }}],
-              //["Autres dotations de transfert", {{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }} ],
+              ["Autres dotations de transfert", {{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }} ]
           ]);
 
           var dataDepenseFonct = google.visualization.arrayToDataTable([
@@ -342,12 +376,14 @@
               ["Bâtiment",{{ isset($dataCommune) ? $dataCommune['depensInvest']->batiment : 0 }}],
               ["Emprunt", {{ isset($dataCommune) ? $dataCommune['depensInvest']->emprunt : '' }}],
               ["Déficit / Excédent d'investissement exer anté",{{ isset($dataCommune) ? $dataCommune['depensInvest']->deficit_excedent : 0 }}],
-              /*["Autres dotations de transfert", {{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }} ],*/
+              /*["Autres dotations de transfert",  isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }} ],*/
           ]);
 
           var options = {
               title: '',
               legend: 'true',
+              //'#84DFFF','#06FF00', colors: ['#2D4263', '#C84B31', '#C84B31', '#ECDBBA', '#FF8E00'],['#2D4263', '#C84B31', '#C84B31', '#ECDBBA', '#FF8E00'],
+              colors:['#F05454','#A0937D','#C7B198','#A68DAD','#FF8E00','#7CD1B8','#516BEB','#8E806A','#519259','#FF9999','#99A799','#CD1818','#533535','#30475E'],
               legend: {
                   position: 'right'
               },
@@ -391,36 +427,8 @@
                height: 200,*/
           };
 
-          var options1 = {
-              title: '',
-              legend: 'true',
-              legend: {
-                  position: 'top'
-              },
-              pieSliceText: 'label',
-              slices: {
-                  4: {
-                      offset: 0.2
-                  },
-                  12: {
-                      offset: 0.3
-                  },
-                  14: {
-                      offset: 0.4
-                  },
-                  15: {
-                      offset: 0.5
-                  },
-              },
-              is3D: 'true',
-              chartArea: {
-                  top: 20,
-                  width: '100%',
-                  height: '100%'
-              },
-              /*width: 320,
-              height: 200,*/
-          };
+          var options1 = options
+              //options1.colors = ['#FFDE7D','#00B8A9','#393E46','#00ADB5','#F08A5D','#B83B5E','#6A2C70','#F9ED69','#FF2E63','#08D9D6','#3F72AF','#355C7D','#53354A'];
 
           var chartRecetteFonct = new google.visualization.PieChart(document.getElementById('piechart'));
           var chartDepenseFonct = new google.visualization.PieChart(document.getElementById('piechart1'));
@@ -442,14 +450,14 @@
 
           chartRecetteFonct.draw(dataRecetteFonct, options);
           chartDepenseFonct.draw(dataDepenseFonct, options);
-          chartRecetteInvest.draw(dataRecetteInvest, options);
-          chartDepenseInvest.draw(dataDepenseInvest, options);
+          chartRecetteInvest.draw(dataRecetteInvest, options1);
+          chartDepenseInvest.draw(dataDepenseInvest, options1);
 
           $(window).smartresize(function() {
             chartRecetteFonct.draw(dataRecetteFonct, options);
             chartDepenseFonct.draw(dataDepenseFonct, options);
-            chartRecetteInvest.draw(dataRecetteInvest, options);
-            chartDepenseInvest.draw(dataDepenseInvest, options);
+            chartRecetteInvest.draw(dataRecetteInvest, options1);
+            chartDepenseInvest.draw(dataDepenseInvest, options1);
           });
           
       }

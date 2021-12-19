@@ -432,7 +432,7 @@ class DataCommuneController extends Controller
             $depensInvest->equipement = $request->budget_depens_invest_equipement;
             $depensInvest->batiment = $request->budget_depens_invest_batiment;
             $depensInvest->emprunt = $request->budget_depens_invest_emprunt;
-            $depensInvest->autre_investissement = $request->budget_depens_invest_autre_investissement;
+            //$depensInvest->autre_investissement = $request->budget_depens_invest_autre_investissement;
             $depensInvest->deficit_excedent = $request->budget_depens_invest_deficit_excedent;
             
             $depensInvest->save();
@@ -487,7 +487,7 @@ class DataCommuneController extends Controller
             $depensInvestN->equipement = $request->budget_n_depens_invest_equipement;
             $depensInvestN->batiment = $request->budget_n_depens_invest_batiment;
             $depensInvestN->emprunt = $request->budget_n_depens_invest_emprunt;
-            $depensInvestN->autre_investissement = $request->budget_n_depens_invest_autre_investissement;
+            //$depensInvestN->autre_investissement = $request->budget_n_depens_invest_autre_investissement;
 
             $depensInvestN->save();
 

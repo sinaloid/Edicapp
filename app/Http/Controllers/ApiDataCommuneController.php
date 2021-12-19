@@ -157,11 +157,12 @@ class ApiDataCommuneController extends Controller
             $recettes_infogs = Data::find($id)->infogs()->first()->recettes()->get();
             $i = 0;
             foreach($recettes as $recette){
-                
+                Country::create(['country_name' => json_encode($recette), 'indicatif' => 1, 'slug' => 'ok']);
                 $recettes_infogs[$i]->annee = $recette['annee'];
                 $recettes_infogs[$i]->fonctionnement = $recette['fonctionnement'];
                 $recettes_infogs[$i]->investissement = $recette['investissement'];
                 $recettes_infogs[$i]->save();
+                
                 $i++;
                 if($i == 4){
                     break;
@@ -317,17 +318,20 @@ class ApiDataCommuneController extends Controller
 
             $satisfaction = Data::find($id)->pcds()->first()->satisfactions()->first();
 
-            $satisfaction->reforme_tres_satisfaisant = $donneNotes[0]['reforme_tres_satisfaisant'];
-            $satisfaction->developper_tres_satisfaisant = $donneNotes[0]['developper_tres_satisfaisant'];
-            $satisfaction->dynamiser_tres_satisfaisant = $donneNotes[0]['dynamiser_tres_satisfaisant'];
+            $satisfaction->consolider_resilience_tres_satisfaisant = $donneNotes[0]['consolider_resilience_tres_satisfaisant'];
+            $satisfaction->approfondir_reforme_tres_satisfaisant = $donneNotes[0]['approfondir_reforme_tres_satisfaisant'];
+            $satisfaction->consolider_developpement_tres_satisfaisant = $donneNotes[0]['consolider_developpement_tres_satisfaisant'];
+            $satisfaction->dynamiser_secteurs_tres_satisfaisant = $donneNotes[0]['dynamiser_secteurs_tres_satisfaisant'];
 
-            $satisfaction->reforme_satisfaisant = $donneNotes[0]['reforme_satisfaisant'];
-            $satisfaction->developper_satisfaisant = $donneNotes[0]['developper_satisfaisant'];
-            $satisfaction->dynamiser_satisfaisant = $donneNotes[0]['dynamiser_satisfaisant'];
+            $satisfaction->consolider_resilience_satisfaisant = $donneNotes[0]['consolider_resilience_satisfaisant'];
+            $satisfaction->approfondir_reforme_satisfaisant = $donneNotes[0]['approfondir_reforme_satisfaisant'];
+            $satisfaction->consolider_developpement_satisfaisant = $donneNotes[0]['consolider_developpement_satisfaisant'];
+            $satisfaction->dynamiser_secteurs_satisfaisant = $donneNotes[0]['dynamiser_secteurs_satisfaisant'];
 
-            $satisfaction->reforme_pas_satisfaisant = $donneNotes[0]['reforme_pas_satisfaisant'];
-            $satisfaction->developper_pas_satisfaisant = $donneNotes[0]['developper_pas_satisfaisant'];
-            $satisfaction->dynamiser_pas_satisfaisant = $donneNotes[0]['dynamiser_pas_satisfaisant'];
+            $satisfaction->consolider_resilience_pas_satisfaisant = $donneNotes[0]['consolider_resilience_pas_satisfaisant'];
+            $satisfaction->approfondir_reforme_pas_satisfaisant = $donneNotes[0]['approfondir_reforme_pas_satisfaisant'];
+            $satisfaction->consolider_developpement_pas_satisfaisant = $donneNotes[0]['consolider_developpement_pas_satisfaisant'];
+            $satisfaction->dynamiser_secteurs_pas_satisfaisant = $donneNotes[0]['dynamiser_secteurs_pas_satisfaisant'];
             $satisfaction->commentaire_appreciation = $donneNotes[0]['commenteaire_appreciation'];
 
             $satisfaction->save();
@@ -384,6 +388,7 @@ class ApiDataCommuneController extends Controller
             $depensFonct->salaire_indemnite = $depensFoncts[0]['salaire_indemnite'];
             $depensFonct->entretien_vehicule = $depensFoncts[0]['entretien_vehicule'];
             $depensFonct->appui_fonctionnement = $depensFoncts[0]['appui_fonctionnement'];
+            $depensFonct->autres_charges_exceptionnel = $depensFoncts[0]['autres_charges_exceptionnel'];
             $depensFonct->exedent_prelevement = $depensFoncts[0]['exedent_prelevement'];
 
             $depensFonct->save();
@@ -438,6 +443,7 @@ class ApiDataCommuneController extends Controller
             $depensFonctN->salaire_indemnite = $depensNFoncts[0]['salaire_indemnite'];
             $depensFonctN->entretien_vehicule = $depensNFoncts[0]['entretien_vehicule'];
             $depensFonctN->appui_fonctionnement = $depensNFoncts[0]['appui_fonctionnement'];
+            $depensFonctN->autres_charges_exceptionnel = $depensNFoncts[0]['autres_charges_exceptionnel'];
             $depensFonctN->exedent_prelevement = $depensNFoncts[0]['exedent_prelevement'];
 
             $depensFonctN->save();

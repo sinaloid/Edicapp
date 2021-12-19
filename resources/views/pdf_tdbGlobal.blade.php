@@ -75,7 +75,7 @@
                 <div class="title text-center text-uppercase">Appréciation du niveau d'exécution
                     du PCD</div> <br>
                 <img class="google" class="img-responsive " src="{{ $data['hidden_pcd'] }}"
-                    style="height:100% !important" alt="">
+                style="width:100%; height:90% !important" alt="">
             </div>
             <div class="col-xs-3">
                 <div class="title text-center text-uppercase">Évolution des recettes 3 dernières années</div>
@@ -124,7 +124,7 @@
                             <div class="col-xs-12">
                                 <div class="col-xs-12 mt-3 p-0 ">
                                     <div class="card">
-                                        <table class="table table-bordered card-body">
+                                        <table class="table-sm table-hover card-body">
                                             <tr>
                                                 <th class="sin-table-bg">#</th>
                                                 <th class="bg-success text-white">Recettes</th>
@@ -132,11 +132,28 @@
                                             <tr>
                                             <tr>
                                                 <th class="bg-info text-white">Total Fonctionnement</th>
-                                                <td>{{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->produit_exploitation + $dataCommune['recetFonct']->produit_domaniaux + $dataCommune['recetFonct']->produit_financier + $dataCommune['recetFonct']->recouvrement + $dataCommune['recetFonct']->produit_diver + $dataCommune['recetFonct']->impots_taxe_c_direct + $dataCommune['recetFonct']->impots_taxe_indirect + $dataCommune['recetFonct']->produit_exceptionnel + $dataCommune['recetFonct']->produit_anterieur, 0, ',', '.') : '' }}
-                                                </td>
-                                                <td>{{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->sante + $dataCommune['depensFonct']->appui_scolaire + $dataCommune['depensFonct']->sport_culture + $dataCommune['depensFonct']->participation + $dataCommune['depensFonct']->frais_financier + $dataCommune['depensFonct']->refection_entretien + $dataCommune['depensFonct']->salaire_indemnite + $dataCommune['depensFonct']->entretien_vehicule + $dataCommune['depensFonct']->appui_fonctionnement + $dataCommune['depensFonct']->exedent_prelevement, 0, ',', '.') : '' }}
-                                                </td>
-
+                                                <td>{{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->produit_exploitation
+                                            + $dataCommune['recetFonct']->produit_domaniaux
+                                            + $dataCommune['recetFonct']->produit_financier
+                                            + $dataCommune['recetFonct']->recouvrement
+                                            + $dataCommune['recetFonct']->produit_diver 
+                                            + $dataCommune['recetFonct']->impots_taxe_c_direct
+                                            + $dataCommune['recetFonct']->impots_taxe_indirect
+                                            + $dataCommune['recetFonct']->produit_exceptionnel
+                                            + $dataCommune['recetFonct']->produit_anterieur
+                                            + $dataCommune['recetFonct']->autres_dotations,0,",",".")  : '' }}</td>
+                                                <td>{{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->sante
+                                            + $dataCommune['depensFonct']->appui_scolaire
+                                            + $dataCommune['depensFonct']->sport_culture
+                                            + $dataCommune['depensFonct']->participation
+                                            + $dataCommune['depensFonct']->frais_financier
+                                            + $dataCommune['depensFonct']->refection_entretien
+                                            + $dataCommune['depensFonct']->salaire_indemnite
+                                            + $dataCommune['depensFonct']->entretien_vehicule
+                                            + $dataCommune['depensFonct']->appui_fonctionnement
+                                            + $dataCommune['depensFonct']->autres_charges_exceptionnel
+                                            + $dataCommune['depensFonct']->exedent_prelevement,0,",",".") : '' }}</td>
+                            
                                         </table>
                                     </div>
                                 </div>
@@ -163,13 +180,13 @@
                             <img class="google" src="{{ $data['hidden_bg_depens_invest'] }}" alt="">
                             <br>
                             <br>
-                            <h4 class="card-header title text-center text-uppercase bg-info text-white">Depenses
+                            <h4 class="card-header title text-center text-uppercase bg-info text-white">Dépenses
                                 d'investissement</h4>
                         </div>
                         <div class="col-xs-12 p-0">
                             <div class="col-xs-12 mt-3 p-0 ">
                                 <div class="card">
-                                    <table class="table table-bordered card-body">
+                                    <table class="table-sm table-hover card-body">
                                         <tr>
                                             <th class="sin-table-bg">#</th>
                                             <th class="bg-success text-white">Recettes</th>
@@ -177,9 +194,20 @@
                                         <tr>
                                         <tr>
                                             <th class="bg-info text-white">Total Investissements</th>
-                                            <td>{{ isset($dataCommune) ? number_format($dataCommune['recetInvest']->dotation_globale + $dataCommune['recetInvest']->subvention_equipement + $dataCommune['recetInvest']->contribution_propre + $dataCommune['recetInvest']->dotation_liee + $dataCommune['recetInvest']->resultat_exercice, 0, ',', '.') : '' }}</td>
-                                            <td>{{ isset($dataCommune) ? number_format($dataCommune['depensInvest']->etude_recherche + $dataCommune['depensInvest']->environnement + $dataCommune['depensInvest']->equipement + $dataCommune['depensInvest']->batiment + $dataCommune['depensInvest']->emprunt + $dataCommune['depensInvest']->autre_investissement + $dataCommune['depensInvest']->deficit_excedent, 0, ',', '.') : '' }}</td>
-                                        </tr>
+                                            <td>{{ isset($dataCommune) ? number_format($dataCommune['recetInvest']->dotation_globale
+                                        + $dataCommune['recetInvestN']->subvention_equipement
+                                        + $dataCommune['recetInvestN']->contribution_propre
+                                        + $dataCommune['recetInvestN']->dotation_liee
+                                        + $dataCommune['recetInvestN']->resultat_exercice
+                                        + $dataCommune['recetInvestN']->autre_subvention,0,",",".") : '' }}</td>
+                                            <td>{{ isset($dataCommune) ? number_format($dataCommune['depensInvestN']->etude_recherche
+                                        + $dataCommune['depensInvestN']->environnement
+                                        + $dataCommune['depensInvestN']->equipement
+                                        + $dataCommune['depensInvestN']->batiment
+                                        + $dataCommune['depensInvestN']->emprunt
+                                        //+ $dataCommune['depensInvestN']->autre_investissement
+                                        + $dataCommune['depensInvestN']->deficit_excedent,0,",",".") : '' }}</td>
+                        
                                     </table>
                                 </div>
                             </div>
@@ -240,13 +268,15 @@
                                             + $dataCommune['depensFonctN']->appui_scolaire
                                             + $dataCommune['depensFonctN']->sport_culture
                                             + $dataCommune['depensFonctN']->participation
+                                            + $dataCommune['depensFonctN']->eau_assainissement
                                             + $dataCommune['depensFonctN']->frais_financier
                                             + $dataCommune['depensFonctN']->refection_entretien
                                             + $dataCommune['depensFonctN']->salaire_indemnite
                                             + $dataCommune['depensFonctN']->entretien_vehicule
                                             + $dataCommune['depensFonctN']->appui_fonctionnement
+                                            + $dataCommune['depensFonctN']->autres_charges_exceptionnel
                                             + $dataCommune['depensFonctN']->exedent_prelevement,0,",",".") : '' }}</td>
-                                            </tr>
+                            
                                         </table>
                                     </div>
                                 </div>
@@ -273,7 +303,7 @@
                             <img class="google" src="{{ $data['hidden_bg_depens_investn'] }}" alt="">
                             <br>
                             <br>
-                            <h4 class="card-header title text-center text-uppercase bg-info text-white">Depenses
+                            <h4 class="card-header title text-center text-uppercase bg-info text-white">Dépenses
                                 d'investissement</h4>
                         </div>
                         <div class="col-xs-12 p-0">
@@ -291,14 +321,16 @@
                                         + $dataCommune['recetInvestN']->subvention_equipement
                                         + $dataCommune['recetInvestN']->contribution_propre
                                         + $dataCommune['recetInvestN']->dotation_liee
-                                        + $dataCommune['recetInvestN']->resultat_exercice,0,",",".") : '' }}</td>
+                                        + $dataCommune['recetInvestN']->resultat_exercice
+                                        + $dataCommune['recetInvestN']->autre_subvention,0,",",".") : '' }}</td>
                                             <td>{{ isset($dataCommune) ? number_format($dataCommune['depensInvestN']->etude_recherche
                                         + $dataCommune['depensInvestN']->environnement
                                         + $dataCommune['depensInvestN']->equipement
                                         + $dataCommune['depensInvestN']->batiment
                                         + $dataCommune['depensInvestN']->emprunt
-                                        + $dataCommune['depensInvestN']->autre_investissement,0,",",".") : '' }}</td>
-                                        </tr>
+                                        //+ $dataCommune['depensInvestN']->autre_investissement
+                                        + $dataCommune['depensInvestN']->deficit_excedent,0,",",".") : '' }}</td>
+                        
                                     </table>
                                 </div>
                             </div>

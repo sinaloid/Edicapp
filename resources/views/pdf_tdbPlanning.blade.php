@@ -75,7 +75,7 @@
                 <div class="title text-center text-uppercase">Appréciation du niveau d'exécution
                     du PCD</div> <br>
                 <img class="google" class="img-responsive " src="{{ $data['hidden_pcd'] }}"
-                    style="height:100% !important" alt="">
+                    style="width:100%; height:90% !important" alt="">
             </div>
             <div class="col-xs-3">
                 <div class="title text-center text-uppercase">Évolution des recettes 3 dernières années</div>
@@ -145,13 +145,15 @@
                                             + $dataCommune['depensFonctN']->appui_scolaire
                                             + $dataCommune['depensFonctN']->sport_culture
                                             + $dataCommune['depensFonctN']->participation
+                                            + $dataCommune['depensFonctN']->eau_assainissement
                                             + $dataCommune['depensFonctN']->frais_financier
                                             + $dataCommune['depensFonctN']->refection_entretien
                                             + $dataCommune['depensFonctN']->salaire_indemnite
                                             + $dataCommune['depensFonctN']->entretien_vehicule
                                             + $dataCommune['depensFonctN']->appui_fonctionnement
+                                            + $dataCommune['depensFonctN']->autres_charges_exceptionnel
                                             + $dataCommune['depensFonctN']->exedent_prelevement,0,",",".") : '' }}</td>
-                                            </tr>
+                            
                                         </table>
                                     </div>
                                 </div>
@@ -178,7 +180,7 @@
                             <img class="google" src="{{ $data['hidden_bg_depens_investn'] }}" alt="">
                             <br>
                             <br>
-                            <h4 class="card-header title text-center text-uppercase bg-info text-white">Depenses
+                            <h4 class="card-header title text-center text-uppercase bg-info text-white">Dépenses
                                 d'investissement</h4>
                         </div>
                         <div class="col-xs-12 p-0">

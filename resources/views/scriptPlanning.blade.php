@@ -11,10 +11,11 @@
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ["Element", "Density", {
-                role: "style"
-            }],
-            ["Consolider la résilience, la sécurité, la cohésion sociale et la paix",
+            ["Element", "Consolider la résilience, la sécurité, la cohésion sociale et la paix",
+            "Approfondir les réformes institutionnelles et moderniser l’administration publique",
+            "Consolider le développement du capital humain et la solidarité nationale",
+            "Dynamiser les secteurs porteurs pour l’économie et les emplois",],
+            ['',
                 @php
                 if ($dataCommune != null) {
                     if ($dataCommune['satisfaction']->consolider_resilience_tres_satisfaisant != null) {
@@ -27,9 +28,7 @@
                         echo 0;
                     }
                 }
-                @endphp, "#b87333"
-            ],
-            ["Approfondir les réformes institutionnelles et moderniser l’administration publique",
+                @endphp,
                 @php
                 if ($dataCommune != null) {
                     if ($dataCommune['satisfaction']->approfondir_reforme_tres_satisfaisant != null) {
@@ -42,9 +41,7 @@
                         echo 0;
                     }
                 }
-                @endphp, "silver"
-            ],
-            ["Consolider le développement du capital humain et la solidarité nationale",
+                @endphp,
                 @php
                 if ($dataCommune != null) {
                     if ($dataCommune['satisfaction']->consolider_developpement_tres_satisfaisant != null) {
@@ -57,10 +54,7 @@
                         echo 0;
                     }
                 }
-                @endphp, "gold"
-            ],
-            /*["Platinum", 21.45, "color: #e5e4e2"]*/
-            ["Dynamiser les secteurs porteurs pour l’économie et les emplois",
+                @endphp,
                 @php
                 if ($dataCommune != null) {
                     if ($dataCommune['satisfaction']->dynamiser_secteurs_tres_satisfaisant != null) {
@@ -73,7 +67,7 @@
                         echo 0;
                     }
                 }
-                @endphp, "silver"
+                @endphp
             ],
         ]);
 
@@ -83,15 +77,15 @@
             }],
             ["{{ isset($dataCommune) ? $dataCommune['recette'][0]->annee : '' }}",
                 {{ isset($dataCommune) ? $dataCommune['recette'][0]->fonctionnement + $dataCommune['recette'][0]->investissement : '' }},
-                "red"
+                "#B61AAE"
             ],
             ["{{ isset($dataCommune) ? $dataCommune['recette'][1]->annee : '' }}",
                 {{ isset($dataCommune) ? $dataCommune['recette'][1]->fonctionnement + $dataCommune['recette'][1]->investissement : '' }},
-                "red"
+                "#AA4A30"
             ],
             ["{{ isset($dataCommune) ? $dataCommune['recette'][2]->annee : '' }}",
                 {{ isset($dataCommune) ? $dataCommune['recette'][2]->fonctionnement + $dataCommune['recette'][2]->investissement : '' }},
-                "red"
+                "#1687A7"
             ]
             /*["Platinum", 21.45, "color: #e5e4e2"]*/
         ]);
@@ -102,43 +96,68 @@
             }],
             ["{{ isset($dataCommune) ? $dataCommune['depense'][0]->annee : '' }}",
                 {{ isset($dataCommune) ? $dataCommune['depense'][0]->fonctionnement + $dataCommune['depense'][0]->investissement : '' }},
-                "silver"
+                "#519259"
             ],
             ["{{ isset($dataCommune) ? $dataCommune['depense'][1]->annee : '' }}",
                 {{ isset($dataCommune) ? $dataCommune['depense'][1]->fonctionnement + $dataCommune['depense'][1]->investissement : '' }},
-                "silver"
+                "#516beb"
             ],
             ["{{ isset($dataCommune) ? $dataCommune['depense'][2]->annee : '' }}",
                 {{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement + $dataCommune['depense'][2]->investissement : '' }},
-                "silver"
+                "#8e806a"
             ]
             /*["Platinum", 21.45, "color: #e5e4e2"]*/
             /*["Platinum", 21.45, "color: #e5e4e2"]*/
         ]);
-
+            var resultat_inverst = ''
+            var resultat_fonct = ''
         var data3 = google.visualization.arrayToDataTable([
             ["Element", "Density", {
                 role: "style"
             }],
             ["Résultat d'investissement",
-                {{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_globale + $dataCommune['recetInvest']->subvention_equipement + $dataCommune['recetInvest']->contribution_propre + $dataCommune['recetInvest']->dotation_liee + $dataCommune['recetInvest']->resultat_exercice - ($dataCommune['depensInvest']->etude_recherche + $dataCommune['depensInvest']->environnement + $dataCommune['depensInvest']->equipement + $dataCommune['depensInvest']->batiment + $dataCommune['depensInvest']->emprunt + $dataCommune['depensInvest']->autre_investissement + $dataCommune['depensInvest']->deficit_excedent) : '' }},
+            resultat_inverst = {{ isset($dataCommune) ? 
+                $dataCommune['recetInvestN']->dotation_globale + 
+                $dataCommune['recetInvestN']->subvention_equipement + 
+                $dataCommune['recetInvestN']->contribution_propre + 
+                $dataCommune['recetInvestN']->dotation_liee + 
+                $dataCommune['recetInvestN']->resultat_exercice - 
+                ($dataCommune['depensInvestN']->etude_recherche + 
+                $dataCommune['depensInvestN']->environnement + 
+                $dataCommune['depensInvestN']->equipement +
+                $dataCommune['depensInvestN']->batiment + 
+                $dataCommune['depensInvestN']->emprunt + 
+                $dataCommune['depensInvestN']->autre_investissement + 
+                $dataCommune['depensInvestN']->deficit_excedent) : '' }},
                 "green"
             ],
             ["Résultat de fonctionnement",
-                {{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_exploitation + $dataCommune['recetFonct']->produit_domaniaux + $dataCommune['recetFonct']->produit_financier + $dataCommune['recetFonct']->recouvrement + $dataCommune['recetFonct']->produit_diver + $dataCommune['recetFonct']->impots_taxe_c_direct + $dataCommune['recetFonct']->impots_taxe_indirect + $dataCommune['recetFonct']->produit_exceptionnel + $dataCommune['recetFonct']->produit_anterieur - ($dataCommune['depensFonct']->sante + $dataCommune['depensFonct']->appui_scolaire + $dataCommune['depensFonct']->sport_culture + $dataCommune['depensFonct']->participation + $dataCommune['depensFonct']->frais_financier + $dataCommune['depensFonct']->refection_entretien + $dataCommune['depensFonct']->salaire_indemnite + $dataCommune['depensFonct']->entretien_vehicule + $dataCommune['depensFonct']->appui_fonctionnement + $dataCommune['depensFonct']->exedent_prelevement) : '' }},
+            resultat_fonct = {{ isset($dataCommune) ? 
+                $dataCommune['recetFonctN']->produit_exploitation + 
+                $dataCommune['recetFonctN']->produit_domaniaux + 
+                $dataCommune['recetFonctN']->produit_financier + 
+                $dataCommune['recetFonctN']->recouvrement + 
+                $dataCommune['recetFonctN']->produit_diver + 
+                $dataCommune['recetFonctN']->impots_taxe_c_direct + 
+                $dataCommune['recetFonctN']->impots_taxe_indirect + 
+                $dataCommune['recetFonctN']->produit_exceptionnel + 
+                $dataCommune['recetFonctN']->produit_anterieur - 
+                ($dataCommune['depensFonctN']->sante + 
+                $dataCommune['depensFonctN']->appui_scolaire + 
+                $dataCommune['depensFonctN']->sport_culture + 
+                $dataCommune['depensFonctN']->participation + 
+                $dataCommune['depensFonctN']->frais_financier + 
+                $dataCommune['depensFonctN']->refection_entretien + 
+                $dataCommune['depensFonctN']->salaire_indemnite + 
+                $dataCommune['depensFonctN']->entretien_vehicule + 
+                $dataCommune['depensFonctN']->appui_fonctionnement + 
+                $dataCommune['depensFonctN']->autres_charges_exceptionnel + 
+                $dataCommune['depensFonctN']->exedent_prelevement) : '' }},
                 "#b87333"
             ],
             ["Résultat global {{ isset($dataCommune) ? $dataCommune['annee'] : '' }}",
-                {{ isset($dataCommune)
-                    ? $dataCommune['recetInvest']->dotation_globale +
-                        $dataCommune['recetInvest']->subvention_equipement +
-                        $dataCommune['recetInvest']->contribution_propre +
-                        $dataCommune['recetInvest']->dotation_liee +
-                        $dataCommune['recetInvest']->resultat_exercice -
-                        ($dataCommune['depensInvest']->etude_recherche + $dataCommune['depensInvest']->environnement + $dataCommune['depensInvest']->equipement + $dataCommune['depensInvest']->batiment + $dataCommune['depensInvest']->emprunt + $dataCommune['depensInvest']->autre_investissement + $dataCommune['depensInvest']->deficit_excedent) +
-                        ($dataCommune['recetFonct']->produit_exploitation + $dataCommune['recetFonct']->produit_domaniaux + $dataCommune['recetFonct']->produit_financier + $dataCommune['recetFonct']->recouvrement + $dataCommune['recetFonct']->produit_diver + $dataCommune['recetFonct']->impots_taxe_c_direct + $dataCommune['recetFonct']->impots_taxe_indirect + $dataCommune['recetFonct']->produit_exceptionnel + $dataCommune['recetFonct']->produit_anterieur - ($dataCommune['depensFonct']->sante + $dataCommune['depensFonct']->appui_scolaire + $dataCommune['depensFonct']->sport_culture + $dataCommune['depensFonct']->participation + $dataCommune['depensFonct']->frais_financier + $dataCommune['depensFonct']->refection_entretien + $dataCommune['depensFonct']->salaire_indemnite + $dataCommune['depensFonct']->entretien_vehicule + $dataCommune['depensFonct']->appui_fonctionnement + $dataCommune['depensFonct']->exedent_prelevement))
-                    : '' }},
-                "red"
+             resultat_inverst + resultat_fonct ,
+                "#F73859"
             ]
             /*["Platinum", 21.45, "color: #e5e4e2"]*/
             /*["Platinum", 21.45, "color: #e5e4e2"]*/
@@ -155,7 +174,27 @@
                 type: "string",
                 role: "annotation"
             },
-            2
+            2,
+            {
+                calc: "stringify",
+                sourceColumn: 2,
+                type: "string",
+                role: "annotation"
+            },
+            3,
+            {
+                calc: "stringify",
+                sourceColumn: 3,
+                type: "string",
+                role: "annotation"
+            },
+            4,
+            {
+                calc: "stringify",
+                sourceColumn: 4,
+                type: "string",
+                role: "annotation"
+            }
         ]);
 
         view1.setColumns([0, 1,
@@ -196,14 +235,17 @@
                 groupWidth: "90%"
             },
             legend: {
-                position: "false"
+                position: "bottom"
             },
             chartArea: {
                 top: 20,
                 width: '100%',
                 height: '75%'
-            }
+            },
+            
+            
         };
+        
 
         var options1 = {
             title: "",
@@ -260,11 +302,11 @@
         })
 
         var hidden_bg_recett_fcnt = document.getElementById('hidden_bg_recett_fcnt');
-        var hidden_bg_depens_fnct = document.getElementById('hidden_bg_depens_fnct');
+        var hidden_bg_depens_fnct = document.getElementById('hidden_bg_depens_fcnt');
         var hidden_bg_recett_invest = document.getElementById('hidden_bg_recett_invest');
         var hidden_bg_depens_invest = document.getElementById('hidden_bg_depens_invest');
 
-        chart.draw(view, options1);
+        chart.draw(view, options);
         chart1.draw(view1, options1);
         chart2.draw(view2, options2);
         chart3.draw(view3, options2);
@@ -298,7 +340,7 @@
             ["Impôts et taxes indirects",{{ isset($dataCommune) ? $dataCommune['recetFonctN']->impots_taxe_indirect : '' }}],
             ["Produits exceptionnels",{{ isset($dataCommune) ? $dataCommune['recetFonctN']->produit_exceptionnel : '' }}],
             ["Produits antérieurs",{{ isset($dataCommune) ? $dataCommune['recetFonctN']->produit_anterieur : '' }}],
-            //["Autres dotations de transfert", {{ isset($dataCommune) ? $dataCommune['recetFonctN']->autres_dotations : '' }} ],
+            //["Autres dotations de transfert",  isset($dataCommune) ? $dataCommune['recetFonctN']->autres_dotations : '' }} ],
         ]);
 
         var dataDepenseFonctn = google.visualization.arrayToDataTable([
@@ -384,36 +426,8 @@
              height: 200,*/
         };
 
-        var options1 = {
-            title: '',
-            legend: 'true',
-            legend: {
-                position: 'top'
-            },
-            pieSliceText: 'label',
-            slices: {
-                4: {
-                    offset: 0.2
-                },
-                12: {
-                    offset: 0.3
-                },
-                14: {
-                    offset: 0.4
-                },
-                15: {
-                    offset: 0.5
-                },
-            },
-            is3D: 'true',
-            chartArea: {
-                top: 20,
-                width: '100%',
-                height: '100%'
-            },
-            /*width: 320,
-            height: 200,*/
-        };
+        var options1 = options
+            options1.colors = ['#00B8A9','#C32BAD','#00ADB5','#F08A5D','#B83B5E','#6A2C70','#7C7575','#FF2E63','#08D9D6','#3F72AF','#355C7D','#53354A','#FFDE7D','#F9ED69'];
 
         var chartRecetteFonctn = new google.visualization.PieChart(document.getElementById('piechartn'));
         var chartDepenseFonctn = new google.visualization.PieChart(document.getElementById('piechartn1'));

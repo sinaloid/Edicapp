@@ -117,7 +117,8 @@
                 + $dataCommune['recetFonct']->impots_taxe_c_direct
                 + $dataCommune['recetFonct']->impots_taxe_indirect
                 + $dataCommune['recetFonct']->produit_exceptionnel
-                + $dataCommune['recetFonct']->produit_anterieur,0,",",".")  : '' }}</td>
+                + $dataCommune['recetFonct']->produit_anterieur
+                + $dataCommune['recetFonct']->autres_dotations,0,",",".")  : '' }}</td>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['depensFonct']->sante
                 + $dataCommune['depensFonct']->appui_scolaire
                 + $dataCommune['depensFonct']->sport_culture
@@ -127,6 +128,7 @@
                 + $dataCommune['depensFonct']->salaire_indemnite
                 + $dataCommune['depensFonct']->entretien_vehicule
                 + $dataCommune['depensFonct']->appui_fonctionnement
+                + $dataCommune['depensFonct']->autres_charges_exceptionnel
                 + $dataCommune['depensFonct']->exedent_prelevement,0,",",".") : '' }}</td>
 
             </table>
@@ -167,17 +169,18 @@
                 <tr>
                     <th class="bg-info text-white">Total Investissements</th>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['recetInvest']->dotation_globale
-                + $dataCommune['recetInvest']->subvention_equipement
-                + $dataCommune['recetInvest']->contribution_propre
-                + $dataCommune['recetInvest']->dotation_liee
-                + $dataCommune['recetInvest']->resultat_exercice,0,",",".") : '' }}</td>
-                    <td>{{ isset($dataCommune) ? number_format($dataCommune['depensInvest']->etude_recherche
-                + $dataCommune['depensInvest']->environnement
-                + $dataCommune['depensInvest']->equipement
-                + $dataCommune['depensInvest']->batiment
-                + $dataCommune['depensInvest']->emprunt
-                + $dataCommune['depensInvest']->autre_investissement
-                + $dataCommune['depensInvest']->deficit_excedent,0,",",".") : '' }}</td>
+                + $dataCommune['recetInvestN']->subvention_equipement
+                + $dataCommune['recetInvestN']->contribution_propre
+                + $dataCommune['recetInvestN']->dotation_liee
+                + $dataCommune['recetInvestN']->resultat_exercice
+                + $dataCommune['recetInvestN']->autre_subvention,0,",",".") : '' }}</td>
+                    <td>{{ isset($dataCommune) ? number_format($dataCommune['depensInvestN']->etude_recherche
+                + $dataCommune['depensInvestN']->environnement
+                + $dataCommune['depensInvestN']->equipement
+                + $dataCommune['depensInvestN']->batiment
+                + $dataCommune['depensInvestN']->emprunt
+                //+ $dataCommune['depensInvestN']->autre_investissement
+                + $dataCommune['depensInvestN']->deficit_excedent,0,",",".") : '' }}</td>
 
             </table>
         </div>

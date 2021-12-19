@@ -122,13 +122,15 @@
                 + $dataCommune['depensFonctN']->appui_scolaire
                 + $dataCommune['depensFonctN']->sport_culture
                 + $dataCommune['depensFonctN']->participation
+                + $dataCommune['depensFonctN']->eau_assainissement
                 + $dataCommune['depensFonctN']->frais_financier
                 + $dataCommune['depensFonctN']->refection_entretien
                 + $dataCommune['depensFonctN']->salaire_indemnite
                 + $dataCommune['depensFonctN']->entretien_vehicule
                 + $dataCommune['depensFonctN']->appui_fonctionnement
+                + $dataCommune['depensFonctN']->autres_charges_exceptionnel
                 + $dataCommune['depensFonctN']->exedent_prelevement,0,",",".") : '' }}</td>
-                </tr>
+
             </table>
         </div>
     </div>
@@ -170,13 +172,15 @@
                 + $dataCommune['recetInvestN']->subvention_equipement
                 + $dataCommune['recetInvestN']->contribution_propre
                 + $dataCommune['recetInvestN']->dotation_liee
-                + $dataCommune['recetInvestN']->resultat_exercice,0,",",".") : '' }}</td>
+                + $dataCommune['recetInvestN']->resultat_exercice
+                + $dataCommune['recetInvestN']->autre_subvention,0,",",".") : '' }}</td>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['depensInvestN']->etude_recherche
                 + $dataCommune['depensInvestN']->environnement
                 + $dataCommune['depensInvestN']->equipement
                 + $dataCommune['depensInvestN']->batiment
                 + $dataCommune['depensInvestN']->emprunt
-                + $dataCommune['depensInvestN']->autre_investissement,0,",",".") : '' }}</td>
+                //+ $dataCommune['depensInvestN']->autre_investissement
+                + $dataCommune['depensInvestN']->deficit_excedent,0,",",".") : '' }}</td>
 
             </table>
         </div>
@@ -185,7 +189,7 @@
 </div>
 
 <div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center"> Etat civil</div>
+    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Prévision etat civil</div>
     <div class="col-12 table-responsive px-0 ">
         <table class="table table-hover ">
         <thead>
@@ -230,7 +234,7 @@
 </div>
 
 <div class="row mt-2">
-<div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Situation domaniale</div>
+<div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Prévision situation domaniale</div>
     <div class="col-12 table-responsive px-0 ">
         <table class="table table-hover ">
         <thead>
@@ -296,7 +300,7 @@
 </div>
 
 <div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center"> Contribution des trois (03)
+    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Prévision contribution des trois (03)
         meilleurs marcher</div>
     <div class="col-12 table-responsive px-0">
         <table class="table table-hover">
@@ -325,7 +329,7 @@
 
     <div class="col-12 mt-2 p-0">
         <div class="card">
-            <h4 class="card-header bg-info text-white">Résultat de l'excercice</h4>
+            <h4 class="card-header bg-info text-white">Prévision résultat de l'excercice</h4>
             <div class="card-body">
                 <div id="columnchart_values3" style="width: 100%; height: 100%;"></div>
             </div>
@@ -336,7 +340,7 @@
 
 
 <div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Contribution des dix (10)
+    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Prévision contribution des dix (10)
         meilleurs villages (toute
         contribution)</div>
     <div class="col-12 table-responsive px-0">
@@ -387,7 +391,7 @@
 </div>
 
 <div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Contribution des autres
+    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Prévision contribution des autres
         partenaires de la commune
     </div>
     <div class="col-12 table-responsive px-0">
