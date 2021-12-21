@@ -183,10 +183,10 @@
                                 @php
                                 if($dataCommune){
                                     if($dataCommune['recette'][0]->annee == null){
-                                        $dataCommune['recette'][0]->annee = $dataCommune["annee"] - 3;
-                                        $dataCommune['recette'][1]->annee = $dataCommune["annee"] - 2;
-                                        $dataCommune['recette'][2]->annee = $dataCommune["annee"] - 1;
-                                        $dataCommune['recette'][3]->annee = $dataCommune["annee"];
+                                        $dataCommune['recette'][0]->annee = $dataCommune["annee"] - 2;
+                                        $dataCommune['recette'][1]->annee = $dataCommune["annee"] - 1;
+                                        $dataCommune['recette'][2]->annee = $dataCommune["annee"];
+                                        $dataCommune['recette'][3]->annee = $dataCommune["annee"] + 1;
                                     }
                                 }
                                 @endphp
@@ -216,7 +216,7 @@
                                 <td><input type="text" name="recet_fonct3" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recette'][2]->fonctionnement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td><input type="text" name="recet_fonct4" class="form-control"
+                                <td><input type="hidden" type="text" name="recet_fonct4" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recette'][3]->fonctionnement : '' }}"
                                         aria-describedby="nameHelp"></td>
                             <tr>
@@ -231,9 +231,9 @@
                                 <td><input type="text" name="recet_invest3" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recette'][2]->investissement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td><input type="text" name="recet_invest4" class="form-control"
+                                <td><input type="hidden" type="text" name="recet_invest4" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recette'][3]->investissement : '' }}"
-                                        aria-describedby="nameHelp"></td>
+                                        aria-describedby="nameHelp"--></td>
                             <tr>
                                 <!--tr>
                             <th>Total</th>
@@ -262,10 +262,10 @@
                             @php
                                 if($dataCommune){
                                     if($dataCommune['depense'][0]->annee == null){
-                                        $dataCommune['depense'][0]->annee = $dataCommune["annee"] - 3;
-                                        $dataCommune['depense'][1]->annee = $dataCommune["annee"] - 2;
-                                        $dataCommune['depense'][2]->annee = $dataCommune["annee"] - 1;
-                                        $dataCommune['depense'][3]->annee = $dataCommune["annee"];
+                                        $dataCommune['depense'][0]->annee = $dataCommune["annee"] - 2;
+                                        $dataCommune['depense'][1]->annee = $dataCommune["annee"] - 1;
+                                        $dataCommune['depense'][2]->annee = $dataCommune["annee"];
+                                        $dataCommune['depense'][3]->annee = $dataCommune["annee"] + 1;
                                     }
                                 }
                                 @endphp
@@ -292,10 +292,10 @@
                                 <td><input type="text" name="depens_fonct2" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][1]->fonctionnement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td><input type="text" name="depens_fonct3" class="form-control"
+                                <td><input  type="text" name="depens_fonct3" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td><input type="text" name="depens_fonct4" class="form-control"
+                                <td><input type="hidden" type="text" name="depens_fonct4" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][3]->fonctionnement : '' }}"
                                         aria-describedby="nameHelp"></td>
                             <tr>
@@ -307,10 +307,10 @@
                                 <td><input type="text" name="depens_invest2" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][1]->investissement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td><input type="text" name="depens_invest3" class="form-control"
+                                <td><input  type="text" name="depens_invest3" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][2]->investissement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td><input type="text" name="depens_invest4" class="form-control"
+                                <td><input type="hidden" type="text" name="depens_invest4" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][3]->investissement : '' }}"
                                         aria-describedby="nameHelp"></td>
                             <tr>
