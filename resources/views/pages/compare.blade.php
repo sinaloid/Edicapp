@@ -29,8 +29,8 @@
 
     <div class="container px-1 sin-m-t myform">
         <h1>Analyse de données </h1> <br>
-        <p> Ici on aura la possibilté de comparer les données (sous forme de tableau ou
-            sous forme graphique) de 2 à 5 regions</p>
+        <p> Ici vous avez la possibilté de comparer les données (sous forme de tableau ou
+            sous forme graphique) de 2 à 4 commune</p>
         <div class="row sin-bg-2 myform mx-auto">
             <div class="col-sm-12">
 

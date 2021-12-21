@@ -771,13 +771,7 @@
 
             </div>
 
-
-
-
-
-
-
-
+            @include('tableau')
         </div>
 </body>
 
