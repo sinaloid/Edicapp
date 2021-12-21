@@ -173,18 +173,18 @@
                     </p-->
                     <div class="row my-3">
                         <div class="col-12">
-                            <div id="fb" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-1" style="background: #4267b2" type="button">
+                            <div id="fb" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-2" style="background: #4267b2" type="button">
                                 Facebook
                             </div>
-                            <div id="whsp" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-1" style="background: #25d366" type="button">
+                            <div id="whsp" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-2" style="background: #25d366" type="button">
                                 WhatsApp
                             </div>
-                            <div id="tw" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-1" style="background: #1da1f2" type="button">
+                            <div id="tw" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-2" style="background: #1da1f2" type="button">
                                 Twitter
                             </div>
-                            <div id="tel" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-1" style="background: #29b6f6" type="button">Telegram
+                            <div id="tel" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-2" style="background: #29b6f6" type="button">Telegram
                             </div>
-                            <div id="email" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-1" style="background: #7d7d7d" type="button">
+                            <div id="email" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-2" style="background: #7d7d7d" type="button">
                                 Email
                             </div>
                             
