@@ -12,34 +12,34 @@
                     <div class="logo mb-3">
                         <div class="col-md-12 text-center">
                             <h1>Contactez Nous</h1>
-                            <p class="text-center mt-3 w-responsive mx-auto mb-5">Do you have any questions? Please do not
-                                hesitate to contact us directly. Our team will come back to you within
-                                a matter of hours to help you.
+                            <p class="text-center mt-3 w-responsive mx-auto mb-5">
+                                Avez-vous des questions ? Merci de ne pas hésitez à nous contacter directement. Notre équipe reviendra vers vous dans 
+                                une question d'heures pour vous aider.
                             </p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-7">
-                            <form action="" method="post" name="contact">
+                            <form action="#" method="" name="contact">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label for="exampleInputEmail1" class="">Votre nom</label>
+                                        <label for="exampleInputEmail1" class="">Nom</label>
                                         <input type="text" id="name" name="name" class="form-control">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="email" class="">Votre email</label>
+                                        <label for="email" class="">Email</label>
                                         <input type="text" id="email" name="email" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <label for="subject" class="">Subject</label>
+                                        <label for="subject" class="">Sujet</label>
                                         <input type="text" id="subject" name="subject" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <label for="message">Votre message</label>
+                                        <label for="message">Message</label>
                                         <textarea type="text" id="message" name="message" rows="2"
                                             class="form-control md-textarea"></textarea>
                                     </div>
@@ -47,7 +47,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-4 text-center  ">
                                         <button type="submit"
-                                            class=" btn btn-block mybtn btn-primary tx-tfm">envoyez</button>
+                                            class=" btn sin-bg-3 text-white">Envoyer</button>
                                     </div>
                                 </div>
                             </form>

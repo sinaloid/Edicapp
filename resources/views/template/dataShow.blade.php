@@ -30,15 +30,15 @@
                             <div class="form-group mt">
                                 <select class="form-control mt-1" id="country" name="country" required>
                                     <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
-                                    @foreach($countries ?? '' as $country)
-                                    <option value="{{ $country->id }}">
-                                        {{ $country->country_name }}</option>
+                                    @foreach ($countries ?? '' as $country)
+                                        <option value="{{ $country->id }}">
+                                            {{ $country->country_name }}</option>
                                     @endforeach
                                 </select>
                                 @error('pays')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                             <div class="row p_region justify-content-between">
@@ -48,9 +48,9 @@
 
                                         </select>
                                         @error('region')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -60,9 +60,9 @@
 
                                         </select>
                                         @error('province')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -72,9 +72,9 @@
 
                                         </select>
                                         @error('commune')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -82,14 +82,15 @@
                                     <div class="form-group">
                                         <select class="form-control" id="commune4" name="annee" required>
                                             <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
-                                            @for($i = Date('Y'); 2000<= $i; $i--) <option value="{{ $i}}">
-                                                {{ $i }}</option>
-                                                @endfor
+                                            @for ($i = Date('Y'); 2000 <= $i; $i--)
+                                                <option value="{{ $i }}">
+                                                    {{ $i }}</option>
+                                            @endfor
                                         </select>
                                         @error('commune')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
                                         @enderror
                                     </div>
 
@@ -102,13 +103,16 @@
                         <div class="mx-auto">
                             <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">Valider</button>
                             <a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
-                            @if (Route::currentRouteName() == 'datas.tdb') 
-                                @if(str_contains(url()->current(), 'planning'))
-                                    <button class="btn sin-bg-3 text-white" type="button" name="create_pdf" id="create_pdf">Exporter Tdb Planning</button>
+                            @if (Route::currentRouteName() == 'datas.tdb')
+                                @if (str_contains(url()->current(), 'planning'))
+                                    <button class="btn sin-bg-3 font-weight-bold text-white" type="button" name="create_pdf"
+                                        id="create_pdf">Exporter Tdb Planning</button>
                                 @elseif(str_contains(url()->current(), 'global'))
-                                    <button class="btn sin-bg-3 text-white" type="button" name="create_pdf" id="create_pdf">Exporter Tdb Global</button>
+                                    <button class="btn sin-bg-3 font-weight-bold text-white" type="button" name="create_pdf"
+                                        id="create_pdf">Exporter Tdb Global</button>
                                 @else
-                                    <button class="btn sin-bg-3 text-white" type="button" name="create_pdf" id="create_pdf">Exporter Tdb Bilan</button>
+                                    <button class="btn sin-bg-3 font-weight-bold text-white" type="button" name="create_pdf"
+                                        id="create_pdf">Exporter Tdb Bilan</button>
                                 @endif
                             @endif
 
@@ -120,25 +124,33 @@
                                 </span>
                             </strong>
                             <small>
-                                {{isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune['data_id'])->commune->commune_name : 'inexistante'}}
+                                {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune['data_id'])->commune->commune_name : 'inexistante' }}
                             </small>
 
                             <br>
                             <span class="badge badge-dark">
-                                <a class="text-white" href="{{ route('make_file_exporte',[''.Route::currentRouteName(),'excel', isset($dataCommune) ? $dataCommune['slug'] : 'null'] ) }}"># excel</a>
+                                <a class="text-white"
+                                    href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'excel', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
+                                    excel</a>
                             </span>
                             <span class="badge badge-dark">
-                                <a class="text-white" href="{{ route('make_file_exporte', [''.Route::currentRouteName(),'pdf', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}"># pdf</a>
+                                <a class="text-white"
+                                    href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'pdf', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
+                                    pdf</a>
                             </span>
                             <span class="badge badge-dark">
-                                <a class="text-white" href="{{ route('make_file_exporte', [''.Route::currentRouteName(),'csv', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}"># csv</a>
+                                <a class="text-white"
+                                    href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'csv', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
+                                    csv</a>
                             </span>
                             <span class="badge badge-dark">
-                                <a class="text-white" href="{{ route('make_file_exporte', [''.Route::currentRouteName(),'json', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}"># json</a>
+                                <a class="text-white"
+                                    href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'json', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
+                                    json</a>
                             </span>
-                            
+
                         </p>
-                        
+
                     </div>
                 </form>
             </div>
@@ -159,18 +171,81 @@
                     <!--p class="sin-ic">Partager sur : <a href="#"><i class="fab fa-facebook"></i> Facebook</a> |
                         <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
                     </p-->
-                   <div class="row my-3">
-                    <div class="col-6">
-                    <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0&appId=241600270424722&autoLogAppEvents=1" nonce="zHViDRRh"></script>
-<div class="fb-like" data-href="http://edicapp.herokuapp.com/" data-width="" data-layout="button" data-action="like" data-size="large" data-share="true"></div>
-                    
-                    </div>
-                    
-                    <!--div class="col-6">
+                    <div class="row my-3">
+                        <div class="col-12">
+                            <div id="fb" class="btn-sm text-white font-weight-bold d-inline mb-1" style="background: #4267b2" type="button">
+                                Facebook
+                            </div>
+                            <div id="whsp" class="btn-sm text-white font-weight-bold d-inline mb-1" style="background: #25d366" type="button">
+                                WhatsApp
+                            </div>
+                            <div id="tw" class="btn-sm text-white font-weight-bold d-inline mb-1" style="background: #1da1f2" type="button">
+                                twitter
+                            </div>
+                            <div id="tel" class="btn-sm text-white font-weight-bold d-inline mb-1" style="background: #29b6f6" type="button">Telegram
+                            </div>
+                            <div id="email" class="btn-sm text-white font-weight-bold d-inline mb-1" style="background: #7d7d7d" type="button">
+                                Email
+                            </div>
+                            
+                        </div>
+
+                        <script>
+                            $(document).ready(function() {
+                                $('#whsp').click(function() {
+                                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator
+                                            .userAgent)) {
+                                        window.open("whatsapp://send?text=" + encodeURIComponent(
+                                                "http://192.168.0.20/datas/tdb/global/oqflfgiihz"), 'name',
+                                            'width=800,height=600')
+                                    } else {
+                                        window.open("https://web.whatsapp.com/send?text=" + encodeURIComponent(
+                                                "http://192.168.0.20/datas/tdb/global/oqflfgiihz"), 'name',
+                                            'width=800,height=600')
+                                    }
+                                })
+
+                                $('#fb').click(function() {
+                                    var url = window.location.href;
+                                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator
+                                            .userAgent)) {
+                                        window.open('fb-messenger://share/?' + url,
+                                            'facebook-share-dialog',
+                                            'width=800,height=600'
+                                        );
+                                    } else {
+                                        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
+                                            'facebook-share-dialog',
+                                            'width=800,height=600'
+                                        );
+                                    }
+                                })
+
+                                $('#tw').click(function() {
+                                    var url = window.location.href;
+                                    window.open('https://twitter.com/intent/tweet?url=' + url,''+document.title,
+                                            'width=800,height=600'
+                                        );
+                                })
+                                
+                                $('#tel').click(function() {
+                                    window.open('https://t.me/share/url?url='
+                                    +encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'', 'width=800,height=600')
+                                })
+
+                                $('#email').click(function() {
+                                    var url = window.location.href;
+                                    window.open('mailto:?subject=Edic&body=' + url
+                                        );
+                                })
+                            })
+                        </script>
+
+
+                        <!--div class="col-6">
                     <a class="btn btn-sm bg-success" href="whatsapp://send?text=http://edicapp.herokuapp.com" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">whatsapp</a>
                     </div-->
-                   </div>
+                    </div>
                 </div>
             </div>
             <br>
