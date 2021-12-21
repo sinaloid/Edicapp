@@ -180,7 +180,7 @@
                                 WhatsApp
                             </div>
                             <div id="tw" class="btn-sm text-white font-weight-bold d-inline mb-1" style="background: #1da1f2" type="button">
-                                twitter
+                                Twitter
                             </div>
                             <div id="tel" class="btn-sm text-white font-weight-bold d-inline mb-1" style="background: #29b6f6" type="button">Telegram
                             </div>
