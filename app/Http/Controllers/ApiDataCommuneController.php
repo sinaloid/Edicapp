@@ -39,7 +39,7 @@ class ApiDataCommuneController extends Controller
         //dd(json_decode($request->getContent(), true));
         $data = $request->all();
         //dd($data);
-        $country = $data[0];
+        //$country = $data[0];
 
         //Country::create(['country_name' => json_encode($data), 'indicatif' => 1, 'slug' => json_encode($data[0])]);
         //dd($data[0]['data']['id_depense']);
@@ -157,7 +157,7 @@ class ApiDataCommuneController extends Controller
             $recettes_infogs = Data::find($id)->infogs()->first()->recettes()->get();
             $i = 0;
             foreach($recettes as $recette){
-                Country::create(['country_name' => json_encode($recette), 'indicatif' => 1, 'slug' => 'ok']);
+                //Country::create(['country_name' => json_encode($recette), 'indicatif' => 1, 'slug' => 'ok']);
                 $recettes_infogs[$i]->annee = $recette['annee'];
                 $recettes_infogs[$i]->fonctionnement = $recette['fonctionnement'];
                 $recettes_infogs[$i]->investissement = $recette['investissement'];
