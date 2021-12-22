@@ -39,7 +39,7 @@ class ApiDataCommuneController extends Controller
         //dd(json_decode($request->getContent(), true));
         $data = $request->all();
         //dd($data);
-        //$country = $data[0];
+        $country = $data[0];
 
         //Country::create(['country_name' => json_encode($data), 'indicatif' => 1, 'slug' => json_encode($data[0])]);
         //dd($data[0]['data']['id_depense']);
