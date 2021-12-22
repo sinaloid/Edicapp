@@ -51,7 +51,7 @@
             <tr>
                 <th></th>
                 <th>Total</th>
-                <td> {{isset($dataCommune) ? number_format($dataCommune['recetInvest']->dotation_globale + $dataCommune['recetInvest']->subvention_equipement + $dataCommune['recetInvest']->contribution_propre + $dataCommune['recetInvest']->dotation_liee + $dataCommune['recetInvest']->resultat_exercice, 0, ',', '.') : '' }}
+                <td> {{isset($dataCommune) ? number_format($dataCommune['recetInvest']->dotation_globale + $dataCommune['recetInvest']->subvention_equipement + $dataCommune['recetInvest']->contribution_propre + $dataCommune['recetInvest']->dotation_liee + $dataCommune['recetInvest']->resultat_exercice + $dataCommune['recetInvest']->autre_subvention, 0, ',', '.') : '' }}
                 </td>
             </tr>
         </table>
@@ -127,12 +127,12 @@
                 <!-- text-->
                 <th>735</th>
                 <td>Autres dotations de transfert</td>
-                <td> {{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }}</td>
+                <td> {{ isset($dataCommune) ?  number_format($dataCommune['recetFonct']->autres_dotations, 0, ',', '.') : '' }}</td>
             </tr>
             <tr>
                 <th></th>
                 <th>Total</th>
-                <td> {{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->produit_exploitation + $dataCommune['recetFonct']->produit_domaniaux + $dataCommune['recetFonct']->produit_financier + $dataCommune['recetFonct']->recouvrement + $dataCommune['recetFonct']->produit_diver + $dataCommune['recetFonct']->impots_taxe_c_direct + $dataCommune['recetFonct']->impots_taxe_indirect + $dataCommune['recetFonct']->produit_exceptionnel + $dataCommune['recetFonct']->produit_anterieur, 0, ',', '.') : '' }}
+                <td> {{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->produit_exploitation + $dataCommune['recetFonct']->produit_domaniaux + $dataCommune['recetFonct']->produit_financier + $dataCommune['recetFonct']->recouvrement + $dataCommune['recetFonct']->produit_diver + $dataCommune['recetFonct']->impots_taxe_c_direct + $dataCommune['recetFonct']->impots_taxe_indirect + $dataCommune['recetFonct']->produit_exceptionnel + $dataCommune['recetFonct']->produit_anterieur + $dataCommune['recetFonct']->autres_dotations, 0, ',', '.') : '' }}
                 </td>
             </tr>
         </table>

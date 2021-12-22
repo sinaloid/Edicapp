@@ -1134,7 +1134,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th> </th>
+                                <th>63/41+43</th>
                                 <td>Eau assainissement enviro</td>
                                 <td> {{ isset($dataCommune) ? number_format($dataCommune['depensFonctN']->eau_assainissement, 0, ',', '.') : '' }}
                                 </td>

@@ -592,7 +592,7 @@
                 
 
             </div>
-            @include('tableau')
+            @include('budgetPlanning')
         </div>
 </body>
 
