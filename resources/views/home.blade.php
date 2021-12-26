@@ -172,11 +172,11 @@
                     </form>
                     @endif
                     @if (!$status && auth()->user()->role != 'admin')
-                    <a href="{{ route('data.edit', $data->id) }}" id="" class="btn btn-info mx-1"
+                    <a href="{{ route('datas.info', $data->slug) }}" id="" class="btn btn-info mx-1"
                         role="button">Afficher</a>
                     @else
                     @if ($data->terminer == 0)
-                    <a href="{{ route('data.edit', $data->id) }}" id="" class="btn btn-info mx-1"
+                    <a href="{{ route('datas.info', $data->id) }}" id="" class="btn btn-info mx-1"
                         role="button">Editer</a>
 
 
