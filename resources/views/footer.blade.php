@@ -1,5 +1,5 @@
         <footer class = "container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center sin-bg-3">
             <div class ="col-12 text-center text-white">
                <hr style="height:2px;border-width:0;color:#fff;background-color:#fff" />
                <p>Télécharger <strong>EDIC</strong> sur le: </p>

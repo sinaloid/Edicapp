@@ -31,9 +31,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
        
        /***Generale ****/
        body{
-	      	background:rgba(0, 0, 0, 0.76);
-          background-color: #4A403A;
-          color: #444444 !important;
           line-height: 1.5rem;
           font-size: 1.1em;
         }
@@ -68,9 +65,14 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
          }
          h1,h2,h3{
          font-family: 'Kaushan Script', cursive;
-         font-size: 2.5em;
-         margin: 6px 0;
+         font-family:  Verdana, Geneva, Tahoma, sans-serif;
+         line-height: 1.1;
+         font-size: 1.6em;
+         font-weight: bold;
+         padding: 15px 10px;
          }
+
+         
           .myform{
 		              position: relative;
 		              display: -ms-flexbox;
@@ -160,11 +162,23 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
           background: #fff;
         }
         .sin-bg-2 {
-          background: #d1d4c9;
+          background: #fbe9e7;
+          background: #ffccbc;
         }
 
         .sin-bg-3 {
-          background: #ff8043;
+          background: #ff8043; 
+          
+        }
+        .sin-bg-4 {
+          background-color: #ffde43;
+        }
+        .sin-bg-5 {
+          background-color:  #fafafa; 
+          background-color:  #eeeeee;
+        }
+        .sin-bg-6 {
+          background-color: #43C2FF;
         }
         .sin-bg-commune {
           background-color: #334756;
@@ -431,7 +445,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
         background-color: #EEEEEE;
       }
 
-      
+      .ol-home{
+        list-style: circle;
+        font-weight:600;
+      }
 
      /* .bootstrap-select .dropdown-menu li a span{
         color: #444444 !important;

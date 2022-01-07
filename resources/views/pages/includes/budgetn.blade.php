@@ -279,7 +279,18 @@
             <tr>
                 <th>#</th>
                 <th>Total</th>
-                <td>{{ isset($dataCommune) ? number_format($dataCommune['depensFonctN']->sante + $dataCommune['depensFonctN']->appui_scolaire + $dataCommune['depensFonctN']->sport_culture + $dataCommune['depensFonctN']->eau_assainissement + $dataCommune['depensFonctN']->participation + $dataCommune['depensFonctN']->frais_financier + $dataCommune['depensFonctN']->refection_entretien + $dataCommune['depensFonctN']->salaire_indemnite + $dataCommune['depensFonctN']->entretien_vehicule + $dataCommune['depensFonctN']->appui_fonctionnement + $dataCommune['depensFonctN']->exedent_prelevement, 0, ',', '.') : '' }}
+                <td>{{ isset($dataCommune) ? number_format(
+                    $dataCommune['depensFonctN']->sante + 
+                    $dataCommune['depensFonctN']->appui_scolaire + 
+                    $dataCommune['depensFonctN']->sport_culture + 
+                    $dataCommune['depensFonctN']->eau_assainissement + 
+                    $dataCommune['depensFonctN']->participation + 
+                    $dataCommune['depensFonctN']->frais_financier + 
+                    $dataCommune['depensFonctN']->refection_entretien + 
+                    $dataCommune['depensFonctN']->salaire_indemnite + 
+                    $dataCommune['depensFonctN']->entretien_vehicule + 
+                    $dataCommune['depensFonctN']->appui_fonctionnement + 
+                    $dataCommune['depensFonctN']->exedent_prelevement, 0, ',', '.') : '' }}
                 </td>
             </tr>
         </table>
