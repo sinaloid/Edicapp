@@ -1,22 +1,20 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="row m-top">
-        <div class="col-12 text-center citation">
-            <span>L’E.D.I.C, pour l’expression d’une citoyenneté responsable.</span>
-        </div>
-    </div>
 
-    <div class="row callout">
+
+    <div class="row">
         <div class="col-12 col-md-10 mx-auto d-flex flex-wrap">
             <div class="col-12 col-lg-5 my-3 p-0">
-                <h1 class="mt-2 d-inline-block animate__animated animate__slideInLeft">Plateforme ouvertes des données budgétaires</h1>
+                <h1 class="mt-2 d-inline-block animate__animated animate__slideInLeft">Plateforme ouvertes des données
+                    budgétaires</h1>
                 <p class="animate__animated animate__jello">
                     Promouvoir l'innovation et la transparence grâce à la publication
                     des données budgétaires des différentes communes du Burkina Faso
                     dans des formats ouverts, gratuits et réutilisables.
                 </p>
-                <a class="btn btn-edic" href="#"  onclick="alert('Pas de donnée disponible pour le moment')">Voir des données</a>
+                <a class="btn btn-edic" href="#" onclick="alert('Pas de donnée disponible pour le moment')">Voir des
+                    données</a>
             </div>
             <div class="col-12 col-lg-7 image p-0">
                 <img class="d-block mt-4 mx-auto" src="{{ asset('assets/img/edic-analytics.svg') }}"
@@ -45,7 +43,8 @@
                 <img class="d-block mx-auto" src="{{ asset('assets/img/edic-share.svg') }}" alt="image illustrative" />
                 <h2 class="text-white text-center mt-2">Partager</h2>
                 <p class="col-12 col-md-4 col-lg-10 mx-auto text-white text-justify" style="font-weight: 500">
-                    Vous avez aussi la possibilité de diffuser ces données budgétaires au tour de vous et sur les réseaux sociaux
+                    Vous avez aussi la possibilité de diffuser ces données budgétaires au tour de vous et sur les réseaux
+                    sociaux
                 </p>
             </div>
         </div>
@@ -54,7 +53,7 @@
         <div class="col-12 col-md-10 mx-auto m-top">
             <h2 class="mb-0 text-center w-100">Visualisation rapide</h2>
             <p class="text-justify text-md-center col-12 col-md-10 p-0 my-4 mx-auto">
-                Sélectionné la commune et l’année des données pour faire une visualisation 
+                Sélectionné la commune et l’année des données pour faire une visualisation
                 rapide des trois meilleurs marchés qui ont contribués au budget de la commune.
             </p>
             <hr />
@@ -63,7 +62,7 @@
                     <div class="col-12 my-0">
                         <div class="form-group">
                             <div class="col-12">Communes</div>
-                            <select class="form-control m-0" id="country" name="country" required>
+                            <select class="form-control m-0" id="commune" name="commune" required>
                                 <option value="">
                                     {{ __('-- Sélectionnez une commune --') }}
                                 </option>
@@ -89,14 +88,14 @@
                         <hr />
                         <p class="my-0">
                             <strong>
-                                <span class="badge badge-dark">
+                                <span class="badge bg-secondary">
                                     #Commune sélectionnée :
                                 </span>
                             </strong>
 
                             <!--small>
-                                                        
-                                                      </small-->
+                                                            
+                                                          </small-->
                         </p>
                     </div>
                 </form>
@@ -110,17 +109,17 @@
                 <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-2">
                     <div class="col mt-4">
                         <div class="card">
-                            <div class="mx-auto" id="piechart" style="width:100%; max-width: 260px; height: 260px"></div>
+                            <div class="mx-auto" id="piechart_3d" style="width:100%; max-width: 260px; height: 260px"></div>
                         </div>
                     </div>
                     <div class="col mt-4">
                         <div class="card">
-                            <div class="mx-auto" id="piechart1" style="width:100%; max-width: 250px; height: 250px"></div>
+                            <div class="mx-auto" id="piechart_4d" style="width:100%; max-width: 250px; height: 250px"></div>
                         </div>
                     </div>
                     <div class="col mt-4">
                         <div class="card">
-                            <div class="mx-auto" id="piechart2" style="width:100%; max-width: 250px; height: 250px"></div>
+                            <div class="mx-auto" id="piechart_5d" style="width:100%; max-width: 250px; height: 250px"></div>
                         </div>
                     </div>
 
@@ -173,16 +172,17 @@
 
     <div class="row m-top pb-5 justify-content-center bg-gray">
         <hr class="w-100 mt-0 bg-white" />
-        <div class="col-11 col-sm-6 col-md-4 illustration bannier m-top" style="z-index: 1"> 
+        <div class="col-11 col-sm-6 col-md-4 illustration bannier m-top" style="z-index: 1">
             <img class="d-block mx-auto my-2" src="{{ asset('assets/img/dataset.svg') }}" alt="image illustrative" />
         </div>
         <div class="col-12 col-sm-6 col-md-4 illustration text-center text-sm-left m-top">
             <h2 class="my-3">Faire un jeux de données</h2>
             <p class="text-justify p-0">
-                Visualisez les données budgétaires dans divers formats graphiques ou 
+                Visualisez les données budgétaires dans divers formats graphiques ou
                 faites des comparaisons de données budgétaires.
             </p>
-            <a class="btn btn-edic" href="#" onclick="alert('Pas de donnée disponible pour le moment')">Jeux de données</a>
+            <a class="btn btn-edic" href="#" onclick="alert('Pas de donnée disponible pour le moment')">Jeux de
+                données</a>
         </div>
         <hr class="w-100 mt-5" />
         <div class="col-12 m-top">
@@ -267,7 +267,8 @@
                                 communes du Burkina Faso
                             </p>
                             <h5 class=" pb-2">Essayez l'application mobile</h5>
-                            <a class="btn-market btn-google mb-2" href="#" role="button" onclick="alert('Disponible bientot')">
+                            <a class="btn-market btn-google mb-2" href="#" role="button"
+                                onclick="alert('Disponible bientot')">
                                 <img src={{ asset('assets/img/badge.png') }} alt="" width="136px"
                                     loading="lazy" />
                             </a>
@@ -281,3 +282,96 @@
         </div>
     </div>
 @endsection
+
+@section('script')
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load("current", {
+            packages: ["corechart"]
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'montant'],
+                ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[0]->attendu : 1 }}],
+                ['Contribution', {{ isset($troisMeilleur) ? $troisMeilleur[0]->contribution : 0 }}],
+            ]);
+            var data1 = google.visualization.arrayToDataTable([
+                ['Task', 'montant'],
+                ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[1]->attendu : 1 }}],
+                ['Contribution', {{ isset($troisMeilleur) ? $troisMeilleur[1]->contribution : 0 }}],
+            ]);
+            var data2 = google.visualization.arrayToDataTable([
+                ['Task', 'montant'],
+                ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[2]->attendu : 1 }}],
+                ['Contribution', {{ isset($troisMeilleur) ? $troisMeilleur[2]->contribution : 0 }}],
+            ]);
+
+            var options = {
+                title: '{{ isset($troisMeilleur)
+                    ? $troisMeilleur[0]->marche
+                    : '
+                        ' }}',
+                legend: "top",
+                pieSliceText: "label",
+                pieStartAngle: 100,
+                is3D: true,
+                chartArea: {
+                    //left: 20,
+                    top: 20,
+                    width: "100%",
+                    height: "100%",
+                },
+            };
+
+            var options1 = {
+                title: '{{ isset($troisMeilleur)
+                    ? $troisMeilleur[1]->marche
+                    : '
+                        ' }}',
+                legend: 'right',
+                pieSliceText: 'label',
+                pieStartAngle: 100,
+                is3D: true,
+                chartArea: {
+                    left: 20,
+                    top: 20,
+                    width: '100%',
+                    height: '100%'
+                },
+            };
+
+            var options2 = {
+                title: '{{ isset($troisMeilleur)
+                    ? $troisMeilleur[2]->marche
+                    : '
+                        ' }}',
+                legend: 'right',
+                pieSliceText: 'label',
+                pieStartAngle: 100,
+                is3D: true,
+                chartArea: {
+                    left: 20,
+                    top: 20,
+                    width: '100%',
+                    height: '100%'
+                },
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            var chart1 = new google.visualization.PieChart(document.getElementById('piechart_4d'));
+            var chart2 = new google.visualization.PieChart(document.getElementById('piechart_5d'));
+            chart.draw(data, options);
+            chart1.draw(data1, options);
+            chart2.draw(data2, options);
+
+            $(window).smartresize(function() {
+                chart.draw(data, options);
+                chart1.draw(data1, options);
+                chart2.draw(data2, options);
+            });
+        }
+    </script>
+    <script src="{{ asset('assets/js/edicappresize.js') }}"></script>
+@stop

@@ -1,4 +1,4 @@
-<span class="badge badge-dark @if(str_contains(url()->current(), 'bilan')) sin-bg-3 @endif">
+<span class="badge bg-secondary @if(str_contains(url()->current(), 'bilan')) sin-bg-3 @endif">
     @if(str_contains(url()->current(), 'bilan'))
         <a class="text-white"
         href="#">#
@@ -10,7 +10,7 @@
     @endif
     
 </span>
-<span class="badge badge-dark @if(str_contains(url()->current(), 'planning')) sin-bg-3 @endif">
+<span class="badge bg-secondary @if(str_contains(url()->current(), 'planning')) sin-bg-3 @endif">
     @if(str_contains(url()->current(), 'planning'))
         <a class="text-white"
         href="#">#
@@ -21,7 +21,7 @@
         TdB Planning</a>
     @endif
 </span>
-<span class="badge badge-dark @if(str_contains(url()->current(), 'global')) sin-bg-3 @endif">
+<span class="badge bg-secondary @if(str_contains(url()->current(), 'global')) sin-bg-3 @endif">
     @if(str_contains(url()->current(), 'global'))
         <a class="text-white"
         href="#">#

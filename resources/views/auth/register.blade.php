@@ -1,12 +1,6 @@
 @extends('layout.app')
 
 @section('content')
-<div class="row m-top">
-    <div class="col-12 text-center citation">
-        <span>L’E.D.I.C, pour l’expression d’une citoyenneté responsable.</span>
-    </div>
-</div>
-
     <div class="row m-top mb-4">
         <div class="col-sm-8 col-md-10 col-lg-9 mx-auto mb-4">
             <div class="card py-0 mx-auto" style=" background: rgb(0,141,185);
@@ -154,9 +148,9 @@
                                     @endif
                             </div>
     
-                            <div class="form-group row mb-0">
+                            <div class="form-group mt-2">
                                 <div class="col-md-12 text-center">
-                                    <div class="form-group">
+                                    <div class="form-group mt-1">
                                         <span class="span-or">ou s'inscrire avec :</span>
     
                                         <a type="button" class="light-blue-text mx-2">

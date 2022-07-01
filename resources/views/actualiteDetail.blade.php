@@ -1,11 +1,6 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="row m-top">
-        <div class="col-12 text-center citation">
-            <span>L’E.D.I.C, pour l’expression d’une citoyenneté responsable.</span>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-12 col-md-10 col-lg-8 mx-auto text-justify mt-4">

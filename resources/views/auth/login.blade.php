@@ -1,11 +1,6 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="row m-top">
-        <div class="col-12 text-center citation">
-            <span>L’E.D.I.C, pour l’expression d’une citoyenneté responsable.</span>
-        </div>
-    </div>
     <div class="row m-top mb-4">
         <div class="col-sm-8 col-md-7 col-lg-5 mx-auto mb-4">
             <div class="card py-0 mx-auto" style=" background: rgb(0,141,185);

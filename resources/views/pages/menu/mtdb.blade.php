@@ -1,4 +1,4 @@
-@extends('template.dataShow')
+@extends('layout.appData')
 
 @section('script')
     
@@ -18,7 +18,8 @@
     @include("pages.menu.menuTdb")
 @endsection
 
-@section('dataContent')
+@section('contentData')
+<div class="container">
     @if(str_contains(url()->current(), 'planning'))
         @include("pages.includes.tdbPlanning")
     @elseif(str_contains(url()->current(), 'global'))
@@ -26,6 +27,6 @@
     @else
         @include("pages.includes.tdb")
     @endif
-    
+</div>
     
 @stop

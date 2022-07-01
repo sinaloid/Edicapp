@@ -9,62 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
     @yield('css')
-    <script src="https://kit.fontawesome.com/8b7c4e5629.js" crossorigin="anonymous"></script>
+    <!--script src="https://kit.fontawesome.com/8b7c4e5629.js" crossorigin="anonymous"></script-->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load("current", {
-            packages: ["corechart"]
-        });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ["Task", "Hours per Day"],
-                ["Work", 11],
-                ["Eat", 2],
-                ["Commute", 2],
-                ["Watch TV", 2],
-                ["Sleep", 7],
-            ]);
-
-            var options = {
-                //title: '{{ isset($troisMeilleur)
-                    ? $troisMeilleur[2]->marche
-                    : '
-                        //' }}',
-                legend: "top",
-                pieSliceText: "label",
-                pieStartAngle: 100,
-                is3D: true,
-                chartArea: {
-                    //left: 20,
-                    top: 20,
-                    width: "100%",
-                    height: "100%",
-                },
-            };
-
-            var chart = new google.visualization.PieChart(
-                document.getElementById("piechart")
-            );
-            var chart1 = new google.visualization.PieChart(
-                document.getElementById("piechart1")
-            );
-            var chart2 = new google.visualization.PieChart(
-                document.getElementById("piechart2")
-            );
-
-            chart.draw(data, options);
-            chart1.draw(data, options);
-            chart2.draw(data, options);
-        }
-    </script>
+    @yield('script')
 </head>
 
 <body>
@@ -89,7 +39,7 @@
                                 <a class="nav-link" href="{{ route('acceuil') }}">Accueil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" onclick="alert('Pas de donnée disponible pour le moment')">Données</a>
+                              <a class="nav-link" href="{{route('datas.info')}}">Données</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('actualites') }}">Actualités</a>
@@ -137,6 +87,11 @@
                 </nav>
             </div>
         </header>
+        <div class="row m-top">
+            <div class="col-12 text-center citation">
+                <span>@include('pages.includes.mgs')</span>
+            </div>
+        </div>
         @yield('content')
     </div>
 

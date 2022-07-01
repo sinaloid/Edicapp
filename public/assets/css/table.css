@@ -1,0 +1,124 @@
+sin-li-color {
+    color: #ff8043;
+}
+
+table {
+    border-collapse: collapse;
+    
+}
+
+td, th {
+    border: 2px solid #92918f;
+    
+}
+
+th{
+    font-weight: bold;
+}
+
+th {
+    background: #FCDA00;
+    color: #444444;
+}
+
+caption{
+    caption-side: top;
+}
+ .bg-dark {
+     border-radius: 2px solid #000;
+ }
+
+ .row > select {
+     display: inline-block;
+ }
+ div > label {
+     font-size: 1.2em;
+     font-weight: bold;
+ }
+
+ .sin-table-bg {
+     background: #008db9 !important;
+     color: #fff;
+ }
+
+ .sin-table-bg-1 {
+    background: #ff8043 !important;
+    color: #fff;
+
+}
+
+.sin-table-bg-3 {
+    background: #d1d4c9 !important;
+    color: #fff;
+}
+.notation {
+    color: red !important;
+    font-size: 1.2em;
+}
+
+.notation span {
+    color: #444444;
+    font-weight: bold;
+}
+
+.text-edicp > p {
+    text-transform: uppercase;
+    color: #444444;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.text-edicp > p > span {
+    color: #ff8043;
+}
+
+.text-edicp > p:last-child {
+    color: #b87333;
+}
+
+td, th{
+    word-wrap: break-word;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.card div > input {
+    border: none;
+    margin: 0;
+}
+
+/*table td {
+    position: relative;
+  }
+  
+  table td input {
+    position: absolute;
+    display: block;
+    top:0;
+    left:0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+  }*/
+  .nav-pills .nav-link.active {
+    background-color: #008db9 !important;
+    color: #fff;
+    
+
+}
+  
+    .nav-pills .nav-link.active:hover {
+      color: #fff !important;
+      
+  }
+@media (min-width : 768px){
+    td, th{
+        word-wrap: break-word;
+        min-width: 220px;
+        max-width: 400px;
+    }
+
+  }

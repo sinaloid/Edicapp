@@ -1,10 +1,10 @@
-@extends('template.dataShow')
+@extends('layout.appData')
 
 @section('dataTitle')
     Budget
 @stop
 
-@section('dataContent')
+@section('contentData')
     <div class="radio-bg mt-2">
         <input type="radio" name="budget" id="budget-n">
         <label class="small1" for="budget-n">Budget N (EDIC)</label>

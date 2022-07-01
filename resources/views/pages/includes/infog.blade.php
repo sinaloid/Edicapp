@@ -1,4 +1,4 @@
-<div class="row ">
+<div class="row mt-3">
     <div class="col-12 font-weight-bolder text-center text-uppercase">Évolution du budget de la commune les trois dernières années
     </div>
     <div class="col-12 table-responsive mt-2 px-0">

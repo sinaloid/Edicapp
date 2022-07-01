@@ -1,6 +1,6 @@
-<h4 class="col-12 font-weight-bolder text-center text-white text-uppercase sin-bg-3">Prévision de l'année
+<h4 class="col-12 font-weight-bolder text-center text-uppercase sin-bg-3">Prévision de l'année
     {{ isset($dataCommune) ? $dataCommune['annee'] + 1 : '' }}</h4>
-<p class="col-8 mx-auto font-weight-bolder text-center bg-success text-uppercase ">Les recettes</p>
+<p class="col-8 mx-auto font-weight-bolder text-white text-center bg-success text-uppercase ">Les recettes</p>
 
 <div class="row mt-3">
     <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes d'investissement</div>
@@ -194,7 +194,7 @@
 
 <div class="row mt-3">
     <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses de fonctionnement</div>
-    <div class="col-12 table-responsive mt-2 px-0 " style="width : 400px">
+    <div class="col-12 table-responsive mt-2 px-0 ">
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
