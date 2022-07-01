@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 @section('content')
 
 <div class="container card">
     <div class="row ">
-        <div class="col">
+        <div class="col sin-bg-2">
             <div class="pull-left ">
 
                 
@@ -16,6 +16,10 @@
                 @if (auth()->user()->role == 'admin' || auth()->user()->role == 'verificateur' || auth()->user()->role
                 ==
                 'editeur')
+                    @if(auth()->user()->role == 'admin' || auth()->user()->role == 'verificateur')
+                        <a name="" id="" class="btn btn-secondary mt-1 ml-auto font-weight-bold"
+                            href="{{ route('data.h_list') }}" role="button">historique</a>
+                    @endif
                 <a name="" id="" class="btn btn-secondary mt-1 ml-auto font-weight-bold"
                     href="{{ route('data.create') }}" role="button">Creer</a>
                 @endif

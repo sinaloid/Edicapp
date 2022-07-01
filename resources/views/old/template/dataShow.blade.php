@@ -21,85 +21,91 @@
 <body>
     @include("header")
     <div class="container px-1 sin-m-t myform">
-        <div class="row sin-bg-2 myform mx-auto">
+        <div class="row sin-bg-2 myform mx-auto py-0 px-2">
             <div class="col-sm-12">
 
                 <form class="row mb-3 p-0" action="{{ route('datas.view') }}" method="get">
                     <div class="col p-0">
-                        <div class="col-sm-12 sin-bg-2 p-0">
-                            <div class="form-group mt">
-                                <select class="form-control mt-1" id="country" name="country" required>
-                                    <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
-                                    @foreach ($countries ?? '' as $country)
+                        <div class="col p-0">
+                            <div class="col-sm-12 p-0">
+                                <div class="form-group">
+                                    <div class="col-12 p-0">Pays</div>
+                                    <select class="form-control m-0" id="country" name="country" required>
+                                        <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
+                                        @foreach($countries ?? '' as $country)
                                         <option value="{{ $country->id }}">
                                             {{ $country->country_name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('pays')
+                                        @endforeach
+                                    </select>
+                                    @error('pays')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
-                            <div class="row p_region justify-content-between">
-                                <div class=" col-6 col-md ">
-                                    <div class="form-group">
-                                        <select class="form-control " id="region" name="region" required>
+                                    @enderror
+                                </div>
+                                <div class="row p_region justify-content-between">
+                                    <div class=" col-6 col-md py-0">
+                                        <div class="form-group">
+                                            <div class="col-12 p-0">Région</div>
+                                            <select class="form-control m-0" id="region" name="region" required>
 
-                                        </select>
-                                        @error('region')
+                                            </select>
+                                            @error('region')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                        @enderror
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6 col-md">
-                                    <div class="form-group">
-                                        <select class="form-control " id="province" name="province" required>
+                                    <div class="col-6 col-md py-0">
+                                        <div class="form-group">
+                                            <div class="col-12 p-0">Province</div>
+                                            <select class="form-control m-0 " id="province" name="province" required>
 
-                                        </select>
-                                        @error('province')
+                                            </select>
+                                            @error('province')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                        @enderror
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12 col-md">
-                                    <div class="form-group">
-                                        <select class="form-control" id="commune" name="commune" required>
+                                    <div class="col-12 col-md py-0">
+                                        <div class="form-group">
+                                            <div class="col-12 p-0">Commune</div>
+                                            <select class="form-control m-0" id="commune" name="commune" required>
 
-                                        </select>
-                                        @error('commune')
+                                            </select>
+                                            @error('commune')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                        @enderror
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12 col-md">
-                                    <div class="form-group">
-                                        <select class="form-control" id="commune4" name="annee" required>
-                                            <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
-                                            @for ($i = Date('Y'); 2000 <= $i; $i--)
-                                                <option value="{{ $i }}">
+                                    <div class="col-12 col-md py-0">
+                                        <div class="form-group">
+                                            <div class="col-12 p-0">Année</div>
+                                            <select class="form-control m-0" id="commune4" name="annee" required>
+                                                <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
+                                                @for($i = Date('Y'); 2000<= $i; $i--) <option value="{{ $i}}">
                                                     {{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                        @error('commune')
+                                                    @endfor
+                                            </select>
+                                            @error('commune')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
-                                        @enderror
-                                    </div>
+                                            @enderror
+                                        </div>
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
-                    <div class="col-12">
+                    <div class="col-12 p-0">
                         <div class="mx-auto">
                             <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">Valider</button>
                             <a class="btn sin-bg-3" href="{{ route('datas.cmp') }}">Comparaison</a>
@@ -117,7 +123,7 @@
                             @endif
 
                         </div>
-                        <p class="mt-3 p-0">
+                        <p class="my-0 p-0">
                             <strong>
                                 <span class="badge badge-dark">
                                     #Commune:
@@ -162,17 +168,20 @@
             </div>
         </div>
 
-        <div class="container myform">
+        <div class="container myform1">
             <div class="row align-items-center">
-                <div class="col-5 col-md-6">
-                    <h2>Données</h2>
-                </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12">
                     <!--p class="sin-ic">Partager sur : <a href="#"><i class="fab fa-facebook"></i> Facebook</a> |
                         <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
                     </p-->
-                    <div class="row my-3">
-                        <div class="col-12">
+                    <div class="row my-3 px-3">
+                        <div class="col-12 col-md-2 p-0">
+                            <h2 class="p-0 m-0">Données</h2>
+                        </div>
+                        <div class="col-12 col-md-2 p-0">
+                            Partager sur :
+                        </div>
+                        <div class="col-12 col-md-8 p-0">
                             <div id="fb" class="btn-sm text-white font-weight-bold d-inline mx-1 mb-2" style="background: #4267b2" type="button">
                                 Facebook
                             </div>
@@ -252,9 +261,9 @@
 
 
             @include("pages.menu.menu")
-            <div id="pdf" class="container px-1">
-                <h3 class="my-4">@yield('dataTitle')</h3>
-                <p class="my-4">@yield('allTdb')</p>
+            <div id="pdf" class="container px-0">
+                <h3 class="my-2">@yield('dataTitle')</h3>
+                <p class="my-0">@yield('allTdb')</p>
                 <hr style="height:1px;border-width:5;color:#444;background-color:#444">
                 @yield('dataContent')
             </div>

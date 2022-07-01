@@ -5,8 +5,8 @@
 @stop
 
 @section('content')
-<div class="container sin-m-t myform article">
-    <div class="row card-header"> <h2>Edic Infos</h2></div>
+<div class="container sin-m-t myform article p-3 px-3">
+    <div class="row card-header p-0"> <h2>Edic Infos</h2></div>
     <div class="row">
         <form class="form-inline w-100 justify-content-center">
             <input class="form-control mr-sm-2 w-75" type="search" placeholder="Rechercher" aria-label="Search">
@@ -24,7 +24,7 @@
         </div>
 
         <div class="col-md-4 col-sm-6">
-            <article>
+            <article class="card p-2 card-info">
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
                 <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
@@ -35,7 +35,7 @@
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
-            <article>
+            <article class="card p-2 card-info">
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
                 <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
@@ -46,7 +46,7 @@
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
-            <article>
+            <article class="card p-2 card-info">
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
                 <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
@@ -57,7 +57,7 @@
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
-            <article>
+            <article class="card p-2 card-info">
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
                 <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
@@ -68,7 +68,7 @@
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
-            <article>
+            <article class="card p-2 card-info">
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
                 <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>
@@ -79,7 +79,7 @@
             </article>
         </div>
         <div class="col-md-4 col-sm-6">
-            <article>
+            <article class="card p-2 card-info">
                 <img src="https://placeimg.com/640/480/tech" alt="https://placeimg.com/640/480/tech">
                 <p class="date">Posté le <time datetime="2021-10-20 20:29">20 octobre 2021 à 20:29</time></p>
                 <h1>Title</h1>

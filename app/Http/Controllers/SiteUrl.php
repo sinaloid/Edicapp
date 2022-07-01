@@ -105,15 +105,15 @@ class SiteUrl extends Controller
         return view('index', compact('countries','troisMeilleur', 'dataCommune'));
     }
 
-    public function actu(){
+    public function actualites(){
 
-        return view('pages.news');
+        return view('actualites');
         
     }
 
-    public function actuContent(){
+    public function actualiteDetail(){
 
-        return view('pages.article');
+        return view('actualiteDetail');
         
     }
 
@@ -1897,6 +1897,8 @@ class SiteUrl extends Controller
         return json_encode($user);
 
     }
+
+    
 
     public function countryConfig($names, $id, $table){
         if($table == 1 ){

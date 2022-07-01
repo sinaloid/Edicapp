@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteUrl;
 use Spatie\Browsershot\Browsershot;
 use App\Models\Datas\Infog\Tables\RessourceImage;
-
+use  App\Http\Controllers\DataCommuneController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,10 +45,10 @@ Route::get('home/create', function () {
 
 /*********************************************/
 
-Route::get('actu', [SiteUrl::class, 'actu'])->name('actu');
-Route::get('actuc', [SiteUrl::class, 'actuContent'])->name('actuc');
+Route::get('actualites', [SiteUrl::class, 'actualites'])->name('actualites');
+Route::get('detail', [SiteUrl::class, 'actualiteDetail'])->name('detail');
 /*Data view*/
-Route::get('datas/view', [App\Http\Controllers\DataCommuneController::class, 'datasView'])->name('datas.view');
+Route::get('datas/view', [DataCommuneController::class, 'datasView'])->name('datas.view');
 Route::get('datas/info/{slug?}', [SiteUrl::class, 'datasInfo'])->name('datas.info');
 Route::get('datas/pcd/{slug?}', [SiteUrl::class, 'datasPcd'])->name('datas.pcd');
 Route::get('datas/budget/{slug?}', [SiteUrl::class, 'datasBudget'])->name('datas.bg');
@@ -71,19 +71,22 @@ Route::get('test', [SiteUrl::class, 'test'])->name('test');
 Route::get('role', [SiteUrl::class, 'userRole'])->name('userRole');
 Route::get('getdata', [SiteUrl::class, 'getdata'])->name('getdata');
 
-//Route::delete('films/force/{id}', [FilmController::class, 'forceDestroy'])->name('films.force.destroy');
 Route::get('country/{country_id}', [SiteUrl::class, 'getCountryRegion']);
 Route::get('region/{region_id}', [SiteUrl::class, 'getCountryRegionProvince']);
 Route::get('province/{province_id}', [SiteUrl::class, 'getCountryRegionProvinceCommune']);
 
 Route::get('/pdf', [SiteUrl::class, 'pdf'])->name('pdf');
-Route::resource('data', App\Http\Controllers\DataCommuneController::class)->middleware(['auth','verified']);
-Route::put('data/terminer/{data}', [App\Http\Controllers\DataCommuneController::class, 'terminer'])->middleware(['auth','verified'])->name('data.terminer');
-Route::put('data/publier/{data}', [App\Http\Controllers\DataCommuneController::class, 'publier'])->middleware(['auth','verified'])->name('data.publier');
-Route::put('data/encour/{data}', [App\Http\Controllers\DataCommuneController::class, 'encour'])->middleware(['auth','verified'])->name('data.encour');
-Route::get('data/deleteImg/{id?}', [App\Http\Controllers\DataCommuneController::class, 'deleteImg'])->middleware(['auth','verified'])->name('deleteImg');
-Route::get('image/{slug}', [App\Http\Controllers\DataCommuneController::class, 'image']);
-Route::post('data/updateCommune/{id?}', [App\Http\Controllers\DataCommuneController::class, 'updateCommune'])->middleware(['auth','verified'])->name('data.updateCommune');
+Route::resource('data', DataCommuneController::class)->middleware(['auth','verified']);
+Route::put('data/terminer/{data}', [DataCommuneController::class, 'terminer'])->middleware(['auth','verified'])->name('data.terminer');
+Route::put('data/publier/{data}', [DataCommuneController::class, 'publier'])->middleware(['auth','verified'])->name('data.publier');
+Route::put('data/encour/{data}', [DataCommuneController::class, 'encour'])->middleware(['auth','verified'])->name('data.encour');
+Route::get('data/deleteImg/{id?}', [DataCommuneController::class, 'deleteImg'])->middleware(['auth','verified'])->name('deleteImg');
+Route::get('image/{slug}', [DataCommuneController::class, 'image']);
+Route::post('data/updateCommune/{id?}', [DataCommuneController::class, 'updateCommune'])->middleware(['auth','verified'])->name('data.updateCommune');
+Route::get('h_list', [DataCommuneController::class, 'h_list'])->middleware(['auth','verified'])->name('data.h_list');
+
+
+
 
 
 Route::post('make_pdf', [SiteUrl::class, 'makePdf'])->name('make_pdf');

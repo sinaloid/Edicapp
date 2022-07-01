@@ -1,376 +1,283 @@
-@extends('template.app')
-
-@section('titlePage')
-<title>EDICApp - Acceuil </title>
-@stop
-
-@section('script')
-<script src="https://www.gstatic.com/charts/loader.js"></script>
-<script>
-google.charts.load("current", {
-    packages: ["corechart"]
-});
-google.charts.setOnLoadCallback(drawChart);
-
-function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ['Task', 'montant'],
-        ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[0]->attendu : 1 }} ],
-        ['Contribution', {{isset($troisMeilleur) ? $troisMeilleur[0]->contribution : 0 }}],
-    ]);
-    var data1 = google.visualization.arrayToDataTable([
-        ['Task', 'montant'],
-        ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[1]->attendu : 1 }} ],
-        ['Contribution', {{isset($troisMeilleur) ? $troisMeilleur[1]->contribution : 0 }}],
-    ]);
-    var data2 = google.visualization.arrayToDataTable([
-        ['Task', 'montant'],
-        ['Attendu', {{ isset($troisMeilleur) ? $troisMeilleur[2]->attendu : 1 }} ],
-        ['Contribution', {{isset($troisMeilleur) ? $troisMeilleur[2]->contribution : 0 }}],
-    ]);
-
-    var options = {
-        title: '{{ isset($troisMeilleur) ? $troisMeilleur[0]->marche : '
-        ' }}',
-        legend: 'right',
-        pieSliceText: 'label',
-        pieStartAngle: 100,
-        is3D: true,
-        chartArea: {
-            left: 20,
-            top: 20,
-            width: '100%',
-            height: '100%'
-        },
-    };
-
-    var options1 = {
-        title: '{{ isset($troisMeilleur) ? $troisMeilleur[1]->marche : '
-        ' }}',
-        legend: 'right',
-        pieSliceText: 'label',
-        pieStartAngle: 100,
-        is3D: true,
-        chartArea: {
-            left: 20,
-            top: 20,
-            width: '100%',
-            height: '100%'
-        },
-    };
-
-    var options2 = {
-        title: '{{ isset($troisMeilleur) ? $troisMeilleur[2]->marche : '
-        '}}',
-        legend: 'right',
-        pieSliceText: 'label',
-        pieStartAngle: 100,
-        is3D: true,
-        chartArea: {
-            left: 20,
-            top: 20,
-            width: '100%',
-            height: '100%'
-        },
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-    var chart1 = new google.visualization.PieChart(document.getElementById('piechart_4d'));
-    var chart2 = new google.visualization.PieChart(document.getElementById('piechart_5d'));
-    chart.draw(data, options);
-    chart1.draw(data1, options1);
-    chart2.draw(data2, options2);
-
-    $(window).smartresize(function() {
-        chart.draw(data, options);
-        chart1.draw(data1, options1);
-        chart2.draw(data2, options2);
-    });
-}
-</script>
-<script src="js/edicappresize.js"></script>
-@stop
+@extends('layout.app')
 
 @section('content')
-<div class="container sin-m-t p-0 bg-white">
-    <!--div class="row banier">
-        <img class="col-sm-12 img-fluid " src="{{ asset('img/EDICApp_banier.png') }}" alt="bannier EDICApp" />
-        <div class="col-sm-12 card sin-bg-2 banier_img1">
-            <div class="card-body">
-                <div class="card-text mb-2" onload="javascript:setTimeout('location.reaload(true);',35);">
-                    <q>@include('pages.includes.mgs')</q>
+    <div class="row m-top">
+        <div class="col-12 text-center citation">
+            <span>L’E.D.I.C, pour l’expression d’une citoyenneté responsable.</span>
+        </div>
+    </div>
 
-                </div>
-               
-                <a href="{{ route('actu') }}" class="btn sin-bg-3 my-1 font-weight-bold text-white">Actualités</a>
+    <div class="row callout">
+        <div class="col-12 col-md-10 mx-auto d-flex flex-wrap">
+            <div class="col-12 col-lg-5 my-3 p-0">
+                <h1 class="mt-2 d-inline-block animate__animated animate__slideInLeft">Plateforme ouvertes des données budgétaires</h1>
+                <p class="animate__animated animate__jello">
+                    Promouvoir l'innovation et la transparence grâce à la publication
+                    des données budgétaires des différentes communes du Burkina Faso
+                    dans des formats ouverts, gratuits et réutilisables.
+                </p>
+                <a class="btn btn-edic" href="#"  onclick="alert('Pas de donnée disponible pour le moment')">Voir des données</a>
+            </div>
+            <div class="col-12 col-lg-7 image p-0">
+                <img class="d-block mt-4 mx-auto" src="{{ asset('assets/img/edic-analytics.svg') }}"
+                    alt="image illustrative" />
             </div>
         </div>
-    </div-->
-
-    <div class="bd-example">
-        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-          <!--ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-          </ol-->
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="{{ asset('img/EDICApp_banier.png') }}" class="d-block w-100" alt="...">
-              <!--div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              </div-->
+    </div>
+    <div class="row bannier mt-3">
+        <div class="col-12 col-md-10 mx-auto py-2 d-flex flex-wrap">
+            <div class="col-12 col-lg-4 px-0 illustration">
+                <img class="d-block mx-auto" src="{{ asset('assets/img/edic-visualisation.svg') }}"
+                    alt="image illustrative" />
+                <h2 class="text-white text-center mt-2">Visualiser</h2>
+                <p class="col-12 col-md-4 col-lg-10 mx-auto text-white text-justify" style="font-weight: 500">
+                    Accéder facilement et librement aux données budgétaires des différentes communes du Burkina Faso
+                </p>
             </div>
-            <div class="carousel-item">
-              <img src="{{ asset('img/bf.png') }}" class="d-block w-100" alt="...">
-              <!--div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div-->
+            <div class="col-12 col-lg-4 px-0 illustration">
+                <img class="d-block mx-auto" src="{{ asset('assets/img/edic-download.svg') }}" alt="image illustrative" />
+                <h2 class="text-white text-center mt-2">Télécharger</h2>
+                <p class="col-12 col-md-4 col-lg-10 mx-auto text-white text-justify" style="font-weight: 500">
+                    Ces données sont disponibles pour vous aux formats PDF, excel, Csv et réutilisables
+                </p>
             </div>
-            <!--div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-              </div>
-            </div-->
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+            <div class="col-12 col-lg-4 px-0 illustration">
+                <img class="d-block mx-auto" src="{{ asset('assets/img/edic-share.svg') }}" alt="image illustrative" />
+                <h2 class="text-white text-center mt-2">Partager</h2>
+                <p class="col-12 col-md-4 col-lg-10 mx-auto text-white text-justify" style="font-weight: 500">
+                    Vous avez aussi la possibilité de diffuser ces données budgétaires au tour de vous et sur les réseaux sociaux
+                </p>
+            </div>
         </div>
-      </div>
-      <div class="col-12 text-center sin-bg-2">
-        <p class="col-12">
-            <q>@include('pages.includes.mgs')</q>
-        </p>
-      </div>
-      <div class="row">
-        <div class="col-12 col-md-4">
-            <img class="rounded-circle" width="100%" src="{{ asset('img/data.png') }}"  alt="image dataset">
-          </div>
-          <div class="col-12 col-md-8">
-              <h1 class="mt-5 sin-bg-3 text-white">Plateforme d'access aux données budgétaires</h1>
-            <p class="mx-3">
-                <ol class="ol-home py-0">
-                    <li>Visualiser</li>
-                    <li>Partager</li>
-                    <li>Telecharger aux format pdf, csv, xls, json</li>
-                </ol>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-10 mx-auto m-top">
+            <h2 class="mb-0 text-center w-100">Visualisation rapide</h2>
+            <p class="text-justify text-md-center col-12 col-md-10 p-0 my-4 mx-auto">
+                Sélectionné la commune et l’année des données pour faire une visualisation 
+                rapide des trois meilleurs marchés qui ont contribués au budget de la commune.
             </p>
-            <p class="mx-3 mt-0">Les données budgétaires des différentes communes du Burkina Faso.</p>
-            
-          </div>
-      </div>
-</div>
-<!--div class="container pb-0">
-   
-    <form class="form-inline justify-content-center">
-        <input class="form-control mr-sm-2 w-75" type="search" placeholder="Rechercher" aria-label="Search">
-        <button class="btn sin-btn  my-2 my-sm-0" type="submit">Rechercher</button>
-    </form>
-</div-->
-<div id="donne_commune" class="container">
-    <!-- Data Country -->
-    <div class="row sin-bg-5">
-        <div  class="col-12 mt-3">Sélectionnez une commune pour accéder à ces données budgétaires</div>
-        <div class="col-sm-12  col-md-8 col-lg-9">
-            <p class="sin-title my-3">Données par pays</p>
-            <div class="row px-3 m-0">
-                <div class="col-12 p-0">
-                    <form class="row mb-3 p-0" action="{{ route('acceuil') }}" method="get">
-                        <div class="col p-0">
-                            <div class="col-sm-12 p-0">
-                                <div class="form-group">
-                                    <div class="col-12 p-0">Pays</div>
-                                    <select class="form-control m-0" id="country" name="country" required>
-                                        <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
-                                        @foreach($countries ?? '' as $country)
-                                        <option value="{{ $country->id }}">
-                                            {{ $country->country_name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('pays')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="row p_region justify-content-between">
-                                    <div class=" col-6 col-md py-0">
-                                        <div class="form-group">
-                                            <div class="col-12 p-0">Région</div>
-                                            <select class="form-control m-0" id="region" name="region" required>
+            <hr />
+            <div class="col-12 mx-auto">
+                <form class="row" action="#" method="get">
+                    <div class="col-12 my-0">
+                        <div class="form-group">
+                            <div class="col-12">Communes</div>
+                            <select class="form-control m-0" id="country" name="country" required>
+                                <option value="">
+                                    {{ __('-- Sélectionnez une commune --') }}
+                                </option>
 
-                                            </select>
-                                            @error('region')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md py-0">
-                                        <div class="form-group">
-                                            <div class="col-12 p-0">Province</div>
-                                            <select class="form-control m-0 " id="province" name="province" required>
-
-                                            </select>
-                                            @error('province')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md py-0">
-                                        <div class="form-group">
-                                            <div class="col-12 p-0">Commune</div>
-                                            <select class="form-control m-0" id="commune" name="commune" required>
-
-                                            </select>
-                                            @error('commune')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md py-0">
-                                        <div class="form-group">
-                                            <div class="col-12 p-0">Année</div>
-                                            <select class="form-control m-0" id="commune4" name="annee" required>
-                                                <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
-                                                @for($i = Date('Y'); 2000<= $i; $i--) <option value="{{ $i}}">
-                                                    {{ $i }}</option>
-                                                    @endfor
-                                            </select>
-                                            @error('commune')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                            </select>
                         </div>
-                        <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
-                        
-                        <div class="col-12 p-0">
-                            <div class="py-0">
-                                <button type="submit"
-                                    class="btn sin-bg-3 my-0 font-weight-bold text-white">Valider</button>
-                                
-                            </div>
-                            <p class="my-0">
-                                <strong>
-                                    <span class="badge badge-dark">
-                                        #Commune:
-                                    </span>
-                                </strong>
+                        <div class="form-group">
+                            <div class="col-12">Année</div>
+                            <select class="form-control m-0" id="annee" name="annee" required>
+                                <option value="">
+                                    {{ __('-- Sélectionnez l’année --') }}
+                                </option>
 
-                                <small>
-                                    {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune->id)->commune->commune_name." ".App\Models\Datas\Data::find($dataCommune->id)->annee : 'inexistante'}}
-
-                                </small>
-
-                            </p>
+                            </select>
                         </div>
-                    </form>
+                    </div>
+                    <input type="hidden" name="viewName" value="#" />
+
+                    <div class="col-12">
+                        <div class="mt-2 py-0">
+                            <button type="submit" class="btn btn-edic">Valider</button>
+                        </div>
+                        <hr />
+                        <p class="my-0">
+                            <strong>
+                                <span class="badge badge-dark">
+                                    #Commune sélectionnée :
+                                </span>
+                            </strong>
+
+                            <!--small>
+                                                        
+                                                      </small-->
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-lg-10 mx-auto m-top">
+            <h2 class="w-75 mb-0 mx-auto text-center">
+                Contributions des trois meilleurs marchés
+            </h2>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-2">
+                    <div class="col mt-4">
+                        <div class="card">
+                            <div class="mx-auto" id="piechart" style="width:100%; max-width: 260px; height: 260px"></div>
+                        </div>
+                    </div>
+                    <div class="col mt-4">
+                        <div class="card">
+                            <div class="mx-auto" id="piechart1" style="width:100%; max-width: 250px; height: 250px"></div>
+                        </div>
+                    </div>
+                    <div class="col mt-4">
+                        <div class="card">
+                            <div class="mx-auto" id="piechart2" style="width:100%; max-width: 250px; height: 250px"></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <p class="sin-title m-0 mb-3">Contribution des trois (03) meilleurs marchés</p>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg justify-content-center">
-                            <div class="card">
-                                <h4 class="card-header">Marché 1</h4>
-                                <div class="card-body p-0">
-                                    <div id="piechart_3d" style="width: 100%;"></div>
-                                    
+        </div>
+        <div class="col-12 m-top" style="background-color: rgba(0, 141, 185, 0.6)">
+            <h2 class="text-center my-4 text-white">Voir les données par catégories</h2>
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
+                <div class="container">
+                    <div
+                        class="row row-cols-2 row-cols-sm-4 row-cols-md-4 g-1 data py-1 d-flex flex-wrap justify-content-center">
+                        <div class="col p-0 my-3 categ" onclick="alert('Pas de donnée disponible pour le moment')">
+                            <div class="card mx-auto">
+                                <div class="circle">
+                                    <span><i class="fa-solid fa-info"></i></span>
                                 </div>
+                                <h3 class="mt-2">Infos G</h3>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg justify-content-center">
-                            <div class="card">
-                                <h4 class="card-header">Marché 2</h4>
-                                <div class="card-body p-0">
-                                    <div id="piechart_4d" style="width: 100%;"></div>
+                        <div class="col my-3 categ" onclick="alert('Pas de donnée disponible pour le moment')">
+                            <div class="card mx-auto">
+                                <div class="circle">
+                                    <span><i class="fa-solid fa-scale-unbalanced-flip"></i></span>
                                 </div>
+                                <h3 class="mt-2">Pcd</h3>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg justify-content-center">
-                            <div class="card">
-                                <h4 class="card-header">Marché 3</h4>
-                                <div class="card-body p-0">
-                                    <div id="piechart_5d" style="width: 100%;"></div>
+                        <div class="col p-0 my-3 categ" onclick="alert('Pas de donnée disponible pour le moment')">
+                            <div class="card mx-auto">
+                                <div class="circle">
+                                    <span><i class="fa-solid fa-coins"></i></span>
                                 </div>
+                                <h3 class="mt-2">Budget</h3>
+                            </div>
+                        </div>
+                        <div class="col p-0 my-3 categ" onclick="alert('Pas de donnée disponible pour le moment')">
+                            <div class="card mx-auto">
+                                <div class="circle">
+                                    <span><i class="fa-solid fa-chart-line"></i></span>
+                                </div>
+                                <h3 class="mt-2">TdB</h3>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 sin-btn-data">
-                    <a class="btn sin-bg-3 font-weight-bold text-white"
-                        href="{{ route('datas.tdb', isset($dataCommune) ? $dataCommune['slug'] : 'tdb') }}">
-                        Données(TdB)</a>
-                    <a class="btn sin-bg-3 font-weight-bold text-white"
-                        href="{{ route('datas.cmp', isset($dataCommune) ? $dataCommune['slug'] : 'cmp') }}">Comparaison</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-top pb-5 justify-content-center bg-gray">
+        <hr class="w-100 mt-0 bg-white" />
+        <div class="col-11 col-sm-6 col-md-4 illustration bannier m-top" style="z-index: 1"> 
+            <img class="d-block mx-auto my-2" src="{{ asset('assets/img/dataset.svg') }}" alt="image illustrative" />
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 illustration text-center text-sm-left m-top">
+            <h2 class="my-3">Faire un jeux de données</h2>
+            <p class="text-justify p-0">
+                Visualisez les données budgétaires dans divers formats graphiques ou 
+                faites des comparaisons de données budgétaires.
+            </p>
+            <a class="btn btn-edic" href="#" onclick="alert('Pas de donnée disponible pour le moment')">Jeux de données</a>
+        </div>
+        <hr class="w-100 mt-5" />
+        <div class="col-12 m-top">
+            <h2 class="mb-4 text-center">Actualités</h2>
+            <div id="demo" class="col-12 carousel slide" data-bs-ride="carousel">
+                @php
+                    $datas = [0, 1, 2];
+                @endphp
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    @foreach ($datas as $item)
+                        @if ($item == 0)
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="{{ $item++ }}"
+                                class="active"></button>
+                        @else
+                            <button type="button" data-bs-target="#demo"
+                                data-bs-slide-to="{{ $item++ }}"></button>
+                        @endif
+                    @endforeach
+                </div>
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+                    @foreach ($datas as $item)
+                        @if ($item == 0)
+                            <div class="carousel-item active">
+                                <div class="col-12 col-md-10 col-lg-8 mx-auto d-flex flex-wrap">
+                                    <div class="col-12 col-sm-6">
+                                        <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
+                                            alt="Los Angeles" width="1100" height="500">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="p-md-4 mt-1">
+                                            <h3>Los Angeles</h3>
+                                            <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                elit.
+                                                Quo, commodi ullam? Eaque aliquid repudiandae fugit veritatis
+                                                maiores aliquam est inventore enim in amet, voluptatibus molestiae,
+                                            </p>
+                                            <a class="link" href="{{ route('detail') }}">Lire plus</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <div class="carousel-item">
+                                <div class="col-12 col-md-10 col-lg-8 mx-auto d-flex flex-wrap">
+                                    <div class="col-12 col-sm-6">
+                                        <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
+                                            alt="Los Angeles" width="1100" height="500">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="p-md-4 mt-1">
+                                            <h3>Los Angeles</h3>
+                                            <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                elit.
+                                                Quo, commodi ullam? Eaque aliquid repudiandae fugit veritatis
+                                                maiores aliquam est inventore enim in amet, voluptatibus molestiae,
+                                            </p>
+                                            <a class="link" href="{{ route('detail') }}">Lire plus</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-4 col-lg-3 p-0">
-            <p class="sin-title">carte d'Afrique</p>
-            <!--svg-->
-            @include("svg")
+
+        <div class="col-12 col-lg-10 m-top">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 bg-white p-0">
+                    <div class="col order-md-2 p-3">
+                        <div class="">
+                            <h2 class="">
+                                Économisez du temps grâce à l'utilisation de l'application mobile
+                                <span class="text-muted">EDIC.</span>
+                            </h2>
+                            <p class="lead">
+                                Télécharger, visualiser et partager facilement les données budgétaires des différentes
+                                communes du Burkina Faso
+                            </p>
+                            <h5 class=" pb-2">Essayez l'application mobile</h5>
+                            <a class="btn-market btn-google mb-2" href="#" role="button" onclick="alert('Disponible bientot')">
+                                <img src={{ asset('assets/img/badge.png') }} alt="" width="136px"
+                                    loading="lazy" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col order-md-1 p-0">
+                        <img src={{ asset('assets/img/app1.png') }} width="100%" alt="app icone" loading="lazy" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!--Categorie -->
-    <div class="row justify-content-center sin-bg-2 py-3">
-        <p class="col-12 sin-title">Données par catégories</p>
-        <div class="col-6 col-lg-2 mt-3" title="Informations générales">
-            <a id="inf" class="col-card card w-75 p-2"
-                href="{{ route('datas.info',isset($dataCommune) ? $dataCommune['slug'] : 'info_generale') }}">
-                <img class="mx-auto" src="img/infog.png" alt="img tdb">
-                <h4 class="m-auto font-weight-bolder">Info G</h4>
-            </a>
-        </div>
-        <div class="col-6 col-lg-2 mt-3" title="Plan Communal de Développement">
-            <a id="pcd" class="col-card card w-75 p-2"
-                href="{{ route('datas.pcd', isset($dataCommune) ? $dataCommune['slug'] : 'pcd') }}">
-                <img class="mx-auto" src="img/pcd.png" alt="img pcd">
-                <h4 class="m-auto font-weight-bolder">PCD</h4>
-            </a>
-        </div>
-        <div class="col-6 col-lg-2 mt-3" title="Informations budgétaires">
-            <a id="budget" class="col-card card w-75 p-2"
-                href="{{ route('datas.bg', isset($dataCommune) ? $dataCommune['slug'] : 'bg') }}">
-                <img class="mx-auto" src="img/budget.png" alt="img budget">
-                <h4 class="m-auto font-weight-bolder">Budget</h4>
-            </a>
-        </div>
-        <div class="col-6 col-lg-2 mt-3" title="Tableau de Bord">
-            <a id="tdb" class="col-card card w-75 p-2"
-                href="{{ route('datas.tdb', isset($dataCommune) ? ['bilan',$dataCommune['slug']] : 'tdb') }}">
-                <img class="mx-auto" src="img/tdb.png" alt="img tdb">
-                <h4 class="m-auto font-weight-bolder">Tdb</h4>
-            </a>
-        </div>
-
-        <!-- start button -->
-
-        <!-- end button -->
-    </div>
-</div>
-<script src="{{ asset('js/country.js') }}"></script>
-
-@stop
+@endsection

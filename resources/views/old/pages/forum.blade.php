@@ -9,8 +9,8 @@
 @stop
 
 @section('content')
-    <div class="container sin-m-t myform main-body">
-    <div class="row card-header"> <h2>Edic Forum</h2></div>
+    <div class="container sin-m-t myform main-body p-0 px-3">
+    <div class="row card-header p-0"> <h2>Edic Forum</h2></div>
         <div class="row">
             <div class="col-12 col-md-3 mt-2">
                 <div class="row justify-content-center">

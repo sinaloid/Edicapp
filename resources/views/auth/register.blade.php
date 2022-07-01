@@ -1,55 +1,63 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 @section('content')
-<div class="container p-0">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Inscription') }}</div>
+<div class="row m-top">
+    <div class="col-12 text-center citation">
+        <span>L’E.D.I.C, pour l’expression d’une citoyenneté responsable.</span>
+    </div>
+</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    <div class="row m-top mb-4">
+        <div class="col-sm-8 col-md-10 col-lg-9 mx-auto mb-4">
+            <div class="card py-0 mx-auto" style=" background: rgb(0,141,185);
+            background: linear-gradient(90deg, rgba(0,141,185,1) 0%, rgba(255,188,120,1) 52%);  overflow: hidden">
+                <div class="row">
+                    <div class="col-12 py-2">
+                        <h1 class="text-center text-white mt-3">Inscription</h1>
 
-
-                        <div class="form-group row">
-                            <label for="name"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Nom Prenom') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                        <div class="text-center w-100 mx-auto d-inline-block align-middle">
+                            <img src="{{asset('assets/img/login.gif')}}" alt="" style="width:20%; height:auto; border: 1px solid transparent; border-radius:50%"">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="email"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Addresse Email') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                    </div>
+                    <div class="container-fluid bg-white px-3">
+                        <form class="row row-cols-1 row-cols-md-2 " method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <div class="col-12 col-md-6">
+                                <div class="form-group mt-1">
+                                    <label for="name"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Nom Prenom') }}</label>
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                        name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="mobile"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Numéro de telephone') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="mobile" type="number"
+                            <div class="col-12 col-md-6">
+                                <div class="form-group mt-1">
+                                    <label for="email"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Addresse Email') }}</label>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                            name="email" value="{{ old('email') }}" required autocomplete="email">
+        
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                </div>
+                            </div>
+    
+                            
+    
+                            <div class="form-group mt-1">
+                                <label for="mobile"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Numéro de telephone') }}</label>
+    
+                                    <input id="mobile" type="number"
                                     class="form-control @error('mobile') is-invalid @enderror" name="mobile"
                                     value="{{ old('mobile') }}" autocomplete="tel">
 
@@ -59,11 +67,9 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row ">
-                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Pays') }}</label>
-                            <div class="col-md-6">
+    
+                            <!--div class="form-group mt-1 ">
+                                <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Pays') }}</label>
                                 <select class="form-control my-0" id="country" name="country" required>
                                     <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
                                     @foreach($countries as $country)
@@ -77,13 +83,11 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row ">
-                            <label for="region" class="col-md-4 col-form-label text-md-right">{{ __('Region') }}</label>
-                            <div class="col-md-6">
+    
+                            <div class="form-group mt-1 ">
+                                <label for="region" class="col-md-4 col-form-label text-md-right">{{ __('Region') }}</label>
                                 <select class="form-control my-0" id="region" name="region" required>
-
+    
                                 </select>
                                 @error('region')
                                 <span class="invalid-feedback" role="alert">
@@ -91,27 +95,23 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row ">
-                            <label for="province" class="col-md-4 col-form-label text-md-right">{{ __('Province') }}</label>
-                            <div class="col-md-6">
+    
+                            <div class="form-group mt-1 ">
+                                <label for="province" class="col-md-4 col-form-label text-md-right">{{ __('Province') }}</label>
                                 <select class="form-control my-0" id="province" name="province" required>
-
+    
                                 </select>
                                 @error('province')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row ">
-                            <label for="commune" class="col-md-4 col-form-label text-md-right">{{ __('Commune') }}</label>
-                            <div class="col-md-6">
+                            </div-->
+    
+                            <div class="form-group mt-1 ">
+                                <label for="commune" class="col-md-4 col-form-label text-md-right">{{ __('Commune') }}</label>
                                 <select class="form-control my-0" id="commune" name="commune" required>
-
+    
                                 </select>
                                 @error('commune')
                                 <span class="invalid-feedback" role="alert">
@@ -119,14 +119,12 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"
+    
+                            <div class="form-group mt-1">
+                                <label for="password"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
+    
+                                    <input id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
                                     required autocomplete="new-password">
 
@@ -136,62 +134,58 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Confirmez le mot de passe') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
+    
+                            <div class="form-group mt-1">
+                                <label for="password-confirm"
+                                    class="col-md-6 col-form-label text-md-right">{{ __('Confirmez le mot de passe') }}</label>
+    
+                                    <input id="password-confirm" type="password" class="form-control"
                                     name="password_confirmation" required autocomplete="new-password">
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn sin-bg-3 font-weight-bold text-white">
-                                    {{ __('S\'inscrire') }}
-                                </button>
-                                @if (Route::has('login'))
-                                <a class="btn btn-link" href="{{ route('login') }}">
-                                    {{ __('Vous avez déjà un compte ? ?') }}
-                                </a>
-                                @endif
+    
+                            <div class="form-group mt-3">
+                                <input type="submit" class="btn btn-edic font-weight-bold text-white" value={{ __('S\'inscrire') }}>
+                                        
+                                   
+                                    @if (Route::has('login'))
+                                    <a class="btn btn-link" href="{{ route('login') }}">
+                                        {{ __('Vous avez déjà un compte ? ?') }}
+                                    </a>
+                                    @endif
                             </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-12 text-center">
-                                <div class="form-group">
-                                    <p>ou S'inscrire avec:</p>
-
-                                    <a type="button" class="light-blue-text mx-2">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                    <a type="button" class="light-blue-text mx-2">
-                                        <i class="fa fa-facebook-f"></i>
-                                    </a>
-                                    <a type="button" class="light-blue-text mx-2">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                    <hr>
-                                    <!-- Terms of service -->
-                                    <p>En cliquant sur
-                                        <em>S'inscrire</em> vous acceptez nos
-                                        <a href="" target="_blank">conditions d'utilisation</a>
-                                    </p>
-                                    <hr>
+    
+                            <div class="form-group row mb-0">
+                                <div class="col-md-12 text-center">
+                                    <div class="form-group">
+                                        <span class="span-or">ou s'inscrire avec :</span>
+    
+                                        <a type="button" class="light-blue-text mx-2">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                        <a type="button" class="light-blue-text mx-2">
+                                            <i class="fa fa-facebook-f"></i>
+                                        </a>
+                                        <a type="button" class="light-blue-text mx-2">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        <hr>
+                                        <!-- Terms of service -->
+                                        <p>En cliquant sur
+                                            <em>S'inscrire</em> vous acceptez nos
+                                            <a href="" target="_blank">conditions d'utilisation</a>
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <p class="text-center"><a href="{{ route('login') }}" id="signin">Vous avez déjà
+                                                un compte ?</a></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 ">
-                                <div class="form-group">
-                                    <p class="text-center"><a href="{{ route('login') }}" id="signin">Vous avez déjà
-                                            un compte ?</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -328,5 +322,5 @@
        });
     });
     </script-->
-</div>
+
 @endsection

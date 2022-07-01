@@ -1,7 +1,7 @@
 <header class="container p-0 fixed-top ">
     <nav class="navbar navbar-expand-lg navbar-dark sin-bg-3">
         <a class="navbar-brand font-weight-bold" href="{{ route('acceuil') }}">
-            <img src="{{ asset('/img/edicapp.jpg ')}}" width="32" height="32" class="d-inline-block align-middle" alt="logo EDICApp">
+            <img src="{{ asset('/img/edicapp.png ')}}" width="32" height="auto" class="d-inline-block align-middle" alt="logo EDICApp">
             EDIC
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

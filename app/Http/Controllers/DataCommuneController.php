@@ -576,6 +576,11 @@ class DataCommuneController extends Controller
         return back();
     }
 
+    public function h_list(){
+        dd('hello');
+        return view('historique');
+    }
+
     public function terminer(Data $data) {
         if($data->terminer == 0){
             $data->terminer = 1;
