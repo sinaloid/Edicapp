@@ -53,7 +53,7 @@
         <div class="col-12 col-md-10 mx-auto m-top">
             <h2 class="mb-0 text-center w-100">Visualisation rapide</h2>
             <p class="text-justify text-md-center col-12 col-md-10 p-0 my-4 mx-auto">
-                Sélectionné la commune et l’année des données pour faire une visualisation
+                Sélectionné une commune et l’année des données pour faire une visualisation
                 rapide des trois meilleurs marchés qui ont contribués au budget de la commune.
             </p>
             <hr />

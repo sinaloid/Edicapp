@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
     @yield('css')
-    <!--script src="https://kit.fontawesome.com/8b7c4e5629.js" crossorigin="anonymous"></script-->
+    <script src="https://kit.fontawesome.com/8b7c4e5629.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
@@ -45,7 +45,7 @@
                                 <a class="nav-link" href="{{ route('actualites') }}">Actualités</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Forum</a>
+                                <a class="nav-link" href="{{route('forum')}}">Forum</a>
                             </li>
 
                             @guest

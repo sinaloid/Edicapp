@@ -1497,7 +1497,7 @@ class SiteUrl extends Controller
 
     public function forum(){
 
-        return view('pages.forum');
+        return view('forum');
         
     }
 
