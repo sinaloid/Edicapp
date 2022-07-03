@@ -86,6 +86,11 @@ header{
     background-color: #fff !important;
 }
 
+.txt-primary{
+    color: #008DB9;
+    text-decoration: none;
+}
+
 .citation {
     background-color: var(--citation-bg-color);
     padding: 4px 0;

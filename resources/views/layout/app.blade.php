@@ -101,7 +101,7 @@
                 <span><a href="#">à propos</a></span> -
                 <span><a href="#">contact</a></span> -
                 <span><a href="#">mentions légales</a></span> -
-                <span><a href="#">facebook</a></span>
+                <span><a href="https://facebook.com/EDICBurkina">facebook</a></span>
             </div>
         </footer>
     </div>

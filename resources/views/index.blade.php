@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-12 col-md-10 mx-auto d-flex flex-wrap">
-            <div class="col-12 col-lg-5 my-3 p-0">
+            <div class="col-12 col-lg-5 order-2 order-lg-1 my-3 p-0">
                 <h1 class="mt-2 d-inline-block animate__animated animate__slideInLeft">Plateforme ouvertes des données
                     budgétaires</h1>
                 <p class="animate__animated animate__jello">
@@ -16,7 +16,7 @@
                 <a class="btn btn-edic" href="#" onclick="alert('Pas de donnée disponible pour le moment')">Voir des
                     données</a>
             </div>
-            <div class="col-12 col-lg-7 image p-0">
+            <div class="col-12 col-lg-7 order-1 order-lg-2 image p-0">
                 <img class="d-block mt-4 mx-auto" src="{{ asset('assets/img/edic-analytics.svg') }}"
                     alt="image illustrative" />
             </div>
@@ -255,8 +255,8 @@
 
         <div class="col-12 col-lg-10 m-top">
             <div class="container">
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 bg-white p-0">
-                    <div class="col order-md-2 p-3">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-2 bg-white p-0">
+                    <div class="col order-lg-2 p-3">
                         <div class="">
                             <h2 class="">
                                 Économisez du temps grâce à l'utilisation de l'application mobile
@@ -274,8 +274,8 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col order-md-1 p-0">
-                        <img src={{ asset('assets/img/app1.png') }} width="100%" alt="app icone" loading="lazy" />
+                    <div class="col order-lg-1 p-0">
+                        <img class="img-fluid" src={{ asset('assets/img/app1.png') }} alt="app icone" loading="lazy" />
                     </div>
                 </div>
             </div>
