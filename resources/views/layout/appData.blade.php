@@ -77,17 +77,19 @@
                     @endif
 
                 </div>
-                <p class="my-0 p-0 text-black-50">
+                <p class="my-0 p-0">
                     <strong>
                         <span class="badge bg-secondary">
                             #Commune:
                         </span>
                     </strong>
                     <small>
-                        {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune['data_id'])->commune->commune_name : 'inexistante' }}
+                        {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune['data_id'])->commune->commune_name : 'non sélectionnée' }}
                     </small>
 
                     <br>
+                    <br>
+                    <span class="d-inline-block ml-auto">Télécharger au format : </span>
                     <span class="badge bg-secondary">
                         <a class="text-white"
                             href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'excel', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
@@ -103,11 +105,11 @@
                             href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'csv', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
                             csv</a>
                     </span>
-                    <span class="badge bg-secondary">
+                    <!--span class="badge bg-secondary">
                         <a class="text-white"
                             href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'json', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
                             json</a>
-                    </span>
+                    </span-->
 
                 </p>
 

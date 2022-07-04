@@ -3,8 +3,8 @@
 @section('content')
     <div class="row m-top mb-4">
         <div class="col-sm-8 col-md-7 col-lg-5 mx-auto mb-4">
-            <div class="card py-0 mx-auto" style=" background: rgb(0,141,185);
-            background: linear-gradient(90deg, rgba(0,141,185,1) 0%, rgba(255,188,120,1) 52%); overflow: hidden">
+            <div class="card py-0 mx-auto" style="background: rgb(0,141,185);
+            background: linear-gradient(90deg, rgba(0,141,185,1) 0%, rgba(255,188,120,1) 50%, rgba(0,141,185,1) 100%);; overflow: hidden">
                 <div class="row">
                     <div class="col-12 py-2">
                         <h1 class="text-center text-white mt-3">Connexion</h1>
@@ -92,7 +92,7 @@
                                 </p>
                             </div>
                             <div class="form-group">
-                                <p class="text-center col-md-6 mx-auto">Je n'ai pas de compte <a
+                                <p class="text-center col-md-8 mx-auto">Je n'ai pas de compte <a
                                         href="{{ route('register') }}" id="signup">Inscrivez-vous ici</a></p>
                             </div>
                         </form>
