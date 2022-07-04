@@ -6,9 +6,7 @@
         <div class="col-12">
             <h1 class="title-bannier">Forum</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-1">
-                Bienvenue dans l'espace de visualisation des données budgétaires.
-                Ici vous pourez visualiser, partager, télécharger, ou même
-                réutiliser les données budgétaires en cour de visualisation.
+                Bienvenue dans l'espace de discussion. Ici vous pourrez poser ou repondres a des questions.
             </p>
         </div>
     </div>
@@ -28,7 +26,7 @@
                 <div class="col-md-3">
                     <div class="sticky">
                         <div class="sticky-inner">
-                            <a class="btn btn-lg btn-block btn-success rounded-0 mb-3 bg-op-6 roboto-bold"
+                            <a class="btn btn-lg btn-block btn-success rounded-0 mb-3 bg-op-6"
                                 href="#">Poser une question</a>
                             <div class="bg-white text-sm">
                                 <h4 class="px-3 py-4 m-0">Statistiques</h4>
@@ -88,18 +86,18 @@
                                         <h2>
                                             <a href="#" class="txt-primary">Drupal 8 quick starter guide</a>
                                         </h2>
-                                        <p class="text-sm">
-                                            <span class="op-6">Publié</span>
-                                            <span class="text-black" href="#">il y a</span>
-                                            <span class="op-6">20 minutes par</span>
-                                            <span class="text-black" href="#"> KenyeW</span>
+                                        <p class="text-sm" style="font-weight: 400">
+                                            <span class="">Publié</span>
+                                            <span class="">il y a</span>
+                                            <span class="">20 minutes par</span>
+                                            <span class=""> KenyeW</span>
                                         </p>
-                                        <div class="text-sm">
+                                        <div class="text-sm" style="font-weight: 300">
                                             #Bobo-Dioulasso
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <div class="row text-center">
+                                        <div class="row text-center" style="font-weight: 300">
                                             <!--div class="col px-1">
                                                 <i class="ion-connection-bars icon-1x"></i>
                                                 <span class="d-block text-sm">141 Votes</span>

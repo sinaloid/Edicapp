@@ -6,9 +6,7 @@
         <div class="col-12">
             <h1 class="title-bannier">Actualités</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-1">
-                Bienvenue dans l'espace de visualisation des données budgétaires.
-                Ici vous pourez visualiser, partager, télécharger, ou même
-                réutiliser les données budgétaires en cour de visualisation.
+                Bienvenue dans l'espace de visualisation des données budgétaires. Ici vous pourrez visualiser, partager, télécharger, ou même réutiliser les données budgétaires en cours de visualisation. 
             </p>
         </div>
     </div>
