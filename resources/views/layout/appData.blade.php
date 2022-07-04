@@ -120,34 +120,20 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-md-10 mx-auto">
-                <div class="row my-3 px-3">
+                <div class="row my-3">
                     <hr style="height:1px;border-width:5;color:#444;background-color:#444">
                     
-                    <div class="col-12 col-md-2 p-0">
+                    <div class="d-inline-block">
                         Partager sur :
                     </div>
-                    <div class="col-12 col-md-10 mx-auto p-0">
-                        <div id="fb" class="btn-sm text-white font-weight-bold d-inline-block mx-1"
-                            style="background: #4267b2;" type="button">
-                            Facebook
-                        </div>
-                        <div id="whsp" class="btn-sm text-white font-weight-bold d-inline-block mx-1 mb-2"
-                            style="background: #25d366" type="button">
-                            WhatsApp
-                        </div>
-                        <div id="tw" class="btn-sm text-white font-weight-bold d-inline-block mx-1 mb-2"
-                            style="background: #1da1f2" type="button">
-                            Twitter
-                        </div>
-                        <div id="tel" class="btn-sm text-white font-weight-bold d-inline-block mx-1 mb-2"
-                            style="background: #29b6f6" type="button">Telegram
-                        </div>
-                        <div id="email" class="btn-sm text-white font-weight-bold d-inline-block mx-1 mb-2"
-                            style="background: #7d7d7d" type="button">
-                            Email
-                        </div>
-
+                    <div class="d-inline-block mt-2">
+                        <span id="fb"><i class="fa-brands fa-facebook-square fa-2xl" style="color:#4267B2"></i></span>
+                        <span id="tw" class="mx-1"><i class="fa-brands fa-twitter-square fa-2xl" style="color:#1DA1F2"></i></span>
+                        <span id="whsp"><i class="fa-brands fa-whatsapp-square fa-2xl" style="color:#25D366"></i></span>
+                        <span id="tel" class="mx-1"><i class="fa-brands fa-telegram fa-2xl" style="color:#229ED9"></i></span>
+                        <span id="email"><i class="fa-solid fa-envelope fa-2xl" style="color:#666"></i></span>
                     </div>
+                    
 
                     <script>
                         $(document).ready(function() {

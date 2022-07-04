@@ -62,7 +62,7 @@
 
     <div class="row">
         <div class="col-12 col-md-10 col-lg-8 mx-auto mt-2">
-            Partager par:
+            Partager sur:
         </div>
         <div class="col-12 col-md-10 col-lg-8 mx-auto mt-2">
             <span><i class="fa-brands fa-facebook-square fa-2xl" style="color:#4267B2"></i></span>
