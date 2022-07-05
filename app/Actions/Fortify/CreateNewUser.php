@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use App\Models\Countries\Commune;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -20,6 +21,9 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
+        $commune_id = Commune::where('commune_name',$input['commune'])->first();
+        $commune_id = isset($commune_id) ? $commune_id->id : '';
+        $input['commune'] = $commune_id;
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => [
@@ -32,9 +36,6 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
 
             'mobile' => ['required','numeric','digits:8','starts_with: 5,6,7,01,07',Rule::unique(User::class),],
-            'country' => ['required', 'integer'],
-            'region' => ['required', 'integer'],
-            'province' => ['required', 'integer'],
             'commune' => ['required', 'integer'],
         ]
         )->validate();
@@ -45,9 +46,9 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
 
             'mobile' => $input['mobile'],
-            'country_id' => $input['country'],
-            'region_id' => $input['region'],
-            'province_id' => $input['province'],
+            'country_id' => 1,
+            'region_id' => 1,
+            'province_id' => 1,
             'commune_id' => $input['commune'],
             
 

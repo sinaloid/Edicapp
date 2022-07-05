@@ -104,9 +104,8 @@
     
                             <div class="form-group mt-1 ">
                                 <label for="commune" class="col-md-4 col-form-label text-md-right">{{ __('Commune') }}</label>
-                                <select class="form-control my-0" id="commune" name="commune" required>
-    
-                                </select>
+                                <input type="text" class="form-control" id="commune" name="commune" placeholder="ouagadougou" required>
+
                                 @error('commune')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

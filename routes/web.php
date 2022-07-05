@@ -22,7 +22,7 @@ Route::get('/', [SiteUrl::class, 'index'])->name('acceuil');
 Route::get('home', function () {
     $datas = App\Models\Datas\Data::orderBy('id', 'DESC')->get();
     return view('home', compact('datas'));
-  })->middleware(['auth','verified'])->name('home');
+  })->middleware(['auth'/*,'verified'*/])->name('home');
 
   Route::get('profile', function () {
     return view('profile');
@@ -74,6 +74,7 @@ Route::get('getdata', [SiteUrl::class, 'getdata'])->name('getdata');
 Route::get('country/{country_id}', [SiteUrl::class, 'getCountryRegion']);
 Route::get('region/{region_id}', [SiteUrl::class, 'getCountryRegionProvince']);
 Route::get('province/{province_id}', [SiteUrl::class, 'getCountryRegionProvinceCommune']);
+Route::get('commune', [SiteUrl::class, 'getCommune'])->name('commune');
 
 Route::get('/pdf', [SiteUrl::class, 'pdf'])->name('pdf');
 Route::resource('data', DataCommuneController::class)->middleware(['auth','verified']);

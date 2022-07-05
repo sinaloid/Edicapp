@@ -78,8 +78,10 @@ class SiteUrl extends Controller
     
     public function index(Request $request)
     {
+        $commune_id = Commune::where('commune_name',$request->commune)->first();
+        $commune_id = isset($commune_id) ? $commune_id->id : '';
         $dataCommune = Data::where([
-            ['commune_id', $request->commune],
+            ['commune_id', $commune_id],
             ['annee', $request->annee],
             ['terminer', 1]
         ])->first();
@@ -1530,6 +1532,13 @@ class SiteUrl extends Controller
         $communes = Province::find($province_id)->communes()->pluck('commune_name','id');
         
         return response()->json($communes);
+    }
+
+    public function getCommune(Request $request){
+        
+        $query = $request->get('query');
+          $filterResult = Commune::where('commune_name', 'LIKE', '%'. $query. '%')->get('commune_name');
+          return response()->json($filterResult);
     }
 
     public function makePdf(Request $request){

@@ -58,16 +58,14 @@
             </p>
             <hr />
             <div class="col-12 mx-auto">
-                <form class="row" action="#" method="get">
+                <form class="row" action="{{ route('acceuil') }}" method="get">
                     <div class="col-12 my-0">
                         <div class="form-group">
-                            <div class="col-12">Communes</div>
-                            <select class="form-control m-0" id="commune" name="commune" required>
-                                <option value="">
-                                    {{ __('-- Sélectionnez une commune --') }}
-                                </option>
-
-                            </select>
+                            
+                            <div class="mb-3">
+                                <label for="commune" class="form-label">Communes</label>
+                                <input type="text" class="form-control" id="commune" name="commune" placeholder="ouagadougou">
+                            </div>
                         </div>
                         <div class="form-group">
                             <div class="col-12">Année</div>
@@ -75,11 +73,14 @@
                                 <option value="">
                                     {{ __('-- Sélectionnez l’année --') }}
                                 </option>
-
+                                @for ($i = Date('Y'); 2000 <= $i; $i--)
+                                <option value="{{ $i }}">
+                                    {{ $i }}</option>
+                            @endfor
                             </select>
                         </div>
                     </div>
-                    <input type="hidden" name="viewName" value="#" />
+                    <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
 
                     <div class="col-12">
                         <div class="mt-2 py-0">
@@ -313,10 +314,7 @@
             ]);
 
             var options = {
-                title: '{{ isset($troisMeilleur)
-                    ? $troisMeilleur[0]->marche
-                    : '
-                        ' }}',
+                title: '{{ isset($troisMeilleur) ? $troisMeilleur[0]->marche: '' }}',
                 legend: "top",
                 pieSliceText: "label",
                 pieStartAngle: 100,
@@ -330,10 +328,7 @@
             };
 
             var options1 = {
-                title: '{{ isset($troisMeilleur)
-                    ? $troisMeilleur[1]->marche
-                    : '
-                        ' }}',
+                title: '{{ isset($troisMeilleur) ? $troisMeilleur[1]->marche : '' }}',
                 legend: 'right',
                 pieSliceText: 'label',
                 pieStartAngle: 100,
@@ -347,10 +342,7 @@
             };
 
             var options2 = {
-                title: '{{ isset($troisMeilleur)
-                    ? $troisMeilleur[2]->marche
-                    : '
-                        ' }}',
+                title: '{{ isset($troisMeilleur) ? $troisMeilleur[2]->marche : '' }}',
                 legend: 'right',
                 pieSliceText: 'label',
                 pieStartAngle: 100,
@@ -370,12 +362,7 @@
             chart1.draw(data1, options);
             chart2.draw(data2, options);
 
-            $(window).smartresize(function() {
-                chart.draw(data, options);
-                chart1.draw(data1, options);
-                chart2.draw(data2, options);
-            });
+            
         }
     </script>
-    <script src="{{ asset('assets/js/edicappresize.js') }}"></script>
 @stop

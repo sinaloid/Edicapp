@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="container card">
-    <div class="row ">
-        <div class="col sin-bg-2">
+<div class="container my-5">
+    <div class="row">
+        <div class="col col-md-10 bg-white mx-auto py-3">
             <div class="pull-left ">
 
                 
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-md-10 bg-white mx-auto">
             <div id="flash">
                 @include('flashMessage.flash-message-home')
 
@@ -45,7 +45,7 @@
 <div class="container">
     <div class="row">
         @foreach ($datas as $data)
-        <div class="col-12 alert alert-warning p-0" role="alert">
+        <div class="col-12 col-md-10 mx-auto bg-white p-0 mb-3" role="alert">
             <div class="col-12 ">
                 <strong>
                     <span class="badge badge-dark">
