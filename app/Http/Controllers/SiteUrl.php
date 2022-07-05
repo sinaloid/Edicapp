@@ -78,7 +78,8 @@ class SiteUrl extends Controller
     
     public function index(Request $request)
     {
-        $commune_id = Commune::where('commune_name',$request->commune)->first();
+        $commune = isset($request->comme) ? $request->commune : '';
+        $commune_id = Commune::where('commune_name',$commune)->first();
         $commune_id = isset($commune_id) ? $commune_id->id : '';
         $dataCommune = Data::where([
             ['commune_id', $commune_id],
