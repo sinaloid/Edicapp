@@ -1,7 +1,7 @@
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase">Évolution du budget de la commune les trois dernières années
+<div class="row pt-5">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2">Évolution du budget de la commune les trois dernières années
     </div>
-    <div class="col-12 table-responsive mt-2 px-0">
+    <div class="col-12 mb-5 table-responsive px-0">
         <table class="table-sm table-hover mx-auto">
             <tr>
                 <th class="sin-table-bg" colspan="5">Recettes</th>
@@ -48,8 +48,8 @@
         </table>
     </div>
 </div>
-<div class="row mt-4">
-    <div class="col-12 table-responsive px-0">
+<div class="row">
+    <div class="col-12 mb-5 table-responsive px-0">
         <table class="table-sm table-hover mx-auto">
             <tr>
                 <th class="sin-table-bg" colspan="5">Dépenses</th>
@@ -96,10 +96,10 @@
         </table>
     </div>
 </div>
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase">Contribution des trois (03) meilleurs marchés
+<div class="row">
+    <div class="col-12 font-weight-bolder text-center text-uppercase mb-3 bg-white py-2">Contribution des trois (03) meilleurs marchés
     </div>
-    <div class="col-12 table-responsive mt-2 px-0">
+    <div class="col-12 mb-5 table-responsive px-0">
         <table class="table-sm table-hover mx-auto">
             <thead>
                 <tr>
@@ -140,10 +140,10 @@
     </div>
 </div>
 
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des dix (10) meilleurs villages
+<div class="row">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2"> Contribution des dix (10) meilleurs villages
         (toute contribution)</div>
-    <div class="col-12 table-responsive mt-2 px-0">
+    <div class="col-12 mb-5 table-responsive px-0">
         <table class="table-sm table-hover">
 
             <thead>
@@ -227,10 +227,10 @@
     </div>
 </div>
 
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des autres partenaires de la commune
+<div class="row">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2"> Contribution des autres partenaires de la commune
     </div>
-    <div class="col-12 table-responsive mt-2 px-0">
+    <div class="col-12 mb-5 table-responsive mt-2 px-0">
         <table class="table-sm table-hover ">
             <thead>
                 <tr>
@@ -290,9 +290,9 @@
     </div>
 </div>
 
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase">ETAT CIVIL</div>
-    <div class="col-12 table-responsive mt-2 px-0">
+<div class="row">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2">ETAT CIVIL</div>
+    <div class="col-12 mb-5 table-responsive px-0">
         <table class="table-sm table-hover mx-auto ">
 
             <thead>
@@ -336,9 +336,9 @@
     </div>
 </div>
 
-<div class="row mt-3">
-<div class="col-12 font-weight-bolder text-center text-uppercase">Situation domaniale</div>
-    <div class="col-12 table-responsive px-0 mt-2">
+<div class="row">
+<div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2">Situation domaniale</div>
+    <div class="col-12 table-responsive px-0">
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
@@ -405,21 +405,21 @@
 @if($dataCommune != null)
 <div class="row justify-content-center mt-2">
     @if($dataCommune['ressourceImage'][0]->url != null)
-    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+    <div class="col-12 col-md-4 mb-5 font-weight-bolder text-center text-uppercase">
         <a href="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}"><img class="img-fluid"
                 src="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}" style="width:auto; max-height:250px"
                 alt="img1" /> </a>
     </div>
     @endif
     @if($dataCommune['ressourceImage'][1]->url != null)
-    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+    <div class="col-12 col-md-4 mb-5 font-weight-bolder text-center text-uppercase">
         <a href="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}"><img class="img-fluid"
                 src="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}" style="width:auto; max-height:250px"
                 alt="img1" /> </a>
     </div>
     @endif
     @if($dataCommune['ressourceImage'][2]->url != null)
-    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+    <div class="col-12 col-md-4 mb-5 font-weight-bolder text-center text-uppercase">
         <a href="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}"><img class="img-fluid"
                 src="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}" style="width:auto; max-height:250px"
                 alt="img1" /> </a>

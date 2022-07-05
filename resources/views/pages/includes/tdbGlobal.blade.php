@@ -1,18 +1,7 @@
-<div class="row">
-    <div class="col-12 col-md-8 myform text-center text-edicp mt-3">
-        <p><span>E</span>space de <span>d</span>ialogue et d'<span>i</span>nterpretation <span>c</span>ommunautaire</p>
-        <p>Bilan d'action 2019 de la commune</p>
-    </div>
-
-    <div class="col-12 col-md-4 myform mt-3">
-        <img class="img-fluid" src="{{ asset('/img/EDICApp_banier.png') }}" alt="banier edicapp">
-    </div>
-</div>
-
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase" style="color:#ff8043">Évaluation de l'exécution
+<div class="row pt-5">
+    <div class="col-12 font-weight-bolder text-center text-uppercase mb-3 bg-white py-2">Évaluation de l'exécution
         du PCD de la commune</div>
-    <div class="col-12 mt-2 table-responsive px-0">
+    <div class="col-12 mb-5 mt-2 table-responsive px-0">
         <table class="table-sm table-hover mx-auto">
         <tr>
                 <th class="sin-table-bg">Date de début</th>
@@ -51,27 +40,27 @@
 
 
 
-    <div class="col-12 mt-3 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Appréciation du niveau d'exécution du PCD</h4>
+    <div class="col-12 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Appréciation du niveau d'exécution du PCD</p>
             <div class="card-body">
                 <div id="columnchart_values" style="width: 100%; height: 100%;"></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-3 p-0">
-        <div class="card">
-            <h4 class="card-header  bg-info text-white">Évolution des recettes des trois dernières années</h4>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Évolution des recettes des trois dernières années</p>
             <div class="card-body">
                 <div id="columnchart_values1" style="width: 100%; height: 100%;"></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-3 p-0">
-        <div class="card">
-            <h4 class="card-header  bg-info text-white">Évolution des dépenses des trois dernières années</h4>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Évolution des dépenses des trois dernières années</p>
             <div class="card-body">
                 <div id="columnchart_values2" style="width: 100%; height: 100%;"></div>
             </div>
@@ -79,36 +68,36 @@
     </div>
 </div>
 
-<div class="row mt-3">
-    <div class="col-12 myform sin-bg-3 font-weight-bolder text-white text-center"> Bilan du fonctionnement</div>
-    <div class="col-12 col-md-6 mt-2 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Recettes de fonctionnement</h4>
+<div class="row">
+    <div class="col-12 mb-3 font-weight-bolder text-center text-uppercase bg-white py-2"> Bilan du fonctionnement</div>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Recettes de fonctionnement</p>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart" style="width:100%;"></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-2 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Dépenses de fonctionnement</h4>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Dépenses de fonctionnement</p>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart1" style="width:100%; "></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 mt-3 table-responsive px-0">
-        <div class="card">
-            <table class="table-sm table-hover card-body">
+    <div class="col-12 mb-5 table-responsive px-0">
+        <div >
+            <table class="table-sm table-hover w-100">
                 <tr>
                     <th class="sin-table-bg">#</th>
                     <th class="bg-success text-white">Recettes</th>
                     <th class="bg-danger text-white">Dépenses</th>
                 <tr>
                 <tr>
-                    <th class="bg-info text-white">Total Fonctionnement</th>
+                    <th class=" sin-table-bg text-white">Total Fonctionnement</th>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['recetFonct']->produit_exploitation
                 + $dataCommune['recetFonct']->produit_domaniaux
                 + $dataCommune['recetFonct']->produit_financier
@@ -139,35 +128,35 @@
 
 <div class="row">
 
-    <div class="col-12 myform sin-bg-3 mt-2 font-weight-bolder text-white text-center"> Bilan de l'investissement</div>
-    <div class="col-12 col-md-6 mt-2 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Recettes d'investissement</h4>
+    <div class="col-12 mb-3 font-weight-bolder text-center text-uppercase bg-white py-2"> Bilan de l'investissement</div>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Recettes d'investissement</p>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart2" style="width:100%;"></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-2 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Dépenses d'investissement</h4>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Dépenses d'investissement</p>
             <div class="card-body">
                 <div class="table-responsive1" id="piechart3" style="width:100%; "></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 mt-3 table-responsive px-0">
-        <div class="card">
-            <table class="table-sm table-hover card-body">
+    <div class="col-12 mb-5 table-responsive px-0">
+        <div >
+            <table class="table-sm table-hover w-100">
                 <tr>
                     <th class="sin-table-bg">#</th>
                     <th class="bg-success text-white">Recettes</th>
                     <th class="bg-danger text-white">Dépenses</th>
                 <tr>
                 <tr>
-                    <th class="bg-info text-white">Total Investissements</th>
+                    <th class=" sin-table-bg text-white">Total Investissements</th>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['recetInvest']->dotation_globale
                 + $dataCommune['recetInvest']->subvention_equipement
                 + $dataCommune['recetInvest']->contribution_propre
@@ -188,36 +177,36 @@
 
 </div>
 
-<div class="row mt-3">
-    <div class="col-12 myform sin-bg-3 font-weight-bolder text-white text-center"> Prévision du fonctionnement</div>
-    <div class="col-12 col-md-6 mt-2 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Recettes de fonctionnement</h4>
+<div class="row">
+    <div class="col-12 mb-3 font-weight-bolder text-center text-uppercase bg-white py-2"> Prévision du fonctionnement</div>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Recettes de fonctionnement</p>
             <div class="card-body">
                 <div class="table-responsive1" id="piechartn" style="width:100%;"></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-2 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Dépenses de fonctionnement</h4>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Dépenses de fonctionnement</p>
             <div class="card-body">
                 <div class="table-responsive1" id="piechartn1" style="width:100%; "></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 mt-3 table-responsive px-0">
-        <div class="card">
-            <table class="table-sm table-hover card-body">
+    <div class="col-12 mb-5 table-responsive px-0">
+        <div >
+            <table class="table-sm table-hover w-100">
                 <tr>
                     <th class="sin-table-bg">#</th>
                     <th class="bg-success text-white">Recettes</th>
                     <th class="bg-danger text-white">Dépenses</th>
                 <tr>
                 <tr>
-                    <th class="bg-info text-white">Total Fonctionnement</th>
+                    <th class=" sin-table-bg text-white">Total Fonctionnement</th>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['recetFonctN']->produit_exploitation
                 + $dataCommune['recetFonctN']->produit_domaniaux
                 + $dataCommune['recetFonctN']->produit_financier
@@ -246,37 +235,37 @@
 
 </div>
 
-<div class="row mt-3">
+<div class="row">
 
-    <div class="col-12 myform sin-bg-3 mt-2 font-weight-bolder text-white text-center"> Prévision de l'investissement</div>
-    <div class="col-12 col-md-6 mt-2 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Recettes d'investissement</h4>
+    <div class="col-12 mb-3 font-weight-bolder text-center text-uppercase bg-white py-2"> Prévision de l'investissement</div>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Recettes d'investissement</p>
             <div class="card-body">
                 <div class="table-responsive1" id="piechartn2" style="width:100%;"></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 col-md-6 mt-2 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Dépenses d'investissement</h4>
+    <div class="col-12 col-md-6 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Dépenses d'investissement</p>
             <div class="card-body">
                 <div class="table-responsive1" id="piechartn3" style="width:100%; "></div>
             </div>
         </div>
     </div>
 
-    <div class="col-12 mt-3 table-responsive px-0">
-        <div class="card">
-            <table class="table-sm table-hover card-body">
+    <div class="col-12 mb-5 table-responsive px-0">
+        <div >
+            <table class="table-sm table-hover w-100">
                 <tr>
                     <th class="sin-table-bg">#</th>
                     <th class="bg-success text-white">Recettes</th>
                     <th class="bg-danger text-white">Dépenses</th>
                 <tr>
                 <tr>
-                    <th class="bg-info text-white">Total Investissements</th>
+                    <th class=" sin-table-bg text-white">Total Investissements</th>
                     <td>{{ isset($dataCommune) ? number_format($dataCommune['recetInvestN']->dotation_globale
                 + $dataCommune['recetInvestN']->subvention_equipement
                 + $dataCommune['recetInvestN']->contribution_propre
@@ -299,9 +288,9 @@
 
 
 
-<div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center"> Etat civil</div>
-    <div class="col-12 table-responsive px-0 ">
+<div class="row">
+    <div class="col-12 mb-3 font-weight-bolder text-center text-uppercase bg-white py-2"> Etat civil</div>
+    <div class="col-12 mb-5 table-responsive px-0 ">
         <table class="table table-hover ">
         <thead>
                 <tr>
@@ -344,9 +333,9 @@
     </div>
 </div>
 
-<div class="row mt-2">
-<div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Situation domaniale</div>
-    <div class="col-12 table-responsive px-0 ">
+<div class="row">
+<div class="col-12 mb-3 font-weight-bolder text-center text-uppercase bg-white py-2">Situation domaniale</div>
+    <div class="col-12 mb-5 table-responsive px-0 ">
         <table class="table table-hover ">
         <thead>
                 <tr>
@@ -410,10 +399,10 @@
     </div>
 </div>
 
-<div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center"> Contribution des trois (03)
+<div class="row">
+    <div class="col-12 mb-3 font-weight-bolder text-center text-uppercase bg-white py-2"> Contribution des trois (03)
         meilleurs marcher</div>
-    <div class="col-12 table-responsive px-0">
+    <div class="col-12 mb-5 table-responsive px-0">
         <table class="table table-hover">
         <thead>
                 <tr>
@@ -453,9 +442,9 @@
         </table>
     </div>
 
-    <div class="col-12 mt-2 p-0">
-        <div class="card">
-            <h4 class="card-header bg-info text-white">Résultat de l'excercice</h4>
+    <div class="col-12 mb-5 p-0 bg-white">
+        <div >
+            <p class="txt-bold card-header sin-table-bg text-white">Résultat de l'excercice</p>
             <div class="card-body">
                 <div id="columnchart_values3" style="width: 100%; height: 100%;"></div>
             </div>
@@ -465,11 +454,11 @@
 
 
 
-<div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Contribution des dix (10)
+<div class="row">
+    <div class="col-12 mb-3 font-weight-bolder text-center text-uppercase bg-white py-2">Contribution des dix (10)
         meilleurs villages (toute
         contribution)</div>
-    <div class="col-12 table-responsive px-0">
+    <div class="col-12 mb-5 table-responsive px-0">
         <table class="table table-hover">
         <thead>
                 <tr>
@@ -553,10 +542,10 @@
 </div>
 
 <div class="row mt-2">
-    <div class="col-12 myform sin-bg-3 my-2 font-weight-bolder text-white text-center">Contribution des autres
+    <div class="col-12 mb-3 font-weight-bolder text-center text-uppercase bg-white py-2">Contribution des autres
         partenaires de la commune
     </div>
-    <div class="col-12 table-responsive px-0">
+    <div class="col-12 mb-5 table-responsive px-0">
         <table class="table-sm table-hover ">
         <thead>
                 <tr>
@@ -619,21 +608,21 @@
 @if($dataCommune != null)
 <div class="row justify-content-center mt-2">
     @if($dataCommune['ressourceImage'][0]->url != null)
-    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+    <div class="col-12 col-md-4 mb-5 font-weight-bolder text-center text-uppercase">
         <a href="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}"><img class="img-fluid"
                 src="{{ asset('/'.$dataCommune['ressourceImage'][0]->url) }}" style="width:auto; max-height:250px"
                 alt="img1" /> </a>
     </div>
     @endif
     @if($dataCommune['ressourceImage'][1]->url != null)
-    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+    <div class="col-12 col-md-4 mb-5 font-weight-bolder text-center text-uppercase">
         <a href="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}"><img class="img-fluid"
                 src="{{ asset('/'.$dataCommune['ressourceImage'][1]->url) }}" style="width:auto; max-height:250px"
                 alt="img1" /> </a>
     </div>
     @endif
     @if($dataCommune['ressourceImage'][2]->url != null)
-    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+    <div class="col-12 col-md-4 mb-5 font-weight-bolder text-center text-uppercase">
         <a href="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}"><img class="img-fluid"
                 src="{{ asset('/'.$dataCommune['ressourceImage'][2]->url) }}" style="width:auto; max-height:250px"
                 alt="img1" /> </a>
@@ -642,8 +631,8 @@
 </div>
 @endif
 
-<div class="col-12 card-header font-weight-bold my-2 text-center">Ce Bilan à été réalisé avec la précieuse contribution
-    du #PAGOF sur financement de l'Agence Française de Développement </div>
+<div class="col-12 mb-3 txt-primary font-weight-bolder text-center bg-white py-2">Ce Bilan à été réalisé avec la précieuse contribution
+    du <span class="txt-primary">#PAGOF</span> sur financement de l'Agence Française de Développement </div>
 <div class="col-12">
     <form id="make_pdf" action="{{ route('make_pdf') }}" method="post">
         @csrf

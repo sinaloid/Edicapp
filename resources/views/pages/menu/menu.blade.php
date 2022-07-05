@@ -8,7 +8,7 @@
     <li class="nav-item" title="Informations budgétaires">
         <a class="nav-link @if (Route::currentRouteName() == 'datas.bg') active @endif" href="{{ route('datas.bg', isset($dataCommune) ? $dataCommune['slug'] : 'bg') }}">Budget</a>
     </li>
-    <li class="nav-item" title="Tableau de Bord" onclick="alert('Pas de donnée disponible pour le moment')">
-        <a class="nav-link @if (Route::currentRouteName() == 'datas.tdb') active @endif" href="{{ "#"/*route('datas.tdb', isset($dataCommune) ? ['bilan',$dataCommune['slug']] : 'tdb')*/ }}">TdB</a>
+    <li class="nav-item" title="Tableau de Bord">
+        <a class="nav-link @if (Route::currentRouteName() == 'datas.tdb') active @endif" href="{{route('datas.tdb', isset($dataCommune) ? ['bilan',$dataCommune['slug']] : 'tdb') }}">TdB</a>
     </li>
 </ul>

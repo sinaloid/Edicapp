@@ -62,7 +62,7 @@
             <div class="col-12 col-md-10 mx-auto p-0">
                 <div class="mx-auto">
                     <button type="submit" class="btn btn-edic my-1 font-weight-bold">Valider</button>
-                    <a class="btn btn-edic" href="{{ route('datas.cmp') }}">Comparaison</a>
+                    <a class="btn btn-edic" href="{{ "#"/*route('datas.cmp')*/ }}">Comparaison</a>
                     @if (Route::currentRouteName() == 'datas.tdb')
                         @if (str_contains(url()->current(), 'planning'))
                             <button class="btn btn-edic font-weight-bold" type="button" name="create_pdf"

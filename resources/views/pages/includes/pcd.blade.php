@@ -1,7 +1,7 @@
-<div class="row">
-    <div class="col-12 font-weight-bolder text-center text-uppercase" >Évaluation de l'exécution
+<div class="row pt-5">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2" >Évaluation de l'exécution
         du PCD de la commune</div>
-    <div class="col-12 table-responsive mt-2 px-0 ">
+    <div class="col-12 mb-5 table-responsive mt-2 px-0 ">
         <table class="table-sm table-hover mx-auto">
             <tr>
                 <th class="sin-table-bg">Date de début</th>
@@ -31,10 +31,10 @@
     </div>
 </div>
 
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase" >Appréciation : donnez une note pour chaque
+<div class="row">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2" >Appréciation : donnez une note pour chaque
         axe (3 - 7 - 10)</div>
-    <div class="col-12 table-responsive mt-2 px-0 ">
+    <div class="col-12 mb-5 table-responsive mt-2 px-0 ">
     <table class="table-sm table-hover mx-auto">
             <thead>
                 <tr>
@@ -75,7 +75,7 @@
         </table>
     </div>
 </div>
-<div class="row mt-3 notation">
+<div class="row mb-5 notation">
     <div class="col-3 col-md-5 text-center text-secondary ">Notation: </div>
     <div class="col-9 col-md-7 text-center">
         <p class="text-success">Très satisfaisant :<span class="mx-auto"> 10 / 10</span></p>
@@ -85,7 +85,7 @@
 </div>
 
 <div class="row ">
-    <div class="col-12 table-responsive mt-2 px-0">
+    <div class="col-xs-12 table-responsive mt-2 px-0">
         <table class="table-sm  mx-auto">
             <tr>
                 <th >Commentaire sur votre appréciation: en cinq mots</th>

@@ -13,7 +13,7 @@
                     des données budgétaires des différentes communes du Burkina Faso
                     dans des formats ouverts, gratuits et réutilisables.
                 </p>
-                <a class="btn btn-edic" href="#" onclick="alert('Pas de donnée disponible pour le moment')">Voir des
+                <a class="btn btn-edic" href="{{route('datas.info')}}">Voir des
                     données</a>
             </div>
             <div class="col-12 col-lg-7 order-1 order-lg-2 image p-0">
@@ -132,38 +132,42 @@
                 <div class="container">
                     <div
                         class="row row-cols-2 row-cols-sm-4 row-cols-md-4 g-1 data py-1 d-flex flex-wrap justify-content-center">
-                        <div class="col p-0 my-3 categ" onclick="alert('Pas de donnée disponible pour le moment')">
+                        <a class="col p-0 my-3 categ txt-primary" href="{{ route('datas.info',isset($dataCommune) ? $dataCommune['slug'] : 'info_generale') }}">
                             <div class="card mx-auto">
                                 <div class="circle">
                                     <span><i class="fa-solid fa-info"></i></span>
                                 </div>
                                 <h3 class="mt-2">Infos G</h3>
                             </div>
-                        </div>
-                        <div class="col my-3 categ" onclick="alert('Pas de donnée disponible pour le moment')">
+                        </a>
+                        <a class="col my-3 categ txt-primary" href="{{ route('datas.pcd', isset($dataCommune) ? $dataCommune['slug'] : 'pcd') }}">
                             <div class="card mx-auto">
                                 <div class="circle">
                                     <span><i class="fa-solid fa-scale-unbalanced-flip"></i></span>
                                 </div>
                                 <h3 class="mt-2">Pcd</h3>
                             </div>
-                        </div>
-                        <div class="col p-0 my-3 categ" onclick="alert('Pas de donnée disponible pour le moment')">
+                        </a>
+                        <a class="col p-0 my-3 categ txt-primary" href="{{ route('datas.bg', isset($dataCommune) ? $dataCommune['slug'] : 'bg') }}">
                             <div class="card mx-auto">
                                 <div class="circle">
                                     <span><i class="fa-solid fa-coins"></i></span>
                                 </div>
                                 <h3 class="mt-2">Budget</h3>
                             </div>
-                        </div>
-                        <div class="col p-0 my-3 categ" onclick="alert('Pas de donnée disponible pour le moment')">
+                        </a>
+                        
+
+
+
+                        <a class="col p-0 my-3 categ txt-primary" href="{{ route('datas.tdb', isset($dataCommune) ? ['bilan',$dataCommune['slug']] : 'tdb') }}">
                             <div class="card mx-auto">
                                 <div class="circle">
                                     <span><i class="fa-solid fa-chart-line"></i></span>
                                 </div>
                                 <h3 class="mt-2">TdB</h3>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -181,7 +185,7 @@
                 Visualisez les données budgétaires dans divers formats graphiques ou
                 faites des comparaisons de données budgétaires.
             </p>
-            <a class="btn btn-edic" href="#" onclick="alert('Pas de donnée disponible pour le moment')">Jeux de
+            <a class="btn btn-edic" href="{{"#"/* route('datas.cmp', isset($dataCommune) ? $dataCommune['slug'] : 'cmp') */}}">Jeux de
                 données</a>
         </div>
         <hr class="w-100 mt-5" />

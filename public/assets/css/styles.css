@@ -87,8 +87,21 @@ header{
 }
 
 .txt-primary{
-    color: #008DB9;
+    color: var(--btn-bg-color);
     text-decoration: none;
+}
+
+.txt-secondary {
+    color: var(--citation-bg-color);
+}
+
+a.txt-primary:hover{
+    color: var(--btn-bg-color);
+    text-decoration: underline;
+}
+
+.txt-bold{
+    font-weight: bold;
 }
 
 .citation {

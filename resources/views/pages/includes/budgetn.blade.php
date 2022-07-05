@@ -1,10 +1,10 @@
-<h4 class="col-12 font-weight-bolder text-center text-uppercase sin-bg-3">Prévision de l'année
+<h4 class="col-12 font-weight-bolder text-center text-uppercase sin-bg-3 my-5">Prévision de l'année
     {{ isset($dataCommune) ? $dataCommune['annee'] + 1 : '' }}</h4>
-<p class="col-8 mx-auto font-weight-bolder text-white text-center bg-success text-uppercase ">Les recettes</p>
+<!--p class="col-8 mx-auto font-weight-bolder text-white text-center bg-success text-uppercase ">Les recettes</p-->
 
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes d'investissement</div>
-    <div class="col-12 table-responsive mt-2 px-0 ">
+<div class="row">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2 txt-bold"> Recettes d'investissement</div>
+    <div class="col-12 mb-5 table-responsive px-0 ">
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
@@ -59,9 +59,9 @@
     </div>
 </div>
 
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes de fonctionnement</div>
-    <div class="col-12 table-responsive mt-2 px-0 ">
+<div class="row">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2 txt-bold"> Recettes de fonctionnement</div>
+    <div class="col-12 mb-5 table-responsive px-0 ">
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
@@ -134,11 +134,11 @@
     </div>
 </div>
 
-<p class="col-8 mt-3 mx-auto font-weight-bolder text-center text-white bg-danger text-uppercase ">Les dépenses</p>
+<!--p class="col-8 mt-3 mx-auto font-weight-bolder text-center text-white bg-danger text-uppercase ">Les dépenses</p-->
 
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses d'investissement</div>
-    <div class="col-12 table-responsive mt-2 px-0 ">
+<div class="row">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2 txt-bold"> Dépenses d'investissement</div>
+    <div class="col-12 mb-5 table-responsive px-0 ">
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
@@ -192,9 +192,9 @@
     </div>
 </div>
 
-<div class="row mt-3">
-    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses de fonctionnement</div>
-    <div class="col-12 table-responsive mt-2 px-0 ">
+<div class="row">
+    <div class="col-12  font-weight-bolder text-center text-uppercase mb-3 bg-white py-2 txt-bold"> Dépenses de fonctionnement</div>
+    <div class="col-12 mb-5 table-responsive px-0 ">
         <table class="table-sm table-hover mx-auto ">
             <thead>
                 <tr>
