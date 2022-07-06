@@ -34,7 +34,6 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
-
             'mobile' => ['required','numeric','digits:8','starts_with: 5,6,7,01,07',Rule::unique(User::class),],
             'commune' => ['required', 'integer'],
         ]
@@ -44,15 +43,7 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-
             'mobile' => $input['mobile'],
-            'country_id' => 1,
-            'region_id' => 1,
-            'province_id' => 1,
-            'commune_id' => $input['commune'],
-            
-
-
         ]);
     }
 }

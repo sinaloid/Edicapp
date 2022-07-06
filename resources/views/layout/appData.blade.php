@@ -24,22 +24,21 @@
                             <div class="col-sm-12 p-0">
 
                                 <div class="col-12 py-0">
-                                    <div class="form-group">
-                                        <div class="col-12 p-0">Commune</div>
-                                        <select class="form-control m-0" id="commune" name="commune" required>
-
-                                        </select>
+                                    <div class="form-group my-3 ">
+                                        <label for="commune" class="col-12 col-md-4 col-form-label @error('commune') is-invalid @enderror text-md-right">{{ __('Commune') }}</label>
+                                        <input type="text" class="form-control" id="commune" name="commune" placeholder="ouagadougou" required>
+            
                                         @error('commune')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-12 py-0">
-                                    <div class="form-group">
-                                        <div class="col-12 p-0">Année</div>
-                                        <select class="form-control m-0" id="commune4" name="annee" required>
+                                    <div class="form-group my-3">
+                                        <label for="annee" class="col-12 col-md-4 col-form-label @error('annee') is-invalid @enderror text-md-right">{{ __('Année') }}</label>
+                                        <select class="form-control m-0" id="annee" name="annee" required>
                                             <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
                                             @for ($i = Date('Y'); 2000 <= $i; $i--)
                                                 <option value="{{ $i }}">
@@ -60,8 +59,7 @@
             </div>
             <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
             <div class="col-12 col-md-10 mx-auto p-0">
-                <div class="mx-auto">
-                    <button type="submit" class="btn btn-edic my-1 font-weight-bold">Valider</button>
+                <button type="submit" class="btn btn-edic font-weight-bold">Valider</button>
                     <a class="btn btn-edic" href="{{ "#"/*route('datas.cmp')*/ }}">Comparaison</a>
                     @if (Route::currentRouteName() == 'datas.tdb')
                         @if (str_contains(url()->current(), 'planning'))
@@ -75,9 +73,7 @@
                                 id="create_pdf">Exporter Tdb Bilan</button>
                         @endif
                     @endif
-
-                </div>
-                <p class="my-0 p-0">
+                <p class="my-3 p-0">
                     <strong>
                         <span class="badge bg-secondary">
                             #Commune:

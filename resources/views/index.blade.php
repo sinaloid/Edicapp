@@ -60,14 +60,17 @@
             <div class="col-12 mx-auto">
                 <form class="row" action="{{ route('acceuil') }}" method="get">
                     <div class="col-12 my-0">
-                        <div class="form-group">
-                            
-                            <div class="mb-3">
-                                <label for="commune" class="form-label">Communes</label>
-                                <input type="text" class="form-control" id="commune" name="commune" placeholder="ouagadougou">
-                            </div>
+                        <div class="form-group my-3 ">
+                            <label for="commune" class="col-12 col-md-4 col-form-label @error('commune') is-invalid @enderror text-md-right">{{ __('Commune') }}</label>
+                            <input type="text" class="form-control" id="commune" name="commune" placeholder="ouagadougou" required>
+
+                            @error('commune')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-3">
                             <div class="col-12">Année</div>
                             <select class="form-control m-0" id="annee" name="annee" required>
                                 <option value="">

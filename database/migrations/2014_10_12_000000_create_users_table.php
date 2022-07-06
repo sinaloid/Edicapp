@@ -23,18 +23,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            
-            /*$table->string('pays');
-            $table->string('region');
-            $table->string('province');
-            $table->string('commune');*/
-            
-            $table->string('organisation')->nullable();
             $table->string('role')->nullable();
-
-            $table->bigInteger('country_id');
-            $table->bigInteger('region_id');
-            $table->bigInteger('province_id');
             $table->bigInteger('commune_id');
 
         });
