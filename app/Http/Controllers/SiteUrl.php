@@ -80,12 +80,14 @@ class SiteUrl extends Controller
     {
         $commune = isset($request->commune) ? $request->commune : '';
         $commune_id = Commune::where('commune_name',$commune)->first();
-        $commune_id = isset($commune_id) ? $commune_id->id : '';
-        $dataCommune = Data::where([
-            ['commune_id', $commune_id],
-            ['annee', $request->annee],
-            ['terminer', 1]
-        ])->first();
+        $commune_id = isset($commune_id) ? $commune_id->id : null;
+        if(isset($commune_id)){
+            $dataCommune = Data::where([
+                ['commune_id', $commune_id],
+                ['annee', $request->annee],
+                ['terminer', 1]
+            ])->first();
+        }
         if($dataCommune == null){
             $dataCommune = Data::where('terminer',1)->first();
             // message session data non trouver
