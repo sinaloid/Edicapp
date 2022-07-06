@@ -1,194 +1,204 @@
-@extends('layouts.app')
-
+@extends('layout.app')
 @section('css')
-<link href="{{ asset('/css/table.css') }}" rel="stylesheet">
-@stop
+    <link href="{{ asset('assets/css/table.css') }}" rel="stylesheet">
+@endsection
 
 @section('content')
+    <!--div class="row"-->
+    <div class="row mx-auto py-3 px-2">
+        <div class="col-sm-12 col-md-10 mx-auto">
+            <form class="row mb-3 p-0" action="{{ route('data.store') }}" method="get">
+                <div class="col-12 p-0">
+                    <div class="form-group my-3 ">
+                        <label for="commune"
+                            class="col-12 col-md-4 col-form-label @error('commune') is-invalid @enderror text-md-right">{{ __('Commune') }}</label>
+                        <input type="text" class="form-control" id="commune" name="commune" placeholder="Ouagadougou"
+                            autocomplete="off" required>
 
-<!--div class="row"-->
-<form class="row mb-3" action="{{ route('data.store') }}" method="post">
-    @csrf
-    <div class="col-sm-12 sin-bg-2">
-        <div class="card-header">Configuration de la commune</div>
-        <div class="form-group mt">
-            <select class="form-control mt-1" id="country" name="country" required>
-                <option value="">{{ __('-- Sélectionnez votre pays --') }}</option>
-                @foreach($countries as $country)
-                <option value="{{ $country->id }}">
-                    {{ $country->country_name }}</option>
-                @endforeach
-            </select>
-            @error('pays')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-        <div class="row p_region justify-content-between">
-            <div class=" col-6 col-md ">
-                <div class="form-group">
-                    <select class="form-control " id="region" name="region" required>
-
-                    </select>
-                    @error('region')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-            <div class="col-6 col-md">
-                <div class="form-group">
-                    <select class="form-control " id="province" name="province" required>
-
-                    </select>
-                    @error('province')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-            <div class="col-12 col-md">
-                <div class="form-group">
-                    <select class="form-control" id="commune" name="commune" required>
-
-                    </select>
-                    @error('commune')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-            <div class="col-12 col-md">
-                <div class="form-group">
-                    <select class="form-control" id="commune4" name="annee" required>
-                        <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
-                        @for($i = $annee; 2000<= $i; $i--) <option value="{{ $i}}">
-                            {{ $i }}</option>
+                        @error('commune')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group my-3">
+                        <label for="annee"
+                            class="col-12 col-md-4 col-form-label @error('annee') is-invalid @enderror text-md-right">{{ __('Année') }}</label>
+                        <select class="form-control m-0" id="annee" name="annee" required>
+                            <option value="">{{ __('-- Sélectionnez l’année --') }}</option>
+                            @for ($i = Date('Y'); 2000 <= $i; $i--)
+                                <option value="{{ $i }}">
+                                    {{ $i }}</option>
                             @endfor
-                    </select>
-                    @error('commune')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                        </select>
+                        @error('commune')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="mx-auto">
-                <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">Valider</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div id="flash">
-                    @include('flashMessage.flash-message')
+                <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
+                <div class="col-12 mx-auto p-0">
+                    <button type="submit" class="btn btn-edic font-weight-bold">Valider</button>
+                    <a class="btn btn-edic" href="{{ '#' /*route('datas.cmp')*/ }}">Comparaison</a>
+                    @if (Route::currentRouteName() == 'datas.tdb')
+                        @if (str_contains(url()->current(), 'planning'))
+                            <button class="btn btn-edic font-weight-bold" type="button" name="create_pdf"
+                                id="create_pdf">Exporter Tdb Planning</button>
+                        @elseif(str_contains(url()->current(), 'global'))
+                            <button class="btn btn-edic font-weight-bold" type="button" name="create_pdf"
+                                id="create_pdf">Exporter Tdb Global</button>
+                        @else
+                            <button class="btn btn-edic font-weight-bold" type="button" name="create_pdf"
+                                id="create_pdf">Exporter Tdb Bilan</button>
+                        @endif
+                    @endif
+                    <p class="my-3 p-0">
+                        <strong>
+                            <span class="badge bg-secondary">
+                                #Commune:
+                            </span>
+                        </strong>
+                        <small>
+                            {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune['data_id'])->commune->commune_name : 'non sélectionnée' }}
+                        </small>
 
-
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-    </div>
-
-</form>
-<!--/div-->
-
-<div class="row">
-    <div class="card">
-        <div class="card-header">
-            Données de la commune
-        </div>
-        <div class="row sin-bg-commune m-1 text-white">
-            <div class="col-12 col-sm-6">
-                <div class="card-body">
-                    <p><span class="font-weight-bold">Pays:</span>
-                        {{ isset($dataCommune) ? $dataCommune["pays"] : 'null' }}
+                        <br>
+                        <br>
+                        <span class="d-inline-block ml-auto">Télécharger au format : </span>
+                        <span class="badge bg-secondary">
+                            <a class="text-white"
+                                href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'excel', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
+                                excel</a>
+                        </span>
+                        <span class="badge bg-secondary">
+                            <a class="text-white"
+                                href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'pdf', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
+                                pdf</a>
+                        </span>
+                        <span class="badge bg-secondary">
+                            <a class="text-white"
+                                href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'csv', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
+                                csv</a>
+                        </span>
                     </p>
-                    <p><span class="font-weight-bold">Region:</span>
-                        {{ isset($dataCommune) ? $dataCommune["region"] : 'null' }}
-                    </p>
-                    <p><span class="font-weight-bold">Province:</span>
-                        {{ isset($dataCommune) ? $dataCommune["province"] : 'null' }}</p>
-                    <p><span class="font-weight-bold">Commune:</span>
-                        {{ isset($dataCommune) ? $dataCommune["commune"] : 'null' }}</p>
-                    <p><span class="font-weight-bold">Année:</span>
-                        {{ isset($dataCommune) ? $dataCommune["annee"] : 'null' }}
-                    </p>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6">
-            <form class="row mb-3" action="{{ route('data.updateCommune',isset($dataCommune) ? $dataCommune['data_id'] : 0) }}" method="post">
-            @csrf
-            <div class="card-body">
-                    <p><span class="font-weight-bold">Superficie:</span>
-                        <input type="text" name="superficie" class="form-control d-inline-block w-50"
-                                        value="{{ isset($dataCommune) ? $dataCommune['superficie'] : '' }}">
-                    </p>
-                    <p><span class="font-weight-bold">Population totale:</span>
-                        <input type="text" name="total_population" class="form-control d-inline-block w-50"
-                                        value="{{ isset($dataCommune) ? $dataCommune['total_population'] : '' }}">
-                    </p>
-                    <p><span class="font-weight-bold">Hommes:</span>
-                    <input type="text" name="total_homme" class="form-control d-inline-block w-50"
-                                        value="{{ isset($dataCommune) ? $dataCommune['total_homme'] : '' }}">
-                    </p>
-                    <p><span class="font-weight-bold">Femmes:</span>
-                    <input type="text" name="total_femme" class="form-control d-inline-block w-50"
-                                        value="{{ isset($dataCommune) ? $dataCommune['total_femme'] : '' }}">
-                    <input type="hidden" name="data_id_commune" class="form-control d-inline-block w-50"
-                                        value="{{ isset($dataCommune) ? $dataCommune['data_id'] : '' }}">
-                    <input type="hidden" name="annee_commune" class="form-control d-inline-block w-50"
-                                        value="{{ isset($dataCommune) ? $dataCommune['annee'] : '' }}">
-                    </p>
-                   
-            <div class="mx-auto">
-                <button type="submit" class="btn sin-bg-3 my-1 font-weight-bold text-white">Modifier</button>
-            </div>
-       
                 </div>
             </form>
-            </div>
         </div>
+    </div>
+    <!--/div-->
 
-        <div class="card-body">
+    <div class="row px-0 py-3 bg-white">
+        <h2 class="col-12 col-md-10 mx-auto">
+            Données de la commune
+        </h2>
+        <div class="col-12 col-md-10 mx-auto">
+            <p><span class="font-weight-bold">Commune:</span>
+                {{ isset($dataCommune) ? $dataCommune['commune'] : 'null' }}</p>
+            <p><span class="font-weight-bold">Année:</span>
+                {{ isset($dataCommune) ? $dataCommune['annee'] : 'null' }}
+            </p>
+        </div>
+        <div class="col-12 col-md-10 mx-auto">
+            <form class="row mb-3"
+                action="{{ route('data.updateCommune', isset($dataCommune) ? $dataCommune['data_id'] : 0) }}"
+                method="post">
+                @csrf
+                <div class="col-12 col-md-6">
+                    <div class="form-group my-3 ">
+                        <label for="superficie"
+                            class="col-12 col-md-4 col-form-label @error('superficie') is-invalid @enderror text-md-right">{{ __('Superficie:') }}</label>
+                        <input id="superficie" type="text" name="superficie" class="form-control d-inline-block w-50"
+                            value="{{ isset($dataCommune) ? $dataCommune['superficie'] : '' }}">
 
-            <form action="{{ route('data.update', isset($dataCommune) ? $dataCommune['data_id'] : 0) }}"
+                        @error('superficie')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group my-3 ">
+                        <label for="total_population"
+                            class="col-12 col-md-4 col-form-label @error('total_population') is-invalid @enderror text-md-right">{{ __('Population totale:') }}</label>
+                        <input id="total_population" type="text" name="total_population"
+                            class="form-control d-inline-block w-50"
+                            value="{{ isset($dataCommune) ? $dataCommune['total_population'] : '' }}">
+
+                        @error('total_population')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group my-3 ">
+                        <label for="total_homme"
+                            class="col-12 col-md-4 col-form-label @error('total_homme') is-invalid @enderror text-md-right">{{ __('Hommes:') }}</label>
+                        <input id="total_homme" type="text" name="total_homme" class="form-control d-inline-block w-50"
+                            value="{{ isset($dataCommune) ? $dataCommune['total_homme'] : '' }}">
+
+                        @error('total_homme')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group my-3 ">
+                        <label id="total_femme" for="total_femme"
+                            class="col-12 col-md-4 col-form-label @error('total_femme') is-invalid @enderror text-md-right">{{ __('Femmes:') }}</label>
+                        <input type="text" name="total_femme" class="form-control d-inline-block w-50"
+                            value="{{ isset($dataCommune) ? $dataCommune['total_femme'] : '' }}">
+                        <input type="hidden" name="data_id_commune" class="form-control d-inline-block w-50"
+                            value="{{ isset($dataCommune) ? $dataCommune['data_id'] : '' }}">
+                        <input type="hidden" name="annee_commune" class="form-control d-inline-block w-50"
+                            value="{{ isset($dataCommune) ? $dataCommune['annee'] : '' }}">
+
+                        @error('total_homme')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-12 mx-auto">
+                    <button type="submit" class="btn btn-edic my-1 font-weight-bold">Modifier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row px-0">
+        <div class="col-12 col-md-10 py-5 mx-auto">
+            <form class="container-fluid"
+                action="{{ route('data.update', isset($dataCommune) ? $dataCommune['data_id'] : 0) }}"
                 enctype="multipart/form-data" method="post">
                 @csrf
                 @method('put')
-                <!--div class="form-group">
-                <label for="name">Titre</label>
-                <input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp">
-                <small id="nameHelp" class="form-text text-muted">Entrez le titre de votre todo.</small>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <input type="text" name="description" class="form-control" id="description" aria-describedby="nameHelp">
-            </div>
-            <button type="submit" class="btn btn-primary">Ajouter</button-->
                 <h4 class="card-header bg-info text-white">Info G</h4>
                 <!--Recette infog -->
                 <div class="row ">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase">Évolution du budget de la commune les trois dernières années</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase">Évolution du budget de la commune
+                        les trois dernières années</div>
                     <div class="col-12 table-responsive mt-2 px-0">
                         <table class="table-sm table-hover mx-auto">
                             <tr>
                                 <th class="sin-table-bg" colspan="5">Recettes</th>
                             <tr>
                                 @php
-                                if($dataCommune){
-                                    if($dataCommune['recette'][0]->annee == null){
-                                        $dataCommune['recette'][0]->annee = $dataCommune["annee"] - 2;
-                                        $dataCommune['recette'][1]->annee = $dataCommune["annee"] - 1;
-                                        $dataCommune['recette'][2]->annee = $dataCommune["annee"];
-                                        $dataCommune['recette'][3]->annee = $dataCommune["annee"] + 1;
+                                    if ($dataCommune) {
+                                        if ($dataCommune['recette'][0]->annee == null) {
+                                            $dataCommune['recette'][0]->annee = $dataCommune['annee'] - 2;
+                                            $dataCommune['recette'][1]->annee = $dataCommune['annee'] - 1;
+                                            $dataCommune['recette'][2]->annee = $dataCommune['annee'];
+                                            $dataCommune['recette'][3]->annee = $dataCommune['annee'] + 1;
+                                        }
                                     }
-                                }
                                 @endphp
                             <tr>
                                 <th>années</th>
@@ -236,19 +246,19 @@
                                         aria-describedby="nameHelp"--></td>
                             <tr>
                                 <!--tr>
-                            <th>Total</th>
-                            <td>54590547</td>
-                            <td>54590547</td>
-                            <td>54590547</td>
-                            <td> </td>
-                        <tr>
-                        <tr>
-                            <th>années</th>
-                            <th>2017</th>
-                            <th>2018</th>
-                            <th>2019</th>
-                            <th>2020</th>
-                        <tr-->
+                                        <th>Total</th>
+                                        <td>54590547</td>
+                                        <td>54590547</td>
+                                        <td>54590547</td>
+                                        <td> </td>
+                                    <tr>
+                                    <tr>
+                                        <th>années</th>
+                                        <th>2017</th>
+                                        <th>2018</th>
+                                        <th>2019</th>
+                                        <th>2020</th>
+                                    <tr-->
                         </table>
                     </div>
                 </div>
@@ -259,15 +269,15 @@
                             <tr>
                                 <th class="sin-table-bg" colspan="5">Dépenses</th>
                             <tr>
-                            @php
-                                if($dataCommune){
-                                    if($dataCommune['depense'][0]->annee == null){
-                                        $dataCommune['depense'][0]->annee = $dataCommune["annee"] - 2;
-                                        $dataCommune['depense'][1]->annee = $dataCommune["annee"] - 1;
-                                        $dataCommune['depense'][2]->annee = $dataCommune["annee"];
-                                        $dataCommune['depense'][3]->annee = $dataCommune["annee"] + 1;
+                                @php
+                                    if ($dataCommune) {
+                                        if ($dataCommune['depense'][0]->annee == null) {
+                                            $dataCommune['depense'][0]->annee = $dataCommune['annee'] - 2;
+                                            $dataCommune['depense'][1]->annee = $dataCommune['annee'] - 1;
+                                            $dataCommune['depense'][2]->annee = $dataCommune['annee'];
+                                            $dataCommune['depense'][3]->annee = $dataCommune['annee'] + 1;
+                                        }
                                     }
-                                }
                                 @endphp
                             <tr>
                                 <th>années</th>
@@ -292,7 +302,7 @@
                                 <td><input type="text" name="depens_fonct2" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][1]->fonctionnement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td><input  type="text" name="depens_fonct3" class="form-control"
+                                <td><input type="text" name="depens_fonct3" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][2]->fonctionnement : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="hidden" type="text" name="depens_fonct4" class="form-control"
@@ -307,7 +317,7 @@
                                 <td><input type="text" name="depens_invest2" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][1]->investissement : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td><input  type="text" name="depens_invest3" class="form-control"
+                                <td><input type="text" name="depens_invest3" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depense'][2]->investissement : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td><input type="hidden" type="text" name="depens_invest4" class="form-control"
@@ -315,38 +325,39 @@
                                         aria-describedby="nameHelp"></td>
                             <tr>
                                 <!--tr>
-                            <th>Total</th>
-                            <td>54590547</td>
-                            <td>54590547</td>
-                            <td>54590547</td>
-                            <td> </td>
-                        <tr>
-                        <tr>
-                            <th>années</th>
-                            <th>2017</th>
-                            <th>2018</th>
-                            <th>2019</th>
-                            <th>2020</th>
-                        <tr-->
+                                        <th>Total</th>
+                                        <td>54590547</td>
+                                        <td>54590547</td>
+                                        <td>54590547</td>
+                                        <td> </td>
+                                    <tr>
+                                    <tr>
+                                        <th>années</th>
+                                        <th>2017</th>
+                                        <th>2018</th>
+                                        <th>2019</th>
+                                        <th>2020</th>
+                                    <tr-->
                         </table>
                     </div>
                 </div>
 
                 <!-- Trois meilleurs -->
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase">Contribution des trois (03) meilleurs marchés</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase">Contribution des trois (03)
+                        meilleurs marchés</div>
                     <div class="col-12 table-responsive mt-2 px-0">
                         <table class="table-sm table-hover mx-auto">
                             <thead>
                                 <tr>
-                                <th class="sin-table-bg"></th>
-                    <th class="sin-table-bg">Marché 1</th>
-                    <th class="sin-table-bg">Marché 2</th>
-                    <th class="sin-table-bg">Marché 3</th>
+                                    <th class="sin-table-bg"></th>
+                                    <th class="sin-table-bg">Marché 1</th>
+                                    <th class="sin-table-bg">Marché 2</th>
+                                    <th class="sin-table-bg">Marché 3</th>
                                 </tr>
                             </thead>
                             <tr>
-                            <th>Nom du marché</th>
+                                <th>Nom du marché</th>
                                 <td><input type="text" name="marche1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->marche : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -358,7 +369,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                            <th>Montant attendu</th>
+                                <th>Montant attendu</th>
                                 <td><input type="text" name="m_attendu1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->attendu : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -370,7 +381,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                            <th>Montant mobilisé</th>
+                                <th>Montant mobilisé</th>
                                 <td><input type="text" name="contribution1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['troisMeilleur'][0]->contribution : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -382,19 +393,20 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                            <th>Taux</th>
-                            <td>0.00%</td>
-                            <td>0.00%</td>
-                            <td></td>
-                        </tr-->
+                                        <th>Taux</th>
+                                        <td>0.00%</td>
+                                        <td>0.00%</td>
+                                        <td></td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
 
                 <!-- Dix meilleurs -->
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des dix (10) meilleurs villages
-        (toute contribution)</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des dix (10)
+                        meilleurs villages
+                        (toute contribution)</div>
                     <div class="col-12 table-responsive mt-2 px-0">
                         <table class="table-sm table-hover">
 
@@ -414,7 +426,7 @@
                                 </tr>
                             </thead>
                             <tr>
-                            <th>Nom du village</th>
+                                <th>Nom du village</th>
                                 <td><input type="text" name="village1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->le_village : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -447,7 +459,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                            <th>Montant attendu</th>
+                                <th>Montant attendu</th>
                                 <td><input type="text" name="attendu1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->attendu : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -480,7 +492,7 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                            <th>Montant mobilisé</th>
+                                <th>Montant mobilisé</th>
                                 <td><input type="text" name="mobilise1" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['dixMeilleur'][0]->mobilise : '' }}"
                                         aria-describedby="nameHelp"></td>
@@ -513,25 +525,26 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                            <th>Taux mobilisation /Prévisions</th>
-                            <td>100%</td>
-                            <td>1200%</td>
-                            <td>4700%</td>
-                            <td>100%</td>
-                            <td>1200%</td>
-                            <td>4700%</td>
-                            <td>100%</td>
-                            <td>1200%</td>
-                            <td>4700%</td>
-                            <td>100%</td>
-                        </tr-->
+                                        <th>Taux mobilisation /Prévisions</th>
+                                        <td>100%</td>
+                                        <td>1200%</td>
+                                        <td>4700%</td>
+                                        <td>100%</td>
+                                        <td>1200%</td>
+                                        <td>4700%</td>
+                                        <td>100%</td>
+                                        <td>1200%</td>
+                                        <td>4700%</td>
+                                        <td>100%</td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
 
                 <!-- Partenaire -->
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase">  Contribution des autres partenaires de la commune</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Contribution des autres
+                        partenaires de la commune</div>
                     <div class="col-12 table-responsive mt-2 px-0">
                         <table class="table-sm table-hover ">
                             <thead>
@@ -725,12 +738,13 @@
 
                 <div class="row ">
                     <div class="col-12 table-responsive px-0 ">
-<div class="col-12 font-weight-bolder text-center text-uppercase">Situation domaniale</div>
+                        <div class="col-12 font-weight-bolder text-center text-uppercase">Situation domaniale</div>
 
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                    <th class="sin-table-bg align-middle" rowspan="2">Désignation / type d'usage</th>
+                                    <th class="sin-table-bg align-middle" rowspan="2">Désignation / type d'usage
+                                    </th>
                                     <th class="sin-table-bg text-center" colspan="3">Nombre</th>
                                 </tr>
                                 <tr>
@@ -756,7 +770,8 @@
                                 <td> <input type="text" name="zone_commerciale_parcelle_degagee" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_degagee : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="zone_commerciale_parcelle_attribuee" class="form-control"
+                                <td> <input type="text" name="zone_commerciale_parcelle_attribuee"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_commerciale_parcelle_attribuee : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td> <input type="text" name="zone_commerciale_parcelle_restante" class="form-control"
@@ -765,7 +780,8 @@
                             </tr>
                             <tr>
                                 <th>Zone administrative</th>
-                                <td> <input type="text" name="zone_administrative_parcelle_degagee" class="form-control"
+                                <td> <input type="text" name="zone_administrative_parcelle_degagee"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['domaineCivil']->zone_administrative_parcelle_degagee : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td> <input type="text" name="zone_administrative_parcelle_attribuee"
@@ -790,159 +806,159 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                                <th>Surfaces en ha ou en m<sup>2</sup></th>
-                                <td> <input type="text" name="parcel_degag5" class="form-control" value="{{ isset($dataCommune) ? 'non null' : '' }}"
-                                        aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="parcel_attribu5" class="form-control" value="{{ isset($dataCommune) ? 'non null' : '' }}"
-                                        aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="parcel_rest5" class="form-control" value="{{ isset($dataCommune) ? 'non null' : '' }}"
-                                        aria-describedby="nameHelp"></td>
-                            </tr-->
+                                            <th>Surfaces en ha ou en m<sup>2</sup></th>
+                                            <td> <input type="text" name="parcel_degag5" class="form-control" value="{{ isset($dataCommune) ? 'non null' : '' }}"
+                                                    aria-describedby="nameHelp"></td>
+                                            <td> <input type="text" name="parcel_attribu5" class="form-control" value="{{ isset($dataCommune) ? 'non null' : '' }}"
+                                                    aria-describedby="nameHelp"></td>
+                                            <td> <input type="text" name="parcel_rest5" class="form-control" value="{{ isset($dataCommune) ? 'non null' : '' }}"
+                                                    aria-describedby="nameHelp"></td>
+                                        </tr-->
                         </table>
                     </div>
                 </div>
                 @php
-                $img_carte_is_visible = true;
-                $img_logo_is_visible = true;
-                $img_autre_is_visible = true;
-                if($dataCommune != null){
-                ($dataCommune['ressourceImage'][0]->url != null) ? $img_carte_is_visible = false : $img_carte_is_visible
-                = true;
-                ($dataCommune['ressourceImage'][1]->url != null) ? $img_logo_is_visible = false : $img_logo_is_visible =
-                true;
-                ($dataCommune['ressourceImage'][2]->url != null) ? $img_autre_is_visible = false : $img_autre_is_visible
-                = true;
-
-                }
+                    $img_carte_is_visible = true;
+                    $img_logo_is_visible = true;
+                    $img_autre_is_visible = true;
+                    if ($dataCommune != null) {
+                        $dataCommune['ressourceImage'][0]->url != null ? ($img_carte_is_visible = false) : ($img_carte_is_visible = true);
+                        $dataCommune['ressourceImage'][1]->url != null ? ($img_logo_is_visible = false) : ($img_logo_is_visible = true);
+                        $dataCommune['ressourceImage'][2]->url != null ? ($img_autre_is_visible = false) : ($img_autre_is_visible = true);
+                    }
                 @endphp
                 <div class="row mt-3">
-                    @if($img_carte_is_visible)
-                    <div class="col-12 col-md-6 font-weight-bolder text-center text-uppercase">
-                        <div class="custom-file mb-3">
-                            <input type="file"
-                                class="custom-file-input  @error('commune_img_carte') is-invalid @enderror"
-                                id="commune_img_carte" name="commune_img_carte">
-                            <label class="custom-file-label" for="customFile" style="font-size: 0.9em">Choisir carte de
-                                la commune</label>
-                            @error('commune_img_carte')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                    @if ($img_carte_is_visible)
+                        <div class="col-12 col-md-6 font-weight-bolder text-center text-uppercase">
+                            <div class="custom-file mb-3">
+                                <input type="file"
+                                    class="custom-file-input  @error('commune_img_carte') is-invalid @enderror"
+                                    id="commune_img_carte" name="commune_img_carte">
+                                <label class="custom-file-label" for="customFile" style="font-size: 0.9em">Choisir
+                                    carte de
+                                    la commune</label>
+                                @error('commune_img_carte')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
                     @endif
-                    @if($img_logo_is_visible)
-                    <div class="col-12 col-md-6 font-weight-bolder text-center text-uppercase">
-                        <div class="custom-file mb-3">
-                            <input type="file"
-                                class="custom-file-input  @error('commune_img_logo') is-invalid @enderror"
-                                id="commune_img_logo" name="commune_img_logo">
-                            <label class="custom-file-label" for="customFile" style="font-size: 0.9em">Choisir logo de
-                                la commune</label>
-                            @error('commune_img_logo')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                    @if ($img_logo_is_visible)
+                        <div class="col-12 col-md-6 font-weight-bolder text-center text-uppercase">
+                            <div class="custom-file mb-3">
+                                <input type="file"
+                                    class="custom-file-input  @error('commune_img_logo') is-invalid @enderror"
+                                    id="commune_img_logo" name="commune_img_logo">
+                                <label class="custom-file-label" for="customFile" style="font-size: 0.9em">Choisir
+                                    logo de
+                                    la commune</label>
+                                @error('commune_img_logo')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
                     @endif
-                    @if($img_autre_is_visible)
-                    <div class="col-12 font-weight-bolder text-center text-uppercase">
-                        <div class="custom-file mb-3">
-                            <input type="file"
-                                class="custom-file-input  @error('commune_img_autre') is-invalid @enderror"
-                                id="commune_img_autre" name="commune_img_autre">
-                            <label class="custom-file-label" for="customFile" style="font-size: 0.9em">Autre image de la
-                                commune</label>
-                            @error('commune_img_autre')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                    @if ($img_autre_is_visible)
+                        <div class="col-12 font-weight-bolder text-center text-uppercase">
+                            <div class="custom-file mb-3">
+                                <input type="file"
+                                    class="custom-file-input  @error('commune_img_autre') is-invalid @enderror"
+                                    id="commune_img_autre" name="commune_img_autre">
+                                <label class="custom-file-label" for="customFile" style="font-size: 0.9em">Autre
+                                    image de la
+                                    commune</label>
+                                @error('commune_img_autre')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
                     @endif
                 </div>
                 <div class="row">
-                    @if(!$img_carte_is_visible)
-                    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
-                        <img class="img-fluid"
-                            src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][0]->url) : ''  }}"
-                            style="width:auto; max-height:250px" alt="img1" />
-                        <a class="bg-danger font-weight-bold text-white btn delete"
-                            href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][0]->id : '') }}">supprimer</a>
-                    </div>
+                    @if (!$img_carte_is_visible)
+                        <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+                            <img class="img-fluid"
+                                src="{{ isset($dataCommune) ? asset('/' . $dataCommune['ressourceImage'][0]->url) : '' }}"
+                                style="width:auto; max-height:250px" alt="img1" />
+                            <a class="bg-danger font-weight-bold text-white btn delete"
+                                href="{{ route('deleteImg', isset($dataCommune) ? $dataCommune['ressourceImage'][0]->id : '') }}">supprimer</a>
+                        </div>
                     @endif
-                    @if(!$img_logo_is_visible)
-                    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
-                        <img class="img-fluid"
-                            src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][1]->url) : ''  }}"
-                            style="width:auto; max-height:250px" alt="img1" />
-                        <a class="bg-danger font-weight-bold text-white btn delete"
-                            href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][1]->id : '') }}">supprimer</a>
-                    </div>
+                    @if (!$img_logo_is_visible)
+                        <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+                            <img class="img-fluid"
+                                src="{{ isset($dataCommune) ? asset('/' . $dataCommune['ressourceImage'][1]->url) : '' }}"
+                                style="width:auto; max-height:250px" alt="img1" />
+                            <a class="bg-danger font-weight-bold text-white btn delete"
+                                href="{{ route('deleteImg', isset($dataCommune) ? $dataCommune['ressourceImage'][1]->id : '') }}">supprimer</a>
+                        </div>
                     @endif
-                    @if(!$img_autre_is_visible)
-                    <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
-                        <img class="img-fluid"
-                            src="{{ isset($dataCommune) ? asset('/'.$dataCommune['ressourceImage'][2]->url) : ''  }}"
-                            style="width:auto; max-height:250px" alt="img1" />
-                        <a class="bg-danger font-weight-bold text-white btn delete"
-                            href="{{ route('deleteImg',isset($dataCommune) ? $dataCommune['ressourceImage'][2]->id : '') }}">supprimer</a>
-                    </div>
+                    @if (!$img_autre_is_visible)
+                        <div class="col-12 col-md-4 font-weight-bolder text-center text-uppercase">
+                            <img class="img-fluid"
+                                src="{{ isset($dataCommune) ? asset('/' . $dataCommune['ressourceImage'][2]->url) : '' }}"
+                                style="width:auto; max-height:250px" alt="img1" />
+                            <a class="bg-danger font-weight-bold text-white btn delete"
+                                href="{{ route('deleteImg', isset($dataCommune) ? $dataCommune['ressourceImage'][2]->id : '') }}">supprimer</a>
+                        </div>
                     @endif
                 </div>
                 <script>
-                // Add the following code if you want the name of the file appear on select
-                $(".custom-file-input").on("change", function() {
-                    var fileName = $(this).val().split("\\").pop();
-                    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-                });
+                    // Add the following code if you want the name of the file appear on select
+                    $(".custom-file-input").on("change", function() {
+                        var fileName = $(this).val().split("\\").pop();
+                        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    });
                 </script>
 
 
                 <h4 class="card-header bg-info text-white mt-3">PCD</h4>
 
                 <div class="row">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase" style="color:#ff8043">Évaluation de l'exécution
-        du PCD de la commune</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase" style="color:#ff8043">Évaluation
+                        de l'exécution
+                        du PCD de la commune</div>
                     <div class="col-12 table-responsive mt-2 px-0 ">
                         <table class="table-sm table-hover mx-auto">
                             <tr>
-                            <th class="sin-table-bg">Date de début</th>
+                                <th class="sin-table-bg">Date de début</th>
                                 <th><input type="text" name="date_de_conception" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->date_de_conception  : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->date_de_conception : '' }}"
                                         aria-describedby="nameHelp"></th>
-                                        <th class="sin-table-bg">Date de fin</th>
+                                <th class="sin-table-bg">Date de fin</th>
                                 <td><input type="text" name="date_d_expiration" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->date_d_expiration  : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->date_d_expiration : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th class="sin-table-bg">Montant total</th>
                                 <td><input type="text" name="montant_total" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_total  : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_total : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <th class="sin-table-bg">Montant mobilisé</th>
                                 <td><input type="text" name="montant_mobilise" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_mobilise  : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->montant_mobilise : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th class="sin-table-bg">Problèmes majeurs (en quelques mots)</th>
                                 <td><input type="text" name="probleme_majeur" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->probleme_majeur  : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->probleme_majeur : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <!--td> <input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                            <td> <input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td-->
+                                                aria-describedby="nameHelp"></td>
+                                        <td> <input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td-->
                             </tr>
                             <tr>
                                 <th class="sin-table-bg">Perspectives (en quelques mots)</th>
                                 <td><input type="text" name="perpective_dix_mot" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->perpective_dix_mot  : '' }}"
+                                        value="{{ isset($dataCommune) ? $dataCommune['appreciation']->perpective_dix_mot : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <!--td> <input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                            <td> <input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td-->
+                                                aria-describedby="nameHelp"></td>
+                                        <td> <input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td-->
                             </tr>
                         </table>
                     </div>
@@ -967,51 +983,62 @@
                                 </tr>
                             </thead>
                             <tr>
-                            <th class="sin-table-bg">1 : Consolider la résilience, la sécurité, la cohésion sociale et la paix :</th>
-                                <td> <input type="text" name="consolider_resilience_tres_satisfaisant" class="form-control"
+                                <th class="sin-table-bg">1 : Consolider la résilience, la sécurité, la cohésion sociale
+                                    et la paix :</th>
+                                <td> <input type="text" name="consolider_resilience_tres_satisfaisant"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_resilience_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td> <input type="text" name="consolider_resilience_satisfaisant" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_resilience_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="consolider_resilience_pas_satisfaisant" class="form-control"
+                                <td> <input type="text" name="consolider_resilience_pas_satisfaisant"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_resilience_pas_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                            <th class="sin-table-bg">2 : Approvondir les réformes institutionnelles et moderniser l’administration publique</th>
-                                <td> <input type="text" name="approfondir_reforme_tres_satisfaisant" class="form-control"
+                                <th class="sin-table-bg">2 : Approvondir les réformes institutionnelles et moderniser
+                                    l’administration publique</th>
+                                <td> <input type="text" name="approfondir_reforme_tres_satisfaisant"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->approfondir_reforme_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
                                 <td> <input type="text" name="approfondir_reforme_satisfaisant" class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->approfondir_reforme_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="approfondir_reforme_pas_satisfaisant" class="form-control"
+                                <td> <input type="text" name="approfondir_reforme_pas_satisfaisant"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->approfondir_reforme_pas_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
-                            <th class="sin-table-bg">3 : Consolider le développement du capital humain et la solidarité nationale</th>
-                                <td> <input type="text" name="consolider_developpement_tres_satisfaisant" class="form-control"
+                                <th class="sin-table-bg">3 : Consolider le développement du capital humain et la
+                                    solidarité nationale</th>
+                                <td> <input type="text" name="consolider_developpement_tres_satisfaisant"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_developpement_tres_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="consolider_developpement_satisfaisant" class="form-control"
+                                <td> <input type="text" name="consolider_developpement_satisfaisant"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_developpement_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="consolider_developpement_pas_satisfaisant" class="form-control"
+                                <td> <input type="text" name="consolider_developpement_pas_satisfaisant"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->consolider_developpement_pas_satisfaisant : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
-                            <th class="sin-table-bg">4 : Dynamiser les secteurs porteurs pour l’économie et les emplois</th>
-                                <td> <input type="text" name="dynamiser_secteurs_tres_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_tres_satisfaisant : '' }}"
-                                        aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="dynamiser_secteurs_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_satisfaisant : '' }}"
-                                        aria-describedby="nameHelp"></td>
-                                <td> <input type="text" name="dynamiser_secteurs_pas_satisfaisant" class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_pas_satisfaisant : '' }}"
-                                        aria-describedby="nameHelp"></td>
+                            <th class="sin-table-bg">4 : Dynamiser les secteurs porteurs pour l’économie et les emplois
+                            </th>
+                            <td> <input type="text" name="dynamiser_secteurs_tres_satisfaisant" class="form-control"
+                                    value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_tres_satisfaisant : '' }}"
+                                    aria-describedby="nameHelp"></td>
+                            <td> <input type="text" name="dynamiser_secteurs_satisfaisant" class="form-control"
+                                    value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_satisfaisant : '' }}"
+                                    aria-describedby="nameHelp"></td>
+                            <td> <input type="text" name="dynamiser_secteurs_pas_satisfaisant" class="form-control"
+                                    value="{{ isset($dataCommune) ? $dataCommune['satisfaction']->dynamiser_secteurs_pas_satisfaisant : '' }}"
+                                    aria-describedby="nameHelp"></td>
                             </tr>
                         </table>
                     </div>
@@ -1041,7 +1068,7 @@
                 <h4 class="card-header bg-info text-white my-3">Budget</h4>
 
                 <h4 class="col-12 font-weight-bolder text-center text-white text-uppercase sin-bg-3">Bilan d'exécution
-                    année {{ isset($dataCommune) ? $dataCommune["annee"] : 'null' }}</h4>
+                    année {{ isset($dataCommune) ? $dataCommune['annee'] : 'null' }}</h4>
                 <p class="col-8 mx-auto font-weight-bolder text-center bg-success text-uppercase ">Les recettes</p>
                 <div class="row mt-3">
                     <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes d'investissement</div>
@@ -1049,15 +1076,16 @@
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                <th class="sin-table-bg">Codes</th>
-                    <th class="sin-table-bg">Libellés</th>
-                    <th class="sin-table-bg">Montants</th>
+                                    <th class="sin-table-bg">Codes</th>
+                                    <th class="sin-table-bg">Libellés</th>
+                                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
                                 <th>10 / 101</th>
                                 <td>Dotation globale</td>
-                                <td><input type="text" name="budget_recet_invest_dotation_globale" class="form-control"
+                                <td><input type="text" name="budget_recet_invest_dotation_globale"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_globale : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1080,7 +1108,8 @@
                             <tr>
                                 <th>102</th>
                                 <td>Dotations liées aux compétences transférées</td>
-                                <td> <input type="text" name="budget_recet_invest_dotation_liee" class="form-control"
+                                <td> <input type="text" name="budget_recet_invest_dotation_liee"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvest']->dotation_liee : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1095,29 +1124,31 @@
                             <tr>
                                 <th>10/104</th>
                                 <td>Autres subventions d'équipement</td>
-                                <td><input type="text" name="budget_recet_invest_autre_subvention" class="form-control"
+                                <td><input type="text" name="budget_recet_invest_autre_subvention"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvest']->autre_subvention : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                            <th>#</th>
-                            <th>Total</th>
-                            <td><input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                        </tr-->
+                                        <th>#</th>
+                                        <th>Total</th>
+                                        <td><input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes de fonctionnement</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes de fonctionnement
+                    </div>
                     <div class="col-12 table-responsive mt-2 px-0 ">
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                <th class="sin-table-bg">Codes</th>
-                    <th class="sin-table-bg">Libellés</th>
-                    <th class="sin-table-bg">Montants</th>
+                                    <th class="sin-table-bg">Codes</th>
+                                    <th class="sin-table-bg">Libellés</th>
+                                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1131,14 +1162,16 @@
                             <tr>
                                 <th>71 </th>
                                 <td>Produits domaniaux </td>
-                                <td> <input type="text" name="budget_recet_fonct_produit_domaniaux" class="form-control"
+                                <td> <input type="text" name="budget_recet_fonct_produit_domaniaux"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_domaniaux : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>72 </th>
                                 <td>Produits financiers </td>
-                                <td> <input type="text" name="budget_recet_fonct_produit_financier" class="form-control"
+                                <td> <input type="text" name="budget_recet_fonct_produit_financier"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_financier : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1152,7 +1185,8 @@
                             <tr>
                                 <th>74 </th>
                                 <td> Produits divers</td>
-                                <td> <input type="text" name="budget_recet_fonct_produit_diver" class="form-control"
+                                <td> <input type="text" name="budget_recet_fonct_produit_diver"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_diver : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1183,23 +1217,25 @@
                             <tr>
                                 <th>82 </th>
                                 <td> Produits antérieurs</td>
-                                <td> <input type="text" name="budget_recet_fonct_produit_anterieur" class="form-control"
+                                <td> <input type="text" name="budget_recet_fonct_produit_anterieur"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonct']->produit_anterieur : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>735 </th>
                                 <td>Autres dotations de transfert</td>
-                                <td><input type="text" name="budget_recet_fonct_autres_dotations" class="form-control"
+                                <td><input type="text" name="budget_recet_fonct_autres_dotations"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonct']->autres_dotations : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                            <th>#</th>
-                            <th>Total</th>
-                            <td><input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                        </tr-->
+                                        <th>#</th>
+                                        <th>Total</th>
+                                        <td><input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
@@ -1221,14 +1257,16 @@
                             <tr>
                                 <th>13/132 </th>
                                 <td>Études & Recherches</td>
-                                <td><input type="text" name="budget_depens_invest_etude_recherche" class="form-control"
+                                <td><input type="text" name="budget_depens_invest_etude_recherche"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->etude_recherche : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>21/211 </th>
                                 <td> Environnement</td>
-                                <td> <input type="text" name="budget_depens_invest_environnement" class="form-control"
+                                <td> <input type="text" name="budget_depens_invest_environnement"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->environnement : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1254,39 +1292,41 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                                <th># </th>
-                                <td> Autres investissements</td>
-                                <td> <input type="text" name="budget_depens_invest_autre_investissement"
-                                        class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->autre_investissement : '' }}"
-                                        aria-describedby="nameHelp"></td>
-                            </tr-->
+                                            <th># </th>
+                                            <td> Autres investissements</td>
+                                            <td> <input type="text" name="budget_depens_invest_autre_investissement"
+                                                    class="form-control"
+                                                    value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->autre_investissement : '' }}"
+                                                    aria-describedby="nameHelp"></td>
+                                        </tr-->
                             <tr>
                                 <th>60 </th>
                                 <td>Déficit / Excédent d'investissement exer anté</td>
-                                <td><input type="text" name="budget_depens_invest_deficit_excedent" class="form-control"
+                                <td><input type="text" name="budget_depens_invest_deficit_excedent"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvest']->deficit_excedent : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                            <th>#</th>
-                            <th>Total</th>
-                            <td><input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                        </tr-->
+                                        <th>#</th>
+                                        <th>Total</th>
+                                        <td><input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses de fonctionnement</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses de fonctionnement
+                    </div>
                     <div class="col-12 table-responsive mt-2 px-0 ">
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                <th class="sin-table-bg">Codes</th>
-                    <th class="sin-table-bg">Libellés</th>
-                    <th class="sin-table-bg">Montants</th>
+                                    <th class="sin-table-bg">Codes</th>
+                                    <th class="sin-table-bg">Libellés</th>
+                                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1299,28 +1339,32 @@
                             <tr>
                                 <th>60/601+605+608 </th>
                                 <td>Appui scolaire</td>
-                                <td> <input type="text" name="budget_depens_fonct_appui_scolaire" class="form-control"
+                                <td> <input type="text" name="budget_depens_fonct_appui_scolaire"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonct']->appui_scolaire : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>61/617 </th>
                                 <td> Sport & culture & jeunesse</td>
-                                <td> <input type="text" name="budget_depens_fonct_sport_culture" class="form-control"
+                                <td> <input type="text" name="budget_depens_fonct_sport_culture"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonct']->sport_culture : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>64/640 </th>
                                 <td>Participation et prestation </td>
-                                <td> <input type="text" name="budget_depens_fonct_participation" class="form-control"
+                                <td> <input type="text" name="budget_depens_fonct_participation"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonct']->participation : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>67/674 </th>
                                 <td> Frais financier</td>
-                                <td> <input type="text" name="budget_depens_fonct_frais_financier" class="form-control"
+                                <td> <input type="text" name="budget_depens_fonct_frais_financier"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonct']->frais_financier : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1373,18 +1417,19 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                            <th>#</th>
-                            <th>Total</th>
-                            <td><input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                        </tr-->
+                                        <th>#</th>
+                                        <th>Total</th>
+                                        <td><input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
 
                 <h4 class="card-header bg-info text-white my-3">Budget n +</h4>
 
-                <h4 class="col-12 font-weight-bolder text-center text-white text-uppercase sin-bg-3">Prévision de l'année {{ isset($dataCommune) ? $dataCommune["annee"] + 1 : 'null' }}</h4>
+                <h4 class="col-12 font-weight-bolder text-center text-white text-uppercase sin-bg-3">Prévision de
+                    l'année {{ isset($dataCommune) ? $dataCommune['annee'] + 1 : 'null' }}</h4>
                 <p class="col-8 mx-auto font-weight-bolder text-center bg-success text-uppercase ">Les recettes</p>
 
                 <div class="row mt-3">
@@ -1394,10 +1439,10 @@
                             <thead>
                                 <tr>
                                 <tr>
-                    <th class="sin-table-bg">Codes</th>
-                    <th class="sin-table-bg">Libellés</th>
-                    <th class="sin-table-bg">Montants</th>
-                </tr>
+                                    <th class="sin-table-bg">Codes</th>
+                                    <th class="sin-table-bg">Libellés</th>
+                                    <th class="sin-table-bg">Montants</th>
+                                </tr>
                                 </tr>
                             </thead>
                             <tr>
@@ -1427,7 +1472,8 @@
                             <tr>
                                 <th>102</th>
                                 <td>Dotations liées aux compétences transférées</td>
-                                <td> <input type="text" name="budget_n_recet_invest_dotation_liee" class="form-control"
+                                <td> <input type="text" name="budget_n_recet_invest_dotation_liee"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvestN']->dotation_liee : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1442,29 +1488,31 @@
                             <tr>
                                 <th>10/104</th>
                                 <td>Autres subventions d'équipemen</td>
-                                <td><input type="text" name="budget_n_recet_invest_autre_dotation" class="form-control"
+                                <td><input type="text" name="budget_n_recet_invest_autre_dotation"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetInvestN']->autre_dotation : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                            <th>#</th>
-                            <th>Total</th>
-                            <td><input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                        </tr-->
+                                        <th>#</th>
+                                        <th>Total</th>
+                                        <td><input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes de fonctionnement</div>
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Recettes de fonctionnement
+                    </div>
                     <div class="col-12 table-responsive mt-2 px-0 ">
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                <th class="sin-table-bg">Codes</th>
-                    <th class="sin-table-bg">Libellés</th>
-                    <th class="sin-table-bg">Montants</th>
+                                    <th class="sin-table-bg">Codes</th>
+                                    <th class="sin-table-bg">Libellés</th>
+                                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1494,14 +1542,16 @@
                             <tr>
                                 <th>73 </th>
                                 <td> Recouvrements et participations</td>
-                                <td> <input type="text" name="budget_n_recet_fonct_recouvrement" class="form-control"
+                                <td> <input type="text" name="budget_n_recet_fonct_recouvrement"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonctN']->recouvrement : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>74 </th>
                                 <td> Produits divers</td>
-                                <td> <input type="text" name="budget_n_recet_fonct_produit_diver" class="form-control"
+                                <td> <input type="text" name="budget_n_recet_fonct_produit_diver"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['recetFonctN']->produit_diver : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1538,11 +1588,11 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                            <th>#</th>
-                            <th>Total</th>
-                            <td><input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                        </tr-->
+                                        <th>#</th>
+                                        <th>Total</th>
+                                        <td><input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
@@ -1556,9 +1606,9 @@
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                <th class="sin-table-bg">Codes</th>
-                    <th class="sin-table-bg">Libellés</th>
-                    <th class="sin-table-bg">Montants</th>
+                                    <th class="sin-table-bg">Codes</th>
+                                    <th class="sin-table-bg">Libellés</th>
+                                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1572,14 +1622,16 @@
                             <tr>
                                 <th>21/211 </th>
                                 <td> Environnement</td>
-                                <td> <input type="text" name="budget_n_depens_invest_environnement" class="form-control"
+                                <td> <input type="text" name="budget_n_depens_invest_environnement"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvestN']->environnement : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>21/214+215+216+218 </th>
                                 <td>Équipement</td>
-                                <td> <input type="text" name="budget_n_depens_invest_equipement" class="form-control"
+                                <td> <input type="text" name="budget_n_depens_invest_equipement"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensInvestN']->equipement : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1598,32 +1650,33 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                                <th># </th>
-                                <td> Autres investissements</td>
-                                <td> <input type="text" name="budget_n_depens_invest_autre_investissement"
-                                        class="form-control"
-                                        value="{{ isset($dataCommune) ? $dataCommune['depensInvestN']->autre_investissement : '' }}"
-                                        aria-describedby="nameHelp"></td>
-                            </tr-->
+                                            <th># </th>
+                                            <td> Autres investissements</td>
+                                            <td> <input type="text" name="budget_n_depens_invest_autre_investissement"
+                                                    class="form-control"
+                                                    value="{{ isset($dataCommune) ? $dataCommune['depensInvestN']->autre_investissement : '' }}"
+                                                    aria-describedby="nameHelp"></td>
+                                        </tr-->
                             <!--tr>
-                            <th>#</th>
-                            <th>Total</th>
-                            <td><input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                        </tr-->
+                                        <th>#</th>
+                                        <th>Total</th>
+                                        <td><input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses de fonctionnement</div>
-                    <div class="col-12 table-responsive mt-2 px-0 " style="width : 400px">
+                    <div class="col-12 font-weight-bolder text-center text-uppercase"> Dépenses de fonctionnement
+                    </div>
+                    <div class="col-12 table-responsive mt-2 px-0 ">
                         <table class="table-sm table-hover mx-auto ">
                             <thead>
                                 <tr>
-                                <th class="sin-table-bg">Codes</th>
-                    <th class="sin-table-bg">Libellés</th>
-                    <th class="sin-table-bg">Montants</th>
+                                    <th class="sin-table-bg">Codes</th>
+                                    <th class="sin-table-bg">Libellés</th>
+                                    <th class="sin-table-bg">Montants</th>
                                 </tr>
                             </thead>
                             <tr>
@@ -1636,14 +1689,16 @@
                             <tr>
                                 <th>60/601+605+608 </th>
                                 <td>Appui scolaire</td>
-                                <td> <input type="text" name="budget_n_depens_fonct_appui_scolaire" class="form-control"
+                                <td> <input type="text" name="budget_n_depens_fonct_appui_scolaire"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonctN']->appui_scolaire : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <tr>
                                 <th>61/617 </th>
                                 <td> Sport & culture & jeunesse</td>
-                                <td> <input type="text" name="budget_n_depens_fonct_sport_culture" class="form-control"
+                                <td> <input type="text" name="budget_n_depens_fonct_sport_culture"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonctN']->sport_culture : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1658,7 +1713,8 @@
                             <tr>
                                 <th>64/640 </th>
                                 <td>Participation et prestation </td>
-                                <td> <input type="text" name="budget_n_depens_fonct_participation" class="form-control"
+                                <td> <input type="text" name="budget_n_depens_fonct_participation"
+                                        class="form-control"
                                         value="{{ isset($dataCommune) ? $dataCommune['depensFonctN']->participation : '' }}"
                                         aria-describedby="nameHelp"></td>
                             </tr>
@@ -1720,23 +1776,21 @@
                                         aria-describedby="nameHelp"></td>
                             </tr>
                             <!--tr>
-                            <th>#</th>
-                            <th>Total</th>
-                            <td><input type="text" name="name" class="form-control" id="name"
-                                    aria-describedby="nameHelp"></td>
-                        </tr-->
+                                        <th>#</th>
+                                        <th>Total</th>
+                                        <td><input type="text" name="name" class="form-control" id="name"
+                                                aria-describedby="nameHelp"></td>
+                                    </tr-->
                         </table>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="mx-auto">
-                        <button type="submit" class="btn sin-bg-3 mt-3 font-weight-bold text-white">Enregistrer</button>
+                    <div class="col-12 justify-content-center">
+                        <input type="submit" class="btn btn-edic mt-3 mx-auto font-weight-bold"
+                            value="Enregistrer" />
                     </div>
                 </div>
             </form>
         </div>
     </div>
-</div>
-<script src="{{ asset('js/country.js') }}"></script>
-
 @endsection

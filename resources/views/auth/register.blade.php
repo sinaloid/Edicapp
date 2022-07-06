@@ -137,7 +137,7 @@
                             </div>
     
                             <div class="form-group mt-3">
-                                <input type="submit" class="btn btn-edic font-weight-bold text-white" value={{ __('S\'inscrire') }}>
+                                <input type="submit" class="btn btn-edic font-weight-bold" value={{ __('S\'inscrire') }}>
                                         
                                    
                                     @if (Route::has('login'))
