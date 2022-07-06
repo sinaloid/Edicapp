@@ -104,7 +104,7 @@
     
                             <div class="form-group mt-1 ">
                                 <label for="commune" class="col-md-4 col-form-label @error('commune') is-invalid @enderror text-md-right">{{ __('Commune') }}</label>
-                                <input type="text" class="form-control" id="commune" name="commune" placeholder="ouagadougou" required>
+                                <input type="text" class="form-control" id="commune" name="commune" placeholder="Ouagadougou" required>
 
                                 @error('commune')
                                 <span class="invalid-feedback" role="alert">

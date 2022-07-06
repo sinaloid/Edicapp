@@ -1893,7 +1893,7 @@ class SiteUrl extends Controller
         dd(
             $JsonObject
         );*/
-        return view('test');
+        return "OK";//view('test');
     }
 
     public function userRole(Request $request){

@@ -62,7 +62,7 @@
                     <div class="col-12 my-0">
                         <div class="form-group my-3 ">
                             <label for="commune" class="col-12 col-md-4 col-form-label @error('commune') is-invalid @enderror text-md-right">{{ __('Commune') }}</label>
-                            <input type="text" class="form-control" id="commune" name="commune" placeholder="ouagadougou" required>
+                            <input type="text" class="form-control" id="commune" name="commune" placeholder="Ouagadougou" autocomplete="off" required>
 
                             @error('commune')
                             <span class="invalid-feedback" role="alert">
