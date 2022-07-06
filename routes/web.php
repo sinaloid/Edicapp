@@ -28,20 +28,20 @@ Route::get('home', function () {
     return view('profile');
   })->middleware('auth')->name('profile');
 
-  Route::get('test', function () {
+  /*Route::get('test', function () {
     return 'Vue de test';
-  })->middleware(['verified']);
+  })->middleware(['verified']);*/
 
 
 
 /*********************************************/
 Route::get('home/data', function () {
   return view('home');
-})->middleware(['auth','verified'])->name('home.data');
+})->middleware(['auth'/*,'verified'*/])->name('home.data');
 
 Route::get('home/create', function () {
   return view('home');
-})->middleware(['auth','verified'])->name('home.create');
+})->middleware(['auth'/*,'verified'*/])->name('home.create');
 
 /*********************************************/
 
@@ -77,14 +77,14 @@ Route::get('province/{province_id}', [SiteUrl::class, 'getCountryRegionProvinceC
 Route::get('commune', [SiteUrl::class, 'getCommune'])->name('commune');
 
 Route::get('/pdf', [SiteUrl::class, 'pdf'])->name('pdf');
-Route::resource('data', DataCommuneController::class)->middleware(['auth','verified']);
-Route::put('data/terminer/{data}', [DataCommuneController::class, 'terminer'])->middleware(['auth','verified'])->name('data.terminer');
-Route::put('data/publier/{data}', [DataCommuneController::class, 'publier'])->middleware(['auth','verified'])->name('data.publier');
-Route::put('data/encour/{data}', [DataCommuneController::class, 'encour'])->middleware(['auth','verified'])->name('data.encour');
-Route::get('data/deleteImg/{id?}', [DataCommuneController::class, 'deleteImg'])->middleware(['auth','verified'])->name('deleteImg');
+Route::resource('data', DataCommuneController::class)->middleware(['auth'/*,'verified'*/]);
+Route::put('data/terminer/{data}', [DataCommuneController::class, 'terminer'])->middleware(['auth'/*,'verified'*/])->name('data.terminer');
+Route::put('data/publier/{data}', [DataCommuneController::class, 'publier'])->middleware(['auth'/*,'verified'*/])->name('data.publier');
+Route::put('data/encour/{data}', [DataCommuneController::class, 'encour'])->middleware(['auth'/*,'verified'*/])->name('data.encour');
+Route::get('data/deleteImg/{id?}', [DataCommuneController::class, 'deleteImg'])->middleware(['auth'/*,'verified'*/])->name('deleteImg');
 Route::get('image/{slug}', [DataCommuneController::class, 'image']);
-Route::post('data/updateCommune/{id?}', [DataCommuneController::class, 'updateCommune'])->middleware(['auth','verified'])->name('data.updateCommune');
-Route::get('h_list', [DataCommuneController::class, 'h_list'])->middleware(['auth','verified'])->name('data.h_list');
+Route::post('data/updateCommune/{id?}', [DataCommuneController::class, 'updateCommune'])->middleware(['auth'/*,'verified'*/])->name('data.updateCommune');
+Route::get('h_list', [DataCommuneController::class, 'h_list'])->middleware(['auth'/*,'verified'*/])->name('data.h_list');
 
 
 
