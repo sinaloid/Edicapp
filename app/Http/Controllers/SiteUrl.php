@@ -81,6 +81,7 @@ class SiteUrl extends Controller
         $commune = isset($request->commune) ? $request->commune : '';
         $commune_id = Commune::where('commune_name',$commune)->first();
         $commune_id = isset($commune_id) ? $commune_id->id : null;
+        $dataCommune = null;
         if(isset($commune_id)){
             $dataCommune = Data::where([
                 ['commune_id', $commune_id],
@@ -88,26 +89,22 @@ class SiteUrl extends Controller
                 ['terminer', 1]
             ])->first();
         }
-        if($dataCommune == null){
+        if( !isset($dataCommune)){
             $dataCommune = Data::where('terminer',1)->first();
             // message session data non trouver
         }
-        $countries = Country::all();
         $troisMeilleur = null;
-        if($dataCommune != null){
-            if(Data::where('terminer',1)->first() != null){
-                
-                $dataCommune = Data::where('terminer',1)->get()->random(1)->first();
-                $troisMeilleur = $dataCommune->infogs()->first()->troisMeilleurs()->get();
-                //dd($troisMeilleur);
-            }
+        if(isset($dataCommune)){
+            $dataCommune = Data::where('terminer',1)->get()->random(1)->first();
+            $troisMeilleur = $dataCommune->infogs()->first()->troisMeilleurs()->get();
+            //dd($troisMeilleur);
         }
 
         /*dd(
             Commune::all()->random(1)->first()->commune_name
         );*/
         //$marches = json_encode($troisMeilleur);
-        return view('index', compact('countries','troisMeilleur', 'dataCommune'));
+        return view('index', compact('troisMeilleur', 'dataCommune'));
     }
 
     public function actualites(){
