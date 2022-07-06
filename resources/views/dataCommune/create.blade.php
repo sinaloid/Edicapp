@@ -4,6 +4,15 @@
 @endsection
 
 @section('content')
+<div class="row">
+    <div class="row bannier"></div>
+    <div class="col-12">
+        <h1 class="title-bannier">Données de la commune</h1>
+        <p class="col-12 col-md-8 mx-auto text-center my-1">
+            Bienvenue dans l'espace de discussion. Ici vous pourrez poser ou repondres a des questions.
+        </p>
+    </div>
+</div>
     <!--div class="row"-->
     <div class="row mx-auto py-3 px-2">
         <div class="col-sm-12 col-md-10 mx-auto">
@@ -90,9 +99,6 @@
     <!--/div-->
 
     <div class="row px-0 py-3 bg-white">
-        <h2 class="col-12 col-md-10 mx-auto">
-            Données de la commune
-        </h2>
         <div class="col-12 col-md-10 mx-auto">
             <p><span class="font-weight-bold">Commune:</span>
                 {{ isset($dataCommune) ? $dataCommune['commune'] : 'null' }}</p>
