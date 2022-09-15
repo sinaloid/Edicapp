@@ -1544,6 +1544,7 @@ class SiteUrl extends Controller
 
     public function getCommune(Request $request){
         
+        
         $query = $request->get('query');
           $filterResult = Commune::where('commune_name', 'LIKE', '%'. $query. '%')->get('commune_name');
           return response()->json($filterResult);
