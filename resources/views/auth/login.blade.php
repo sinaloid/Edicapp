@@ -61,7 +61,7 @@
                                 <div class="col-md-12 my-3 mx-auto">
                                     <input type="submit" class="btn btn-edic" value="Connexion" />
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="btn btn-link link" href="{{ route('password.request') }}">
                                             {{ __('Mot de passe oublié ?') }}
                                         </a>
                                     @endif
@@ -92,7 +92,7 @@
                                 </p>
                             </div>
                             <div class="form-group">
-                                <p class="text-center col-md-8 mx-auto">Je n'ai pas de compte <a
+                                <p class="text-center col-md-8 mx-auto">Je n'ai pas de compte <a class="link"
                                         href="{{ route('register') }}" id="signup">Inscrivez-vous ici</a></p>
                             </div>
                         </form>

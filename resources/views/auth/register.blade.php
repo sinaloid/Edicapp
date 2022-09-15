@@ -139,12 +139,6 @@
                             <div class="form-group mt-3">
                                 <input type="submit" class="btn btn-edic font-weight-bold" value={{ __('S\'inscrire') }}>
                                         
-                                   
-                                    @if (Route::has('login'))
-                                    <a class="btn btn-link" href="{{ route('login') }}">
-                                        {{ __('Vous avez déjà un compte ? ?') }}
-                                    </a>
-                                    @endif
                             </div>
     
                             <div class="form-group mt-2">
@@ -165,14 +159,14 @@
                                         <!-- Terms of service -->
                                         <p>En cliquant sur
                                             <em>S'inscrire</em> vous acceptez nos
-                                            <a href="" target="_blank">conditions d'utilisation</a>
+                                            <a class="link" href="" target="_blank">conditions d'utilisation</a>
                                         </p>
                                         <hr>
                                     </div>
                                 </div>
                                 <div class="col-md-12 ">
                                     <div class="form-group">
-                                        <p class="text-center"><a href="{{ route('login') }}" id="signin">Vous avez déjà
+                                        <p class="text-center"><a class="link" href="{{ route('login') }}" id="signin">Vous avez déjà
                                                 un compte ?</a></p>
                                     </div>
                                 </div>

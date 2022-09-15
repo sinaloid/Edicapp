@@ -13,7 +13,7 @@
                     des données budgétaires des différentes communes du Burkina Faso
                     dans des formats ouverts, gratuits et réutilisables.
                 </p>
-                <a class="btn btn-edic" href="{{route('datas.info')}}">Voir des
+                <a class="btn btn-edic" href="{{ route('datas.info', isset($dataCommune) ? $dataCommune['slug'] : 'info_general') }}">Voir des
                     données</a>
             </div>
             <div class="col-12 col-lg-7 order-1 order-lg-2 image p-0">
