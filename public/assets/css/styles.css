@@ -334,6 +334,12 @@ hr ~ .bannier {
     grid-template-columns: 1fr 2fr;
     grid-auto-rows: minmax(100px,auto);
 }
+.data-hide{
+    display: none;
+}
+.data-active{
+    display: block;
+}
   
 
 

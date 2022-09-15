@@ -604,7 +604,7 @@
 </div>
 
 @if ($dataCommune != null)
-    <div class="rowjustify-content-center ">
+    <div class="row justify-content-center ">
         @if ($dataCommune['ressourceImage'][0]->url != null)
             <div class="col-12 col-md-4 mb-5 font-weight-bolder text-center text-uppercase">
                 <a href="{{ asset('/' . $dataCommune['ressourceImage'][0]->url) }}"><img class="img-fluid"

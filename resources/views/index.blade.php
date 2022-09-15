@@ -97,9 +97,9 @@
                                 </span>
                             </strong>
 
-                            <!--small>
-                                                            
-                                                          </small-->
+                            <small>
+                                    {{ isset($dataCommune) ? App\Models\Datas\Data::find($dataCommune->id)->commune->commune_name." ".App\Models\Datas\Data::find($dataCommune->id)->annee : 'inexistante'}}
+                            </small>
                         </p>
                     </div>
                 </form>
@@ -186,10 +186,10 @@
         <div class="col-12 col-sm-6 col-md-4 illustration text-center text-sm-left m-top">
             <h2 class="my-3">Faire un jeux de données</h2>
             <p class="text-justify p-0">
-                Visualisez les données budgétaires dans divers formats graphiques ou
+                Consultez les données budgétaires dans une variété de formats graphiques ou
                 faites des comparaisons de données budgétaires.
             </p>
-            <a class="btn btn-edic" href="{{"#"/* route('datas.cmp', isset($dataCommune) ? $dataCommune['slug'] : 'cmp') */}}">Jeux de
+            <a class="btn btn-edic" href="{{route('datas.cmp', isset($dataCommune) ? $dataCommune['slug'] : 'cmp')}}">Jeux de
                 données</a>
         </div>
         <hr class="w-100 mt-5" />

@@ -54,6 +54,8 @@ class DataCommuneController extends Controller
     public function store(Request $request)
     {
         $dataCommune = null;
+        $request->commune = Commune::where('commune_name',$request->commune)->first()->id;
+        //dd($commune_id);
         $data = Data::where([
             ['commune_id', $request->commune],
             ['annee', $request->annee],
@@ -633,12 +635,13 @@ class DataCommuneController extends Controller
         $countries = Country::all();
         $annee = date('Y');
         $routeName = $request->viewName;
+        $id_commune = Commune::where('commune_name', $request->commune)->first();
+        $id_commune = isset($request->commune) ? $id_commune->id : '';
         $data = Data::where([
-            ['commune_id', $request->commune],
+            ['commune_id', $id_commune],
             ['annee', $request->annee],
             ['terminer', 1]
         ])->first();
-
         $slug = 'null';
            if($data != null){
                $slug = $data->slug;

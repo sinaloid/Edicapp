@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edic</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/edic.png') }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/edic.png') }}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    @yield('bs4')
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
     @yield('css')
     <script src="https://kit.fontawesome.com/8b7c4e5629.js" crossorigin="anonymous"></script>
-    <!--script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -39,7 +42,7 @@
                                 <a class="nav-link" href="{{ route('acceuil') }}">Accueil</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="{{route('datas.info')}}">Données</a>
+                              <a class="nav-link" href="{{ route('datas.info', isset($dataCommune) ? $dataCommune['slug'] : 'info_general') }}">Données</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('actualites') }}">Actualités</a>
@@ -97,10 +100,13 @@
 
     <div class="container-fluid">
         <footer class="row">
-            <div class="col-12 text-center my-3">
+            <div class="col-12 text-center my-2">
+                <img src="{{asset('/img/logobf.png')}}" width="80" alt="">
+            </div>
+            <div class="col-12 text-center mb-2">
                 <span><a href="#">à propos</a></span> -
-                <span><a href="#">contact</a></span> -
-                <span><a href="#">mentions légales</a></span> -
+                <span><a href="#">contact</a></span>
+                <!--span><a href="#">mentions légales</a></span--> -
                 <span><a href="https://facebook.com/EDICBurkina">facebook</a></span>
             </div>
         </footer>
@@ -112,7 +118,7 @@
 
         var path = "{{ url('commune') }}";
         var ary = []
-        $('#commune').typeahead({
+        $('#commune, #commune_1, #commune_2, #commune_3, #commune_4').typeahead({
         
             source: function(query, process){
         

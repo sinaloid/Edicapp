@@ -209,27 +209,35 @@ class SiteUrl extends Controller
     public function datasCompare(Request $request){
 
         $this->validate($request, [
-            'country' => 'required',
-            'region' => 'required',
-            'province' => 'required',
             'commune_1' => 'required',
             'annee' => 'required'
         ]);
+        $id_commune_1 = Commune::where('commune_name',$request->commune_1)->first();
+        $id_commune_1 = isset($id_commune_1) ? $id_commune_1->id : null;
+
+        $id_commune_2 = Commune::where('commune_name',$request->commune_2)->first();
+        $id_commune_2 = isset($id_commune_2) ? $id_commune_2->id : null;
+
+        $id_commune_3 = Commune::where('commune_name',$request->commune_3)->first();
+        $id_commune_3 = isset($id_commune_3) ? $id_commune_3->id : null;
+
+        $id_commune_4 = Commune::where('commune_name',$request->commune_4)->first();
+        $id_commune_4 = isset($id_commune_4) ? $id_commune_4->id : null;
 
         $dataCompare = [
-            "pays" => isset($request->country) ? Country::find($request->country)->country_name : '',
+            /*"pays" => isset($request->country) ? Country::find($request->country)->country_name : '',
             "region" => isset($request->region) ? Region::find($request->region)->region_name : '',
             "region_2" => isset($request->region_2) ? Region::find($request->region_2)->region_name : '',
             "province" => isset($request->province) ? Province::find($request->province)->province_name : '',
-            "province_2" => isset($request->province_2) ? Province::find($request->province_2)->province_name : '',
-            "commune_1" => isset($request->commune_1) ? Commune::find($request->commune_1)->commune_name : '',
-            "commune_2" => isset($request->commune_2) ? Commune::find($request->commune_2)->commune_name : '',
-            "commune_3" => isset($request->commune_3) ? Commune::find($request->commune_3)->commune_name : '',
-            "commune_4" => isset($request->commune_4) ? Commune::find($request->commune_4)->commune_name : '',
-            "data_commune_1" => isset($request->commune_1) ? (Commune::find($request->commune_1)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_1)->data()->where('annee', $request->annee)->first()->slug : '' : '',
-            "data_commune_2" => isset($request->commune_2) ? (Commune::find($request->commune_2)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_2)->data()->where('annee', $request->annee)->first()->slug : '' : '',
-            "data_commune_3" => isset($request->commune_3) ? (Commune::find($request->commune_3)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_3)->data()->where('annee', $request->annee)->first()->slug : '' : '',
-            "data_commune_4" => isset($request->commune_4) ? (Commune::find($request->commune_4)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($request->commune_4)->data()->where('annee', $request->annee)->first()->slug : '' : '',
+            "province_2" => isset($request->province_2) ? Province::find($request->province_2)->province_name : '',*/
+            "commune_1" => isset($id_commune_1) ? Commune::find($id_commune_1)->commune_name : '',
+            "commune_2" => isset($id_commune_2) ? Commune::find($id_commune_2)->commune_name : '',
+            "commune_3" => isset($id_commune_3) ? Commune::find($id_commune_3)->commune_name : '',
+            "commune_4" => isset($id_commune_4) ? Commune::find($id_commune_4)->commune_name : '',
+            "data_commune_1" => isset($id_commune_1) ? (Commune::find($id_commune_1)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($id_commune_1)->data()->where('annee', $request->annee)->first()->slug : '' : '',
+            "data_commune_2" => isset($id_commune_2) ? (Commune::find($id_commune_2)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($id_commune_2)->data()->where('annee', $request->annee)->first()->slug : '' : '',
+            "data_commune_3" => isset($id_commune_3) ? (Commune::find($id_commune_3)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($id_commune_3)->data()->where('annee', $request->annee)->first()->slug : '' : '',
+            "data_commune_4" => isset($id_commune_4) ? (Commune::find($id_commune_4)->data()->where('annee', $request->annee)->first() != null) ? Commune::find($id_commune_4)->data()->where('annee', $request->annee)->first()->slug : '' : '',
             "annee" => $request->annee
         ];
 
