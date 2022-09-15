@@ -118,7 +118,7 @@
 
         var path = "{{ url('commune') }}";
         var ary = []
-        $('#commune').typeahead({
+        $('#commune, #commune_1, #commune_2, #commune_3, #commune_4').typeahead({
         
             source: function(query, process){
         
