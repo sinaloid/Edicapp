@@ -637,6 +637,7 @@ class DataCommuneController extends Controller
         $routeName = $request->viewName;
         $id_commune = Commune::where('commune_name', $request->commune)->first();
         $id_commune = isset($request->commune) ? $id_commune->id : '';
+        //dd($id_commune);
         $data = Data::where([
             ['commune_id', $id_commune],
             ['annee', $request->annee],
@@ -665,7 +666,7 @@ class DataCommuneController extends Controller
             return redirect()->route('datas.bg',$slug);
             
         }
-
+        
         if($routeName == 'datas.tdb')
         {
             return redirect()->route('datas.tdb',$slug);

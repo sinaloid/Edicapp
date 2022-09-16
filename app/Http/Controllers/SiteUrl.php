@@ -187,6 +187,9 @@ class SiteUrl extends Controller
     public function datasTdb($tdbType='',$slug = ''){
         $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
+         if($slug === ''){
+            $data = Data::where('slug',$tdbType)->first();  
+         }
          //dd($data);
          if($data != null){
             $dataCommune = $this->getDataCommune($data->id, 'datas.tdb');
