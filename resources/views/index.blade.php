@@ -218,7 +218,9 @@
                             <div class="carousel-item active">
                                 <div class="col-12 col-md-10 col-lg-8 mx-auto d-flex flex-wrap">
                                     <div class="col-12 col-sm-6">
-                                        <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
+                                        <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
+                                            alt="Los Angeles" width="1100" height="500"-->
+                                            <img src="{{asset('img/ouaga.jpg')}}"
                                             alt="Los Angeles" width="1100" height="500">
                                     </div>
                                     <div class="col-12 col-sm-6">
@@ -238,7 +240,9 @@
                             <div class="carousel-item">
                                 <div class="col-12 col-md-10 col-lg-8 mx-auto d-flex flex-wrap">
                                     <div class="col-12 col-sm-6">
-                                        <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
+                                        <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
+                                            alt="Los Angeles" width="1100" height="500"-->
+                                            <img src="{{asset('img/ouaga.jpg')}}"
                                             alt="Los Angeles" width="1100" height="500">
                                     </div>
                                     <div class="col-12 col-sm-6">
