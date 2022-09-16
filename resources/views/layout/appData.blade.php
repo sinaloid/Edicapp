@@ -9,8 +9,8 @@
         <div class="col-12">
             <h1 class="title-bannier">Données budgétaires</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-3">
-                Pour accéder aux données budgétaires d'une commune,
-                sélectionné la commune et l’année des données puis cliquez sur valider
+                Pour accéder aux données budgétaires d'une commune, sélectionnez la commune 
+                et l’année des données puis cliquez sur valider
             </p>
         </div>
     </div>

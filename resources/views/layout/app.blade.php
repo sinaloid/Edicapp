@@ -105,8 +105,8 @@
             </div>
             <div class="col-12 text-center mb-2">
                 <span><a href="#">à propos</a></span> -
-                <span><a href="#">contact</a></span>
-                <!--span><a href="#">mentions légales</a></span--> -
+                <span><a href="#">contact</a></span> -
+                <span><a href="#">mentions légales</a></span> -
                 <span><a href="https://facebook.com/EDICBurkina">facebook</a></span>
             </div>
         </footer>

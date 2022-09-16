@@ -13,7 +13,8 @@
     <link href="{{ public_path('/css/pdf.css') }}" rel="stylesheet">
     <link href="{{ public_path('1/css/sin.css') }}" rel="stylesheet">
     <link href="{{ public_path('1/css/table.css') }}" rel="stylesheet">
-
+    <link href="{{ public_path('assets/css/styles.css') }}" />
+      
 </head>
 
 <body style="width: 4408px; height:2480px;">
@@ -29,8 +30,9 @@
             </div>
 
             <div class="col-xs-3 ">
-                <img class="img-responsive" src="{{ public_path('/img/EDICApp_banier.png') }}" alt="banier edicapp">
+                <img class="img-responsive" src="{{ public_path('/img/edic_banier.png') }}" alt="banier edicapp">
             </div>
+            
         </div>
 
         <div class="row">

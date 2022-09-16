@@ -6,7 +6,7 @@
         <div class="col-12">
             <h1 class="title-bannier">Forum</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-1">
-                Bienvenue dans l'espace de discussion. Ici vous pourrez poser ou repondres a des questions.
+                Bienvenue dans l'espace de discussion. Ici vous pouvez poser ou répondre à des questions.
             </p>
         </div>
     </div>
