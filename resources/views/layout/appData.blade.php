@@ -82,11 +82,11 @@
                                     href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'excel', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
                                     excel</a>
                             </span>
-                            <span class="badge bg-secondary">
+                            <!--span class="badge bg-secondary">
                                 <a class="text-white"
                                     href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'pdf', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#
                                     pdf</a>
-                            </span>
+                            </span-->
                             <span class="badge bg-secondary">
                                 <a class="text-white"
                                     href="{{ route('make_file_exporte', ['' . Route::currentRouteName(), 'csv', isset($dataCommune) ? $dataCommune['slug'] : 'null']) }}">#

@@ -275,15 +275,14 @@
                                 communes du Burkina Faso
                             </p>
                             <h5 class=" pb-2">Essayez l'application mobile</h5>
-                            <a class="btn-market btn-google mb-2" href="#" role="button"
-                                onclick="alert('Disponible bientot')">
+                            <a class="btn-market btn-google mb-2" href="{{asset('app/edic-municipalities.apk')}}" role="button">
                                 <img src={{ asset('assets/img/badge.png') }} alt="" width="136px"
                                     loading="lazy" />
                             </a>
                         </div>
                     </div>
                     <div class="col order-lg-1 p-0">
-                        <img class="img-fluid" src={{ asset('assets/img/app1.png') }} alt="app icone" loading="lazy" />
+                            <img class="img-fluid" src={{ asset('assets/img/app1.png') }} alt="app icone" loading="lazy" />
                     </div>
                 </div>
             </div>

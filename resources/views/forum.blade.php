@@ -84,13 +84,13 @@
                                 <div class="row  bg-white align-items-center mt-3 p-2">
                                     <div class="col-md-7 mb-1 mb-sm-0 border-radiuse-5">
                                         <h2>
-                                            <a href="#" class="txt-primary">Drupal 8 quick starter guide</a>
+                                            <a href="#" class="txt-primary">Exemple de question </a>
                                         </h2>
                                         <p class="text-sm" style="font-weight: 400">
                                             <span class="">Publié</span>
                                             <span class="">il y a</span>
                                             <span class="">20 minutes par</span>
-                                            <span class=""> KenyeW</span>
+                                            <span class=""> Traorer Moussa</span>
                                         </p>
                                         <div class="text-sm" style="font-weight: 300">
                                             #Bobo-Dioulasso

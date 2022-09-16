@@ -32,10 +32,11 @@
                     @foreach ($datas as $item)
                         <div class="col mt-3">
                             <div class="card mx-auto">
-                                <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Img Card" />
+                                <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Img Card" /-->
+                                <img src="{{asset('img/ouaga.jpg')}}" alt="Img Card" />
                                 <div class="card-body">
-                                    <span class="card-detail">Nature</span>
-                                    <span class="card-detail">Lake</span>
+                                    <span class="card-detail">Commune</span>
+                                    <span class="card-detail">Ouagadougou</span>
                                     <div class="card-title">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                     </div>

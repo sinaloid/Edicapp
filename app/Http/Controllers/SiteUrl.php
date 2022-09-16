@@ -1643,14 +1643,14 @@ class SiteUrl extends Controller
         //return App::make('excel');
         if($file == "excel"){
             //return (new InvoicesExport($routeOrigin, $slug))->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
-            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.xlsx',\Maatwebsite\Excel\Excel::XLSX);
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'donnee.xlsx',\Maatwebsite\Excel\Excel::XLSX);
         } elseif($file == 'pdf'){
-            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.xlsx',\Maatwebsite\Excel\Excel::XLSX);
-            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.pdf', \Maatwebsite\Excel\Excel::PDF);
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'donnee.xlsx',\Maatwebsite\Excel\Excel::XLSX);
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'donnee.pdf', \Maatwebsite\Excel\Excel::PDF);
         } elseif($file == 'csv'){
-            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.csv', \Maatwebsite\Excel\Excel::CSV);
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'donnee.csv', \Maatwebsite\Excel\Excel::CSV);
         }else{
-            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+            return Excel::download(new InvoicesExport($routeOrigin, $slug), 'donnee.xlsx', \Maatwebsite\Excel\Excel::XLSX);
         }
 
         
