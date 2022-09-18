@@ -26,8 +26,8 @@
                 <div class="col-md-3">
                     <div class="sticky">
                         <div class="sticky-inner">
-                            <a class="btn btn-lg btn-block btn-success rounded-0 mb-3 bg-op-6"
-                                href="#">Poser une question</a>
+                            <button type="button" class="btn btn-lg btn-block btn-success rounded-0 mb-3 bg-op-6"
+                                data-bs-toggle="modal" data-bs-target="#myModal" href="#">Poser une question</button>
                             <div class="bg-white text-sm">
                                 <h4 class="px-3 py-4 m-0">Statistiques</h4>
                                 <hr class="my-0" />
@@ -99,9 +99,9 @@
                                     <div class="col-md-5">
                                         <div class="row text-center" style="font-weight: 300">
                                             <!--div class="col px-1">
-                                                <i class="ion-connection-bars icon-1x"></i>
-                                                <span class="d-block text-sm">141 Votes</span>
-                                            </div-->
+                                                            <i class="ion-connection-bars icon-1x"></i>
+                                                            <span class="d-block text-sm">141 Votes</span>
+                                                        </div-->
                                             <div class="col px-1">
                                                 <i class="ion-ios-chatboxes-outline icon-1x"></i>
                                                 <span class="d-block text-sm">122 Réponses</span>
@@ -121,5 +121,70 @@
             </div>
         </div>
 
+    </div>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Question</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <span class="px-2 font-weight-bold">Laisser une question</span>
+                            <form class="p-0" method="post" action="" enctype="multipart/form-data">
+                                <div class="card-body p-0">
+
+                                    <!--@csrf-->
+                                    <div class="form-group mt-3">
+                                        <input class="form-control w-100 px-3" type="text"
+                                            placeholder="Veuillez entrer votre nom">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input class="form-control w-100 px-3" type="text"
+                                            placeholder="Veuillez entrer votre email">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input type="text" class="form-control w-100 px-3" id="commune"
+                                            name="commune" placeholder="Ciblez une commune pour votre question"
+                                            autocomplete="off">
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <textarea id="editor" class="ckeditor14 form-control" name="editor"></textarea>
+                                    </div>
+
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-edic mr-auto">Poser</button>
+                                    <button type="button" class="btn btn-danger"
+                                        data-bs-dismiss="modal">Annuler</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <script src="https://cdn.ckeditor.com/4.18.0/standard-all/ckeditor.js"></script>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            CKEDITOR.replace('editor', {
+                                extraPlugins: 'editorplaceholder',
+                                editorplaceholder: 'Veuillez entrer votre question',
+                                removeButtons: 'PasteFromWord'
+                            });
+
+
+                        });
+                    </script>
+                </div>
+
+
+
+            </div>
+        </div>
     </div>
 @endsection
