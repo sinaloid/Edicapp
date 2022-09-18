@@ -1,5 +1,8 @@
 @extends('layout.app')
 
+@section('title')
+    <title>Edic - Accueil</title>
+@endsection
 @section('content')
 
 

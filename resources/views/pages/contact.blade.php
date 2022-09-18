@@ -1,7 +1,7 @@
 @extends('template.app')
 
 @section('titlePage')
-<title>EDICApp - Contacte </title>
+<title>EDICApp - Contact </title>
 @stop
 
 @section('content')

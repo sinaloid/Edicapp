@@ -1,5 +1,7 @@
 @extends('layout.app')
-
+@section('title')
+    <title>Edic - Actualité détail</title>
+@endsection
 @section('content')
 
     <div class="row">

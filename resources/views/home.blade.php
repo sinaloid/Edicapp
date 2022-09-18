@@ -1,5 +1,7 @@
 @extends('layout.app')
-
+@section('title')
+    <title>Edic - Profile</title>
+@endsection
 @section('content')
 
 <div class="container my-5">
