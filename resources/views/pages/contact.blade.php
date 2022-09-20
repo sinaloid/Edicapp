@@ -10,8 +10,7 @@
         <div class="col-12">
             <h1 class="title-bannier">Contactez Nous</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-1">
-                Avez-vous des questions ? Merci de ne pas hésitez à nous contacter directement. Notre équipe reviendra vers vous dans 
-                une question d'heures pour vous aider.
+                Des questions à poser ? Merci de ne pas hésiter à nous contacter directement. Notre équipe vous répondra par la suite.
             </p>
         </div>
     </div>
