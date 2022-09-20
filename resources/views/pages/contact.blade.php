@@ -43,7 +43,7 @@
                                     class="form-control md-textarea"></textarea>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center py-5">
                             <div class="col-md-4 text-center  ">
                                 <button type="submit"
                                     class=" btn btn-edic">Envoyer</button>
