@@ -250,7 +250,7 @@
                                     </div>
                                     <div class="col-12 col-sm-6">
                                         <div class="p-md-4 mt-1">
-                                            <h3>Los Angeles</h3>
+                                            <h3>Ouagadougou</h3>
                                             <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
                                                 elit.
                                                 Quo, commodi ullam? Eaque aliquid repudiandae fugit veritatis
