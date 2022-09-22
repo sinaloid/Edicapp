@@ -23,7 +23,8 @@
 
     <div class="row actualite">
         <div class="col-12 col-md-10 col-lg-8 mx-auto mt-1 ">
-            <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="image de l'actualité" />
+            <img src="{{asset('img/ouaga.jpg')}}" alt="Los Angeles" width="1100" height="500">
+            <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="image de l'actualité" /-->
             <p class="p-0 mt-1 font-weight-bold">Publié par: Traoré Ali</p>
         </div>
         <div class="col-11 col-md-9 col-lg-7 mx-auto mt-1 text-justify">
@@ -100,12 +101,14 @@
                         <div class="carousel-item active">
                             <div class="col-12 col-md-10 col-lg-8 mx-auto d-flex flex-wrap">
                                 <div class="col-12 col-sm-6">
-                                    <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
-                                        alt="Los Angeles" width="1100" height="500">
+                                    <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
+                                            alt="Los Angeles" width="1100" height="500"-->
+                                            <img src="{{asset('img/ouaga.jpg')}}"
+                                            alt="Los Angeles" width="1100" height="500">
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="p-md-4 mt-1">
-                                        <h3>Los Angeles</h3>
+                                        <h3>Ouagadougou</h3>
                                         <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
                                             elit.
                                             Quo, commodi ullam? Eaque aliquid repudiandae fugit veritatis
@@ -120,12 +123,14 @@
                         <div class="carousel-item">
                             <div class="col-12 col-md-10 col-lg-8 mx-auto d-flex flex-wrap">
                                 <div class="col-12 col-sm-6">
-                                    <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
-                                        alt="Los Angeles" width="1100" height="500">
+                                    <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
+                                            alt="Los Angeles" width="1100" height="500"-->
+                                            <img src="{{asset('img/ouaga.jpg')}}"
+                                            alt="Los Angeles" width="1100" height="500">
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="p-md-4 mt-1">
-                                        <h3>Los Angeles</h3>
+                                        <h3>Ouagadougou</h3>
                                         <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing
                                             elit.
                                             Quo, commodi ullam? Eaque aliquid repudiandae fugit veritatis
