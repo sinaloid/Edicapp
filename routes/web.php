@@ -5,6 +5,7 @@ use App\Http\Controllers\SiteUrl;
 use Spatie\Browsershot\Browsershot;
 use App\Models\Datas\Infog\Tables\RessourceImage;
 use  App\Http\Controllers\DataCommuneController;
+use  App\Http\Controllers\SujetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,7 +65,12 @@ Route::get('datas/{id}', [SiteUrl::class, 'getDatasCompare']);
 /*user*/
 //Route::get('login', [SiteUrl::class, 'login'])->name('login');
 //Route::get('sign', [SiteUrl::class, 'signup'])->name('signup');
-Route::get('forum', [SiteUrl::class, 'forum'])->name('forum');
+//Route::get('forum', [SiteUrl::class, 'forum'])->name('forum');
+Route::resource('forum', SujetController::class);
+Route::get('forumd/{slug}', [SujetController::class, 'forumDetail'])->name('forumd');
+Route::post('commenter', [SujetController::class, 'commentaire'])->name('commenter');
+
+
 Route::get('contact', [SiteUrl::class, 'contact'])->name('contact');
 Route::get('about', [SiteUrl::class, 'about'])->name('about');
 Route::get('test', [SiteUrl::class, 'test'])->name('test');

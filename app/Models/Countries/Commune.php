@@ -31,4 +31,9 @@ class Commune extends Model
 
         return $this->hasMany(User::class);
     }
+
+    public function sujets() {
+
+        return $this->hasMany(Sujet::class);
+    }
 }

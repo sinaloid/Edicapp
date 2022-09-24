@@ -1508,12 +1508,6 @@ class SiteUrl extends Controller
         
     }
 
-    public function forum(){
-
-        return view('forum');
-        
-    }
-
     public function contact(){
 
         return view('pages.contact');

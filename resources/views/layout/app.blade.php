@@ -48,7 +48,7 @@
                                 <a class="nav-link" href="{{ route('actualites') }}">Actualités</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('forum')}}">Forum</a>
+                                <a class="nav-link" href="{{route('forum.index')}}">Forum</a>
                             </li>
 
                             @guest
@@ -98,7 +98,7 @@
         @yield('content')
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid mt-5">
         <footer class="row">
             <div class="col-12 text-center my-2">
                 <img src="{{asset('/img/logobf.png')}}" width="80" alt="">

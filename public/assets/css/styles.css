@@ -340,7 +340,12 @@ hr ~ .bannier {
 .data-active{
     display: block;
 }
-  
+.span-p ~ p {
+    background-color: #f6f6f6;
+    color: black;
+    font-weight:500;
+    padding: 16px ;
+}
 
 
 

@@ -6,7 +6,7 @@
     <div class="row bannier"></div>
     <div class="row">
         <div class="col-12">
-            <h1 class="title-bannier">Forum</h1>
+            <h1 class="title-bannier">Forum ~ commentaires</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-1">
                 Bienvenue dans l'espace de discussion. Ici vous pouvez poser ou répondre à des questions.
             </p>
@@ -79,52 +79,116 @@
                     <div class="row p-2">
 
                         <div class="col-12 mx-auto py-3 px-3 mb-3">
-                            @foreach ($sujets as $sujet)
+                            <div class="row  bg-white align-items-center mt-3 p-2">
+                                <div class="col-md-12 mb-1 mb-sm-0 border-radiuse-5">
+                                    <h2 class="txt-primary" style="font-size: 1.6rem">
+                                        {{isset($sujet) ? $sujet->titre : ''}}
+                                    </h2>
+                                    <p class="text-sm" style="font-weight: 400">
+                                        <span class="">Publié</span>
+                                        <span class="">le {{ isset($sujet) ? \Carbon\Carbon::parse($sujet->created_at)->format('j F, Y') : ''}}</span> 
+                                        <br> <span>Par </span>
+                                        <span class="" style="font-weight: bold"> {{isset($sujet)  ? $sujet->membre->nom : ''}}</span>
+                                        
+                                    </p>
+                                    <p class="text-sm txt-primary" style="font-weight: 500; font-size: 0.9rem">
+                                        {{isset($sujet->commune) ? 'Question pour la commune de ': null}}
+                                        <span style="font-weight: bold">
+                                            {{isset($sujet) ? $sujet->commune->commune_name : null}}
+                                        </span>
+                                    </p>
+                                    <span class="span-p"></span>
+                                    @php
+                                        if(isset($sujet) ){
+                                            echo $sujet->description;
+                                        }
+                                    @endphp
+                                    
+                                </div>
+                                <!--div class="col-md-5">
+                                    <div class="row text-center" style="font-weight: 300">
+                                        <div class="col px-1">
+                                                        <i class="ion-connection-bars icon-1x"></i>
+                                                        <span class="d-block text-sm">141 Votes</span>
+                                                    </div-->
+                                        <!--div class="col px-1">
+                                            <i class="ion-ios-chatboxes-outline icon-1x"></i>
+                                            <span class="d-block text-sm">{{isset($sujet) ? $sujet->nombre_reponse : ''}} Réponses</span>
+                                        </div>
+                                        <div class="col px-1">
+                                            <i class="ion-ios-eye-outline icon-1x"></i>
+                                            <span class="d-block text-sm">{{isset($sujet) ? $sujet->nombre_vue : ''}} Vues</span>
+                                        </div>
+                                    </div>
+                                </div-->
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 mx-auto py-3 px-3 mb-5">
+                            @foreach ($commentaires as $commentaire)
                                 <div class="row  bg-white align-items-center mt-3 p-2">
-                                    <div class="col-md-7 mb-1 mb-sm-0 border-radiuse-5">
-                                        <h2>
-                                            <a href="{{route('forumd',isset($sujet) ? $sujet->slug : null)}}" class="txt-primary">{{$sujet->titre}} </a>
-                                        </h2>
+                                    <div class="col-md-12 mb-1 mb-sm-0 border-radiuse-5">
+                                        
                                         <p class="text-sm" style="font-weight: 400">
                                             <span class="">Publié</span>
                                             <span class="">le</span>
-                                            <span class="">{{\Carbon\Carbon::parse($sujet->created_at)->format('j F, Y')}}</span>
-                                            <span class="">par</span>
-                                            <span class=""> {{$sujet->membre->nom}}</span>
+                                            <span class="">{{\Carbon\Carbon::parse($commentaire->created_at)->format('j F, Y')}}</span>
+                                            <br><span class="">Par</span>
+                                            <span class="" style="font-weight: bold"> {{isset($commentaire)  ? $commentaire->membre->nom : ''}}</span>
                                         </p>
                                         <p class="text-sm txt-primary" style="font-weight: 500; font-size: 0.9rem">
-                                            {{isset($sujet->commune) ? 'Question pour la commune de ': null}}
-                                            <span style="font-weight: bold">
-                                                {{isset($sujet->commune) ? $sujet->commune->commune_name : null}}
-                                            </span>
+                                
+                                            
                                         </p>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="row text-center" style="font-weight: 300">
-                                            <!--div class="col px-1">
-                                                            <i class="ion-connection-bars icon-1x"></i>
-                                                            <span class="d-block text-sm">141 Votes</span>
-                                                        </div-->
-                                            <div class="col px-1">
-                                                <i class="ion-ios-chatboxes-outline icon-1x"></i>
-                                                <span class="d-block text-sm">{{$sujet->nombre_reponse}} Réponses</span>
-                                            </div>
-                                            <div class="col px-1">
-                                                <i class="ion-ios-eye-outline icon-1x"></i>
-                                                <span class="d-block text-sm">{{$sujet->nombre_vue}} Vues</span>
-                                            </div>
-                                        </div>
+                                        @php
+                                          if(isset($commentaire)){
+                                            echo $commentaire->commentaire;
+                                          }
+                                        @endphp
                                     </div>
                                 </div>
                             @endforeach
                         </div>
                     </div>
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <span class="px-2 font-weight-bold">Repondre à la question</span>
+                            <form class="p-0" method="post" action="{{route('commenter')}}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="card-body p-0">
+                
+                                    <!--@csrf-->
+                                    <div class="form-group mt-3">
+                                        <input class="form-control w-100 px-3" name="nom" type="text"
+                                            placeholder="Veuillez entrer votre nom">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input class="form-control w-100 px-3" name="email" type="text"
+                                            placeholder="Veuillez entrer votre email">
+                                    </div>
+                                    
+                                    <div class="form-group my-3">
+                                        <textarea id="comment" name="commentaire" class="ckeditor14 form-control"></textarea>
+                                    </div>
+                                    <input type="hidden" name="slug" value="{{isset($sujet) ? $sujet->slug : ''}}">
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-edic mr-auto">Poser</button>
+                                    <button type="button" class="btn btn-danger"
+                                        data-bs-dismiss="modal">Annuler</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
             </div>
+            
         </div>
 
     </div>
+    
     <!-- The Modal -->
     <div class="modal" id="myModal">
         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -180,6 +244,11 @@
                     <script type="text/javascript">
                         $(document).ready(function() {
                             CKEDITOR.replace('editor', {
+                                extraPlugins: 'editorplaceholder',
+                                editorplaceholder: 'Veuillez entrer votre question',
+                                removeButtons: 'PasteFromWord'
+                            });
+                            CKEDITOR.replace('comment', {
                                 extraPlugins: 'editorplaceholder',
                                 editorplaceholder: 'Veuillez entrer votre question',
                                 removeButtons: 'PasteFromWord'
