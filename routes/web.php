@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteUrl;
 use Spatie\Browsershot\Browsershot;
 use App\Models\Datas\Infog\Tables\RessourceImage;
-use  App\Http\Controllers\DataCommuneController;
-use  App\Http\Controllers\SujetController;
+use App\Http\Controllers\DataCommuneController;
+use App\Http\Controllers\SujetController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,9 +70,11 @@ Route::get('datas/{id}', [SiteUrl::class, 'getDatasCompare']);
 Route::resource('forum', SujetController::class);
 Route::get('forumd/{slug}', [SujetController::class, 'forumDetail'])->name('forumd');
 Route::post('commenter', [SujetController::class, 'commentaire'])->name('commenter');
+Route::get('forumS', [SujetController::class, 'forumSujet'])->name('forumS');
+Route::get('forumd/{slug}', [SujetController::class, 'forumDelete'])->name('forumd');
 
 
-Route::get('contact', [SiteUrl::class, 'contact'])->name('contact');
+//Route::get('contact', [SiteUrl::class, 'contact'])->name('contact');
 Route::get('about', [SiteUrl::class, 'about'])->name('about');
 Route::get('test', [SiteUrl::class, 'test'])->name('test');
 Route::get('role', [SiteUrl::class, 'userRole'])->name('userRole');
@@ -98,3 +101,12 @@ Route::get('h_list', [DataCommuneController::class, 'h_list'])->middleware(['aut
 
 Route::post('make_pdf', [SiteUrl::class, 'makePdf'])->name('make_pdf');
 Route::get('make_file_exporte/{route}/{file}/{slug}', [SiteUrl::class, 'makeFileExporte'])->name('make_file_exporte');
+
+
+
+Route::get('policies', function () {
+  return view('pages.policies');
+})->name('policies');
+
+Route::get('/contact', [ContactController::class, 'createForm'])->name('contact');
+Route::post('/contact', [ContactController::class, 'ContactUsForm'])->name('contact.store');

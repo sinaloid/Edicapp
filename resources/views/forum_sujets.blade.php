@@ -25,7 +25,7 @@
                 <a name="" id="" class="btn btn-edic mt-1 ml-auto font-weight-bold"
                     href="{{ route('data.create') }}" role="button">Creer</a>
                 @endif
-                <a name="" id="" class="btn btn-edic mt-1 ml-auto font-weight-bold" href="{{route('forumS')}}"
+                <a name="" id="" class="btn btn-edic mt-1 ml-auto font-weight-bold" href="#"
                     role="button">Forum</a>
                 <a name="" id="" class="btn btn-edic mt-1 ml-auto font-weight-bold" href="#"
                     role="button">Actualités</a>
@@ -56,7 +56,7 @@
                 </strong>
 
                 <span class="font-weight-bold">
-                    {{ App\Models\Datas\Data::find($data->id)->commune->commune_name }}
+                    {{ $data->titre}}
 
                 </span>
 
@@ -69,7 +69,7 @@
 
                 <strong>
                     <span class="badge bg-secondary">
-                        année: {{ $data->annee }}
+                        Crée par : {{ $data->membre->nom }}
                     </span>
                 </strong>
 
@@ -106,13 +106,8 @@
                 @if ($data->terminer == 0)
                 <a href="{{ route('data.edit', $data->id) }}" id="" class="btn btn-info font-weight-bold my-1 mx-1"
                     role="button">Editer</a>
+                <a class="btn btn-danger font-weight-bold text-white mx-1 my-1" href="{{ route('forumd', $data->slug) }}">Effacer</a>
 
-
-                <form action="{{ route('data.destroy', $data->id) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
-                </form>
                 @endif
                 @endif
             </div>

@@ -81,6 +81,22 @@ class SujetController extends Controller
         return redirect()->route('forumd',$slug);
     }
 
+    public function forumSujet(){
+
+        $datas = Sujet::all();
+        return view('forum_sujets', compact('datas'));
+    }
+
+    public function forumDelete($slug = ''){
+
+        $sujet = Sujet::where("slug", $slug)->first();
+        if(isset($sujet)){
+            $sujet->delete();
+        }
+
+        return redirect()->route('forumS');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
