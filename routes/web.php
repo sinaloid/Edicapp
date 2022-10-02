@@ -107,6 +107,9 @@ Route::get('make_file_exporte/{route}/{file}/{slug}', [SiteUrl::class, 'makeFile
 Route::get('policies', function () {
   return view('pages.policies');
 })->name('policies');
+Route::get('apropos', function () {
+  return view('pages.apropos');
+})->name('apropos');
 
 Route::get('/contact', [ContactController::class, 'createForm'])->name('contact');
 Route::post('/contact', [ContactController::class, 'ContactUsForm'])->name('contact.store');

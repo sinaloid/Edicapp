@@ -52,6 +52,35 @@
             </div>
         </div>
     </div>
+    <div class="row bg-gray">
+        <div class="col-12 col-sm-6 col-md-4 mx-auto  text-center text-sm-left m-top">
+            <h2 class="my-3 text-center mx-auto">Nos remerciements</h2>
+            <p class="text-justify p-0">
+                2019, 2020, 2021 et 2022 ont été consacrées à la réflexion et à 
+                l’accompagnement des communes dans la promotion des données ouvertes au Burkina Faso... <a class="link" href="{{route('apropos')}}"> en savoir plus</a>
+            </p>
+        </div>
+        <div class="col-12 col-md-10 mx-auto mt-2 mb-5">
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="d-inline-block mx-2">
+                    <img width="100" src="{{asset('img/pt/bf.png')}}" alt="Burkina Faso" title="Etat du Burkina">
+                </div>
+                <div class="d-inline-block mx-2">
+                    <img width="100" src="{{asset('img/pt/amr.png')}}" alt="AMR" title="Association Monde Rural">
+                </div>
+                <div class="d-inline-block mx-2">
+                    <img width="100" src="{{asset('img/pt/diakonia.png')}}" alt="Diakonia" title="Organisation non gouvernementale (ONG)">
+                </div>
+                <div class="d-inline-block mx-2">
+                    <img width="100" src="{{asset('img/pt/delen.png')}}" alt="Broederlijk Delen" title="Organisation non gouvernementale (ONG)">
+                </div>
+                <div class="d-inline-block mx-2">
+                    <img width="100" src="{{asset('img/pt/expertise.png')}}" alt="Expertise France" title="Organisation non gouvernementale (ONG)">
+                </div>
+            </div>
+        </div>
+        
+    </div>
     <div class="row">
         <div class="col-12 col-md-10 mx-auto m-top">
             <h2 class="mb-0 text-center w-100">Visualisation rapide</h2>

@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('titlePage')
-    <title>EDICApp - Contact </title>
+    <title>EDIC - Contact </title>
 @stop
 
 @section('content')
