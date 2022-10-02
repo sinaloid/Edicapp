@@ -27,21 +27,21 @@
                 l’AMR et de celles de la faitière des communes, l’AMBF.
             </p>
         </div>
-        <div class="col-12 col-md-10 mx-auto mt-2 mb-3">
+        <div class="col-12 col-md-10 mx-auto mb-3">
             <div class="d-flex flex-wrap justify-content-center">
-                <div class="d-inline-block mx-2">
+                <div class="d-inline-block mt-3 mx-2">
                     <img width="100" src="{{asset('img/pt/bf.png')}}" alt="Burkina Faso" title="Etat du Burkina">
                 </div>
-                <div class="d-inline-block mx-2">
+                <div class="d-inline-block mt-3 mx-2">
                     <img width="100" src="{{asset('img/pt/amr.png')}}" alt="AMR" title="Association Monde Rural">
                 </div>
-                <div class="d-inline-block mx-2">
+                <div class="d-inline-block mt-3 mx-2">
                     <img width="100" src="{{asset('img/pt/diakonia.png')}}" alt="Diakonia" title="Organisation non gouvernementale (ONG)">
                 </div>
-                <div class="d-inline-block mx-2">
+                <div class="d-inline-block mt-3 mx-2">
                     <img width="100" src="{{asset('img/pt/delen.png')}}" alt="Broederlijk Delen" title="Organisation non gouvernementale (ONG)">
                 </div>
-                <div class="d-inline-block mx-2">
+                <div class="d-inline-block mt-3 mx-2">
                     <img width="100" src="{{asset('img/pt/expertise.png')}}" alt="Expertise France" title="Organisation non gouvernementale (ONG)">
                 </div>
             </div>
