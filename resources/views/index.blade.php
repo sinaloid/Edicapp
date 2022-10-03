@@ -66,6 +66,9 @@
                     <img width="100" src="{{asset('img/pt/bf.png')}}" alt="Burkina Faso" title="Etat du Burkina">
                 </div>
                 <div class="d-inline-block mt-3 mx-2">
+                    <img width="100" src="{{asset('img/pt/ambf.png')}}" alt="Burkina Faso" title="Association des Municipalités du Burkina Faso">
+                </div>
+                <div class="d-inline-block mt-3 mx-2">
                     <img width="100" src="{{asset('img/pt/amr.png')}}" alt="AMR" title="Association Monde Rural">
                 </div>
                 <div class="d-inline-block mt-3 mx-2">

@@ -8,7 +8,7 @@
     <div class="row bannier"></div>
     <div class="row">
         <div class="col-12" style="line-height:180%">
-            <h1 class="title-bannier mb-4">À propos</h1>
+            <h1 class="title-bannier mb-4">Nos remerciements</h1>
             <p class="col-12 col-md-8 mx-auto text-Justify my-3">
                 2019, 2020, 2021 et 2022 ont été consacrées à la réflexion et à l’accompagnement 
                 des communes dans <strong class="txt-bold">la promotion des données ouvertes au Burkina Faso</strong>. Elles ont permis 
@@ -24,13 +24,16 @@
             </p>
             <p class="col-12 col-md-8 mx-auto text-Justif my-3 txt-bold">
                 Qu’ils trouvent ici les sincères remerciements et reconnaissances de 
-                l’AMR et de celles de la faitière des communes, l’AMBF.
+                l’AMR, des communes et de leur faitière, l’AMBF.
             </p>
         </div>
         <div class="col-12 col-md-10 mx-auto mb-3">
             <div class="d-flex flex-wrap justify-content-center">
                 <div class="d-inline-block mt-3 mx-2">
                     <img width="100" src="{{asset('img/pt/bf.png')}}" alt="Burkina Faso" title="Etat du Burkina">
+                </div>
+                <div class="d-inline-block mt-3 mx-2">
+                    <img width="100" src="{{asset('img/pt/ambf.png')}}" alt="Burkina Faso" title="Association des Municipalités du Burkina Faso">
                 </div>
                 <div class="d-inline-block mt-3 mx-2">
                     <img width="100" src="{{asset('img/pt/amr.png')}}" alt="AMR" title="Association Monde Rural">

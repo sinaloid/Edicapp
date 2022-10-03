@@ -61,7 +61,7 @@
                     <form class="row mt-3" action="">
                         <div class="col-lg-6">
                             <select name="cars" class="form-control mb-3">
-                                <option selected>Filter par date</option>
+                                <option selected>Filtrer par date</option>
                                 <option value="volvo">Croissant</option>
                                 <option value="fiat">Décroissant</option>
                                 <option value="audi">Audi</option>
