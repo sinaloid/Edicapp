@@ -196,7 +196,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
-                            <form class="p-0" method="post" action="" enctype="multipart/form-data">
+                            <form class="p-0"  enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body p-0">
 
@@ -251,7 +251,7 @@
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-edic mr-auto">Envoyer</button>
+                                    <button type="button data-bs-dismiss="modal" class="btn btn-edic mr-auto">Envoyer</button>
                                     <button type="button" class="btn btn-danger"
                                         data-bs-dismiss="modal">Annuler</button>
                                 </div>
