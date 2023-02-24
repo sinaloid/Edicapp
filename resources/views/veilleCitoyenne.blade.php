@@ -227,6 +227,7 @@
                                             <option>Problèmes de santé publique</option>
                                             <option>Problèmes environnementaux</option>
                                             <option>Problèmes sociaux</option>
+                                            <option>Problème de gouvernance</option>
                                             <option>Autres</option>
                                         </select>
                                     </div>
