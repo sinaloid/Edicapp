@@ -79,11 +79,14 @@
                     <div class="row p-2">
 
                         <div class="col-12 mx-auto py-3 px-3 mb-3">
+                            @php
+                                
+                            @endphp
                             @foreach ($sujets as $sujet)
                                 <div class="row  bg-white align-items-center mt-3 p-2">
                                     <div class="col-md-7 mb-1 mb-sm-0 border-radiuse-5">
                                         <h2>
-                                            <a href="{{route('forumd',isset($sujet) ? $sujet->slug : null)}}" class="txt-primary">{{$sujet->titre}} </a>
+                                            <a href="{{route('forumDetail',isset($sujet) ? $sujet->slug : null)}}" class="txt-primary">{{$sujet->titre}} </a>
                                         </h2>
                                         <p class="text-sm" style="font-weight: 400">
                                             <span class="">Publié</span>

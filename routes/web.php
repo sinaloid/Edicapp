@@ -19,6 +19,10 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::get('/', [SiteUrl::class, 'index'])->name('acceuil');
+Route::get('veilleCitoyenne', function () {
+  
+  return view('veilleCitoyenne');
+})->name("veilleCitoyenne");
 
 /*login*/
 Route::get('home', function () {
@@ -68,7 +72,7 @@ Route::get('datas/{id}', [SiteUrl::class, 'getDatasCompare']);
 //Route::get('sign', [SiteUrl::class, 'signup'])->name('signup');
 //Route::get('forum', [SiteUrl::class, 'forum'])->name('forum');
 Route::resource('forum', SujetController::class);
-Route::get('forumd/{slug}', [SujetController::class, 'forumDetail'])->name('forumd');
+Route::get('forumdetail/{slug}', [SujetController::class, 'forumDetail'])->name('forumDetail');
 Route::post('commenter', [SujetController::class, 'commentaire'])->name('commenter');
 Route::get('forumS', [SujetController::class, 'forumSujet'])->name('forumS');
 Route::get('forumd/{slug}', [SujetController::class, 'forumDelete'])->name('forumd');

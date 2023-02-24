@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
     --card-bg-color: white;
     --citation-bg-color: #FFBC78;
@@ -20,9 +22,10 @@
   }
 body{
     background-color: var(--main-bg-color);
-    font-family: "Raleway", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 600;
+    line-height: 165%;
     
 }
 
@@ -47,6 +50,11 @@ header{
 }
 
 .nav-link:hover{
+    color: var(--btn-text-color-hover-focus);
+    text-decoration: underline ;
+    text-underline-offset: 0.2rem;
+}
+.nav-link.active{
     color: var(--btn-text-color-hover-focus);
     text-decoration: underline ;
     text-underline-offset: 0.2rem;
@@ -347,7 +355,31 @@ hr ~ .bannier {
     padding: 16px ;
 }
 
+.text-22 {
+    font-size: 22px;
+}
+.text-14 {
+    font-size: 14px;
+}
 
+.text-12 {
+    font-size: 12px;
+}
+
+.text-primary {
+    color: var(--btn-bg-color) !important;
+}
+.n-circle{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid var(--btn-bg-color);
+    border-radius: 50%;
+    background-color: var(--btn-bg-color);
+    color: #fff;
+}
 
 @media (max-width: 576px) {
     .image img{

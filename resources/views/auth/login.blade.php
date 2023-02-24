@@ -67,34 +67,7 @@
                                     @endif
                                 </div>
                             </div>
-
-
-                            <div class="col-md-12 text-center mx-auto">
-                                <div class="login-or">
-                                    <hr class="hr-or">
-                                    <span class="span-or">ou se connecter avec :</span>
-                                </div>
-                            </div>
-                            <div class="col-md-12 mx-auto">
-                                <p class="text-center">
-                                    <a href="javascript:void();" class="mx-1"><i
-                                            class="fa fa-google-plus">
-                                        </i>
-                                    </a>
-                                    <a href="javascript:void();" class="mx-1"><i
-                                            class="fa fa-facebook-f">
-                                        </i>
-                                    </a> 
-                                    <a href="javascript:void();" class="mx-1"><i class="fa fa-twitter">
-                                        </i>
-                                    </a>
-                                    <hr>
-                                </p>
-                            </div>
-                            <div class="form-group">
-                                <p class="text-center col-md-8 mx-auto">Je n'ai pas de compte <a class="link"
-                                        href="{{ route('register') }}" id="signup">Inscrivez-vous ici</a></p>
-                            </div>
+                            
                         </form>
                     </div>
                 </div>

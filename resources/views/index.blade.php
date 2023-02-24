@@ -224,7 +224,7 @@
                 Consultez les données budgétaires dans une variété de formats graphiques ou
                 faites des comparaisons de données budgétaires.
             </p>
-            <a class="btn btn-edic" href="{{route('datas.cmp', isset($dataCommune) ? $dataCommune['slug'] : 'cmp')}}">Jeux de
+            <a class="btn btn-edic" href="{{ route('datas.cmpdt') }}">Jeux de
                 données</a>
         </div>
         <hr class="w-100 mt-5" />

@@ -211,10 +211,11 @@ class SiteUrl extends Controller
     }
     public function datasCompare(Request $request){
 
-        $this->validate($request, [
+       /* $this->validate($request, [
             'commune_1' => 'required',
             'annee' => 'required'
-        ]);
+        ]);*/
+        $countries = Country::all();
         $id_commune_1 = Commune::where('commune_name',$request->commune_1)->first();
         $id_commune_1 = isset($id_commune_1) ? $id_commune_1->id : null;
 
@@ -244,10 +245,10 @@ class SiteUrl extends Controller
             "annee" => $request->annee
         ];
 
-        //dd($dataCompare);
+        //dd($countries);
 
 
-        return view('pages.viewData', compact('dataCompare'));
+        return view('pages.viewData', compact('dataCompare','countries'));
         
     }
 

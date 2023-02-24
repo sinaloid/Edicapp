@@ -17,6 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @yield('script')
 </head>
 
@@ -39,30 +40,30 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('acceuil') }}">Accueil</a>
+                                <a class="nav-link @if (Route::currentRouteName() == 'acceuil') active @endif" href="{{ route('acceuil') }}">Accueil</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="{{ route('datas.info', isset($dataCommune) ? $dataCommune['slug'] : 'info_general') }}">Données</a>
+                                <a class="nav-link 
+                                @if (Route::currentRouteName() == 'datas.info' || Route::currentRouteName() == 'datas.pcd' || Route::currentRouteName() == 'datas.bg' || Route::currentRouteName() == 'datas.tdb')active @endif"
+                                    href="{{ route('datas.info', isset($dataCommune) ? $dataCommune['slug'] : 'info_general') }}">Données</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('actualites') }}">Actualités</a>
+                                <a class="nav-link @if (Route::currentRouteName() == 'actualites' || Route::currentRouteName() == 'detail' )active @endif" href="{{ route('actualites') }}">Actualités</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('forum.index')}}">Forum</a>
+                                <a class="nav-link @if (Route::currentRouteName() == 'forum.index')active @endif" href="{{ route('forum.index') }}">Forum</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @if (Route::currentRouteName() == 'veilleCitoyenne')active @endif" href="{{ route('veilleCitoyenne') }}">Veille Citoyenne</a>
                             </li>
 
                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
+                                    <a class="nav-link @if (Route::currentRouteName() == 'login')active @endif" href="{{ route('login') }}">{{ __('Connexion') }}</a>
                                 </li>
-                                @if (Route::has('register1'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
-                                    </li>
-                                @endif
                             @else
                                 <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('home') }}">{{ __('Compte') }}</a>
+                                    <a class="nav-link @if (Route::currentRouteName() == 'home')active @endif" href="{{ route('home') }}">{{ __('Compte') }}</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -101,11 +102,11 @@
     <div class="container-fluid mt-5">
         <footer class="row">
             <div class="col-12 text-center my-2">
-                <img src="{{asset('/img/logobf.png')}}" width="80" alt="">
+                <img src="{{ asset('/img/logobf.png') }}" width="80" alt="">
             </div>
             <div class="col-12 text-center mb-2">
-                <span><a href="{{route('apropos')}}">à propos</a></span> -
-                <span><a href="{{route('contact')}}">contact</a></span> -
+                <span><a href="{{ route('apropos') }}">à propos</a></span> -
+                <span><a href="{{ route('contact') }}">contact</a></span> -
                 <span><a href="#">mentions légales</a></span> -
                 <span><a href="https://facebook.com/EDICBurkina">facebook</a></span>
             </div>
@@ -113,29 +114,29 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
     <script>
-
         var path = "{{ url('commune') }}";
         var ary = []
         $('#commune, #commune_1, #commune_2, #commune_3, #commune_4').typeahead({
-        
-            source: function(query, process){
-        
-                return $.get(path, {query:query}, function(datas){
-                    ary = datas.map((data)=>{
+
+            source: function(query, process) {
+
+                return $.get(path, {
+                    query: query
+                }, function(datas) {
+                    ary = datas.map((data) => {
                         return data.commune_name
                     })
                     console.log(ary);
                     return process(ary);
-        
+
                 });
-        
+
             }
-        
+
         });
-        
-        </script>
+    </script>
 </body>
 
 </html>
