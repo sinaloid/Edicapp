@@ -15,7 +15,7 @@
     <div class="row bannier"></div>
     <div class="row">
         <div class="col-12">
-            <h1 class="title-bannier">Veille citoyenne</h1>
+            <h1 class="title-bannier">Veille Citoyenne</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-1">
                 Participez à la résolution des problèmes locaux au Burkina Faso : signaler, visualiser et discuter sur EDIC
             </p>
@@ -49,9 +49,11 @@
                         </li>
                         <li class="fw-normal mb-3">
                             <span class="fw-bold">Problèmes sociaux :</span> signaler des problèmes tels que la
-                            discrimination, l'injustice sociale, la pauvreté, l'exclusion sociale, etc.
+                            discrimination, l'injustice sociale, la pauvreté, l'exclusion sociale, violence basée sur le genre (VGB), etc.
                         </li>
-
+                        <li class="fw-normal mb-3">
+                            <span class="fw-bold">Problème de gouvernance</span> : Corruption, Achat de conscience, Abus de confiance / de pouvoir, détournement de deniers publics, destrcution de biens publics, etc.
+                        </li>
                     </ol>
                     <p>Ces exemples ne sont pas exhaustifs et tout problème local qui affecte la communauté peut être
                         signalé à travers la plateforme EDIC.

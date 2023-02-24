@@ -93,7 +93,7 @@
         </header>
         <div class="row m-top">
             <div class="col-12 text-center citation">
-                <span>@include('pages.includes.mgs')</span>
+                <span class="text-22">@include('pages.includes.mgs')</span>
             </div>
         </div>
         @yield('content')
