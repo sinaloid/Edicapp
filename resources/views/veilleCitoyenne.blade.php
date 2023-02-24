@@ -115,7 +115,7 @@
     <div class="row mt-5 mb-3">
         <div class="col-12 col-md-10 mx-auto">
             <div class="d-flex">
-                <button class="btn btn-edic ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">Signaler un
+                <button class="btn btn-edic ms-auto" data-bs-toggle="modal" data-bs-target="#problemeModal">Signaler un
                     problème</button>
             </div>
         </div>
@@ -184,60 +184,153 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+    <div class="modal" id="problemeModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
+
+                <!-- Modal Header -->
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title">Signaler un problème</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
+                <!-- Modal body -->
                 <div class="modal-body">
-                    ...
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="p-0" method="post" action="" enctype="multipart/form-data">
+                                @csrf
+                                <div class="card-body p-0">
+
+                                    <!--@csrf-->
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-normal">Nom prénom</label>
+                                        <input class="form-control w-100 px-3" name="nom" type="text"
+                                            placeholder="Nom prénom">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-normal">Numéro de téléphone</label>
+                                        <input class="form-control w-100 px-3" name="telephone" type="text"
+                                            placeholder="Numéro de téléphone">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-normal">Email</label>
+                                        <input class="form-control w-100 px-3" name="email" type="text"
+                                            placeholder="Adresse email">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-normal">Catégorie</label>
+                                        <select name="categorie" class="form-select w-100 px-3">
+                                            <option>Sélectionnez une catégorie pour le problème</option>
+                                            <option>Infrastructures défectueuses</option>
+                                            <option>Problèmes de sécurité</option>
+                                            <option>Problèmes de santé publique</option>
+                                            <option>Problèmes environnementaux</option>
+                                            <option>Problèmes sociaux</option>
+                                            <option>Autres</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-normal">Ajoutez des images ou une vidéo courte en
+                                            rapport avec le problème</label>
+                                        <input name="commune" type="file" class="form-control w-100" id="commune"
+                                            placeholder="Ciblez une commune pour votre question" autocomplete="off">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-normal">
+                                            <span>Résumez le problème</span> <br />
+                                            <span class="text-12 text-muted">Exemple: Panne de l'éclairage public sur
+                                                l'avenue Kwamé Nkrumah à Ouagadougou</span>
+                                        </label>
+                                        <input class="form-control w-100 px-3" name="email" type="text"
+                                            placeholder="Résumez le problème">
+                                    </div>
+                                    <div class="form-group my-3">
+                                        <label class="form-label fw-normal">Description du problème</label>
+                                        <textarea id="editor" name="description" class="ckeditor14 form-control" name="editor"></textarea>
+                                    </div>
+
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-edic mr-auto">Envoyer</button>
+                                    <button type="button" class="btn btn-danger"
+                                        data-bs-dismiss="modal">Annuler</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <script src="https://cdn.ckeditor.com/4.18.0/standard-all/ckeditor.js"></script>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            CKEDITOR.replace('editor', {
+                                extraPlugins: 'editorplaceholder',
+                                editorplaceholder: 'Expliquez ce qui ne va pas',
+                                removeButtons: 'PasteFromWord'
+                            });
+
+
+                        });
+                    </script>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
+
+
             </div>
         </div>
     </div>
     <script>
-        const map = L.map('map').setView([51.505, -0.09], 13);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var lat = position.coords.latitude;
+                var long = position.coords.longitude;
+                console.log("Ma position actuelle est : " + lat + ", " + long);
 
-        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
+                const map = L.map('map').setView([lat, long], 13);
 
-        const marker = L.marker([51.5, -0.09]).addTo(map)
-            .bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
+                const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
 
-        const circle = L.circle([51.508, -0.11], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.5,
-            radius: 500
-        }).addTo(map).bindPopup('I am a circle.');
+                const marker = L.marker([lat, long]).addTo(map)
+                    .bindPopup('<b>Votre position</b>').openPopup();
 
-        const polygon = L.polygon([
-            [51.509, -0.08],
-            [51.503, -0.06],
-            [51.51, -0.047]
-        ]).addTo(map).bindPopup('I am a polygon.');
+                /*const circle = L.circle([lat, long], {
+                    color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 0.5,
+                    radius: 500
+                }).addTo(map).bindPopup('I am a circle.');
+
+                const polygon = L.polygon([
+                    [51.509, -0.08],
+                    [51.503, -0.06],
+                    [51.51, -0.047]
+                ]).addTo(map).bindPopup('I am a polygon.');*/
 
 
-        const popup = L.popup()
-            .setLatLng([51.513, -0.09])
-            .setContent('I am a standalone popup.')
-            .openOn(map);
+                const popup = L.popup()
+                    /*.setLatLng([lat, long])
+                    .setContent('I am a standalone popup.')
+                    .openOn(map);*/
 
-        function onMapClick(e) {
-            popup
-                .setLatLng(e.latlng)
-                .setContent(`You clicked the map at ${e.latlng.toString()}`)
-                .openOn(map);
+                function onMapClick(e) {
+                    popup
+                        .setLatLng(e.latlng)
+                        .setContent(`
+                <span class="fw-bold">Vous avez cliqué sur la carte à ${e.latlng.toString()}<span> <br />
+                <botton class="btn btn-edic text-12 mt-2" data-bs-toggle="modal" data-bs-target="#problemeModal"><i class="fa-solid fa-location-dot"></i> Valider<botton>
+                `).openOn(map);
+
+                    //var modal = document.getElementById("problemeModal");
+                    //$(modal).modal('show');
+
+                }
+
+                map.on('click', onMapClick);
+            });
+        } else {
+            console.log("La géolocalisation n'est pas supportée par votre navigateur.");
         }
-
-        map.on('click', onMapClick);
     </script>
 @endsection
