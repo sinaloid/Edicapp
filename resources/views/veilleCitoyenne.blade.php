@@ -17,8 +17,7 @@
         <div class="col-12">
             <h1 class="title-bannier">Veille citoyenne</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-1">
-                Participez à la résolution des problèmes locaux au Burkina Faso : signaler, visualiser et discuter sur EDIC,
-                la plateforme de veille citoyenne
+                Participez à la résolution des problèmes locaux au Burkina Faso : signaler, visualiser et discuter sur EDIC
             </p>
         </div>
     </div>
@@ -102,7 +101,7 @@
                     <p class="mt-4">
                         Pour signaler un problème, commencez par localiser
                         le lieu du problème sur notre carte interactive.
-                        Cliquez ensuite sur l'icône 'Signaler un problème' qui
+                        Cliquez ensuite sur le button 'Selectionner' qui
                         apparaîtra sur la carte. Remplissez le formulaire qui
                         s'affichera en renseignant les détails du problème, puis cliquez sur
                         le bouton 'Envoyer' pour que votre signalement soit pris en compte.
@@ -140,7 +139,7 @@
 
                 </div>
                 <div class="col-8">
-                    <h2 class="mb-3 text-22">Problèmes récemment signalés</h2>
+                    <h2 class="mb-3 text-22">Signaler un problème en sélectionnant l'emplacement sur la carte</h2>
                     <div id="map" style="width: 100%; height: 600px;"></div>
                 </div>
             </div>
@@ -319,7 +318,7 @@
                         .setLatLng(e.latlng)
                         .setContent(`
                 <span class="fw-bold">Vous avez cliqué sur la carte à ${e.latlng.toString()}<span> <br />
-                <botton class="btn btn-edic text-12 mt-2" data-bs-toggle="modal" data-bs-target="#problemeModal"><i class="fa-solid fa-location-dot"></i> Valider<botton>
+                <botton class="btn btn-edic text-12 mt-2" data-bs-toggle="modal" data-bs-target="#problemeModal"><i class="fa-solid fa-location-dot"></i> Sélectionner<botton>
                 `).openOn(map);
 
                     //var modal = document.getElementById("problemeModal");
