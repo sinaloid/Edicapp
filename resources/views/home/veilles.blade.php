@@ -31,6 +31,7 @@
                                         class="btn btn-info font-weight-bold my-1 mx-1 btn-coord" data-msg="{{$data['resumer']}}" data-desc="{!!$data['description']!!}" data-img="{{$data->medias()->first()->url}}"
                                         data-lng="{{ $data['longitude'] }}" data-lat="{{ $data['latitude'] }}" style="cursor: pointer">Voir</button>
                                 @if (!isset($data->status))
+                                    @if (auth()->user()->role == 'admin')
                                     <button data-bs-toggle="modal" data-bs-target="#statusModal{{$data['id']}}"
                                         class="btn btn-success font-weight-bold my-1 mx-1" role="button">Publier</button>
 
@@ -41,8 +42,10 @@
                                         <button type="submit"
                                             class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
                                     </form>
+                                    @endif
                                 @endif
                                 @if (isset($data->status))
+                                    @if (auth()->user()->role == 'admin')
                                     <button 
                                     data-bs-toggle="modal" data-bs-target="#statusModal{{$data['id']}}"
                                     class="btn btn-warning font-weight-bold my-1 mx-1"
@@ -53,6 +56,7 @@
                                         <button type="submit"
                                             class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
                                     </form>
+                                    @endif
                                 @endif
                                 </div>
                             </td>

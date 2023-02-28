@@ -38,14 +38,22 @@
 
                             <td>
                                 <div class="btn-group">
+                                    @if (auth()->user()->role == 'admin')
                                     <button class="btn btn-info font-weight-bold my-1 mx-1 btn-edit"
-                                        data-bs-toggle="modal" data-bs-target="#actualiteUpdate"
-                                        data-titre="{{ $data['titre'] }}" data-categorie="{{ $data['categorie'] }}"
-                                        data-resumer="{{ $data['resumer'] }}"
-                                        data-categorie="{{ $data['categorie'] }}"
-                                        data-slug="{{ $data['slug'] }}"
-                                        data-description="{{ $data['description'] }}" role="button">Voir</button>
+                                    data-bs-toggle="modal" data-bs-target="#actualiteUpdate"
+                                    data-titre="{{ $data['titre'] }}" data-categorie="{{ $data['categorie'] }}"
+                                    data-resumer="{{ $data['resumer'] }}"
+                                    data-categorie="{{ $data['categorie'] }}"
+                                    data-slug="{{ $data['slug'] }}"
+                                    data-description="{{ $data['description'] }}" role="button">Voir</button>
+                                    @else
+                                    <a href="{{ route('detail', $data['slug']) }}" class="btn btn-sm btn-edic d-inline-block ml-auto">
+                                        Voir
+                                    </a>
+                                    @endif
+                    
                                     @if (!isset($data->status))
+                                        @if (auth()->user()->role == 'admin')
                                         <button
                                             data-bs-toggle="modal" data-bs-target="#statusModal{{$data['id']}}"
                                             class="btn btn-info font-weight-bold my-1 mx-1" role="button">Publier</button>
@@ -56,8 +64,10 @@
                                             <button type="submit"
                                                 class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
                                         </form>
+                                        @endif
                                     @endif
                                     @if (isset($data->status))
+                                        @if (auth()->user()->role == 'admin')
                                         <button
                                         data-bs-toggle="modal" data-bs-target="#statusModal{{$data['id']}}"
                                             class="btn btn-warning font-weight-bold my-1 mx-1"
@@ -68,6 +78,7 @@
                                             <button type="submit"
                                                 class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
                                         </form>
+                                        @endif
                                     @endif
                                 </div>
                             </td>

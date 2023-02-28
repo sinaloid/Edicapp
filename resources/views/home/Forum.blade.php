@@ -20,22 +20,23 @@
                             <td>{{ $data->membre()->first()->nom }}</td>
                             <td>{{ $data->membre()->first()->email }}</td>
                             <td>{{ App\Models\Countries\Commune::find($data->commune_id)->commune_name }}</td>
-                            
+
                             <td>
-                                {{$data->titre}}
+                                {{ $data->titre }}
                             </td>
                             <td>
                                 <div class="btn-group">
                                     <a href="{{ route('forumDetail', $data->slug) }}" id=""
                                         class="btn btn-info font-weight-bold my-1 mx-1" role="button">Voir</a>
 
-
-                                    <form action="{{ route('data.destroy', $data->id) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                            class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
-                                    </form>
+                                    @if (auth()->user()->role == 'admin')
+                                        <form action="{{ route('data.destroy', $data->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
+                                        </form>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

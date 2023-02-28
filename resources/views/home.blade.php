@@ -10,9 +10,9 @@
                 <div class="float-start">
 
 
-                    <h1 class="badge bg-secondary">
+                    <!--h1 class="badge bg-secondary">
                         # Liste des données communautaires
-                    </h1>
+                    </h1-->
                 </div>
                 <div class="float-end pb-1">
                     @if (auth()->user()->role == 'admin' || auth()->user()->role == 'verificateur' || auth()->user()->role == 'editeur')

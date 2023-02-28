@@ -40,6 +40,7 @@
                             <td>
                                 <div class="btn-group">
                                     @if (!isset($data->role))
+                                        @if (auth()->user()->role == 'admin')
                                         <button data-bs-toggle="modal" data-bs-target="#statusModal{{ $data['id'] }}"
                                             class="btn btn-info font-weight-bold my-1 mx-1"
                                             role="button">Activer</button>
@@ -47,14 +48,17 @@
 
                                             <button data-bs-toggle="modal" data-bs-target="#deleteModal{{$data['id']}}"
                                             class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
+                                        @endif
                                     @endif
                                     @if (isset($data->role))
+                                        @if (auth()->user()->role == 'admin')
                                         <a data-bs-toggle="modal" data-bs-target="#statusModal{{ $data['id'] }}"
                                             class="btn btn-warning font-weight-bold my-1 mx-1" role="button">Désactiver
                                         </a>
 
                                             <button data-bs-toggle="modal" data-bs-target="#deleteModal{{$data['id']}}"
                                                 class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
+                                        @endif
                                     @endif
                                 </div>
                             </td>
