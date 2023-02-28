@@ -22,7 +22,7 @@
 <div class="container">
     <div class="row bg-white py-2">
         <div class="col-12 col-md-8 text-center text-edicp mt-3 order-2 order-md-1">
-            <p><span>E</span>space de <span>d</span>ialogue et d'<span>i</span>nterpretation <span>c</span>ommunautaire</p>
+            <p><span>E</span>space de <span>d</span>ialogue et d'<span>i</span>nterpellation <span>c</span>ommunautaire</p>
             <p>Bilan d'action {{ isset($dataCommune) ? $dataCommune['annee'] : '' }} de la commune</p>
         </div>
     

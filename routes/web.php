@@ -7,6 +7,8 @@ use App\Models\Datas\Infog\Tables\RessourceImage;
 use App\Http\Controllers\DataCommuneController;
 use App\Http\Controllers\SujetController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\VeilleCitoyenneController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,40 +21,24 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::get('/', [SiteUrl::class, 'index'])->name('acceuil');
-Route::get('veilleCitoyenne', function () {
-  
-  return view('veilleCitoyenne');
-})->name("veilleCitoyenne");
+
 
 /*login*/
-Route::get('home', function () {
-    $datas = App\Models\Datas\Data::orderBy('id', 'DESC')->get();
-    return view('home', compact('datas'));
-  })->middleware(['auth'/*,'verified'*/])->name('home');
-
-  Route::get('profile', function () {
-    return view('profile');
-  })->middleware('auth')->name('profile');
-
-  /*Route::get('test', function () {
-    return 'Vue de test';
-  })->middleware(['verified']);*/
-
-
-
-/*********************************************/
-Route::get('home/data', function () {
-  return view('home');
-})->middleware(['auth'/*,'verified'*/])->name('home.data');
-
-Route::get('home/create', function () {
-  return view('home');
-})->middleware(['auth'/*,'verified'*/])->name('home.create');
-
-/*********************************************/
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/home/profile', [HomeController::class, 'profile'])->name('profile');
+Route::get('/home/users', [HomeController::class, 'allUser'])->name('users');
+Route::post('/home/users', [HomeController::class, 'createUser'])->name('create.user');
+Route::post('/home/users/role', [HomeController::class, 'setRole'])->name('setRole');
+Route::get('/home/veilles', [HomeController::class, 'veilles'])->name('veilles');
+Route::get('/home/veilles/status/{slug?}', [HomeController::class, 'statusVeille'])->name('status.veille');
+Route::get('/home/actualites', [HomeController::class, 'actualites'])->name('home.actualites');
+Route::post('/home/actualites', [HomeController::class, 'createActualite'])->name('create.actualites');
+Route::put('/home/actualites', [HomeController::class, 'updateActualite'])->name('update.actualites');
+Route::get('/home/actualites/status/{slug?}', [HomeController::class, 'statusActualite'])->name('status.actualite');
+Route::get('/home/forum', [HomeController::class, 'forums'])->name('home.forums');
 
 Route::get('actualites', [SiteUrl::class, 'actualites'])->name('actualites');
-Route::get('detail', [SiteUrl::class, 'actualiteDetail'])->name('detail');
+Route::get('detail/{slug?}', [SiteUrl::class, 'actualiteDetail'])->name('detail');
 /*Data view*/
 Route::get('datas/view', [DataCommuneController::class, 'datasView'])->name('datas.view');
 Route::get('datas/info/{slug?}', [SiteUrl::class, 'datasInfo'])->name('datas.info');
@@ -117,3 +103,4 @@ Route::get('apropos', function () {
 
 Route::get('/contact', [ContactController::class, 'createForm'])->name('contact');
 Route::post('/contact', [ContactController::class, 'ContactUsForm'])->name('contact.store');
+Route::resource('/veilleCitoyenne', VeilleCitoyenneController::class);

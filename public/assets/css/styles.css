@@ -90,6 +90,10 @@ header{
     background-color: var(--main-bg-color-1);
 }
 
+.bg-primary {
+    background-color: var(--btn-bg-color) !important;
+}
+
 .bgd-white {
     background-color: #fff !important;
 }

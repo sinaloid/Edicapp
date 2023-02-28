@@ -78,7 +78,7 @@ class SujetController extends Controller
             $stat->save();
 
         }
-        return redirect()->route('forumd',$slug);
+        return redirect()->route('forumDetail',$slug);
     }
 
     public function forumSujet(){

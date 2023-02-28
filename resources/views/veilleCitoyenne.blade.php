@@ -49,10 +49,12 @@
                         </li>
                         <li class="fw-normal mb-3">
                             <span class="fw-bold">Problèmes sociaux :</span> signaler des problèmes tels que la
-                            discrimination, l'injustice sociale, la pauvreté, l'exclusion sociale, violence basée sur le genre (VGB), etc.
+                            discrimination, l'injustice sociale, la pauvreté, l'exclusion sociale, violence basée sur le
+                            genre (VGB), abus sexuel sur l'enfant, etc.
                         </li>
                         <li class="fw-normal mb-3">
-                            <span class="fw-bold">Problème de gouvernance</span> : Corruption, Achat de conscience, Abus de confiance / de pouvoir, détournement de deniers publics, destrcution de biens publics, etc.
+                            <span class="fw-bold">Problème de gouvernance</span> : Corruption, Achat de conscience, Abus de
+                            confiance / de pouvoir, détournement de deniers publics, destrcution de biens publics, etc.
                         </li>
                     </ol>
                     <p>Ces exemples ne sont pas exhaustifs et tout problème local qui affecte la communauté peut être
@@ -126,15 +128,23 @@
             <div class="row ">
                 <div class="col-4">
                     <h2 class="mb-3 text-22">Problèmes récemment signalés</h2>
-                    @for ($i = 0; $i < 6; $i++)
+                    @foreach ($datas as $data)
+                    @php
+                        $image = $data->medias()->first();
+                        //dd($image->url);
+                    @endphp
                         <div class="d-flex bg-white p-2 mb-2">
-                            <p class="me-2"><img width="80px" src="{{ asset('img/vc/vc1.jpg') }}" alt="" /></p>
+                            <p class="me-2"><img width="80px" src="{{$data->medias()->first()->url}}" alt="" /></p>
                             <div>
-                                <h3 class="text-14">Lorem ipsum dolor, sit amet consectetur</h3>
-                                <p class="text-14">19h11 aujourd'hui</p>
+                                <h3 class="text-14 btn-coord" data-msg="{{$data['resumer']}}" data-desc="{!!$data['description']!!}" data-img="{{$data->medias()->first()->url}}"
+                                data-lng="{{ $data['longitude'] }}" data-lat="{{ $data['latitude'] }}" style="cursor: pointer">{{ $data['resumer'] }}</h3>
+                                <p class="text-14">{{ date_format($data['created_at'], 'd/m/Y H:i:s') }}</p>
+                                <input type="button" data-lng="{{ $data['longitude'] }}"
+                                    data-lat="{{ $data['latitude'] }}" hidden />
+
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                     <div class="text-center">
                         <a class="text-primary" href="#">Voir tous les rapports</a>
                     </div>
@@ -198,7 +208,8 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
-                            <form class="p-0"  enctype="multipart/form-data">
+                            <form class="p-0" method="POST" action="{{ route('veilleCitoyenne.store') }}"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body p-0">
 
@@ -210,12 +221,12 @@
                                     </div>
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Numéro de téléphone</label>
-                                        <input class="form-control w-100 px-3" name="telephone" type="text"
+                                        <input class="form-control w-100 px-3" name="numero" type="text"
                                             placeholder="Numéro de téléphone">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Email</label>
-                                        <input class="form-control w-100 px-3" name="email" type="text"
+                                        <input class="form-control w-100 px-3" name="email" type="email"
                                             placeholder="Adresse email">
                                     </div>
                                     <div class="form-group mt-3">
@@ -234,8 +245,19 @@
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Ajoutez des images ou une vidéo courte en
                                             rapport avec le problème</label>
-                                        <input name="commune" type="file" class="form-control w-100" id="commune"
-                                            placeholder="Ciblez une commune pour votre question" autocomplete="off">
+                                        <input name="medias[]" type="file" class="form-control w-100"
+                                            autocomplete="off" multiple>
+                                    </div>
+                                    <div id="localisation" class="form-group mt-3">
+                                        <label class="form-label fw-normal">
+                                            <span>Localisation du problème</span> <br />
+                                            <span class="text-12 text-muted">Exemple: Avenue Kwamé Nkrumah à
+                                                Ouagadougou</span>
+                                        </label>
+                                        <input class="form-control w-100 px-3" name="localisation" type="text"
+                                            placeholder="Localisation du problème">
+                                        <input id="lng" name="longitude" type="text" hidden>
+                                        <input id="lat" name="latitude" type="text" hidden>
                                     </div>
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">
@@ -243,7 +265,7 @@
                                             <span class="text-12 text-muted">Exemple: Panne de l'éclairage public sur
                                                 l'avenue Kwamé Nkrumah à Ouagadougou</span>
                                         </label>
-                                        <input class="form-control w-100 px-3" name="email" type="text"
+                                        <input class="form-control w-100 px-3" name="resumer" type="text"
                                             placeholder="Résumez le problème">
                                     </div>
                                     <div class="form-group my-3">
@@ -254,7 +276,8 @@
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button data-bs-dismiss="modal" class="btn btn-edic mr-auto">Envoyer</button>
+                                    <button type="button data-bs-dismiss="modal"
+                                        class="btn btn-edic mr-auto">Envoyer</button>
                                     <button type="button" class="btn btn-danger"
                                         data-bs-dismiss="modal">Annuler</button>
                                 </div>
@@ -280,6 +303,40 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="detailModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        Problème signalé
+                         
+                    </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="card-body" class="card-body p-0">
+                                
+                            </div>
+                            <!-- Modal footer -->
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-edic"
+                        data-bs-dismiss="modal">Fermer</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
     <script>
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -295,8 +352,41 @@
                 }).addTo(map);
 
                 const marker = L.marker([lat, long]).addTo(map)
-                    .bindPopup('<b>Votre position</b>').openPopup();
+                    .bindPopup('<b>Votre position</b>') //.openPopup();
 
+                function addMarker(lat, lng, msg) {
+                    var marker = L.marker([lat, lng])
+                    .addTo(map)
+                    .bindPopup(`
+                    <b>${msg}</b> <br />
+                    <botton class="btn btn-edic text-12 mt-2" data-bs-toggle="modal" data-bs-target="#detailModal">Voir +<botton>
+
+                    `);
+                }
+
+                // Événement clic sur un bouton de coordonnées
+                var btnCoords = document.querySelectorAll('.btn-coord');
+                btnCoords.forEach(function(btn) {
+                    
+                    btn.addEventListener('click', function() {
+                        var lat = this.getAttribute('data-lat');
+                        var lng = this.getAttribute('data-lng');
+                        var msg = this.getAttribute('data-msg')
+                        var desc = this.getAttribute('data-desc')
+                        var img = this.getAttribute('data-img')
+                        var content = document.getElementById('card-body')
+                        addMarker(lat, lng, msg);
+                        content.innerHTML = `
+                            <h2>${msg}</h2>
+                            <div>
+                                <img width="100%" src="${img}" alt="" />
+                            </div>
+                            <p>${desc}</p>
+                        `
+                    });
+                })
+
+               
                 /*const circle = L.circle([lat, long], {
                     color: 'red',
                     fillColor: '#f03',
@@ -312,9 +402,9 @@
 
 
                 const popup = L.popup()
-                    /*.setLatLng([lat, long])
-                    .setContent('I am a standalone popup.')
-                    .openOn(map);*/
+                /*.setLatLng([lat, long])
+                .setContent('I am a standalone popup.')
+                .openOn(map);*/
 
                 function onMapClick(e) {
                     popup
@@ -323,6 +413,25 @@
                 <span class="fw-bold">Vous avez cliqué sur la carte à ${e.latlng.toString()}<span> <br />
                 <botton class="btn btn-edic text-12 mt-2" data-bs-toggle="modal" data-bs-target="#problemeModal"><i class="fa-solid fa-location-dot"></i> Sélectionner<botton>
                 `).openOn(map);
+
+                    console.log(e)
+                    var localisation = document.getElementById("localisation");
+
+                    localisation.innerHTML = `<div id="localisation" class="form-group mt-3">
+                                        <label class="form-label fw-normal">
+                                            <span>Localisation du problème</span> <br />
+                                            <span class="fw-bold text-12 text-primary">Longitude: ${e.latlng.lng}</span> <br />
+                                            <span class="fw-bold text-12 text-primary">Latitude: ${e.latlng.lat}</span>
+                                        </label> <br />
+                                        <input id="lng" name="longitude" type="text" hidden>
+                                        <input id="lat" name="latitude" type="text" hidden>
+                                    <input id="lat" name="localisation" type="text" hidden>
+                                    </div>`
+                    var lng = document.getElementById("lng");
+                    var lat = document.getElementById("lat");
+
+                    lng.value = e.latlng.lng
+                    lat.value = e.latlng.lat
 
                     //var modal = document.getElementById("problemeModal");
                     //$(modal).modal('show');

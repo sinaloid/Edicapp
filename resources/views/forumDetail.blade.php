@@ -15,7 +15,7 @@
     <div class="row">
         <form class="col-10 col-md-8 col-lg-6 mx-auto mt-3" action="#">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Rechercher une actualité" />
+                <input type="text" class="form-control" placeholder="Rechercher..." />
                 <div class="input-group-append">
                     <input class="input-group-text mx-1 btn-edic" type="submit" value="Rechercher" />
                 </div>
@@ -64,7 +64,6 @@
                                 <option selected>Filtrer par date</option>
                                 <option value="volvo">Croissant</option>
                                 <option value="fiat">Décroissant</option>
-                                <option value="audi">Audi</option>
                             </select>
                         </div>
                         <div class="col-lg-6">
@@ -72,7 +71,6 @@
                                 <option selected>Filter par commune</option>
                                 <option value="volvo">Banfora</option>
                                 <option value="fiat">Ouagadougou</option>
-                                <option value="audi">Audi</option>
                             </select>
                         </div>
                     </form>
@@ -91,13 +89,13 @@
                                         <span class="" style="font-weight: bold"> {{isset($sujet)  ? $sujet->membre->nom : ''}}</span>
                                         
                                     </p>
-                                    <p class="text-sm txt-primary" style="font-weight: 500; font-size: 0.9rem">
+                                    <p class="text-sm txt-primary text-12" style="font-weight: 500; font-size: 0.9rem">
                                         {{isset($sujet->commune) ? 'Question pour la commune de ': null}}
                                         <span style="font-weight: bold">
                                             {{isset($sujet) ? $sujet->commune->commune_name : null}}
                                         </span>
                                     </p>
-                                    <span class="span-p"></span>
+                                    <span class="span-p1"></span>
                                     @php
                                         if(isset($sujet) ){
                                             echo $sujet->description;
@@ -135,7 +133,12 @@
                                             <span class="">le</span>
                                             <span class="">{{\Carbon\Carbon::parse($commentaire->created_at)->format('j F, Y')}}</span>
                                             <br><span class="">Par</span>
+                                            @if (auth()->user()->role == 'admin' || auth()->user()->role == 'verificateur' || auth()->user()->role == 'editeur')
+                                            <span class="" style="font-weight: bold">l'administrateur</span>
+                                            @else
                                             <span class="" style="font-weight: bold"> {{isset($commentaire)  ? $commentaire->membre->nom : ''}}</span>
+                                                
+                                            @endif
                                         </p>
                                         <p class="text-sm txt-primary" style="font-weight: 500; font-size: 0.9rem">
                                 

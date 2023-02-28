@@ -54,7 +54,7 @@
                                 <a class="nav-link @if (Route::currentRouteName() == 'forum.index')active @endif" href="{{ route('forum.index') }}">Forum</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if (Route::currentRouteName() == 'veilleCitoyenne')active @endif" href="{{ route('veilleCitoyenne') }}">Veille Citoyenne</a>
+                                <a class="nav-link @if (Route::currentRouteName() == 'veilleCitoyenne.index')active @endif" href="{{ route('veilleCitoyenne.index') }}">Veille Citoyenne</a>
                             </li>
 
                             @guest

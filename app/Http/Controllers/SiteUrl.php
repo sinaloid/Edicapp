@@ -27,6 +27,7 @@ use App\Models\Datas\Budget\Budget;
 use App\Models\Datas\Budget\Tables\{DepensFonct, DepensInvest, RecetFonct, RecetInvest};
 use App\Models\Datas\BudgetN\BudgetN;
 use App\Models\Datas\BudgetN\Tables\{DepensFonctN, DepensInvestN, RecetFonctN, RecetInvestN};
+use App\Models\Actualite;
 
 use PDF;
 use Excel;
@@ -109,13 +110,16 @@ class SiteUrl extends Controller
 
     public function actualites(){
 
-        return view('actualites');
+        $datas = Actualite::where('status', "activer")->orderBy('id', 'DESC')->get();
+
+        return view('actualites', compact('datas'));
         
     }
 
-    public function actualiteDetail(){
+    public function actualiteDetail($slug = ""){
 
-        return view('actualiteDetail');
+        $data = Actualite::where('slug', $slug)->first();
+        return view('actualiteDetail',compact('data'));
         
     }
 

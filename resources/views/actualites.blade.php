@@ -23,31 +23,26 @@
         </form>
     </div>
     <div class="row"></div>
-    @php
-    $datas = [1,2,3,4,1,2,3,4,1,1];
-
-    @endphp
+    
     <div class="row mb-5">
         <div class="col-12 col-md-10 col-lg-9 mx-auto d-flex flex-wrap">
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-6 row-cols-lg-3 g-1">
-                    @foreach ($datas as $item)
+                    @foreach ($datas as $data)
                         <div class="col mt-3">
                             <div class="card mx-auto">
                                 <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Img Card" /-->
-                                <img src="{{asset('img/ouaga.jpg')}}" alt="Img Card" />
+                                <img src="{{$data->image}}" alt="Img Card" />
                                 <div class="card-body">
                                     <span class="card-detail">Commune</span>
-                                    <span class="card-detail">Ouagadougou</span>
+                                    <span class="card-detail">{{ $data->user()->first()->commune()->first()->commune_name}}</span>
                                     <div class="card-title">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        {{$data->titre}}
                                     </div>
                                     <p class="mb-2">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Consectetur sodales morbi dignissim sed diam pharetra vitae
-                                        ipsum odio.
+                                        {{$data->resumer}}
                                     </p>
-                                    <a href="{{ route('detail') }}" class="btn btn-sm btn-edic d-inline-block ml-auto">
+                                    <a href="{{ route('detail', $data['slug']) }}" class="btn btn-sm btn-edic d-inline-block ml-auto">
                                         Lire plus
                                     </a>
                                 </div>

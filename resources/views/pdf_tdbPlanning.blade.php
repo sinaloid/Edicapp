@@ -22,7 +22,7 @@
             <div class="col-xs-9  text-center text-edicp">
                 <br>
                 <br>
-                <p><span>E</span>space de <span>d</span>ialogue et d'<span>i</span>nterpretation
+                <p><span>E</span>space de <span>d</span>ialogue et d'<span>i</span>nterpellation
                     <span>c</span>ommunautaire
                 </p>
                 <p>Bilan d'action {{ isset($dataCommune) ? $dataCommune['annee'] : '' }} de la commune</p>

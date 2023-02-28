@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\{Countries\Country, Region, Province, Commune};
+use App\Models\Countries\{Country, Region, Province, Commune};
 
 use Laravel\Passport\HasApiTokens;
 class User extends Authenticatable /*implements MustVerifyEmail*/
@@ -68,5 +68,10 @@ class User extends Authenticatable /*implements MustVerifyEmail*/
     public function data() {
 
         return $this->hasMany(Data::class);
+    }
+
+    public function actualites() {
+
+        return $this->hasMany(Actualite::class);
     }
 }

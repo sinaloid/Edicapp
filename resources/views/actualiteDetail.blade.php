@@ -6,8 +6,7 @@
 
     <div class="row">
         <div class="col-12 col-md-10 col-lg-8 mx-auto text-justify mt-4">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+            <h1>{{isset($data) ? $data->titre : ""}}</h1>
         </div>
         <div class="col-12 col-md-10 col-lg-8 mx-auto mt-2">
             <span><i class="fa-brands fa-facebook-square fa-2xl" style="color:#4267B2"></i></span>
@@ -17,49 +16,18 @@
             <span><i class="fa-solid fa-envelope fa-2xl" style="color:#666"></i></span>
         </div>
         <div class="col-12 col-md-10 col-lg-8 mx-auto mt-3">
-            <p class="p-0">Publié le: 15/04/2022 - 07:19</p>
+            <p class="p-0">Publié le: {{isset($data) ? $data->created_at : ""}}</p>
         </div>
     </div>
 
     <div class="row actualite">
         <div class="col-12 col-md-10 col-lg-8 mx-auto mt-1 ">
-            <img src="{{asset('img/ouaga.jpg')}}" alt="Los Angeles" width="1100" height="500">
+            <img src="/{{isset($data) ? $data->image : ""}}" alt="Los Angeles" width="1100" height="500">
             <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="image de l'actualité" /-->
-            <p class="p-0 mt-1 font-weight-bold">Publié par: Traoré Ali</p>
+            <p class="p-0 mt-1 font-weight-bold">Publié par: {{isset($data) ? $data->user()->first()->name : ""}}</p>
         </div>
         <div class="col-11 col-md-9 col-lg-7 mx-auto mt-1 text-justify">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Neque pharetra ultricies hac accumsan, egestas id ac luctus mi.
-                Blandit ut convallis et magna faucibus ac diam. Id dignissim
-                faucibus ac suspendisse ac. Eu, risus nunc neque amet.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Neque pharetra ultricies hac accumsan, egestas id ac luctus mi.
-                Blandit ut convallis et magna faucibus ac diam. Id dignissim
-                faucibus ac suspendisse ac. Eu, risus nunc neque amet.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Neque pharetra ultricies hac accumsan, egestas id ac luctus mi.
-                Blandit ut convallis et magna faucibus ac diam. Id dignissim
-                faucibus ac suspendisse ac. Eu, risus nunc neque amet.Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit.
-                Neque pharetra ultricies hac accumsan, egestas id ac luctus mi.
-                Blandit ut convallis et magna faucibus ac diam. Id dignissim
-                faucibus ac suspendisse ac. Eu, risus nunc neque amet.Lorem
-                ipsum dolor sit amet, consectetur adipiscing elit. Neque pharetra
-                ultricies hac accumsan, egestas id ac luctus mi. Blandit ut convallis
-                et magna faucibus ac diam. Id dignissim faucibus ac suspendisse ac.
-                Eu, risus nunc neque amet.Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Neque pharetra ultricies hac accumsan, egestas id ac
-                luctus mi. Blandit ut convallis et magna faucibus ac diam.
-                Id dignissim faucibus ac suspendisse ac. Eu, risus nunc neque amet.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Neque pharetra ultricies hac accumsan, egestas id ac luctus mi.
-                Blandit ut convallis et magna faucibus ac diam. Id dignissim faucibus
-                ac suspendisse ac. Eu, risus nunc neque amet.Lorem ipsum dolor
-                sit amet, consectetur adipiscing elit. Neque pharetra ultricies
-                hac accumsan, egestas id ac luctus mi. Blandit ut convallis et
-                magna faucibus ac diam. Id dignissim faucibus ac suspendisse ac.
-                Eu, risus nunc neque amet.
-            </p>
+            {!! isset($data) ? $data->description : "" !!}
         </div>
     </div>
 
