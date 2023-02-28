@@ -314,7 +314,11 @@
                                 communes du Burkina Faso
                             </p>
                             <h5 class=" pb-2">Essayez l'application mobile</h5>
-                            <a class="btn-market btn-google mb-2" href="{{asset('app/edic-municipalities.apk')}}" role="button">
+                            <!--a class="btn-market btn-google mb-2" href="{{asset('app/edic-municipalities.apk')}}" role="button">
+                                <img src={{ asset('assets/img/badge.png') }} alt="" width="136px"
+                                    loading="lazy" />
+                            </a-->
+                            <a class="btn-market btn-google mb-2" href="https://play.google.com/store/apps/details?id=edic.ounoid.dev" role="button">
                                 <img src={{ asset('assets/img/badge.png') }} alt="" width="136px"
                                     loading="lazy" />
                             </a>

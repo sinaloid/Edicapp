@@ -10,12 +10,11 @@
         <div class="col-12">
             <h1 class="title-bannier">Contactez Nous</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-1">
-                Des questions à poser ? Merci de ne pas hésiter à nous contacter directement. Notre équipe vous répondra par
-                la suite.
+                Avez-vous des questions ? N'hésitez pas à nous contacter directement. Notre équipe se fera un plaisir de vous répondre dans les plus brefs délais.
             </p>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-12 col-md-10 mx-auto">
             <div class="row">
                 @if (Session::has('success'))
@@ -26,7 +25,7 @@
                 <form class="col-md-7 order-2 order-md-1" action="{{ route('contact.store') }}" method="post">
                     @csrf
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6 mb-3">
                             <label for="nom" class="">Nom</label>
                             <input type="text" id="nom" name="nom" class="form-control">
                             <!-- Error -->
@@ -36,7 +35,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6 mb-3">
                             <label for="email" class="">Email</label>
                             <input type="text" id="email" name="email" class="form-control">
                             @if ($errors->has('email'))
@@ -45,7 +44,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12 mb-3">
                             <label for="numero" class="">Numero</label>
                             <input type="text" id="numero" name="numero" class="form-control">
                             @if ($errors->has('numero'))
@@ -56,7 +55,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-12 mb-3">
                             <label for="sujet" class="">Sujet</label>
                             <input type="text" id="sujet" name="sujet" class="form-control">
                             @if ($errors->has('sujet'))
@@ -67,7 +66,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-12 mb-3">
                             <label for="message">Message</label>
                             <textarea type="text" id="message" name="message" rows="4" class="form-control md-textarea"></textarea>
                             @if ($errors->has('message'))
