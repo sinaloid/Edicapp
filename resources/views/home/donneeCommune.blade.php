@@ -66,17 +66,40 @@
                                                 role="button">Editer</a>
 
 
-                                            <form action="{{ route('data.destroy', $data->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
-                                            </form>
+                                                <button data-bs-toggle="modal" data-bs-target="#deleteModal{{$data['id']}}"
+                                                class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
                                         @endif
                                     @endif
                                 </div>
                             </td>
                         </tr>
+                        <div class="modal" id="deleteModal{{$data['id']}}">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                    
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Suppression des données</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Êtes-vous sûr(e) de vouloir supprimer ces données ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="{{ route('data.destroy', $data->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
+                                        </form>
+                                        <button type="button" class="btn btn-edic"
+                                            data-bs-dismiss="modal">Annuler</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
                     @endforeach
                 </tbody>
             </table>

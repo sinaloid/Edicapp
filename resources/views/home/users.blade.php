@@ -45,25 +45,16 @@
                                             role="button">Activer</button>
 
 
-                                        <form action="{{ route('data.destroy', $data->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
-                                        </form>
+                                            <button data-bs-toggle="modal" data-bs-target="#deleteModal{{$data['id']}}"
+                                            class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
                                     @endif
                                     @if (isset($data->role))
                                         <a data-bs-toggle="modal" data-bs-target="#statusModal{{ $data['id'] }}"
                                             class="btn btn-warning font-weight-bold my-1 mx-1" role="button">Désactiver
                                         </a>
 
-
-                                        <form>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
+                                            <button data-bs-toggle="modal" data-bs-target="#deleteModal{{$data['id']}}"
                                                 class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
-                                        </form>
                                     @endif
                                 </div>
                             </td>
@@ -103,6 +94,34 @@
 
                                 </div>
 
+                            </div>
+                        </div>
+                        <div class="modal" id="deleteModal{{$data['id']}}">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                    
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Confirmation de suppression d'utilisateur</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Voulez-vous vraiment supprimer cet utilisateur ? 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form method="POST" action="{{route('delete.user')}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input name="id" value="{{$data['id']}}" hidden/>
+                                            <button type="submit"
+                                                class="btn btn-danger font-weight-bold text-white mx-1 my-1">Effacer</button>
+                                        </form>
+                                        <button type="button" class="btn btn-edic"
+                                            data-bs-dismiss="modal">Annuler</button>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                     @endforeach

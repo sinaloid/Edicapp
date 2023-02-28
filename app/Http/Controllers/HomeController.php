@@ -187,6 +187,19 @@ class HomeController extends Controller
         
     }
 
+    public function deleteUser(Request $request){
+        $personnel = User::where('id',$request->id);
+        $tmp = $personnel->first();
+        //dd($tmp);
+        if(isset($tmp) && Auth::user()->role == "admin"){
+            $personnel->delete();
+        }
+        //Session::flash('supprimer',"Les données ont bien été supprimées.")
+        //notify()->preset('delete');;
+        return back();
+
+    }
+
 
 
 
