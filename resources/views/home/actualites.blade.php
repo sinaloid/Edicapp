@@ -181,7 +181,7 @@
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button data-bs-dismiss="modal"
+                                    <button type="submit" data-bs-dismiss="modal"
                                         class="btn btn-edic mr-auto">Enregistrer</button>
                                     <button type="button" class="btn btn-danger"
                                         data-bs-dismiss="modal">Annuler</button>

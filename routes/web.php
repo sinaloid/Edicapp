@@ -28,6 +28,7 @@ Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/home/profile', [HomeController::class, 'profile'])->name('profile');
 Route::get('/home/users', [HomeController::class, 'allUser'])->name('users');
 Route::post('/home/users', [HomeController::class, 'createUser'])->name('create.user');
+Route::post('/home/profile/password', [HomeController::class, 'editPassword'])->name('edit.password');
 Route::delete('/home/users', [HomeController::class, 'deleteUser'])->name('delete.user');
 Route::post('/home/users/role', [HomeController::class, 'setRole'])->name('setRole');
 Route::get('/home/veilles', [HomeController::class, 'veilles'])->name('veilles');

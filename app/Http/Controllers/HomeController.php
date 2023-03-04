@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\Models\Datas\Data;
@@ -197,6 +199,39 @@ class HomeController extends Controller
         //Session::flash('supprimer',"Les données ont bien été supprimées.")
         //notify()->preset('delete');;
         return back();
+
+    }
+
+    public function editPassword(Request $request){
+
+        $input = $request->all();
+        $user = Auth::user();
+
+        $validator = Validator::make($input, [
+            'current_password' => ['required', 'string'],
+            'password' =>  [
+                'required',
+                'min:8',
+            ],
+            'comfirm_password' => 'required|same:password'  
+
+        ])->after(function ($validator) use ($user, $input) {
+            if (! isset($input['current_password']) || ! Hash::check($input['current_password'], $user->password)) {
+                $validator->errors()->add('current_password', __('Le mot de passe fourni ne correspond pas à votre mot de passe actuel.'));
+            }
+        });
+
+        if ($validator->fails())
+        {
+            return Redirect::to('home/profile')->withErrors($validator);
+        }
+        
+
+        $user->forceFill([
+            'password' => Hash::make($input['password']),
+        ])->save();
+
+        return redirect('/home/profile')->with('status', 'Le mot de passe a bien été modifié !');
 
     }
 
