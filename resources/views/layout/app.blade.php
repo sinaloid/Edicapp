@@ -18,6 +18,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VC320ES2GW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VC320ES2GW');
+    </script>
     @yield('script')
 </head>
 
@@ -40,30 +52,39 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link @if (Route::currentRouteName() == 'acceuil') active @endif" href="{{ route('acceuil') }}">Accueil</a>
+                                <a class="nav-link @if (Route::currentRouteName() == 'acceuil') active @endif"
+                                    href="{{ route('acceuil') }}">Accueil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link 
-                                @if (Route::currentRouteName() == 'datas.info' || Route::currentRouteName() == 'datas.pcd' || Route::currentRouteName() == 'datas.bg' || Route::currentRouteName() == 'datas.tdb')active @endif"
+                                @if (Route::currentRouteName() == 'datas.info' ||
+                                        Route::currentRouteName() == 'datas.pcd' ||
+                                        Route::currentRouteName() == 'datas.bg' ||
+                                        Route::currentRouteName() == 'datas.tdb') active @endif"
                                     href="{{ route('datas.info', isset($dataCommune) ? $dataCommune['slug'] : 'info_general') }}">Données</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if (Route::currentRouteName() == 'actualites' || Route::currentRouteName() == 'detail' )active @endif" href="{{ route('actualites') }}">Actualités</a>
+                                <a class="nav-link @if (Route::currentRouteName() == 'actualites' || Route::currentRouteName() == 'detail') active @endif"
+                                    href="{{ route('actualites') }}">Actualités</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if (Route::currentRouteName() == 'forum.index')active @endif" href="{{ route('forum.index') }}">Forum</a>
+                                <a class="nav-link @if (Route::currentRouteName() == 'forum.index') active @endif"
+                                    href="{{ route('forum.index') }}">Forum</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if (Route::currentRouteName() == 'veilleCitoyenne.index')active @endif" href="{{ route('veilleCitoyenne.index') }}">Veille Citoyenne</a>
+                                <a class="nav-link @if (Route::currentRouteName() == 'veilleCitoyenne.index') active @endif"
+                                    href="{{ route('veilleCitoyenne.index') }}">Veille Citoyenne</a>
                             </li>
 
                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link @if (Route::currentRouteName() == 'login')active @endif" href="{{ route('login') }}">{{ __('Connexion') }}</a>
+                                    <a class="nav-link @if (Route::currentRouteName() == 'login') active @endif"
+                                        href="{{ route('login') }}">{{ __('Connexion') }}</a>
                                 </li>
                             @else
                                 <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
-                                    <a class="nav-link @if (Route::currentRouteName() == 'home')active @endif" href="{{ route('home') }}">{{ __('Compte') }}</a>
+                                    <a class="nav-link @if (Route::currentRouteName() == 'home') active @endif"
+                                        href="{{ route('home') }}">{{ __('Compte') }}</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

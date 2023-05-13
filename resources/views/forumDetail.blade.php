@@ -133,8 +133,13 @@
                                             <span class="">le</span>
                                             <span class="">{{\Carbon\Carbon::parse($commentaire->created_at)->format('j F, Y')}}</span>
                                             <br><span class="">Par</span>
-                                            @if (auth()->user()->role == 'admin' || auth()->user()->role == 'verificateur' || auth()->user()->role == 'editeur')
-                                            <span class="" style="font-weight: bold">l'administrateur</span>
+                                            @php
+                                                $user = auth()->user();
+                                            @endphp
+                                            @if (isset($user))
+                                                @if (auth()->user()->role == 'admin' || auth()->user()->role == 'verificateur' || auth()->user()->role == 'editeur')
+                                                <span class="" style="font-weight: bold">l'administrateur</span>
+                                                @endif
                                             @else
                                             <span class="" style="font-weight: bold"> {{isset($commentaire)  ? $commentaire->membre->nom : ''}}</span>
                                                 
