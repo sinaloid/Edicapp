@@ -134,7 +134,7 @@
                         //dd($image->url);
                     @endphp
                         <div class="d-flex bg-white p-2 mb-2">
-                            <p class="me-2"><img width="80px" src="{{$data->medias()->first()->url}}" alt="" /></p>
+                            <p class="me-2"><img width="80px" src="{{$data->medias()->first() !== null ? $data->medias()->first()->url : ''}}" alt="Pas d'image disponible" /></p>
                             <div>
                                 <h3 class="text-14 btn-coord" data-msg="{{$data['resumer']}}" data-desc="{!!$data['description']!!}" data-img="{{$data->medias()->first()->url}}"
                                 data-lng="{{ $data['longitude'] }}" data-lat="{{ $data['latitude'] }}" style="cursor: pointer">{{ $data['resumer'] }}</h3>
