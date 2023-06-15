@@ -28,7 +28,7 @@
                             <td>
                                 <div class="btn-group">
                                     <button data-bs-toggle="modal" data-bs-target="#detailModal"
-                                        class="btn btn-info font-weight-bold my-1 mx-1 btn-coord" data-msg="{{$data['resumer']}}" data-desc="{!!$data['description']!!}" data-img="{{isset($data->medias()->first()) ? $data->medias()->first()->url : ""}}"
+                                        class="btn btn-info font-weight-bold my-1 mx-1 btn-coord" data-msg="{{$data['resumer']}}" data-desc="{!!$data['description']!!}" data-img="{{isset($data->medias()->first()) ? $data->medias()->first()->url : ''}}"
                                         data-lng="{{ $data['longitude'] }}" data-lat="{{ $data['latitude'] }}" style="cursor: pointer">Voir</button>
                                 @if (!isset($data->status))
                                     @if (auth()->user()->role == 'admin')
