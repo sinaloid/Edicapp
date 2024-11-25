@@ -84,10 +84,10 @@
                                     </h2>
                                     <p class="text-sm" style="font-weight: 400">
                                         <span class="">Publié</span>
-                                        <span class="">le {{ isset($sujet) ? \Carbon\Carbon::parse($sujet->created_at)->format('j F, Y') : ''}}</span> 
+                                        <span class="">le {{ isset($sujet) ? \Carbon\Carbon::parse($sujet->created_at)->format('j F, Y') : ''}}</span>
                                         <br> <span>Par </span>
                                         <span class="" style="font-weight: bold"> {{isset($sujet)  ? $sujet->membre->nom : ''}}</span>
-                                        
+
                                     </p>
                                     <p class="text-sm txt-primary text-12" style="font-weight: 500; font-size: 0.9rem">
                                         {{isset($sujet->commune) ? 'Question pour la commune de ': null}}
@@ -101,7 +101,7 @@
                                             echo $sujet->description;
                                         }
                                     @endphp
-                                    
+
                                 </div>
                                 <!--div class="col-md-5">
                                     <div class="row text-center" style="font-weight: 300">
@@ -127,7 +127,7 @@
                             @foreach ($commentaires as $commentaire)
                                 <div class="row  bg-white align-items-center mt-3 p-2">
                                     <div class="col-md-12 mb-1 mb-sm-0 border-radiuse-5">
-                                        
+
                                         <p class="text-sm" style="font-weight: 400">
                                             <span class="">Publié</span>
                                             <span class="">le</span>
@@ -142,12 +142,12 @@
                                                 @endif
                                             @else
                                             <span class="" style="font-weight: bold"> {{isset($commentaire)  ? $commentaire->membre->nom : ''}}</span>
-                                                
+
                                             @endif
                                         </p>
                                         <p class="text-sm txt-primary" style="font-weight: 500; font-size: 0.9rem">
-                                
-                                            
+
+
                                         </p>
                                         @php
                                           if(isset($commentaire)){
@@ -165,7 +165,7 @@
                             <form class="p-0" method="post" action="{{route('commenter')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body p-0">
-                
+
                                     <!--@csrf-->
                                     <div class="form-group mt-3">
                                         <input class="form-control w-100 px-3" name="nom" type="text"
@@ -175,7 +175,7 @@
                                         <input class="form-control w-100 px-3" name="email" type="text"
                                             placeholder="Veuillez entrer votre email">
                                     </div>
-                                    
+
                                     <div class="form-group my-3">
                                         <textarea id="comment" name="commentaire" class="ckeditor14 form-control"></textarea>
                                     </div>
@@ -192,11 +192,11 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
     </div>
-    
+
     <!-- The Modal -->
     <div class="modal" id="myModal">
         <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -235,7 +235,8 @@
                                             autocomplete="off">
                                     </div>
                                     <div class="form-group my-3">
-                                        <textarea id="editor" name="description" class="ckeditor14 form-control" name="editor"></textarea>
+                                        <textarea id="comment" class="ckeditor14 form-control" name="editor"></textarea>
+
                                     </div>
 
                                 </div>
@@ -248,22 +249,13 @@
                             </form>
                         </div>
                     </div>
-                    <script src="https://cdn.ckeditor.com/4.18.0/standard-all/ckeditor.js"></script>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            CKEDITOR.replace('editor', {
-                                extraPlugins: 'editorplaceholder',
-                                editorplaceholder: 'Veuillez entrer votre question',
-                                removeButtons: 'PasteFromWord'
+                    <script src="{{ asset('texteditor/build/texteditor.js') }}"></script>
+                    <script>
+                        ClassicEditor
+                            .create(document.querySelector('#comment'))
+                            .catch(error => {
+                                console.error(error);
                             });
-                            CKEDITOR.replace('comment', {
-                                extraPlugins: 'editorplaceholder',
-                                editorplaceholder: 'Veuillez entrer votre question',
-                                removeButtons: 'PasteFromWord'
-                            });
-
-
-                        });
                     </script>
                 </div>
 

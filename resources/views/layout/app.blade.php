@@ -56,7 +56,7 @@
                                     href="{{ route('acceuil') }}">Accueil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link 
+                                <a class="nav-link
                                 @if (Route::currentRouteName() == 'datas.info' ||
                                         Route::currentRouteName() == 'datas.pcd' ||
                                         Route::currentRouteName() == 'datas.bg' ||
@@ -71,9 +71,16 @@
                                 <a class="nav-link @if (Route::currentRouteName() == 'forum.index') active @endif"
                                     href="{{ route('forum.index') }}">Forum</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link @if (Route::currentRouteName() == 'veilleCitoyenne.index') active @endif"
-                                    href="{{ route('veilleCitoyenne.index') }}">Veille Citoyenne</a>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Veille Citoyenne
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('veilleCitoyenne.index') }}">{{ __('Public') }}</a>
+                                    <a class="dropdown-item" href="{{ route('veilleCitoyenne.preca') }}">{{ __('PRéCA') }}</a>
+                                </div>
                             </li>
 
                             @guest

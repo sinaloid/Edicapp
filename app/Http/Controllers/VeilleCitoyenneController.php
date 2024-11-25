@@ -62,7 +62,7 @@ class VeilleCitoyenneController extends Controller
         }
         //dd($request->all());
         return view('veilleSuccess');
-        
+
     }
 
     /**

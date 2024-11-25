@@ -28,6 +28,7 @@ use App\Models\Datas\Budget\Tables\{DepensFonct, DepensInvest, RecetFonct, Recet
 use App\Models\Datas\BudgetN\BudgetN;
 use App\Models\Datas\BudgetN\Tables\{DepensFonctN, DepensInvestN, RecetFonctN, RecetInvestN};
 use App\Models\Actualite;
+use App\Models\VeilleCitoyennePreca;
 
 use PDF;
 use Excel;
@@ -65,7 +66,7 @@ class SiteUrl extends Controller
      *
      * @return \Illuminate\Http\Response
      */
- 
+
      /*public function pdf(){
         $countries = Country::all();
         //$pdf = PDF::loadView('', compact('countries'));
@@ -76,7 +77,7 @@ class SiteUrl extends Controller
         //$pdf->save(public_path("storage/documents/edic.pdf"));
         return $pdf->download('edic.pdf');
      }*/
-    
+
     public function index(Request $request)
     {
         $commune = isset($request->commune) ? $request->commune : '';
@@ -113,27 +114,43 @@ class SiteUrl extends Controller
         $datas = Actualite::where('status', "activer")->orderBy('id', 'DESC')->get();
 
         return view('actualites', compact('datas'));
-        
+
     }
 
     public function actualiteDetail($slug = ""){
 
         $data = Actualite::where('slug', $slug)->first();
         return view('actualiteDetail',compact('data'));
-        
+
     }
 
-    
+    public function veilleCitoyennePreca() {
+
+        $datas = VeilleCitoyennePreca::where('status', "activer")->orderBy('id', 'DESC')->get();
+
+        //dd($datas);
+        return view('VeilleCitoyennePreca', compact('datas'));
+
+    }
+
+    public function veilleCitoyennePrecaDetail($slug = ""){
+
+        $data = VeilleCitoyennePreca::where('slug', $slug)->first();
+        return view('VeilleCitoyennePrecaDetail',compact('data'));
+
+    }
+
+
     public function datasInfo($slug = ''){
          $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
          if($data != null){
-            $dataCommune = $this->getDataCommune($data->id, 'datas.info'); 
+            $dataCommune = $this->getDataCommune($data->id, 'datas.info');
          }else{
-            $dataCommune = null; 
+            $dataCommune = null;
          }
         return view('pages.menu.minfo',compact('countries', 'dataCommune'));
-        
+
     }
 
     public function datasPcd($slug = ''){
@@ -143,10 +160,10 @@ class SiteUrl extends Controller
          if($data != null){
             $dataCommune = $this->getDataCommune($data->id, 'datas.pcd');
          }else{
-            $dataCommune = null; 
+            $dataCommune = null;
          }
         return view('pages.menu.mpcd',compact('countries', 'dataCommune'));
-        
+
     }
 
     public function datasBudget($slug = ''){
@@ -156,10 +173,10 @@ class SiteUrl extends Controller
          if($data != null){
             $dataCommune = $this->getDataCommune($data->id, 'budget');
          }else{
-            $dataCommune = null; 
+            $dataCommune = null;
          }
         return view('pages.menu.mbudget',compact('countries', 'dataCommune'));
-        
+
     }
 
     public function getBudget($slug = '') {
@@ -169,7 +186,7 @@ class SiteUrl extends Controller
          if($data != null){
             $dataCommune = $this->getDataCommune($data->id, 'budget');
          }else{
-            $dataCommune = null; 
+            $dataCommune = null;
          }
 
         return view('pages.includes.budget',compact('countries', 'dataCommune'));
@@ -182,7 +199,7 @@ class SiteUrl extends Controller
          if($data != null){
             $dataCommune = $this->getDataCommune($data->id, 'budgetn');
          }else{
-            $dataCommune = null; 
+            $dataCommune = null;
          }
 
         return view('pages.includes.budgetn',compact('countries', 'dataCommune'));
@@ -192,26 +209,26 @@ class SiteUrl extends Controller
         $countries = Country::all();
          $data = Data::where('slug',$slug)->first();
          if($slug === ''){
-            $data = Data::where('slug',$tdbType)->first();  
+            $data = Data::where('slug',$tdbType)->first();
          }
          //dd($data);
          if($data != null){
             $dataCommune = $this->getDataCommune($data->id, 'datas.tdb');
          }else{
-            $dataCommune = null; 
+            $dataCommune = null;
          }
 
          return view('pages.menu.mtdb',compact('countries', 'dataCommune'));
-         
-        
-        
+
+
+
     }
 
     public function Compare(){
 
         $countries = Country::all();
         return view('pages.compare', compact('countries'));
-        
+
     }
     public function datasCompare(Request $request){
 
@@ -253,7 +270,7 @@ class SiteUrl extends Controller
 
 
         return view('pages.viewData', compact('dataCompare','countries'));
-        
+
     }
 
     public function getDatasCompare($req){
@@ -277,7 +294,7 @@ class SiteUrl extends Controller
         //recette fonct
         if($request->id == "recetteFonct"){
 
-            
+
             $response['name'] = "Info G : Recettes de fonctionnement";
             if($request->slug1 != null){
                 $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->recettes()->pluck('annee');
@@ -320,7 +337,7 @@ class SiteUrl extends Controller
         //recette Invest
         if($request->id == "recetteInvest"){
 
-            
+
             $response['name'] = "Info G : Recettes d'investissement";
             if($request->slug1 != null){
                 $labels = Data::where('slug',$request->slug1)->first()->infogs()->first()->recettes()->pluck('annee');
@@ -459,7 +476,7 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->troismeilleurs()->pluck('attendu');
                 $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
@@ -467,7 +484,7 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->troismeilleurs()->pluck('attendu');
                 $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
@@ -475,7 +492,7 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->troismeilleurs()->pluck('attendu');
                 $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
                 $response['data4'] = $data4;
@@ -497,7 +514,7 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->troismeilleurs()->pluck('contribution');
                 $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
@@ -505,7 +522,7 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->troismeilleurs()->pluck('contribution');
                 $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
@@ -513,7 +530,7 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->troismeilleurs()->pluck('contribution');
                 $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
                 $response['data4'] = $data4;
@@ -537,7 +554,7 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->dixmeilleurs()->pluck('attendu');
                 $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
@@ -545,7 +562,7 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->dixmeilleurs()->pluck('attendu');
                 $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
@@ -553,7 +570,7 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->dixmeilleurs()->pluck('attendu');
                 $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
                 $response['data4'] = $data4;
@@ -577,7 +594,7 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $data2 = Data::where('slug',$request->slug2)->first()->infogs()->first()->dixmeilleurs()->pluck('mobilise');
                 $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
@@ -585,7 +602,7 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $data3 = Data::where('slug',$request->slug3)->first()->infogs()->first()->dixmeilleurs()->pluck('mobilise');
                 $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
@@ -593,7 +610,7 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $data4 = Data::where('slug',$request->slug4)->first()->infogs()->first()->dixmeilleurs()->pluck('mobilise');
                 $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
                 $response['data4'] = $data4;
@@ -604,7 +621,7 @@ class SiteUrl extends Controller
 
         // etat civil
         if($request->id == "etatCivil"){
-       
+
             $response['name'] = "Info G : Etat civil";
             $response['labels'] = ['naissances',
                 'actes de naissances',
@@ -629,7 +646,7 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->infogs()->first()->etatcivils()->first();
                 $data2 = [
@@ -645,7 +662,7 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->infogs()->first()->etatcivils()->first();
                 $data3 = [
@@ -661,7 +678,7 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->infogs()->first()->etatcivils()->first();
                 $data4 = [
                     $tmp->naissance_nombre,
@@ -679,7 +696,7 @@ class SiteUrl extends Controller
         }
         //situation Domaniale
         if($request->id == "situationDomaniale"){
- 
+
             $response['name'] = "Info G : Situation domaniale";
             $response['labels'] = ['Parcelles Dégagées',
                 'Parcelles attribuées',
@@ -687,88 +704,88 @@ class SiteUrl extends Controller
             ];
             if($request->slug1 != null){
 
-                
+
 
                 $tmp = Data::where('slug',$request->slug1)->first()->infogs()->first()->domainecivils()->first();
                 $data1 = [
-                     $tmp->zone_habitation_parcelle_degagee 
-                    + $tmp->zone_commerciale_parcelle_degagee 
-                    + $tmp->zone_administrative_parcelle_degagee 
+                     $tmp->zone_habitation_parcelle_degagee
+                    + $tmp->zone_commerciale_parcelle_degagee
+                    + $tmp->zone_administrative_parcelle_degagee
                     + $tmp->zone_autre_parcelle_degagee,
-                      $tmp->zone_habitation_parcelle_attribuee 
-                    + $tmp->zone_commerciale_parcelle_attribuee 
-                    + $tmp->zone_administrative_parcelle_attribuee 
+                      $tmp->zone_habitation_parcelle_attribuee
+                    + $tmp->zone_commerciale_parcelle_attribuee
+                    + $tmp->zone_administrative_parcelle_attribuee
                     + $tmp->zone_autre_parcelle_attribuee,
-                      $tmp->zone_habitation_parcelle_restante 
-                    + $tmp->zone_commerciale_parcelle_restante 
-                    + $tmp->zone_administrative_parcelle_restante 
-                    + $tmp->zone_autre_parcelle_restante 
-                  
+                      $tmp->zone_habitation_parcelle_restante
+                    + $tmp->zone_commerciale_parcelle_restante
+                    + $tmp->zone_administrative_parcelle_restante
+                    + $tmp->zone_autre_parcelle_restante
+
                 ];
                 $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
                 $response['data1'] = $data1;
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->infogs()->first()->domainecivils()->first();
                 $data2 = [
-                    $tmp->zone_habitation_parcelle_degagee 
-                   + $tmp->zone_commerciale_parcelle_degagee 
-                   + $tmp->zone_administrative_parcelle_degagee 
+                    $tmp->zone_habitation_parcelle_degagee
+                   + $tmp->zone_commerciale_parcelle_degagee
+                   + $tmp->zone_administrative_parcelle_degagee
                    + $tmp->zone_autre_parcelle_degagee,
-                     $tmp->zone_habitation_parcelle_attribuee 
-                   + $tmp->zone_commerciale_parcelle_attribuee 
-                   + $tmp->zone_administrative_parcelle_attribuee 
+                     $tmp->zone_habitation_parcelle_attribuee
+                   + $tmp->zone_commerciale_parcelle_attribuee
+                   + $tmp->zone_administrative_parcelle_attribuee
                    + $tmp->zone_autre_parcelle_attribuee,
-                     $tmp->zone_habitation_parcelle_restante 
-                   + $tmp->zone_commerciale_parcelle_restante 
-                   + $tmp->zone_administrative_parcelle_restante 
-                   + $tmp->zone_autre_parcelle_restante 
+                     $tmp->zone_habitation_parcelle_restante
+                   + $tmp->zone_commerciale_parcelle_restante
+                   + $tmp->zone_administrative_parcelle_restante
+                   + $tmp->zone_autre_parcelle_restante
                ];
                 $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
                 $response['data2'] = $data2;
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->infogs()->first()->domainecivils()->first();
                 $data3 = [
-                    $tmp->zone_habitation_parcelle_degagee 
-                   + $tmp->zone_commerciale_parcelle_degagee 
-                   + $tmp->zone_administrative_parcelle_degagee 
+                    $tmp->zone_habitation_parcelle_degagee
+                   + $tmp->zone_commerciale_parcelle_degagee
+                   + $tmp->zone_administrative_parcelle_degagee
                    + $tmp->zone_autre_parcelle_degagee,
-                     $tmp->zone_habitation_parcelle_attribuee 
-                   + $tmp->zone_commerciale_parcelle_attribuee 
-                   + $tmp->zone_administrative_parcelle_attribuee 
+                     $tmp->zone_habitation_parcelle_attribuee
+                   + $tmp->zone_commerciale_parcelle_attribuee
+                   + $tmp->zone_administrative_parcelle_attribuee
                    + $tmp->zone_autre_parcelle_attribuee,
-                     $tmp->zone_habitation_parcelle_restante 
-                   + $tmp->zone_commerciale_parcelle_restante 
-                   + $tmp->zone_administrative_parcelle_restante 
-                   + $tmp->zone_autre_parcelle_restante  
+                     $tmp->zone_habitation_parcelle_restante
+                   + $tmp->zone_commerciale_parcelle_restante
+                   + $tmp->zone_administrative_parcelle_restante
+                   + $tmp->zone_autre_parcelle_restante
                ];
                 $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
                 $response['data3'] = $data3;
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->infogs()->first()->domainecivils()->first();
                 $data4 = [
-                    $tmp->zone_habitation_parcelle_degagee 
-                   + $tmp->zone_commerciale_parcelle_degagee 
-                   + $tmp->zone_administrative_parcelle_degagee 
+                    $tmp->zone_habitation_parcelle_degagee
+                   + $tmp->zone_commerciale_parcelle_degagee
+                   + $tmp->zone_administrative_parcelle_degagee
                    + $tmp->zone_autre_parcelle_degagee,
-                     $tmp->zone_habitation_parcelle_attribuee 
-                   + $tmp->zone_commerciale_parcelle_attribuee 
-                   + $tmp->zone_administrative_parcelle_attribuee 
+                     $tmp->zone_habitation_parcelle_attribuee
+                   + $tmp->zone_commerciale_parcelle_attribuee
+                   + $tmp->zone_administrative_parcelle_attribuee
                    + $tmp->zone_autre_parcelle_attribuee,
-                     $tmp->zone_habitation_parcelle_restante 
-                   + $tmp->zone_commerciale_parcelle_restante 
-                   + $tmp->zone_administrative_parcelle_restante 
-                   + $tmp->zone_autre_parcelle_restante 
+                     $tmp->zone_habitation_parcelle_restante
+                   + $tmp->zone_commerciale_parcelle_restante
+                   + $tmp->zone_administrative_parcelle_restante
+                   + $tmp->zone_autre_parcelle_restante
                ];
                 $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
                 $response['data4'] = $data4;
@@ -776,11 +793,11 @@ class SiteUrl extends Controller
             }
             return response()->json($response);
         }
-        
+
         //Budget
         //recette invest
         if($request->id == "recetInves"){
- 
+
             $response['name'] = "Budget ".$request->annee." : Recettes d'investissement";
             $response['labels'] = ['Dotation globale',
                 'Subventions d’équipement',
@@ -793,11 +810,11 @@ class SiteUrl extends Controller
 
                 $tmp = Data::where('slug',$request->slug1)->first()->budgets()->first()->recetinvests()->first();
                 $data1 = [
-                    $tmp->dotation_globale, 
-                    $tmp->subvention_equipement, 
-                    $tmp->contribution_propre, 
+                    $tmp->dotation_globale,
+                    $tmp->subvention_equipement,
+                    $tmp->contribution_propre,
                     $tmp->dotation_liee,
-                    $tmp->resultat_exercice, 
+                    $tmp->resultat_exercice,
                     $tmp->autre_subvention,
                 ];
                 $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
@@ -805,15 +822,15 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->budgets()->first()->recetinvests()->first();
                 $data2 = [
-                    $tmp->dotation_globale, 
-                    $tmp->subvention_equipement, 
-                    $tmp->contribution_propre, 
+                    $tmp->dotation_globale,
+                    $tmp->subvention_equipement,
+                    $tmp->contribution_propre,
                     $tmp->dotation_liee,
-                    $tmp->resultat_exercice, 
+                    $tmp->resultat_exercice,
                     $tmp->autre_subvention,
                 ];
                 $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
@@ -821,15 +838,15 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->budgets()->first()->recetinvests()->first();
                 $data3 = [
-                    $tmp->dotation_globale, 
-                    $tmp->subvention_equipement, 
-                    $tmp->contribution_propre, 
+                    $tmp->dotation_globale,
+                    $tmp->subvention_equipement,
+                    $tmp->contribution_propre,
                     $tmp->dotation_liee,
-                    $tmp->resultat_exercice, 
+                    $tmp->resultat_exercice,
                     $tmp->autre_subvention,
                 ];
                 $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
@@ -837,14 +854,14 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->budgets()->first()->recetinvests()->first();
                 $data4 = [
-                    $tmp->dotation_globale, 
-                    $tmp->subvention_equipement, 
-                    $tmp->contribution_propre, 
+                    $tmp->dotation_globale,
+                    $tmp->subvention_equipement,
+                    $tmp->contribution_propre,
                     $tmp->dotation_liee,
-                    $tmp->resultat_exercice, 
+                    $tmp->resultat_exercice,
                     $tmp->autre_subvention,
                 ];
                 $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
@@ -856,7 +873,7 @@ class SiteUrl extends Controller
 
         //recette fonct
         if($request->id == "recetFonct"){
- 
+
             $response['name'] = "Budget ".$request->annee." : Recettes de fonctionnement";
             $response['labels'] = ['Produits de l’exploitation',
                 'Produits domaniaux',
@@ -874,11 +891,11 @@ class SiteUrl extends Controller
 
                 $tmp = Data::where('slug',$request->slug1)->first()->budgets()->first()->recetfoncts()->first();
                 $data1 = [
-                    $tmp->produit_exploitation, 
-                    $tmp->produit_domaniaux, 
-                    $tmp->produit_financier, 
+                    $tmp->produit_exploitation,
+                    $tmp->produit_domaniaux,
+                    $tmp->produit_financier,
                     $tmp->recouvrement,
-                    $tmp->produit_diver, 
+                    $tmp->produit_diver,
                     $tmp->impots_taxe_c_direct,
                     $tmp->impots_taxe_indirect,
                     $tmp->produit_exceptionnel,
@@ -890,15 +907,15 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->budgets()->first()->recetfoncts()->first();
                 $data2 = [
-                    $tmp->produit_exploitation, 
-                    $tmp->produit_domaniaux, 
-                    $tmp->produit_financier, 
+                    $tmp->produit_exploitation,
+                    $tmp->produit_domaniaux,
+                    $tmp->produit_financier,
                     $tmp->recouvrement,
-                    $tmp->produit_diver, 
+                    $tmp->produit_diver,
                     $tmp->impots_taxe_c_direct,
                     $tmp->impots_taxe_indirect,
                     $tmp->produit_exceptionnel,
@@ -910,15 +927,15 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->budgets()->first()->recetfoncts()->first();
                 $data3 = [
-                    $tmp->produit_exploitation, 
-                    $tmp->produit_domaniaux, 
-                    $tmp->produit_financier, 
+                    $tmp->produit_exploitation,
+                    $tmp->produit_domaniaux,
+                    $tmp->produit_financier,
                     $tmp->recouvrement,
-                    $tmp->produit_diver, 
+                    $tmp->produit_diver,
                     $tmp->impots_taxe_c_direct,
                     $tmp->impots_taxe_indirect,
                     $tmp->produit_exceptionnel,
@@ -930,14 +947,14 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->budgets()->first()->recetfoncts()->first();
                 $data4 = [
-                    $tmp->produit_exploitation, 
-                    $tmp->produit_domaniaux, 
-                    $tmp->produit_financier, 
+                    $tmp->produit_exploitation,
+                    $tmp->produit_domaniaux,
+                    $tmp->produit_financier,
                     $tmp->recouvrement,
-                    $tmp->produit_diver, 
+                    $tmp->produit_diver,
                     $tmp->impots_taxe_c_direct,
                     $tmp->impots_taxe_indirect,
                     $tmp->produit_exceptionnel,
@@ -950,10 +967,10 @@ class SiteUrl extends Controller
             }
             return response()->json($response);
         }
-        
+
         //depense invest
         if($request->id == "depensInvest"){
- 
+
             $response['name'] = "Budget ".$request->annee." : Dépenses d'investissement";
             $response['labels'] = ['Études & Recherches',
                 'Environnement',
@@ -964,14 +981,14 @@ class SiteUrl extends Controller
             ];
 
             if($request->slug1 != null){
-          
+
                 $tmp = Data::where('slug',$request->slug1)->first()->budgets()->first()->depensInvests()->first();
                 $data1 = [
-                    $tmp->etude_recherche, 
-                    $tmp->environnement, 
-                    $tmp->equipement, 
+                    $tmp->etude_recherche,
+                    $tmp->environnement,
+                    $tmp->equipement,
                     $tmp->batiment,
-                    $tmp->emprunt, 
+                    $tmp->emprunt,
                     $tmp->autre_investissement,
                     $tmp->deficit_excedent,
                 ];
@@ -980,15 +997,15 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->budgets()->first()->depensInvests()->first();
                 $data2 = [
-                    $tmp->etude_recherche, 
-                    $tmp->environnement, 
-                    $tmp->equipement, 
+                    $tmp->etude_recherche,
+                    $tmp->environnement,
+                    $tmp->equipement,
                     $tmp->batiment,
-                    $tmp->emprunt, 
+                    $tmp->emprunt,
                     $tmp->autre_investissement,
                     $tmp->deficit_excedent,
                 ];
@@ -997,15 +1014,15 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->budgets()->first()->depensInvests()->first();
                 $data3 = [
-                    $tmp->etude_recherche, 
-                    $tmp->environnement, 
-                    $tmp->equipement, 
+                    $tmp->etude_recherche,
+                    $tmp->environnement,
+                    $tmp->equipement,
                     $tmp->batiment,
-                    $tmp->emprunt, 
+                    $tmp->emprunt,
                     $tmp->autre_investissement,
                     $tmp->deficit_excedent,
                 ];
@@ -1014,14 +1031,14 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->budgets()->first()->depensInvests()->first();
                 $data4 = [
-                    $tmp->etude_recherche, 
-                    $tmp->environnement, 
-                    $tmp->equipement, 
+                    $tmp->etude_recherche,
+                    $tmp->environnement,
+                    $tmp->equipement,
                     $tmp->batiment,
-                    $tmp->emprunt, 
+                    $tmp->emprunt,
                     $tmp->autre_investissement,
                     $tmp->deficit_excedent,
                 ];
@@ -1034,7 +1051,7 @@ class SiteUrl extends Controller
 
         //Depense fonct
         if($request->id == "depensFonct"){
- 
+
             $response['name'] = "Budget ".$request->annee." : Dépenses de fonctionnement";
             $response['labels'] = ['Santé',
                 'Appui scolaire',
@@ -1050,14 +1067,14 @@ class SiteUrl extends Controller
             ];
 
             if($request->slug1 != null){
-               
+
                 $tmp = Data::where('slug',$request->slug1)->first()->budgets()->first()->depensFoncts()->first();
                 $data1 = [
-                    $tmp->sante, 
-                    $tmp->appui_scolaire, 
-                    $tmp->sport_culture, 
+                    $tmp->sante,
+                    $tmp->appui_scolaire,
+                    $tmp->sport_culture,
                     $tmp->participation,
-                    $tmp->frais_financier, 
+                    $tmp->frais_financier,
                     $tmp->refection_entretien,
                     $tmp->salaire_indemnite,
                     $tmp->entretien_vehicule,
@@ -1070,15 +1087,15 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->budgets()->first()->depensFoncts()->first();
                 $data2 = [
-                    $tmp->sante, 
-                    $tmp->appui_scolaire, 
-                    $tmp->sport_culture, 
+                    $tmp->sante,
+                    $tmp->appui_scolaire,
+                    $tmp->sport_culture,
                     $tmp->participation,
-                    $tmp->frais_financier, 
+                    $tmp->frais_financier,
                     $tmp->refection_entretien,
                     $tmp->salaire_indemnite,
                     $tmp->entretien_vehicule,
@@ -1091,15 +1108,15 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->budgets()->first()->depensFoncts()->first();
                 $data3 = [
-                    $tmp->sante, 
-                    $tmp->appui_scolaire, 
-                    $tmp->sport_culture, 
+                    $tmp->sante,
+                    $tmp->appui_scolaire,
+                    $tmp->sport_culture,
                     $tmp->participation,
-                    $tmp->frais_financier, 
+                    $tmp->frais_financier,
                     $tmp->refection_entretien,
                     $tmp->salaire_indemnite,
                     $tmp->entretien_vehicule,
@@ -1112,14 +1129,14 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->budgets()->first()->depensFoncts()->first();
                 $data4 = [
-                    $tmp->sante, 
-                    $tmp->appui_scolaire, 
-                    $tmp->sport_culture, 
+                    $tmp->sante,
+                    $tmp->appui_scolaire,
+                    $tmp->sport_culture,
                     $tmp->participation,
-                    $tmp->frais_financier, 
+                    $tmp->frais_financier,
                     $tmp->refection_entretien,
                     $tmp->salaire_indemnite,
                     $tmp->entretien_vehicule,
@@ -1137,7 +1154,7 @@ class SiteUrl extends Controller
         //Budget n+
         //recette invest
         if($request->id == "recetInvestn"){
- 
+
             $response['name'] = "Budget n+ (".($request->annee + 1).") : Recettes d'investissement";
             $response['labels'] = ['Dotation globale',
                 'Subventions d’équipement',
@@ -1150,11 +1167,11 @@ class SiteUrl extends Controller
 
                 $tmp = Data::where('slug',$request->slug1)->first()->budgetns()->first()->recetinvestns()->first();
                 $data1 = [
-                    $tmp->dotation_globale, 
-                    $tmp->subvention_equipement, 
-                    $tmp->contribution_propre, 
+                    $tmp->dotation_globale,
+                    $tmp->subvention_equipement,
+                    $tmp->contribution_propre,
                     $tmp->dotation_liee,
-                    $tmp->resultat_exercice, 
+                    $tmp->resultat_exercice,
                     $tmp->autre_subvention,
                 ];
                 $commune_1 = Data::where('slug',$request->slug1)->first()->commune()->first()->commune_name;
@@ -1162,15 +1179,15 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->budgetns()->first()->recetinvestns()->first();
                 $data2 = [
-                    $tmp->dotation_globale, 
-                    $tmp->subvention_equipement, 
-                    $tmp->contribution_propre, 
+                    $tmp->dotation_globale,
+                    $tmp->subvention_equipement,
+                    $tmp->contribution_propre,
                     $tmp->dotation_liee,
-                    $tmp->resultat_exercice, 
+                    $tmp->resultat_exercice,
                     $tmp->autre_subvention,
                 ];
                 $commune_2 = Data::where('slug',$request->slug2)->first()->commune()->first()->commune_name;
@@ -1178,15 +1195,15 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->budgetns()->first()->recetinvestns()->first();
                 $data3 = [
-                    $tmp->dotation_globale, 
-                    $tmp->subvention_equipement, 
-                    $tmp->contribution_propre, 
+                    $tmp->dotation_globale,
+                    $tmp->subvention_equipement,
+                    $tmp->contribution_propre,
                     $tmp->dotation_liee,
-                    $tmp->resultat_exercice, 
+                    $tmp->resultat_exercice,
                     $tmp->autre_subvention,
                 ];
                 $commune_3 = Data::where('slug',$request->slug3)->first()->commune()->first()->commune_name;
@@ -1194,14 +1211,14 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->budgetns()->first()->recetinvestns()->first();
                 $data4 = [
-                    $tmp->dotation_globale, 
-                    $tmp->subvention_equipement, 
-                    $tmp->contribution_propre, 
+                    $tmp->dotation_globale,
+                    $tmp->subvention_equipement,
+                    $tmp->contribution_propre,
                     $tmp->dotation_liee,
-                    $tmp->resultat_exercice, 
+                    $tmp->resultat_exercice,
                     $tmp->autre_subvention,
                 ];
                 $commune_4 = Data::where('slug',$request->slug4)->first()->commune()->first()->commune_name;
@@ -1213,7 +1230,7 @@ class SiteUrl extends Controller
 
         //recette fonct
         if($request->id == "recetFonctn"){
- 
+
             $response['name'] = "Budget n+ (".($request->annee + 1).") : Recettes de fonctionnement";
             $response['labels'] = ['Produits de l’exploitation',
                 'Produits domaniaux',
@@ -1231,11 +1248,11 @@ class SiteUrl extends Controller
 
                 $tmp = Data::where('slug',$request->slug1)->first()->budgetns()->first()->recetfonctns()->first();
                 $data1 = [
-                    $tmp->produit_exploitation, 
-                    $tmp->produit_domaniaux, 
-                    $tmp->produit_financier, 
+                    $tmp->produit_exploitation,
+                    $tmp->produit_domaniaux,
+                    $tmp->produit_financier,
                     $tmp->recouvrement,
-                    $tmp->produit_diver, 
+                    $tmp->produit_diver,
                     $tmp->impots_taxe_c_direct,
                     $tmp->impots_taxe_indirect,
                     $tmp->produit_exceptionnel,
@@ -1247,15 +1264,15 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->budgetns()->first()->recetfonctns()->first();
                 $data2 = [
-                    $tmp->produit_exploitation, 
-                    $tmp->produit_domaniaux, 
-                    $tmp->produit_financier, 
+                    $tmp->produit_exploitation,
+                    $tmp->produit_domaniaux,
+                    $tmp->produit_financier,
                     $tmp->recouvrement,
-                    $tmp->produit_diver, 
+                    $tmp->produit_diver,
                     $tmp->impots_taxe_c_direct,
                     $tmp->impots_taxe_indirect,
                     $tmp->produit_exceptionnel,
@@ -1267,15 +1284,15 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->budgetns()->first()->recetfonctns()->first();
                 $data3 = [
-                    $tmp->produit_exploitation, 
-                    $tmp->produit_domaniaux, 
-                    $tmp->produit_financier, 
+                    $tmp->produit_exploitation,
+                    $tmp->produit_domaniaux,
+                    $tmp->produit_financier,
                     $tmp->recouvrement,
-                    $tmp->produit_diver, 
+                    $tmp->produit_diver,
                     $tmp->impots_taxe_c_direct,
                     $tmp->impots_taxe_indirect,
                     $tmp->produit_exceptionnel,
@@ -1287,14 +1304,14 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->budgetns()->first()->recetfonctns()->first();
                 $data4 = [
-                    $tmp->produit_exploitation, 
-                    $tmp->produit_domaniaux, 
-                    $tmp->produit_financier, 
+                    $tmp->produit_exploitation,
+                    $tmp->produit_domaniaux,
+                    $tmp->produit_financier,
                     $tmp->recouvrement,
-                    $tmp->produit_diver, 
+                    $tmp->produit_diver,
                     $tmp->impots_taxe_c_direct,
                     $tmp->impots_taxe_indirect,
                     $tmp->produit_exceptionnel,
@@ -1307,10 +1324,10 @@ class SiteUrl extends Controller
             }
             return response()->json($response);
         }
-        
+
         //depense invest
         if($request->id == "depensInvestn"){
- 
+
             $response['name'] = "Budget n+ (".($request->annee + 1).") : Dépenses de d'investissement";
             $response['labels'] = ['Études & Recherches',
                 'Environnement',
@@ -1321,14 +1338,14 @@ class SiteUrl extends Controller
             ];
 
             if($request->slug1 != null){
-          
+
                 $tmp = Data::where('slug',$request->slug1)->first()->budgetns()->first()->depensInvestns()->first();
                 $data1 = [
-                    $tmp->etude_recherche, 
-                    $tmp->environnement, 
-                    $tmp->equipement, 
+                    $tmp->etude_recherche,
+                    $tmp->environnement,
+                    $tmp->equipement,
                     $tmp->batiment,
-                    $tmp->emprunt, 
+                    $tmp->emprunt,
                     $tmp->autre_investissement,
                    // $tmp->deficit_excedent,
                 ];
@@ -1337,15 +1354,15 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->budgetns()->first()->depensInvestns()->first();
                 $data2 = [
-                    $tmp->etude_recherche, 
-                    $tmp->environnement, 
-                    $tmp->equipement, 
+                    $tmp->etude_recherche,
+                    $tmp->environnement,
+                    $tmp->equipement,
                     $tmp->batiment,
-                    $tmp->emprunt, 
+                    $tmp->emprunt,
                     $tmp->autre_investissement,
                     //$tmp->deficit_excedent,
                 ];
@@ -1354,15 +1371,15 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->budgetns()->first()->depensInvestns()->first();
                 $data3 = [
-                    $tmp->etude_recherche, 
-                    $tmp->environnement, 
-                    $tmp->equipement, 
+                    $tmp->etude_recherche,
+                    $tmp->environnement,
+                    $tmp->equipement,
                     $tmp->batiment,
-                    $tmp->emprunt, 
+                    $tmp->emprunt,
                     $tmp->autre_investissement,
                     //$tmp->deficit_excedent,
                 ];
@@ -1371,14 +1388,14 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->budgetns()->first()->depensInvestns()->first();
                 $data4 = [
-                    $tmp->etude_recherche, 
-                    $tmp->environnement, 
-                    $tmp->equipement, 
+                    $tmp->etude_recherche,
+                    $tmp->environnement,
+                    $tmp->equipement,
                     $tmp->batiment,
-                    $tmp->emprunt, 
+                    $tmp->emprunt,
                     $tmp->autre_investissement,
                     //$tmp->deficit_excedent,
                 ];
@@ -1391,7 +1408,7 @@ class SiteUrl extends Controller
 
         //Depense fonct
         if($request->id == "depensFonctn"){
- 
+
             $response['name'] = "Budget n+ (".($request->annee + 1).") : Dépenses de fonctionnement";
             $response['labels'] = ['Santé',
                 'Appui scolaire',
@@ -1408,15 +1425,15 @@ class SiteUrl extends Controller
             ];
 
             if($request->slug1 != null){
-                
+
                 $tmp = Data::where('slug',$request->slug1)->first()->budgetns()->first()->depensFonctns()->first();
                 $data1 = [
-                    $tmp->sante, 
-                    $tmp->appui_scolaire, 
-                    $tmp->sport_culture, 
-                    $tmp->eau_assainissement, 
+                    $tmp->sante,
+                    $tmp->appui_scolaire,
+                    $tmp->sport_culture,
+                    $tmp->eau_assainissement,
                     $tmp->participation,
-                    $tmp->frais_financier, 
+                    $tmp->frais_financier,
                     $tmp->refection_entretien,
                     $tmp->salaire_indemnite,
                     $tmp->entretien_vehicule,
@@ -1429,16 +1446,16 @@ class SiteUrl extends Controller
                 $response['commune_1'] = $commune_1;
             }
             if($request->slug2 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug2)->first()->budgetns()->first()->depensFonctns()->first();
                 $data2 = [
-                    $tmp->sante, 
-                    $tmp->appui_scolaire, 
-                    $tmp->sport_culture, 
-                    $tmp->eau_assainissement, 
+                    $tmp->sante,
+                    $tmp->appui_scolaire,
+                    $tmp->sport_culture,
+                    $tmp->eau_assainissement,
                     $tmp->participation,
-                    $tmp->frais_financier, 
+                    $tmp->frais_financier,
                     $tmp->refection_entretien,
                     $tmp->salaire_indemnite,
                     $tmp->entretien_vehicule,
@@ -1451,16 +1468,16 @@ class SiteUrl extends Controller
                 $response['commune_2'] = $commune_2;
             }
             if($request->slug3 != null){
-                 
+
 
                 $tmp = Data::where('slug',$request->slug3)->first()->budgetns()->first()->depensFonctns()->first();
                 $data3 = [
-                    $tmp->sante, 
-                    $tmp->appui_scolaire, 
-                    $tmp->sport_culture, 
-                    $tmp->eau_assainissement, 
+                    $tmp->sante,
+                    $tmp->appui_scolaire,
+                    $tmp->sport_culture,
+                    $tmp->eau_assainissement,
                     $tmp->participation,
-                    $tmp->frais_financier, 
+                    $tmp->frais_financier,
                     $tmp->refection_entretien,
                     $tmp->salaire_indemnite,
                     $tmp->entretien_vehicule,
@@ -1473,15 +1490,15 @@ class SiteUrl extends Controller
                 $response['commune_3'] = $commune_3;
             }
             if($request->slug4 != null){
-                 
+
                 $tmp = Data::where('slug',$request->slug4)->first()->budgetns()->first()->depensFonctns()->first();
                 $data4 = [
-                    $tmp->sante, 
-                    $tmp->appui_scolaire, 
-                    $tmp->sport_culture, 
-                    $tmp->eau_assainissement, 
+                    $tmp->sante,
+                    $tmp->appui_scolaire,
+                    $tmp->sport_culture,
+                    $tmp->eau_assainissement,
                     $tmp->participation,
-                    $tmp->frais_financier, 
+                    $tmp->frais_financier,
                     $tmp->refection_entretien,
                     $tmp->salaire_indemnite,
                     $tmp->entretien_vehicule,
@@ -1495,7 +1512,7 @@ class SiteUrl extends Controller
             }
             return response()->json($response);
         }
-        
+
         //$slug1 = 'ok good, slug1: '.$request->slug1;
 
         //return response()->json($slug1);
@@ -1504,56 +1521,56 @@ class SiteUrl extends Controller
     public function login(){
 
         return view('pages.login');
-        
+
     }
 
     public function signup(){
 
         return view('pages.signup');
-        
+
     }
 
     public function contact(){
 
         return view('pages.contact');
-        
+
     }
-    
+
     public function about(){
 
         return view('pages.about');
-        
+
     }
 
     public function getCountryRegion($country_id){
-        
+
         $regions = Country::find($country_id)->regions()->pluck('region_name','id');
         return response()->json($regions);
     }
 
     public function getCountryRegionProvince($region_id){
-        
+
         $provinces = Region::find($region_id)->provinces()->pluck('province_name','id');
         return response()->json($provinces);
     }
 
     public function getCountryRegionProvinceCommune($province_id){
-        
+
         $communes = Province::find($province_id)->communes()->pluck('commune_name','id');
-        
+
         return response()->json($communes);
     }
 
     public function getCommune(Request $request){
-        
-        
+
+
         $query = $request->get('query');
           $filterResult = Commune::where('commune_name', 'LIKE', '%'. $query. '%')->get('commune_name');
           return response()->json($filterResult);
     }
 
     public function makePdf(Request $request){
-       
+
         if(str_contains($request->hidden_url, 'planning')){
             $data = [
                 "hidden_pcd" => $request->hidden_pcd,
@@ -1593,13 +1610,13 @@ class SiteUrl extends Controller
                 "hidden_bg_depens_invest" => $request->hidden_bg_depens_invest,
             ];
         }
-        
+
         $input_data = Data::where('slug',$request->slug)->first();
          //dd($data);
          if($input_data != null){
             $dataCommune = $this->getDataCommune($input_data->id, 'datas.tdb');
          }else{
-            $dataCommune = null; 
+            $dataCommune = null;
          }
 
         //dd($data);
@@ -1607,7 +1624,7 @@ class SiteUrl extends Controller
         $file_name = 'google_chart.pdf';
         $qrcode = QrCode::size(200)->generate($request->hidden_url);
         //dd($qrcode);
-        
+
         //$dataCommune = null;
         if(str_contains($request->hidden_url, 'planning')){
             $pdf =  PDF::loadView('pdf_tdbPlanning', compact('data','dataCommune', 'qrcode'))->setPaper('a1')->setOrientation('landscape');
@@ -1616,7 +1633,7 @@ class SiteUrl extends Controller
         }else {
             $pdf =  PDF::loadView('pdf_tdbBilan', compact('data','dataCommune', 'qrcode'))->setPaper('a1')->setOrientation('landscape');
         }
-        
+
         $pdf->setOption('lowquality', true);
         $pdf->setOption('dpi', 600);
         $pdf->setOption('image-quality', 1200);
@@ -1652,14 +1669,14 @@ class SiteUrl extends Controller
             return Excel::download(new InvoicesExport($routeOrigin, $slug), 'donnee.xlsx', \Maatwebsite\Excel\Excel::XLSX);
         }
 
-        
+
 
     }
 
     public function test()
     {
         /*Pays*/
-            
+
             $countries = ["Burkina Faso"];
             $this->countryConfig($countries, 226, 1);
 
@@ -1852,7 +1869,7 @@ class SiteUrl extends Controller
 
             $Ioba = ["Dano","Dissin","Guéguéré","Koper","Niégo","Oronkua","Ouessa","Zambo"];
             $this->countryConfig($Ioba, 43, 4);
-            
+
             $Noumbiel = ["Batié","Boussoukoula","Kpuéré","Legmoin","Midébdo"];
             $this->countryConfig($Noumbiel, 44, 4);
 
@@ -1861,10 +1878,10 @@ class SiteUrl extends Controller
 
 
 
-        
-        
-        
-        
+
+
+
+
        /* $data = new GData();
         $data->id_data = 21;
         $data->slug = "str";
@@ -1882,7 +1899,7 @@ class SiteUrl extends Controller
         $budgetn->depenseFonctN = 25555;
         $budgetn->recetFonctN = 25555;
 
-       
+
 
         $infog = new GInfog();
         $infog->depense = 55555;
@@ -1895,12 +1912,12 @@ class SiteUrl extends Controller
         $infog->recette = 55555;
         $infog->ressourceImage = 55555;
         $infog->troisMeilleur = 55555;
-        
+
         $data->infog = $infog;
         $data->budget = $budget;
         $data->budgetn = $budgetn;
         $JsonObject = json_encode($data);
-        
+
         dd(
             $JsonObject
         );*/
@@ -1918,7 +1935,7 @@ class SiteUrl extends Controller
 
     }
 
-    
+
 
     public function countryConfig($names, $id, $table){
         if($table == 1 ){
@@ -1959,7 +1976,7 @@ class SiteUrl extends Controller
                 "commune" => Data::find($data_id)->commune->commune_name,
                 "annee" => Data::find($data_id)->annee,
                 "slug" => Data::find($data_id)->slug,
-    
+
                     "recette" => Data::find($data_id)->infogs()->first()->recettes()->get(),
                     "depense" => Data::find($data_id)->infogs()->first()->depenses()->get(),
                     "dixMeilleur" => Data::find($data_id)->infogs()->first()->dixMeilleurs()->get(),
@@ -1981,7 +1998,7 @@ class SiteUrl extends Controller
                 "commune" => Data::find($data_id)->commune->commune_name,
                 "annee" => Data::find($data_id)->annee,
                 "slug" => Data::find($data_id)->slug,
-    
+
                     "appreciation" => Data::find($data_id)->pcds()->first()->appreciations()->first(),
                     "satisfaction" => Data::find($data_id)->pcds()->first()->satisfactions()->first()
             ];
@@ -1997,8 +2014,8 @@ class SiteUrl extends Controller
                 "commune" => Data::find($data_id)->commune->commune_name,
                 "annee" => Data::find($data_id)->annee,
                 "slug" => Data::find($data_id)->slug,
-    
-    
+
+
                     "depensFonct" => Data::find($data_id)->budgets()->first()->depensFoncts()->first(),
                     "depensInvest" => Data::find($data_id)->budgets()->first()->depensInvests()->first(),
                     "recetFonct" => Data::find($data_id)->budgets()->first()->recetFoncts()->first(),
@@ -2015,12 +2032,12 @@ class SiteUrl extends Controller
                 "commune" => Data::find($data_id)->commune->commune_name,
                 "annee" => Data::find($data_id)->annee,
                 "slug" => Data::find($data_id)->slug,
-    
+
                     "depensFonctN" => Data::find($data_id)->budgetns()->first()->depensFonctns()->first(),
                     "depensInvestN" => Data::find($data_id)->budgetns()->first()->depensInvestns()->first(),
                     "recetFonctN" => Data::find($data_id)->budgetns()->first()->recetFonctns()->first(),
                     "recetInvestN" => Data::find($data_id)->budgetns()->first()->recetInvestns()->first(),
-                
+
             ];
         }
 
@@ -2042,26 +2059,26 @@ class SiteUrl extends Controller
                     "partenaire" => Data::find($data_id)->infogs()->first()->partenaires()->get(),
                     "ressourceImage" => Data::find($data_id)->infogs()->first()->ressourceImages()->get(),
                     "troisMeilleur" => Data::find($data_id)->infogs()->first()->troisMeilleurs()->get(),
-    
+
                     "appreciation" => Data::find($data_id)->pcds()->first()->appreciations()->first(),
                     "satisfaction" => Data::find($data_id)->pcds()->first()->satisfactions()->first(),
-    
+
                     //"satisfaction" => Data::find($data_id)->pcds()->first()->satisfactions()->first(),
-    
+
                     "depensFonct" => Data::find($data_id)->budgets()->first()->depensFoncts()->first(),
                     "depensInvest" => Data::find($data_id)->budgets()->first()->depensInvests()->first(),
                     "recetFonct" => Data::find($data_id)->budgets()->first()->recetFoncts()->first(),
                     "recetInvest" => Data::find($data_id)->budgets()->first()->recetInvests()->first(),
-    
+
                     "depensFonctN" => Data::find($data_id)->budgetns()->first()->depensFonctns()->first(),
                     "depensInvestN" => Data::find($data_id)->budgetns()->first()->depensInvestns()->first(),
                     "recetFonctN" => Data::find($data_id)->budgetns()->first()->recetFonctns()->first(),
                     "recetInvestN" => Data::find($data_id)->budgetns()->first()->recetInvestns()->first(),
-                
+
             ];
         }
-        
-        
+
+
     }
 
 

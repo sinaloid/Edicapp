@@ -8,7 +8,9 @@ use App\Http\Controllers\DataCommuneController;
 use App\Http\Controllers\SujetController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\VeilleCitoyenneController;
+use App\Http\Controllers\VeilleCitoyennePrecaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ActualiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,14 +35,34 @@ Route::delete('/home/users', [HomeController::class, 'deleteUser'])->name('delet
 Route::post('/home/users/role', [HomeController::class, 'setRole'])->name('setRole');
 Route::get('/home/veilles', [HomeController::class, 'veilles'])->name('veilles');
 Route::get('/home/veilles/status/{slug?}', [HomeController::class, 'statusVeille'])->name('status.veille');
-Route::get('/home/actualites', [HomeController::class, 'actualites'])->name('home.actualites');
-Route::post('/home/actualites', [HomeController::class, 'createActualite'])->name('create.actualites');
-Route::put('/home/actualites', [HomeController::class, 'updateActualite'])->name('update.actualites');
-Route::get('/home/actualites/status/{slug?}', [HomeController::class, 'statusActualite'])->name('status.actualite');
 Route::get('/home/forum', [HomeController::class, 'forums'])->name('home.forums');
+
+/**Actualité */
+Route::get('/home/actualites', [ActualiteController::class, 'actualites'])->name('home.actualites');
+Route::post('/home/actualites', [ActualiteController::class, 'createActualite'])->name('create.actualites');
+Route::put('/home/actualites', [ActualiteController::class, 'updateActualite'])->name('update.actualites');
+Route::get('/home/actualites/status/{slug?}', [ActualiteController::class, 'statusActualite'])->name('status.actualite');
+Route::delete('/home/actualites', [ActualiteController::class, 'deleteActualite'])->name('delete.actualite');
+
 
 Route::get('actualites', [SiteUrl::class, 'actualites'])->name('actualites');
 Route::get('detail/{slug?}', [SiteUrl::class, 'actualiteDetail'])->name('detail');
+
+//Route::get('preca-veille-citoyenne', [SiteUrl::class, 'veilleCitoyennePreca'])->name('veilleCitoyennePreca');
+//Route::get('preca-veille-citoyenne/{slug?}', [SiteUrl::class, 'veilleCitoyennePrecaDetail'])->name('veilleCitoyennePrecaDetail');
+
+/**PRéCA */
+Route::get('/home/preca', [VeilleCitoyennePrecaController::class, 'index'])->name('preca.index');
+Route::post('/home/preca', [VeilleCitoyennePrecaController::class, 'create'])->name('preca.create');
+Route::put('/home/preca', [VeilleCitoyennePrecaController::class, 'update'])->name('preca.update');
+Route::get('/home/preca/status/{slug?}', [VeilleCitoyennePrecaController::class, 'status'])->name('preca.status');
+Route::delete('/home/preca', [VeilleCitoyennePrecaController::class, 'delete'])->name('preca.delete');
+
+
+Route::get('veille-citoyenne-preca', [SiteUrl::class, 'veilleCitoyennePreca'])->name('veilleCitoyenne.preca');
+Route::get('veille-citoyenne-preca/{slug?}', [SiteUrl::class, 'veilleCitoyennePrecaDetail'])->name('precaVeilleDetail');
+//Route::resource('preca-veille-citoyenne', VeilleCitoyennePrecaController::class);
+
 /*Data view*/
 Route::get('datas/view', [DataCommuneController::class, 'datasView'])->name('datas.view');
 Route::get('datas/info/{slug?}', [SiteUrl::class, 'datasInfo'])->name('datas.info');

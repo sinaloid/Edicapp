@@ -9,7 +9,7 @@
         <div class="col-12">
             <h1 class="title-bannier">Données budgétaires</h1>
             <p class="col-12 col-md-8 mx-auto text-center my-3">
-                Pour accéder aux données budgétaires d'une commune, sélectionnez la commune 
+                Pour accéder aux données budgétaires d'une commune, sélectionnez la commune
                 et l’année des données puis cliquez sur valider
             </p>
         </div>
@@ -51,7 +51,7 @@
                     <input type="hidden" name="viewName" value="{{ Route::currentRouteName() }}">
                     <div class="col-12 mx-auto p-0">
                         <button type="submit" class="btn btn-edic font-weight-bold">Valider</button>
-                        <a class="btn btn-edic" href="{{ route('datas.cmpdt') }}">Comparaison</a>
+                        <a class="btn btn-edic d-none" href="{{ route('datas.cmpdt') }}">Comparaison</a>
                         @if (Route::currentRouteName() == 'datas.tdb')
                             @if (str_contains(url()->current(), 'planning'))
                                 <button class="btn btn-edic font-weight-bold" type="button" name="create_pdf"

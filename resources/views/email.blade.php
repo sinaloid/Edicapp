@@ -195,15 +195,15 @@
         }
 
         .circle{
-            display: inline-block; 
-            background:#ffffff; 
-            padding:8px; 
+            display: inline-block;
+            background:#ffffff;
+            padding:8px;
             border: 1px solid transparent;
             border-radius: 50%
         }
 
         .bg-primary{
-            background-color: #008DB9 
+            background-color: #008DB9
         }
 
         .bg-dark{
@@ -348,7 +348,7 @@
                         <td>
                             <table class="footer bg-primary" align="center" width="570" cellpadding="0" cellspacing="0"
                                 role="presentation">
-                                
+
                                 <tr>
                                     <td class="content-cell" align="center">
                                         <div class="circle">
@@ -357,7 +357,7 @@
                                                     alt="AMR-BURKINA">
                                             </a>
                                         </div>
-                                        
+
                                     </td>
                                 </tr>
                             </table>
@@ -372,11 +372,9 @@
                                 <!-- Body content -->
                                 <tr>
                                     <td class="content-cell">
-                                        <h1>Félicitations, votre compte a été créé avec succès sur la plateforme <a href="{{ config('app.url') }}">EDIC</a></h1>
-                                        Vous pouvez maintenant vous connecter en utilisant votre adresse e-mail (<span class="text-bold">{{$data['email']}}</span>) et
-                                        votre mot de passe (<span class="text-bold">{{$data['mdp']}}</span>).
-                                        Une fois connecté(e), nous vous recommandons de modifier votre mot de passe dans 
-                                        les paramètres de votre compte pour plus de sécurité
+                                        <h1>Félicitations,Votre compte a été créé avec succès sur la plateforme <a href="{{ config('app.url') }}">EDIC.</a></h1>
+                                        Vous pouvez désormais vous connecter en utilisant votre adresse e-mail (<span class="text-bold">{{$data['email']}}</span>) et votre mot de passe (<span class="text-bold">{{$data['mdp']}}</span>).
+                                        Une fois connecté(e), nous vous recommandons de modifier votre mot de passe dans les paramètres de votre compte pour renforcer la sécurité.
                                         <table class="subcopy" width="100%" cellpadding="0" cellspacing="0"
                                             role="presentation">
                                             <tr>

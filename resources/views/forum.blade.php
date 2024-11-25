@@ -35,21 +35,25 @@
                                 <hr class="my-0" />
                                 <div class="row text-center d-flex flex-row  mx-0">
                                     <div class="col-6 text-center py-3 border-bottom border-right">
-                                        <a class="d-block  font-weight-bold txt-primary" href="#">{{isset($stat) ? $stat->sujets : 0}}</a>
+                                        <a class="d-block  font-weight-bold txt-primary"
+                                            href="#">{{ isset($stat) ? $stat->sujets : 0 }}</a>
                                         Sujets
                                     </div>
                                     <div class="col-6 col text-center py-3 border-bottom mx-0">
-                                        <a class="d-block  font-weight-bold txt-primary" href="#">{{isset($stat) ? $stat->messages : 0}}</a>
+                                        <a class="d-block  font-weight-bold txt-primary"
+                                            href="#">{{ isset($stat) ? $stat->messages : 0 }}</a>
                                         Messages
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 text-center py-3 border-right mx-0">
-                                        <a class="d-block  font-weight-bold txt-primary" href="#">{{isset($stat) ? $stat->membres : 0}}</a>
+                                        <a class="d-block  font-weight-bold txt-primary"
+                                            href="#">{{ isset($stat) ? $stat->membres : 0 }}</a>
                                         Members
                                     </div>
                                     <div class="col-6 text-center py-3 mx-0">
-                                        <a class="d-block  font-weight-bold txt-primary" href="#">{{isset($stat) ? $stat->connectes : 0}}</a>
+                                        <a class="d-block  font-weight-bold txt-primary"
+                                            href="#">{{ isset($stat) ? $stat->connectes : 0 }}</a>
                                         en ligne
                                     </div>
                                 </div>
@@ -80,41 +84,43 @@
 
                         <div class="col-12 mx-auto py-3 px-3 mb-3">
                             @php
-                                
+
                             @endphp
                             @foreach ($sujets as $sujet)
                                 <div class="row  bg-white align-items-center mt-3 p-2">
                                     <div class="col-md-7 mb-1 mb-sm-0 border-radiuse-5">
                                         <h2>
-                                            <a href="{{route('forumDetail',isset($sujet) ? $sujet->slug : null)}}" class="txt-primary">{{$sujet->titre}} </a>
+                                            <a href="{{ route('forumDetail', isset($sujet) ? $sujet->slug : null) }}"
+                                                class="txt-primary">{{ $sujet->titre }} </a>
                                         </h2>
                                         <p class="text-sm" style="font-weight: 400">
                                             <span class="">Publié</span>
                                             <span class="">le</span>
-                                            <span class="">{{\Carbon\Carbon::parse($sujet->created_at)->format('j F, Y')}}</span>
+                                            <span
+                                                class="">{{ \Carbon\Carbon::parse($sujet->created_at)->format('j F, Y') }}</span>
                                             <span class="">par</span>
-                                            <span class=""> {{$sujet->membre->nom}}</span>
+                                            <span class=""> {{ $sujet->membre->nom }}</span>
                                         </p>
                                         <p class="text-sm txt-primary" style="font-weight: 500; font-size: 0.9rem">
-                                            {{isset($sujet->commune) ? 'Question pour la commune de ': null}}
+                                            {{ isset($sujet->commune) ? 'Question pour la commune de ' : null }}
                                             <span style="font-weight: bold">
-                                                {{isset($sujet->commune) ? $sujet->commune->commune_name : null}}
+                                                {{ isset($sujet->commune) ? $sujet->commune->commune_name : null }}
                                             </span>
                                         </p>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="row text-center" style="font-weight: 300">
                                             <!--div class="col px-1">
-                                                            <i class="ion-connection-bars icon-1x"></i>
-                                                            <span class="d-block text-sm">141 Votes</span>
-                                                        </div-->
+                                                                <i class="ion-connection-bars icon-1x"></i>
+                                                                <span class="d-block text-sm">141 Votes</span>
+                                                            </div-->
                                             <div class="col px-1">
                                                 <i class="ion-ios-chatboxes-outline icon-1x"></i>
-                                                <span class="d-block text-sm">{{$sujet->nombre_reponse}} Réponses</span>
+                                                <span class="d-block text-sm">{{ $sujet->nombre_reponse }} Réponses</span>
                                             </div>
                                             <div class="col px-1">
                                                 <i class="ion-ios-eye-outline icon-1x"></i>
-                                                <span class="d-block text-sm">{{$sujet->nombre_vue}} Vues</span>
+                                                <span class="d-block text-sm">{{ $sujet->nombre_vue }} Vues</span>
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +149,8 @@
                     <div class="row mb-5">
                         <div class="col-12">
                             <span class="px-2 font-weight-bold">Laisser une question</span>
-                            <form class="p-0" method="post" action="{{route('forum.store')}}" enctype="multipart/form-data">
+                            <form class="p-0" method="post" action="{{ route('forum.store') }}"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body p-0">
 
@@ -157,12 +164,12 @@
                                             placeholder="Veuillez entrer votre email">
                                     </div>
                                     <div class="form-group mt-3">
-                                        <input name="titre" type="text" class="form-control w-100 px-3" placeholder="Titre de votre question"
-                                           >
+                                        <input name="titre" type="text" class="form-control w-100 px-3"
+                                            placeholder="Titre de votre question">
                                     </div>
                                     <div class="form-group mt-3">
-                                        <input name="commune" type="text" class="form-control w-100 px-3" id="commune"
-                                            placeholder="Ciblez une commune pour votre question"
+                                        <input name="commune" type="text" class="form-control w-100 px-3"
+                                            id="commune" placeholder="Ciblez une commune pour votre question"
                                             autocomplete="off">
                                     </div>
                                     <div class="form-group my-3">
@@ -179,17 +186,13 @@
                             </form>
                         </div>
                     </div>
-                    <script src="https://cdn.ckeditor.com/4.18.0/standard-all/ckeditor.js"></script>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            CKEDITOR.replace('editor', {
-                                extraPlugins: 'editorplaceholder',
-                                editorplaceholder: 'Veuillez entrer votre question',
-                                removeButtons: 'PasteFromWord'
+                    <script src="{{ asset('texteditor/build/texteditor.js') }}"></script>
+                    <script>
+                        ClassicEditor
+                            .create(document.querySelector('#editor'))
+                            .catch(error => {
+                                console.error(error);
                             });
-
-
-                        });
                     </script>
                 </div>
 

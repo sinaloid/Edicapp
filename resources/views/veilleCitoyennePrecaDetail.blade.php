@@ -44,10 +44,10 @@
     </div>
 
     <div class="row m-top pb-5 bg-gray">
-        <h2 class=" m-top mb-4 text-center">Autres actualités</h2>
+        <h2 class=" m-top mb-4 text-center">Autres veille citoyenne du PRéCA</h2>
         <div id="demo" class="col-12 carousel slide" data-bs-ride="carousel">
             @php
-                $datas = App\Models\Actualite::all();
+                $datas = App\Models\VeilleCitoyennePreca::all();
             @endphp
             <!-- Indicators/dots -->
             <div class="carousel-indicators">
@@ -76,9 +76,10 @@
                                     <div class="p-md-4 mt-1">
                                         <h3>{{ $value->titre }}</h3>
                                         <p class="text-justify">
-                                            {{ $data->resumer }}
+                                            {{ $value->resumer }}
                                         </p>
-                                        <a class="link" href="{{ route('detail', $data['slug']) }}">Lire plus</a>
+                                        <a class="link" href="{{ route('precaVeilleDetail', $value['slug']) }}">Lire
+                                            plus</a>
                                     </div>
                                 </div>
                             </div>
@@ -89,16 +90,18 @@
                                 <div class="col-12 col-sm-6">
                                     <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
                                                 alt="Los Angeles" width="1100" height="500"-->
-                                    <img src="{{ asset('img/ouaga.jpg') }}" alt="Los Angeles" width="1100"
-                                        height="500">
+                                    <img src="/{{ isset($value) ? $value->image : asset('img/ouaga.jpg') }}"
+                                        alt="Los Angeles" width="1100" height="500">
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="p-md-4 mt-1">
                                         <h3>{{ $value->titre }}</h3>
                                         <p class="text-justify">
-                                            {{ $data->resumer }}
+                                            {{ $value->resumer }}
+
                                         </p>
-                                        <a class="link" href="{{ route('detail', $data['slug']) }}">Lire plus</a>
+                                        <a class="link" href="{{ route('precaVeilleDetail', $value['slug']) }}">Lire
+                                            plus</a>
                                     </div>
                                 </div>
                             </div>

@@ -1,11 +1,11 @@
 <div class="row py-2">
     <div class="col-12 col-md-10 mx-auto">
-        <h2 class="text-center mb-3">Liste des actualités</h2>
+        <h2 class="text-center mb-3">Liste des veilles citoyennes</h2>
     </div>
     <div class="col-12 col-md-10 mx-auto mb-3">
-        @if (auth()->user()->role == 'admin' || auth()->user()->role == 'verificateur' || auth()->user()->role == 'editeur')
+        @if (auth()->user()->role == 'admin' || auth()->user()->role == 'PRéCA')
             <button class="btn btn-edic mt-1 ml-auto font-weight-bold" data-bs-toggle="modal" data-bs-target="#actualite"
-                href="{{ route('data.create') }}" role="button">Créer une actualité</button>
+                 role="button">Créer une veille citoyenne</button>
         @endif
     </div>
     <div class="col-12 col-md-10 mx-auto">
@@ -15,7 +15,7 @@
                     <tr class="text-center">
                         <th>Auteur</th>
                         <th>Contact</th>
-                        <th>Titre de l'actualité</th>
+                        <th>Titre de la veille</th>
                         <th>Catégorie</th>
                         <th>Actions</th>
                     </tr>
@@ -38,22 +38,21 @@
 
                             <td>
                                 <div class="btn-group">
-                                    <a href="{{ route('detail', $data['slug']) }}"
+                                    <a type="button" href="{{ route('precaVeilleDetail', $data['slug']) }}"
                                     class="btn btn-info font-weight-bold my-1 mx-1 btn-edit">
-                                        Voir
-                                    </a>
+                                            Voir
+                                        </a>
                                     @if (auth()->user()->role == 'admin')
                                         <button class="btn btn-warning font-weight-bold my-1 mx-1 btn-edit"
                                             data-bs-toggle="modal" data-bs-target="#actualiteUpdate"
                                             data-titre="{{ $data['titre'] }}" data-categorie="{{ $data['categorie'] }}"
                                             data-resumer="{{ $data['resumer'] }}"
                                             data-categorie="{{ $data['categorie'] }}" data-slug="{{ $data['slug'] }}"
-                                            data-description="{{ $data['description'] }}"
-                                            role="button">Modifier</button>
+                                            data-description="{{ $data['description'] }}" role="button">Modifier</button>
                                     @endif
 
                                     @if (!isset($data->status))
-                                        @if (auth()->user()->role == 'admin')
+                                        @if (auth()->user()->role == 'admin' || auth()->user()->role == 'PRéCA')
                                             <button data-bs-toggle="modal"
                                                 data-bs-target="#statusModal{{ $data['id'] }}"
                                                 class="btn btn-info font-weight-bold my-1 mx-1"
@@ -64,7 +63,7 @@
                                         @endif
                                     @endif
                                     @if (isset($data->status))
-                                        @if (auth()->user()->role == 'admin')
+                                        @if (auth()->user()->role == 'admin' || auth()->user()->role == 'PRéCA')
                                             <button data-bs-toggle="modal"
                                                 data-bs-target="#statusModal{{ $data['id'] }}"
                                                 class="btn btn-warning font-weight-bold my-1 mx-1"
@@ -96,7 +95,7 @@
                                         @endif
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="{{ route('status.actualite', $data['slug']) }}"
+                                        <a href="{{ route('preca.status', $data['slug']) }}"
                                             type="button data-bs-dismiss="modal"
                                             class="btn btn-edic mr-auto">Comfirmer</a>
                                         <button type="button" class="btn btn-danger"
@@ -112,15 +111,15 @@
 
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Confirmation de suppression d'utilisateur</h4>
+                                        <h4 class="modal-title">Confirmation de la suppression</h4>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                     </div>
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        Voulez-vous vraiment supprimer cette actualité ?
+                                        Voulez-vous vraiment supprimer cette veille citoyenne ?
                                     </div>
                                     <div class="modal-footer">
-                                        <form method="POST" action="{{ route('delete.actualite') }}">
+                                        <form method="POST" action="{{ route('preca.delete') }}">
                                             @csrf
                                             @method('DELETE')
                                             <input name="id" value="{{ $data['id'] }}" hidden />
@@ -147,21 +146,21 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Création d'une actualité</h4>
+                    <h4 class="modal-title">Création d'une veille citoyenne</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
-                            <form class="p-0" method="POST" action="{{ route('create.actualites') }}"
+                            <form class="p-0" method="POST" action="{{ route('preca.create') }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body p-0">
 
                                     <!--@csrf-->
                                     <div class="form-group mt-3">
-                                        <label class="form-label fw-normal">Titre de l'actualité</label>
+                                        <label class="form-label fw-normal">Titre de la veille citoyenne</label>
                                         <input class="form-control w-100 px-3" name="titre" type="text"
                                             placeholder="Entrer un titre">
                                     </div>
@@ -169,7 +168,7 @@
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Catégorie</label>
                                         <select name="categorie" class="form-select w-100 px-3">
-                                            <option>Sélectionnez une catégorie pour l'actualité</option>
+                                            <option>Sélectionnez une catégorie pour la veille citoyenne</option>
                                             <option>Politique nationale</option>
                                             <option>Économie et finance</option>
                                             <option>Santé et bien-être</option>
@@ -185,19 +184,19 @@
                                     </div>
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Ajoutez des images ou une vidéo courte en
-                                            rapport avec l'actualité</label>
+                                            rapport avec la veille citoyenne</label>
                                         <input name="medias[]" type="file" class="form-control w-100"
                                             autocomplete="off" multiple>
                                     </div>
 
                                     <div class="form-group mt-3">
-                                        <label class="form-label fw-normal">Résumé de l'actualité</label>
+                                        <label class="form-label fw-normal">Résumé de la veille citoyenne</label>
                                         <textarea class="form-control w-100 px-3" name="resumer" type="text" rows="3"
                                             placeholder="Entrer un résumé court de l'actualité (200 caractères maximun)"></textarea>
                                     </div>
 
                                     <div class="form-group my-3">
-                                        <label class="form-label fw-normal">Description de l'actualité</label>
+                                        <label class="form-label fw-normal">Description de la veille citoyenne</label>
                                         <textarea id="editor" name="description" class="ckeditor14 form-control" name="editor"></textarea>
                                     </div>
 
@@ -231,14 +230,14 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Actualité</h4>
+                    <h4 class="modal-title">Veille citoyenne</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12">
-                            <form class="p-0" method="POST" action="{{ route('update.actualites') }}"
+                            <form class="p-0" method="POST" action="{{ route('preca.update') }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -247,7 +246,7 @@
                                     <!--@csrf-->
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Titre de
-                                            l'actualité</label>
+                                            la veille citoyenne</label>
                                         <input id="titre" class="form-control w-100 px-3" name="titre"
                                             type="text" placeholder="Entrer un titre">
                                         <input id="slug" name="slug" type="text" hidden>
@@ -256,7 +255,7 @@
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Catégorie</label>
                                         <select id="categorie" name="categorie" class="form-select w-100 px-3">
-                                            <option value="">Sélectionnez une catégorie pour l'actualité</option>
+                                            <option value="">Sélectionnez une catégorie pour la veille citoyenne</option>
                                             <option value="Politique nationale">Politique nationale</option>
                                             <option value="Économie et finance">Économie et finance</option>
                                             <option value="Santé et bien-être">Santé et bien-être</option>
@@ -276,23 +275,22 @@
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Ajoutez des images ou
                                             une vidéo courte en
-                                            rapport avec l'actualité</label>
+                                            rapport avec la veille citoyenne</label>
                                         <input name="medias[]" type="file" class="form-control w-100"
                                             autocomplete="off" multiple>
                                     </div>
 
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Résumé de
-                                            l'actualité</label>
+                                            la veille citoyenne</label>
                                         <textarea id="resumer" class="form-control w-100 px-3" name="resumer" rows="3"
-                                            placeholder="Entrer un résumé court de l'actualité (200 caractères maximun)"></textarea>
+                                            placeholder="Entrer un résumé court de la veille citoyenne (200 caractères maximun)"></textarea>
                                     </div>
 
                                     <div class="form-group my-3">
                                         <label class="form-label fw-normal">Description de
-                                            l'actualité</label>
+                                            la veille citoyenne</label>
                                         <textarea id="editorUpdate" name="description" class="ckeditor14 form-control" name="editorUpdate"></textarea>
-
                                     </div>
 
                                 </div>
@@ -306,6 +304,15 @@
                             </form>
                         </div>
                     </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            CKEDITOR.replace("editorUpdate", {
+                                extraPlugins: 'editorplaceholder',
+                                editorplaceholder: 'Expliquez ce qui ne va pas',
+                                removeButtons: 'PasteFromWord'
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </div>

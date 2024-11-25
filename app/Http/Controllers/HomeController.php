@@ -20,31 +20,34 @@ use App\Models\Countries\Commune;
 
 class HomeController extends Controller
 {
-    public function __construct() 
+    public function __construct()
     {
       $this->middleware(['auth'/*,'verified'*/]);
     }
 
     public function home(Request $request)
-    {   
+    {
+        if(Auth::user()->role === "PRéCA"){
+            return redirect()->route('preca.index');
+        }
         $datas = Data::orderBy('id', 'DESC')->get();
         return view('home', compact('datas'));
     }
 
     public function profile(Request $request)
-    {   
+    {
         return view('profile');
     }
 
     public function allUser(Request $request)
-    {   
+    {
         $datas = User::orderBy('id', 'DESC')->get();
         $countries = Country::orderBy('id', 'DESC')->get();
         return view('home', compact('datas','countries'));
     }
 
     public function veilles(Request $request)
-    {   
+    {
         $datas = VeilleCitoyenne::orderBy('id', 'DESC')->get();
         //dd($datas);
         return view('home', compact('datas'));
@@ -53,7 +56,7 @@ class HomeController extends Controller
     public function actualites (Request $request) {
 
         $datas = Actualite::orderBy('id', 'DESC')->get();
-        
+
         //dd($datas);
         return view('home', compact('datas'));
     }
@@ -61,7 +64,7 @@ class HomeController extends Controller
     public function forums (Request $request) {
 
         $datas = Sujet::orderBy('id', 'DESC')->get();
-        
+
         //dd($datas);
         return view('home', compact('datas'));
     }
@@ -79,7 +82,7 @@ class HomeController extends Controller
         $actu = Actualite::create($request->all());
 
        // $datas = Actualite::orderBy('id', 'DESC')->get();
-        
+
         return back();
     }
 
@@ -99,16 +102,16 @@ class HomeController extends Controller
             if($images) {
                 $actu->image = $images[0]->store(config('images.path'), 'public');
             }
-           
+
             //$request['user_id'] = Auth::id();
             $actu->save();
            // dd($actu);
             //$actu = Actualite::create($request->all());
 
         }
-        
+
         $datas = Actualite::orderBy('id', 'DESC')->get();
-        
+
         return back();
     }
 
@@ -124,9 +127,9 @@ class HomeController extends Controller
             }
             $actu->save();
         }
-        
+
         $datas = Actualite::orderBy('id', 'DESC')->get();
-        
+
         return back();
     }
 
@@ -142,9 +145,9 @@ class HomeController extends Controller
             }
             $alert->save();
         }
-        
+
         $datas = VeilleCitoyenne::orderBy('id', 'DESC')->get();
-        
+
         return back();
     }
 
@@ -172,7 +175,7 @@ class HomeController extends Controller
         //$request['slug'] = Str::slug(Str::random(10));
         //dd($request->all());
         $user = User::create($request->all());
-           
+
             $to = $user->email;
             $subject = "Bienvenue dans l'équipe EDIC !";
             $data = [
@@ -180,13 +183,13 @@ class HomeController extends Controller
                 "mdp" => $pwd,
                 "details" =>"Cordialement"
             ];
-            
+
             Mail::send('email', compact('data'), function ($message) use ($to, $subject) {
             $message->to($to)->subject($subject);});
             //notify()->success('Laravel Notify is awesome!');
             //notify()->preset('user-created');
             return back();
-        
+
     }
 
     public function deleteUser(Request $request){
@@ -213,7 +216,7 @@ class HomeController extends Controller
                 'required',
                 'min:8',
             ],
-            'comfirm_password' => 'required|same:password'  
+            'comfirm_password' => 'required|same:password'
 
         ])->after(function ($validator) use ($user, $input) {
             if (! isset($input['current_password']) || ! Hash::check($input['current_password'], $user->password)) {
@@ -225,7 +228,7 @@ class HomeController extends Controller
         {
             return Redirect::to('home/profile')->withErrors($validator);
         }
-        
+
 
         $user->forceFill([
             'password' => Hash::make($input['password']),

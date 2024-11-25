@@ -80,6 +80,7 @@
                                                 <label class="form-label fw-normal">Sélectionnez un rôle</label>
                                                 <select name="role" class="form-select w-100 px-3">
                                                     <option>Sélectionnez un rôle</option>
+                                                    <option value="PRéCA">PRéCA</option>
                                                     <option value="editeur">Editeur</option>
                                                     <option value="verificateur">Verificateur</option>
                                                     <option value="admin">Admin</option>
@@ -103,7 +104,7 @@
                         <div class="modal" id="deleteModal{{$data['id']}}">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
-                    
+
                                     <!-- Modal Header -->
                                     <div class="modal-header">
                                         <h4 class="modal-title">Confirmation de suppression d'utilisateur</h4>
@@ -111,7 +112,7 @@
                                     </div>
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        Voulez-vous vraiment supprimer cet utilisateur ? 
+                                        Voulez-vous vraiment supprimer cet utilisateur ?
                                     </div>
                                     <div class="modal-footer">
                                         <form method="POST" action="{{route('delete.user')}}">
@@ -125,7 +126,7 @@
                                             data-bs-dismiss="modal">Annuler</button>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     @endforeach
@@ -209,7 +210,7 @@
                             @enderror
                         </div>
 
-                        
+
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-edic mr-auto">Enregistrer</button>

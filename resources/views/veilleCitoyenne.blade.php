@@ -129,18 +129,23 @@
                 <div class="col-4">
                     <h2 class="mb-3 text-22">Problèmes récemment signalés</h2>
                     @foreach ($datas as $data)
-                    @php
-                        $image = $data->medias()->first();
-                        //dd($image->url);
-                    @endphp
+                        @php
+                            $image = $data->medias()->first();
+                            //dd($image->url);
+                        @endphp
                         <div class="d-flex bg-white p-2 mb-2">
-                            <p class="me-2"><img width="80px" src="{{$data->medias()->first() !== null ? $data->medias()->first()->url : ''}}" alt="Pas d'image disponible" /></p>
+                            <p class="me-2"><img width="80px"
+                                    src="{{ $data->medias()->first() !== null ? $data->medias()->first()->url : '' }}"
+                                    alt="Pas d'image disponible" /></p>
                             <div>
-                                <h3 class="text-14 btn-coord" data-msg="{{$data['resumer']}}" data-desc="{!!$data['description']!!}" data-img="{{$data->medias()->first() !== null ? $data->medias()->first()->url : ''}}"
-                                data-lng="{{ $data['longitude'] }}" data-lat="{{ $data['latitude'] }}" style="cursor: pointer">{{ $data['resumer'] }}</h3>
+                                <h3 class="text-14 btn-coord" data-msg="{{ $data['resumer'] }}"
+                                    data-desc="{!! $data['description'] !!}"
+                                    data-img="{{ $data->medias()->first() !== null ? $data->medias()->first()->url : '' }}"
+                                    data-lng="{{ $data['longitude'] }}" data-lat="{{ $data['latitude'] }}"
+                                    style="cursor: pointer">{{ $data['resumer'] }}</h3>
                                 <p class="text-14">{{ date_format($data['created_at'], 'd/m/Y H:i:s') }}</p>
-                                <input type="button" data-lng="{{ $data['longitude'] }}"
-                                    data-lat="{{ $data['latitude'] }}" hidden />
+                                <input type="button" data-lng="{{ $data['longitude'] }}" data-lat="{{ $data['latitude'] }}"
+                                    hidden />
 
                             </div>
                         </div>
@@ -284,17 +289,13 @@
                             </form>
                         </div>
                     </div>
-                    <script src="https://cdn.ckeditor.com/4.18.0/standard-all/ckeditor.js"></script>
-                    <script type="text/javascript">
-                        $(document).ready(function() {
-                            CKEDITOR.replace('editor', {
-                                extraPlugins: 'editorplaceholder',
-                                editorplaceholder: 'Expliquez ce qui ne va pas',
-                                removeButtons: 'PasteFromWord'
+                    <script src="{{ asset('texteditor/build/texteditor.js') }}"></script>
+                    <script>
+                        ClassicEditor
+                            .create(document.querySelector('#editor'))
+                            .catch(error => {
+                                console.error(error);
                             });
-
-
-                        });
                     </script>
                 </div>
 
@@ -311,7 +312,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">
                         Problème signalé
-                         
+
                     </h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
@@ -320,17 +321,16 @@
                     <div class="row">
                         <div class="col-12">
                             <div id="card-body" class="card-body p-0">
-                                
+
                             </div>
                             <!-- Modal footer -->
-                            
+
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-edic"
-                        data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-edic" data-bs-dismiss="modal">Fermer</button>
                 </div>
 
 
@@ -356,8 +356,8 @@
 
                 function addMarker(lat, lng, msg) {
                     var marker = L.marker([lat, lng])
-                    .addTo(map)
-                    .bindPopup(`
+                        .addTo(map)
+                        .bindPopup(`
                     <b>${msg}</b> <br />
                     <botton class="btn btn-edic text-12 mt-2" data-bs-toggle="modal" data-bs-target="#detailModal">Voir +<botton>
 
@@ -367,7 +367,7 @@
                 // Événement clic sur un bouton de coordonnées
                 var btnCoords = document.querySelectorAll('.btn-coord');
                 btnCoords.forEach(function(btn) {
-                    
+
                     btn.addEventListener('click', function() {
                         var lat = this.getAttribute('data-lat');
                         var lng = this.getAttribute('data-lng');
@@ -386,7 +386,7 @@
                     });
                 })
 
-               
+
                 /*const circle = L.circle([lat, long], {
                     color: 'red',
                     fillColor: '#f03',

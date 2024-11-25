@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActualitesTable extends Migration
+class CreateVeilleCitoyennePrecasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateActualitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('actualites', function (Blueprint $table) {
+        Schema::create('veille_citoyenne_precas', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
             $table->string('categorie');
@@ -23,7 +23,6 @@ class CreateActualitesTable extends Migration
             $table->string('date')->nullable();
             $table->string('status')->nullable();
             $table->longText('description');
-            $table->timestamps();
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
@@ -31,6 +30,7 @@ class CreateActualitesTable extends Migration
                     ->on('users')
                     ->onDelete('restrict')
                     ->onUpdate('restrict');
+            $table->timestamps();
         });
     }
 
@@ -41,6 +41,6 @@ class CreateActualitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actualites');
+        Schema::dropIfExists('veille_citoyenne_precas');
     }
 }
