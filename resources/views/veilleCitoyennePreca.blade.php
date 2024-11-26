@@ -57,9 +57,9 @@
                                 <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Img Card" /-->
                                 <img src="{{ $data->image }}" alt="Img Card" />
                                 <div class="card-body">
-                                    <span class="card-detail">Commune</span>
-                                    <span
-                                        class="card-detail">{{ $data->user()->first()->commune()->first()->commune_name }}</span>
+                                    <!--span class="card-detail">Commune : </!--span>
+                                    <span--
+                                        class="card-detail">{{ $data->user()->first()->commune()->first()->commune_name }}</span-->
                                     <div class="card-title">
                                         {{ $data->titre }}
                                     </div>

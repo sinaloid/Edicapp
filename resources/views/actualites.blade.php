@@ -23,7 +23,7 @@
         </form>
     </div>
     <div class="row"></div>
-    
+
     <div class="row mb-5">
         <div class="col-12 col-md-10 col-lg-9 mx-auto d-flex flex-wrap">
             <div class="container">
@@ -34,8 +34,9 @@
                                 <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Img Card" /-->
                                 <img src="{{$data->image}}" alt="Img Card" />
                                 <div class="card-body">
-                                    <span class="card-detail">Commune</span>
-                                    <span class="card-detail">{{ $data->user()->first()->commune()->first()->commune_name}}</span>
+                                    <!--span class="card-detail">Commune : </!--span>
+                                    <span--
+                                        class="card-detail">{{ $data->user()->first()->commune()->first()->commune_name }}</span-->
                                     <div class="card-title">
                                         {{$data->titre}}
                                     </div>

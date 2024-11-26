@@ -129,14 +129,14 @@ class SiteUrl extends Controller
         $datas = VeilleCitoyennePreca::where('status', "activer")->orderBy('id', 'DESC')->get();
 
         //dd($datas);
-        return view('VeilleCitoyennePreca', compact('datas'));
+        return view('veilleCitoyennePreca', compact('datas'));
 
     }
 
     public function veilleCitoyennePrecaDetail($slug = ""){
 
         $data = VeilleCitoyennePreca::where('slug', $slug)->first();
-        return view('VeilleCitoyennePrecaDetail',compact('data'));
+        return view('veilleCitoyennePrecaDetail',compact('data'));
 
     }
 
