@@ -45,7 +45,7 @@
                                     @if (auth()->user()->role == 'admin')
                                         <button class="btn btn-warning font-weight-bold my-1 mx-1 btn-edit"
                                             data-bs-toggle="modal" data-bs-target="#actualiteUpdate"
-                                            data-titre="{{ $data['titre'] }}" data-categorie="{{ $data['categorie'] }}"
+                                            data-titre="{{ $data['titre'] }}" data-date="{{ $data['date'] }}" data-categorie="{{ $data['categorie'] }}"
                                             data-resumer="{{ $data['resumer'] }}"
                                             data-categorie="{{ $data['categorie'] }}" data-slug="{{ $data['slug'] }}"
                                             data-description="{{ $data['description'] }}" role="button">Modifier</button>
@@ -164,6 +164,11 @@
                                         <input class="form-control w-100 px-3" name="titre" type="text"
                                             placeholder="Entrer un titre">
                                     </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-normal">Date de publication</label>
+                                        <input class="form-control w-100 px-3" name="date" type="date"
+                                            placeholder="Entrer la date de publication">
+                                    </div>
 
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Catégorie</label>
@@ -251,6 +256,11 @@
                                             type="text" placeholder="Entrer un titre">
                                         <input id="slug" name="slug" type="text" hidden>
                                     </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-normal">Date de publication</label>
+                                        <input id="date" class="form-control w-100 px-3" name="date" type="date"
+                                            placeholder="Entrer la date de publication">
+                                    </div>
 
                                     <div class="form-group mt-3">
                                         <label class="form-label fw-normal">Catégorie</label>
@@ -322,6 +332,7 @@
 <script>
     var btnCoords = document.querySelectorAll('.btn-edit');
     var titre = document.getElementById('titre');
+    var date = document.getElementById('date');
     var categorie = document.getElementById('categorie');
     var editorUpdate = document.getElementById('editorUpdate');
     var resumer = document.getElementById('resumer');
@@ -342,6 +353,7 @@
     btnCoords.forEach(function(btn) {
         btn.addEventListener('click', function() {
             titre.value = this.getAttribute('data-titre');
+            date.value = this.getAttribute('data-date');
             resumer.value = this.getAttribute('data-resumer');
             categorie.value = this.getAttribute('data-categorie');
             slug.value = this.getAttribute('data-slug');

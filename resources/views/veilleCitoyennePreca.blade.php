@@ -27,10 +27,11 @@
         <div class="col-12 col-md-10 mx-auto mb-3">
             <div class="d-flex flex-wrap justify-content-center">
                 <div class="d-inline-block mt-3 mx-2">
-                    <img width="100" src="{{asset('img/pt/preca.jpeg')}}" alt="PRéCA" title="PRéCA">
+                    <img width="100" src="{{ asset('img/pt/preca.jpeg') }}" alt="PRéCA" title="PRéCA">
                 </div>
                 <div class="d-inline-block mt-3 mx-2">
-                    <img width="100" src="{{asset('img/pt/banque_mondiale.jpeg')}}" alt="Banque Mondaile" title="Banque Mondaile">
+                    <img width="100" src="{{ asset('img/pt/banque_mondiale.jpeg') }}" alt="Banque Mondaile"
+                        title="Banque Mondaile">
                 </div>
             </div>
         </div>
@@ -57,9 +58,18 @@
                                 <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt="Img Card" /-->
                                 <img src="{{ $data->image }}" alt="Img Card" />
                                 <div class="card-body">
-                                    <!--span class="card-detail">Commune : </!--span>
-                                    <span--
-                                        class="card-detail">{{ $data->user()->first()->commune()->first()->commune_name }}</span-->
+                                    <span class="card-detail">Publier le : </span>
+                                    <span class="card-detail">
+                                        @php
+                                            // Convertir la date en timestamp
+                                            $timestamp = strtotime($data->date);
+
+                                            // Formater la date
+                                            $formattedDate = date('d/m/Y', $timestamp);
+
+                                            echo $formattedDate;
+                                        @endphp
+                                    </span>
                                     <div class="card-title">
                                         {{ $data->titre }}
                                     </div>

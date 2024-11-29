@@ -18,6 +18,7 @@ class Actualite extends Model
         "description",
         "user_id",
         "status",
+        "date",
     ];
 
     public function user() {

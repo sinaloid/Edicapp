@@ -15,7 +15,17 @@
             <span><i class="fa-solid fa-envelope fa-2xl" style="color:#666"></i></span>
         </div>
         <div class="col-12 col-md-10 col-lg-8 mx-auto mt-3">
-            <p class="p-0">Publié le: {{ isset($data) ? $data->created_at : '' }}</p>
+            <p class="p-0">Publié le:
+                @php
+                    // Convertir la date en timestamp
+                    $timestamp = strtotime($data->date);
+
+                    // Formater la date
+                    $formattedDate = date('d/m/Y', $timestamp);
+
+                    echo $formattedDate;
+                @endphp
+            </p>
         </div>
     </div>
 
@@ -68,7 +78,7 @@
                             <div class="col-12 col-md-10 col-lg-8 mx-auto d-flex flex-wrap">
                                 <div class="col-12 col-sm-6">
                                     <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
-                                                alt="Los Angeles" width="1100" height="500"-->
+                                                    alt="Los Angeles" width="1100" height="500"-->
                                     <img src="/{{ isset($value) ? $value->image : asset('img/ouaga.jpg') }}"
                                         alt="Los Angeles" width="1100" height="500">
                                 </div>
@@ -88,9 +98,8 @@
                             <div class="col-12 col-md-10 col-lg-8 mx-auto d-flex flex-wrap">
                                 <div class="col-12 col-sm-6">
                                     <!--img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053"
-                                                alt="Los Angeles" width="1100" height="500"-->
-                                    <img src="{{ asset('img/ouaga.jpg') }}" alt="Los Angeles" width="1100"
-                                        height="500">
+                                                    alt="Los Angeles" width="1100" height="500"-->
+                                    <img src="{{ asset('img/ouaga.jpg') }}" alt="Los Angeles" width="1100" height="500">
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="p-md-4 mt-1">

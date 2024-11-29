@@ -52,6 +52,7 @@ class VeilleCitoyennePrecaController extends Controller
         if(isset($tmp)){
             $actu = $actu->first();
             $actu->titre = $request['titre'];
+            $actu->date = $request['date'];
             $actu->slug = Str::slug(Str::random(10));
             $actu->resumer = $request['resumer'];
             $actu->categorie = $request['categorie'];
